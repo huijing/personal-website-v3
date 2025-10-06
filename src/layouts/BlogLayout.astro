@@ -1,17 +1,28 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
-import { slugify } from "@/utils";
+import { slugify, createExcerpt } from "@/utils";
 import "@/styles/posts.css";
 
-const { title, date, tags, noindex, og_image, external_url, hastweet, hascaniuse, hascodepen } =
-  Astro.props;
+const {
+  title,
+  date,
+  tags,
+  noindex,
+  og_image,
+  external_url,
+  hastweet,
+  hascaniuse,
+  hascodepen,
+  description,
+} = Astro.props;
 const dateObj = new Date(date);
 const canonicalURL = external_url ? external_url : new URL(Astro.url.pathname, Astro.site).href;
 ---
 
 <BaseLayout
   title={title}
+  description={description}
   ogImageUrl={og_image}
   noindex={noindex}
   ogType="article"
