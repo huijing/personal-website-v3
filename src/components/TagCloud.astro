@@ -1,0 +1,47 @@
+---
+import { getCollection } from "astro:content";
+import { slugify } from "@/utils";
+
+const posts = await getCollection("blog");
+
+const counts = new Map<string, number>();
+for (const post of posts) {
+  for (const tag of post.data.tags ?? []) {
+    counts.set(tag, (counts.get(tag) ?? 0) + 1);
+  }
+}
+const items = Array.from(counts.entries()).map(([tag, count]) => ({
+  tag,
+  count,
+  slug: slugify(tag),
+}));
+
+items.sort((a, b) => a.tag.localeCompare(b.tag));
+---
+
+<div class="post-tags">
+  {
+    items.map(({ tag, count, slug }) => (
+      <a class="no-underline tag-link" href={`/tags/${slug}/`}>
+        {tag} ({count})
+      </a>
+    ))
+  }
+</div>
+
+<style>
+  .tag-link {
+    display: inline-block;
+    white-space: nowrap;
+    background: var(--colour-japanese-laurel);
+    color: var(--colour-sugarcane);
+    padding: 0.125em 0.25em;
+    margin: 0.25em 0.125em;
+    border-radius: 0.25em;
+
+    &:hover {
+      color: color("sugarcane");
+      background: hsl(from var(--colour-japanese-laurel) h s calc(l + 10));
+    }
+  }
+</style>

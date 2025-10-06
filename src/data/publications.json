@@ -1,0 +1,35 @@
+{
+  "12days": {
+    "name": "12 Days of Web"
+  },
+  "24ways": {
+    "name": "24 Ways"
+  },
+  "alistapart": {
+    "name": "A List Apart"
+  },
+  "alphabettes": {
+    "name": "Alphabettes"
+  },
+  "bit": {
+    "name": "Bits and Pieces"
+  },
+  "codrops": {
+    "name": "Codrops CSS Reference"
+  },
+  "logrocket": {
+    "name": "LogRocket"
+  },
+  "nexmo": {
+    "name": "The Nexmo Blog"
+  },
+  "shopify": {
+    "name": "Shopify Engineering"
+  },
+  "smashing": {
+    "name": "Smashing Magazine"
+  },
+  "wismut": {
+    "name": "Cognition, the Wismut Labs Engineering Blog"
+  }
+}

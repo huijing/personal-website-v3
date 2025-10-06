@@ -1,0 +1,25 @@
+{
+  "name": "personal-website",
+  "type": "module",
+  "version": "3.0.0",
+  "description": "The chronicles of a self-taught designer and developer",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.6",
+    "@astrojs/rss": "^4.0.12",
+    "@astrojs/sitemap": "^3.6.0",
+    "astro": "^5.14.1",
+    "html-to-text": "^9.0.5",
+    "markdown-it": "^14.1.0",
+    "sharp": "^0.34.4"
+  },
+  "devDependencies": {
+    "@types/html-to-text": "^9.0.4",
+    "@types/markdown-it": "^14.1.2"
+  }
+}

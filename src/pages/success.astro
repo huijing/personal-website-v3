@@ -1,0 +1,87 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+const title = "Success";
+---
+
+<BaseLayout title={title} noindex>
+  <main>
+    <header class="page-header">
+      <h1>{title}</h1>
+    </header>
+    <div class="message-wrapper">
+      <img class="success" src="/images/success.gif" /><span
+        >Form has been submitted successfully.</span
+      >
+    </div>
+    <p>Your message has been sent over the interwebs. I'll get back to you really soon.</p>
+    <a class="no-underline" href="/">&#11013; Back to Home</a>
+  </main>
+</BaseLayout>
+
+<style>
+  label {
+    display: block;
+    font-size: 85%;
+  }
+
+  input[type="text"],
+  input[type="email"] {
+    border: 1px solid var(--colour-silver-chalice);
+    height: 2rem;
+    margin-block-end: 1em;
+    max-width: 18em;
+    padding: 0.5em;
+    transition: border 0.3s;
+    width: 100%;
+
+    &:focus {
+      border: 1px solid var(--colour-english-walnut);
+    }
+  }
+
+  textarea {
+    border: 1px solid var(--colour-silver-chalice);
+    display: block;
+    margin-block-end: 1em;
+    max-width: 26em;
+    min-height: 5em;
+    padding: 0.5em;
+    transition: border 0.3s;
+    width: 100%;
+
+    &:hover {
+      border: 1px solid var(--colour-silver-chalice);
+    }
+
+    &:focus {
+      border: 1px solid var(--colour-english-walnut);
+    }
+  }
+
+  input[type="submit"] {
+    color: var(--colour-white);
+    background-color: var(--colour-apple);
+    padding: 0.25em 0.5em;
+    transition: background-color 0.15s linear;
+    border: 0;
+    cursor: pointer;
+
+    &:hover {
+      background-color: hsl(from var(--colour-apple) h s calc(l - 20));
+    }
+  }
+
+  .message-wrapper {
+    margin-block-end: 1em;
+  }
+
+  .g-recaptcha {
+    margin-block-end: 1em;
+  }
+
+  .success {
+    display: inline-block;
+    margin-inline-end: 0.5em;
+    vertical-align: middle;
+  }
+</style>

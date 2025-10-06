@@ -1,0 +1,38 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+const title = "404";
+---
+
+<BaseLayout title={title}>
+  <main>
+    <div class="error__wrapper">
+      <img class="error__image" src="/images/404.gif" />
+      <div class="error__text">
+        <p>This is not the page you're looking for.</p>
+        <p>Click <a href="/">here</a> to return to the homepage.</p>
+        <p>
+          When the page reloads, a feeling of bliss will wash over you and you will forget this ever
+          happened.
+        </p>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  @media (min-width: 45em) {
+    .error__wrapper {
+      display: flex;
+      flex-flow: row nowrap;
+    }
+
+    .error__image {
+      flex: 1 0 436px;
+      height: auto;
+    }
+
+    .error__text {
+      flex: 1 1 auto;
+    }
+  }
+</style>

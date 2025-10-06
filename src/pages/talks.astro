@@ -1,0 +1,210 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import slides from "@/data/slides.json";
+import "@/styles/pages.css";
+import { GITHUB_URL } from "@/consts";
+
+type Slide = {
+  title: string;
+  id: string;
+  count: string;
+  video?: string;
+  host?: string;
+  website?: string;
+  event: string;
+  type: "conference" | "meetup" | "workshop" | "talk";
+  released: boolean;
+  pdf?: boolean;
+};
+
+const conferenceTalks = (slides as Slide[])
+  .filter((slide) => slide.type === "conference")
+  .sort((a, b) => parseInt(b.count, 10) - parseInt(a.count, 10));
+
+const meetupTalks = (slides as Slide[])
+  .filter((slide) => slide.type !== "conference")
+  .sort((a, b) => parseInt(b.count, 10) - parseInt(a.count, 10));
+
+const title = "Talks";
+---
+
+<BaseLayout
+  title={title}
+  description="Sometimes, I'm so overwhelmed by my love for all things HTML and CSS that I feel compelled to tell a large group of people about it. Even my slides are websites."
+>
+  <main>
+    <header class="page-header">
+      <h1>{title}</h1>
+    </header>
+
+    <p>
+      Sometimes, I'm so overwhelmed by my love for all things HTML and CSS that I feel compelled to
+      tell a large group of people about it. All slides are created with <a
+        href="http://lab.hakim.se/reveal-js/">reveal.js</a
+      >, so you can go ahead and click on the slide image to see the full presentation. Source code
+      is available on <a href="https://github.com/huijing/slides">GitHub</a>.
+    </p>
+
+    <h2>Conferences</h2>
+    <div class="grid">
+      {
+        conferenceTalks.map((talk) =>
+          talk.released ? (
+            <div class="talk">
+              <a
+                class="no-underline"
+                href={talk.host ? talk.host : `${GITHUB_URL}/slides/${talk.count}-${talk.id}`}
+              >
+                <img
+                  srcset={`/images/slides/${talk.id}@2x.jpg 2x`}
+                  src={`/images/slides/${talk.id}.jpg`}
+                  alt={talk.title}
+                />
+              </a>
+
+              {talk.video ? (
+                <p class="no-margin">
+                  <a class="talk__video" href={talk.video}>
+                    Watch video
+                  </a>
+                </p>
+              ) : (
+                <p class="no-margin">
+                  <span
+                    style="font-size:85%;"
+                    class="emoji"
+                    role="img"
+                    tabindex="0"
+                    aria-label="no"
+                  >
+                    ❌
+                  </span>
+                  <span
+                    style="font-size:85%;"
+                    class="emoji"
+                    role="img"
+                    tabindex="0"
+                    aria-label="video"
+                  >
+                    📹
+                  </span>
+                  <span
+                    style="font-size:85%;"
+                    class="emoji"
+                    role="img"
+                    tabindex="0"
+                    aria-label="sorry"
+                  >
+                    🤷
+                  </span>{" "}
+                  <a
+                    href={`https://github.com/huijing/slides/tree/gh-pages/${talk.count}-${talk.id}`}
+                  >
+                    Read transcript
+                  </a>
+                </p>
+              )}
+
+              {talk.pdf ? (
+                <p>
+                  <a class="talk__pdf no-margin" href={`${GITHUB_URL}/slides/pdf/${talk.id}.pdf`}>
+                    Download PDF
+                  </a>
+                </p>
+              ) : (
+                <p>No slides, no pdf</p>
+              )}
+            </div>
+          ) : (
+            <div class="talk">
+              <img
+                srcset={`/images/slides/${talk.id}@2x.jpg 2x`}
+                src={`/images/slides/${talk.id}.jpg`}
+                alt={talk.title}
+              />
+              <p class="no-margin">Coming soon!</p>
+              {talk.website && (
+                <p>
+                  <a class="no-margin" href={talk.website}>
+                    Event details
+                  </a>
+                </p>
+              )}
+            </div>
+          )
+        )
+      }
+    </div>
+
+    <h2>Meet-ups & Workshops</h2>
+    <div class="grid">
+      {
+        meetupTalks.map((talk) =>
+          talk.released ? (
+            <div class="talk">
+              <a class="no-underline" href={`${GITHUB_URL}/slides/${talk.count}-${talk.id}`}>
+                <img
+                  srcset={`/images/slides/${talk.id}@2x.jpg 2x`}
+                  src={`/images/slides/${talk.id}.jpg`}
+                  alt={talk.title}
+                />
+              </a>
+
+              {talk.video ? (
+                <p class="no-margin">
+                  <a class="talk__video" href={talk.video}>
+                    Watch video
+                  </a>
+                </p>
+              ) : (
+                <p class="no-margin">
+                  No video{" "}
+                  <span class="emoji" role="img" tabindex="0" aria-label="neutral face">
+                    😐
+                  </span>
+                </p>
+              )}
+
+              {talk.pdf ? (
+                <p>
+                  <a class="talk__pdf no-margin" href={`${GITHUB_URL}/slides/pdf/${talk.id}.pdf`}>
+                    Download PDF
+                  </a>
+                </p>
+              ) : (
+                <p>No slides, no pdf</p>
+              )}
+            </div>
+          ) : (
+            <div class="talk">
+              <img
+                srcset={`/images/slides/${talk.id}@2x.jpg 2x`}
+                src={`/images/slides/${talk.id}.jpg`}
+                alt={talk.title}
+              />
+              <p class="no-margin">Coming soon!</p>
+              {talk.website && (
+                <p>
+                  <a class="no-margin" href={talk.website}>
+                    Event details
+                  </a>
+                </p>
+              )}
+            </div>
+          )
+        )
+      }
+    </div>
+
+    <p>
+      Kudos to <a href="http://engineers.sg/conferences">Engineers.SG</a>, which records videos of
+      almost every local tech meet-up in Singapore.
+    </p>
+  </main>
+</BaseLayout>
+
+<style>
+  .talk {
+    text-align: center;
+  }
+</style>

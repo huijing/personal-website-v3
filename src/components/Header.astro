@@ -1,0 +1,141 @@
+---
+import { SITE_TITLE } from "@/consts";
+import HeaderLink from "./HeaderLink.astro";
+---
+
+<header class="site-header">
+  <div class="site-header__wrapper">
+    <div class="site-branding">
+      <a class="no-underline" href="/"><span class="site-branding__image">Home</span></a>
+      <div class="site-branding__wrapper">
+        <h1 class="site-branding__title">
+          <a class="no-underline" href="/">{SITE_TITLE}</a>
+        </h1>
+        <p class="site-branding__description">
+          The chronicles of a self-taught designer and developer
+        </p>
+      </div>
+    </div>
+
+    <nav class="site-nav">
+      <HeaderLink class="site-nav__link no-underline" href="/about">About</HeaderLink>
+      <HeaderLink class="site-nav__link no-underline" href="/work">Work</HeaderLink>
+      <HeaderLink class="site-nav__link no-underline" href="/talks">Talks</HeaderLink>
+      <HeaderLink class="site-nav__link no-underline" href="/blog">Blog</HeaderLink>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    background: url("/images/bg-header.jpg");
+  }
+
+  .site-header__wrapper {
+    margin-inline: auto;
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 52em;
+    padding: 1em;
+  }
+
+  @media (min-width: 60em) {
+    .site-header__wrapper {
+      flex-flow: row nowrap;
+
+      .site-branding {
+        flex: 3 1 70%;
+      }
+
+      .site-nav {
+        flex: 1 1 30%;
+      }
+    }
+  }
+
+  .site-branding__image {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    background: url("/images/retropc-static.png");
+    background-size: cover;
+    display: block;
+    height: 90px;
+    min-width: 90px;
+    width: 90px;
+    isolation: isolate;
+
+    &::before {
+      content: url("/images/retropc-dynamic.gif");
+      height: 0;
+      visibility: hidden;
+      width: 0;
+    }
+
+    &:hover {
+      background: url("/images/retropc-dynamic.gif");
+      background-size: cover;
+    }
+  }
+
+  @media (min-width: 45em) {
+    .site-branding__image {
+      height: 120px;
+      width: 120px;
+    }
+  }
+
+  .site-branding {
+    align-items: center;
+    display: flex;
+  }
+
+  .site-branding__wrapper {
+    margin-inline-start: 1em;
+  }
+
+  .site-branding__title {
+    margin-block-end: 0.25rem;
+
+    a {
+      font-size: 85%;
+      font-family: var(--font-display);
+      color: var(--colour-english-walnut);
+
+      &:hover {
+        color: var(--colour-english-walnut);
+      }
+    }
+  }
+
+  .site-branding__description {
+    font-size: 75%;
+    font-family: var(--font-display);
+    line-height: 2;
+  }
+
+  .site-nav {
+    display: flex;
+    margin-block-start: 1em;
+    width: 100%;
+    font-family: var(--font-display);
+    font-size: 90%;
+
+    a {
+      flex: auto;
+      text-align: center;
+      color: var(--colour-english-walnut);
+    }
+  }
+
+  @media (min-width: 60em) {
+    .site-nav {
+      margin-block-start: 0;
+    }
+  }
+
+  .site-nav__link:hover {
+    color: var(--colour-english-walnut);
+  }
+</style>

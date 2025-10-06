@@ -1,0 +1,471 @@
+:root {
+  --colour-tuna: oklch(0.3343 0.0227 285.1);
+  --colour-black-alpha2: oklch(0 0 0 / 20%);
+  --colour-english-walnut: oklch(0.2925 0.0251 42.82);
+  --colour-winter-hazel: oklch(0.8345 0.0726 101.7);
+  --colour-apple: oklch(0.7046 0.1922 142.1);
+  --colour-japanese-laurel: oklch(0.4528 0.1495 142.33);
+  --colour-sugarcane: oklch(0.9949 0.0084 145.51);
+  --colour-mineshaft: oklch(0.285 0 0);
+  --colour-royal-blue: oklch(0.6181 0.1541 260.41);
+  --colour-silver-chalice: oklch(0.7252 0 0 / 50%);
+  --colour-white: oklch(1 0 0);
+
+  --font-base: "Magnetic Pro", "HeiTi SC Light", "Microsoft YaHei", sans-serif;
+  --font-header: "Magnetic Pro Black", "Arial Black", sans-serif;
+  --font-display: "Eight-bit", "Lucida Console", "Lucida Sans Typewriter", monospace;
+  --font-special: "Magnetic Pro Thin", sans-serif;
+
+  font-size: 18px;
+}
+
+@media (min-width: 320px) and (max-width: 960px) {
+  :root {
+    font-size: calc(18px + (22 - 18) * ((100vw - 320px) / (960 - 320)));
+  }
+}
+@media (min-width: 960px) {
+  :root {
+    font-size: 22px;
+  }
+}
+
+@font-face {
+  font-family: "Magnetic Pro Black";
+  src: url("/fonts/magnetic-pro-black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Magnetic Pro";
+  src: url("/fonts/magnetic-pro-light.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Magnetic Pro";
+  src: url("/fonts/magnetic-pro-medium.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Magnetic Pro";
+  src: url("/fonts/magnetic-pro-light-italic.woff2") format("woff2");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Magnetic Pro Thin";
+  src: url("/fonts/magnetic-pro-thin-italic.woff2") format("woff2");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Eight-bit";
+  src: url("/fonts/eightbitoperatorplus8-bold-webfont.woff2") format("woff2");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Eight-bit";
+  src: url("/fonts/eightbitoperatorplus-regular-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    max-width: 100%;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background: url("/images/bg-body.jpg");
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+}
+
+main {
+  margin-inline: auto;
+  font-family: var(--font-base);
+  max-width: 48em;
+  width: 100%;
+  flex: 1 0 auto;
+  background-color: var(--colour-sugarcane);
+  padding: 1.5em;
+  line-height: 1.5;
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-header);
+  }
+}
+
+h1 {
+  font-size: 185%;
+  margin-block-end: 1rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 150%;
+  margin-block-end: 0.5rem;
+  line-height: 1.2;
+
+  small {
+    font-size: 0.5em;
+    font-weight: 400;
+    text-align: right;
+  }
+}
+
+h3 {
+  font-size: 125%;
+  margin-block-end: 0.5rem;
+}
+
+h4 {
+  font-size: 105%;
+  margin-block-end: 0.25rem;
+}
+
+hr {
+  margin-block: 0.75rem;
+}
+
+p {
+  margin-block-end: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--colour-japanese-laurel);
+  transition: all 0.15s linear;
+  border-block-end: 1px dashed var(--colour-japanese-laurel);
+
+  &:hover {
+    color: hsl(from var(--colour-japanese-laurel) h s calc(l - 5));
+    border-block-end: 1px solid hsl(from var(--colour-japanese-laurel) h s calc(l - 5));
+  }
+}
+
+small {
+  font-size: 75%;
+}
+
+ul {
+  list-style: disc;
+  margin-inline-start: 1em;
+
+  ul {
+    list-style: square;
+  }
+}
+
+li {
+  margin-block-end: 1em;
+}
+
+ol {
+  counter-reset: list;
+  margin-inline-start: 2em;
+
+  li {
+    list-style: none;
+    margin-block-end: 1em;
+    position: relative;
+
+    &::before {
+      content: counter(list) ".";
+      counter-increment: list;
+      font-weight: bold;
+      left: -1.5em;
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  ul {
+    li {
+      list-style: disc;
+    }
+
+    li::before {
+      content: "";
+      counter-increment: none;
+    }
+  }
+}
+
+pre {
+  color: #ccc;
+  background-color: #2d2d2d;
+  padding: 0.5em;
+  margin: 0.5em 0 1em;
+  border-radius: 0.3em;
+  overflow: auto;
+  display: flex;
+}
+
+code {
+  background-color: hsl(from var(--colour-silver-chalice) h s calc(l + 10));
+  color: var(--colour-royal-blue);
+  border-radius: 0.25em;
+  padding: 2px;
+  font-size-adjust: 0.49;
+}
+
+pre code {
+  font-size: 75%;
+  color: unset;
+  background-color: unset;
+}
+
+blockquote {
+  background: url("/images/bg-quotes.jpg");
+  border-inline-start: 0.5em solid var(--colour-royal-blue);
+  padding: 1em;
+  margin-block-end: 1em;
+  font-style: italic;
+
+  &::before {
+    font-size: 2.5em;
+    line-height: 0.1em;
+    margin-inline-end: 0.1em;
+    vertical-align: -0.25em;
+    color: var(--colour-royal-blue);
+    content: "\201C";
+    font-family: var(--font-display);
+  }
+
+  &::after {
+    font-size: 2.5em;
+    line-height: 0.1em;
+    vertical-align: -0.25em;
+    color: var(--colour-royal-blue);
+    content: "\201D";
+    font-family: var(--font-display);
+  }
+
+  p {
+    line-height: 1.7rem;
+  }
+
+  p:first-child,
+  p:last-child {
+    display: inline;
+  }
+
+  p:nth-child(2) {
+    margin-block-start: 1em;
+  }
+
+  p ~ p {
+    display: block;
+  }
+
+  a {
+    color: inherit;
+    border-block-end: 1px dashed var(--colour-mineshaft);
+  }
+}
+
+figure {
+  text-align: center;
+}
+
+figcaption {
+  font-style: italic;
+  margin-block-end: 0.25em;
+}
+
+figcaption:lang(zh) {
+  font-style: normal;
+}
+
+kbd {
+  font-size: 70%;
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 var(--colour-black-alpha2), 0 0 0 2px var(--colour-white) inset;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 0.1em;
+  padding: 0.1em 0.6em 0;
+  text-shadow: 0 1px 0 var(--colour-white);
+}
+
+iframe,
+picture img,
+video {
+  margin-block-end: 1em;
+}
+
+.post-meta {
+  font-size: 75%;
+  color: hsl(from var(--colour-tuna) h s calc(l + 20));
+}
+
+.icon {
+  > svg {
+    display: inline-block;
+    height: 1em;
+    vertical-align: middle;
+    width: 1em;
+
+    path {
+      fill: var(--colour-japanese-laurel);
+    }
+  }
+}
+
+.icon--tag,
+.icon--tags {
+  margin-inline-end: 0.25em;
+}
+
+.icon--title {
+  > svg {
+    height: 1.25em;
+    width: 1.25em;
+    display: inline-block;
+    vertical-align: middle;
+
+    path {
+      fill: var(--colour-mineshaft);
+    }
+  }
+}
+
+.emoji {
+  font-size: 1.294rem;
+  line-height: 1;
+  font-style: normal;
+  display: inline-block;
+  vertical-align: baseline;
+  font-family: "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+span[role="img"][aria-label],
+span[role="img"][aria-label] {
+  position: relative;
+}
+
+span[role="img"][aria-label]:focus::after,
+span[role="img"][aria-label]:hover::after {
+  font-size: 50%;
+  font-family: var(--font-base);
+  font-weight: 400;
+  position: absolute;
+  display: block;
+  line-height: 1.2;
+  content: attr(aria-label);
+  z-index: 1;
+  bottom: 2.5em;
+  left: 0;
+  background: var(--colour-english-walnut);
+  color: var(--colour-white);
+  padding: 0.25em;
+  border: 1px solid var(--colour-white);
+  box-shadow: 2px 2px 4px var(--colour-english-walnut);
+}
+
+@media print {
+  span[role="img"][aria-label]::after {
+    content: "(" attr(aria-label) ")";
+  }
+}
+
+.kaomoji {
+  white-space: nowrap;
+  font-family: Arial, sans-serif;
+}
+
+img,
+.external-url::before,
+.emoji {
+  isolation: isolate;
+}
+
+.no-margin {
+  margin-block-end: 0;
+}
+
+a.no-underline,
+a.no-underline:hover {
+  border: 0;
+}
+
+.no-list-style {
+  list-style: none;
+}
+
+.no-break {
+  white-space: nowrap;
+}
+
+.break {
+  word-break: break-all;
+}
+
+.italicise {
+  font-style: italic;
+}
+
+.sr-only {
+  position: absolute;
+  opacity: 0;
+}
+
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}

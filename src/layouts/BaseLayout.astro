@@ -1,0 +1,172 @@
+---
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
+import Blender from "@/components/Blender.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
+import "@/styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogType?: string;
+  ogImageUrl?: string;
+  canonicalURL?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  ogType,
+  ogImageUrl,
+  noindex = false,
+  canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={SITE_TITLE}
+      href={new URL("rss.xml", Astro.site)}
+    />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title ? `${title} | ${SITE_TITLE}` : SITE_TITLE}</title>
+    <meta name="author" content="Chen Hui Jing" />
+    <meta name="title" content={title ? `${title} | ${SITE_TITLE}` : SITE_TITLE} />
+    <meta name="description" content={description ? description : SITE_DESCRIPTION} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonicalURL} />
+
+    <link
+      rel="preload"
+      href="/fonts/eightbitoperatorplus8-bold-webfont.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/eightbitoperatorplus-regular-webfont.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/magnetic-pro-black.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/magnetic-pro-light.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <meta property="og:title" content={title ? `${title} | ${SITE_TITLE}` : SITE_TITLE} />
+    <meta property="og:type" content={ogType ? ogType : "website"} />
+    <meta
+      property="og:image"
+      content={ogImageUrl ? ogImageUrl : new URL("/images/avatar-ponytail@2x.png", Astro.site).href}
+    />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:description" content={description ? description : SITE_DESCRIPTION} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title ? `${title} | ${SITE_TITLE}` : SITE_TITLE} />
+    <meta
+      name="twitter:image"
+      content={ogImageUrl ? ogImageUrl : new URL("/images/avatar-ponytail@2x.png", Astro.site).href}
+    />
+    <meta name="twitter:description" content={description ? description : SITE_DESCRIPTION} />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16" />
+    <link rel="manifest" href="/favicons/manifest.json" />
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#009418" />
+    <link rel="shortcut icon" href="/favicons/favicon.ico" />
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <meta name="twitter:site" content="@hj_chen" />
+    <meta name="p:domain_verify" content="1623582e8d2881f774efff746a6f3f1f" />
+    <meta name="msvalidate.01" content="30F5181A4C23EE64C2F947E2910DDBBA" />
+    <link href="https://micro.blog/huijing" rel="me" />
+    <link rel="monetization" href="https://ilp.gatehub.net/747467740/USD" />
+  </head>
+
+  <body>
+    <Blender />
+    <Header />
+    <slot />
+
+    <Footer />
+  </body>
+</html>
+
+<script>
+  const lifeInEmoji: string[] = [
+    "🇲🇾",
+    "👾",
+    "🏀",
+    "🚲",
+    "🖌",
+    "👟",
+    "💻",
+    "🖊",
+    "🎙",
+    "🦊",
+    "🧗‍♀️",
+    "🏳️‍🌈",
+  ];
+
+  if (navigator.userAgent.includes("Mac OS X")) {
+    const randomIndex = Math.floor(Math.random() * lifeInEmoji.length);
+    window.location.replace(`#${lifeInEmoji[randomIndex]}`);
+  }
+
+  const blendCheckbox = document.getElementById("blendToggle") as HTMLInputElement | null;
+  const blender = document.getElementById("blender") as HTMLElement | null;
+
+  if (blendCheckbox && blender) {
+    blendCheckbox.addEventListener("click", toggleBlend, false);
+  }
+
+  function toggleBlend(e: Event): void {
+    const target = e.target as HTMLInputElement;
+    if (!blender) return;
+
+    if (target.checked) {
+      localStorage.setItem("checked", "true");
+      blender.classList.add("active");
+    } else {
+      localStorage.removeItem("checked");
+      blender.classList.remove("active");
+    }
+  }
+
+  (function initBlend(): void {
+    if (!blendCheckbox || !blender) return;
+
+    const isChecked = localStorage.getItem("checked") === "true";
+    blendCheckbox.checked = isChecked;
+
+    if (isChecked) {
+      blender.classList.add("active");
+    } else {
+      blender.classList.remove("active");
+    }
+  })();
+</script>

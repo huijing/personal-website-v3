@@ -1,0 +1,318 @@
+---
+import {
+  IS_PLAYING,
+  IS_READING,
+  IS_WATCHING,
+  ABOUT,
+  GITHUB_USERNAME,
+  MASTADON_USERNAME,
+  BLUESKY_USERNAME,
+} from "../consts";
+const today = new Date();
+---
+
+<footer class="site-footer">
+  <div class="site-footer__wrapper--main">
+    <div class="footer-main">
+      <input type="checkbox" id="activities" />
+      <label for="activities">
+        <div class="hidden">
+          <p class="no-margin">Is currently…</p>
+          <ul class="no-list-style">
+            <li class="no-margin">📖: {IS_READING}</li>
+            <li class="no-margin">🕹: {IS_PLAYING}</li>
+            <li class="no-margin">📺: {IS_WATCHING}</li>
+          </ul>
+        </div>
+        <img
+          srcset="/images/avatar-ponytail@2x.png 2x"
+          src="/images/avatar-ponytail.png"
+          alt="Pixel version of Hui Jing"
+          class="footer-main__avatar"
+        />
+      </label>
+      <div class="footer-main__about">
+        <h3>Hello!</h3>
+        <p class="no-margin">{ABOUT}</p>
+      </div>
+      <div class="footer-main__contact">
+        <h3>Connect with me</h3>
+        <ul>
+          <li>
+            <a href="/contact/" class="no-underline footer-main__link">
+              <span class="icon">
+                <svg aria-hidden="true" viewBox="0 0 16 16">
+                  <path
+                    d="M11.9,4.6c0-0.1,0-0.3-0.2-0.3C11,3.9,10.2,3.8,9.3,3.8c-3,0-5.4,2.4-5.4,5.4c0,2,1.3,3,2.6,3c1.2,0,2.1-0.5,2.9-1.4 c0.1,0.3,0.2,0.6,0.5,0.9c0.3,0.4,0.8,0.6,1.4,0.6c2,0,4.1-1.8,4.1-5.4c0-3.8-2.7-6.5-6.5-6.5c-4.6,0-8.1,3.7-8.1,8.5 c0,4,2.8,7,6.8,7c1.6,0,2.8-0.3,3.9-0.9c0.1-0.1,0.2-0.2,0.1-0.4l-0.3-0.9c0-0.1-0.1-0.1-0.2-0.2c-0.1,0-0.2,0-0.2,0 c-0.8,0.5-1.9,0.7-3.1,0.7c-3.1,0-5.2-2.2-5.2-5.5c0-3.9,2.6-6.8,6.1-6.8c3,0,4.9,1.9,4.9,5c0,2.2-1,3.6-2,3.6 c-0.2,0-0.3-0.1-0.3-0.1c-0.1-0.2-0.3-0.6,0-1.9L11.9,4.6z M9,5.5c0.3,0,0.5,0,0.7,0.1L9.4,7.7C9.1,8.9,8.1,10.4,7,10.4 c-1,0-1.1-0.9-1.1-1.3C5.9,7.1,7.3,5.5,9,5.5z"
+                  ></path>
+                </svg>
+              </span>
+              <span>Email</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href={`https://github.com/${GITHUB_USERNAME}`}
+              class="no-underline footer-main__link"
+              rel="me"
+            >
+              <span class="icon">
+                <svg aria-hidden="true" viewBox="0 0 16 16">
+                  <path
+                    d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"
+                  ></path>
+                </svg>
+              </span>
+              <span>GitHub</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href={`https://bsky.app/profile/${BLUESKY_USERNAME}.bsky.social`}
+              class="no-underline footer-main__link"
+              rel="me"
+            >
+              <span class="icon">
+                <svg aria-hidden="true" viewBox="0 0 600 530">
+                  <path
+                    d="M135.72 44.03C202.216 93.951 273.74 195.17 300 249.49c26.262-54.316 97.782-155.54 164.28-205.46C512.26 8.009 590-19.862 590 68.825c0 17.712-10.155 148.79-16.111 170.07-20.703 73.984-96.144 92.854-163.25 81.433 117.3 19.964 147.14 86.092 82.697 152.22-122.39 125.59-175.91-31.511-189.63-71.766-2.514-7.38-3.69-10.832-3.708-7.896-.017-2.936-1.193.516-3.707 7.896-13.714 40.255-67.233 197.36-189.63 71.766-64.444-66.128-34.605-132.26 82.697-152.22-67.108 11.421-142.55-7.45-163.25-81.433C20.15 217.613 9.997 86.535 9.997 68.825c0-88.687 77.742-60.816 125.72-24.795z"
+                  ></path>
+                </svg>
+              </span>
+              <span>BlueSky</span>
+            </a>
+          </li>
+
+          <li>
+            <a
+              rel="me"
+              href={`https://tech.lgbt/@${MASTADON_USERNAME}`}
+              class="no-underline footer-main__link"
+            >
+              <span class="icon">
+                <svg aria-hidden="true" viewBox="0 0 16 16" fill="none"
+                  ><g clip-path="url(#clip0)"
+                    ><path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M10.637 12.195c2.005-.24 3.75-1.475 3.97-2.603.346-1.778.317-4.339.317-4.339 0-3.47-2.274-4.488-2.274-4.488C11.503.238 9.534.017 7.489 0h-.05c-2.046.017-4.013.238-5.16.765 0 0-2.274 1.017-2.274 4.488l-.002.662c-.004.64-.007 1.35.011 2.091.083 3.394.623 6.74 3.761 7.57 1.447.383 2.69.463 3.69.408 1.814-.1 2.833-.647 2.833-.647l-.06-1.317s-1.296.41-2.753.36c-1.443-.05-2.966-.156-3.199-1.928a3.633 3.633 0 0 1-.032-.496s1.416.346 3.21.428c1.098.05 2.128-.064 3.173-.189zm1.605-2.47V5.522c0-.859-.22-1.541-.658-2.046-.453-.505-1.047-.764-1.783-.764-.852 0-1.497.327-1.924.983l-.415.695-.414-.695c-.427-.655-1.072-.983-1.924-.983-.737 0-1.33.259-1.783.764-.44.505-.658 1.187-.658 2.046v4.203h1.665v-4.08c0-.859.362-1.295 1.085-1.295.8 0 1.202.517 1.202 1.541v2.233H8.29V5.89c0-1.024.4-1.541 1.201-1.541.724 0 1.085.436 1.085 1.296v4.079h1.666z"
+                      fill="#2B90D9"></path></g
+                  ><defs
+                    ><clipPath id="clip0"><path fill="#fff" d="M0 0h14.925v16H0z"></path></clipPath
+                    ></defs
+                  ></svg
+                >
+              </span>
+              <span>Mastodon</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-footer__wrapper--secondary">
+    <div class="footer-secondary">
+      <div class="footer-secondary__text">
+        <span class="footer-secondary__attribute">Hand-crafted with love by Chen Hui Jing.</span>
+        <span class="footer-secondary__copyright"
+          >&copy; 2014 - {today.getFullYear()} Chen Hui Jing. All rights reserved.</span
+        >
+      </div>
+      <nav class="footer-secondary__nav">
+        <a class="footer-secondary__styleguide no-underline" href="/styleguide/">Style Guide</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    font-family: var(--font-display);
+    color: var(--colour-white);
+
+    a {
+      color: var(--colour-apple);
+    }
+
+    a:hover {
+      color: lighten(var(--colour-apple), 20%);
+    }
+
+    svg path {
+      fill: var(--colour-apple);
+    }
+  }
+
+  .site-footer__wrapper--main {
+    background: url("/images/bg-footer-2.jpg");
+  }
+
+  .site-footer__wrapper--secondary {
+    background: url("/images/bg-footer.jpg");
+  }
+
+  .footer-main {
+    margin-inline: auto;
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 1140px;
+    padding: 0.5em;
+
+    p,
+    ul {
+      font-size: 80%;
+      line-height: 2;
+    }
+
+    ul {
+      padding-inline-start: 0;
+    }
+
+    input {
+      position: absolute;
+      opacity: 0;
+    }
+
+    label {
+      margin-inline: auto;
+      position: relative;
+      display: block;
+      cursor: pointer;
+      align-self: center;
+    }
+
+    input ~ label div {
+      display: none;
+    }
+
+    input:checked ~ label div {
+      display: block;
+      position: absolute;
+      font-size: smaller;
+      top: -6.5em;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--colour-tuna);
+      padding: 0.25em 0.5em;
+      border-radius: 4px;
+    }
+
+    label li {
+      width: max-content;
+    }
+  }
+
+  .footer-main__about,
+  .footer-main__contact {
+    margin: 0 1em 1em;
+  }
+
+  .footer-main__avatar {
+    border-radius: 50%;
+    height: 200px;
+    min-width: 200px;
+    width: 200px;
+    margin: 1em auto;
+    background-color: var(--colour-sugarcane);
+  }
+
+  .footer-main__contact ul {
+    margin: 0;
+
+    li {
+      list-style: none;
+      margin: 0;
+    }
+  }
+
+  .footer-main__link {
+    display: flex;
+    align-items: center;
+    padding: 0.25em;
+
+    span:first-child {
+      margin-inline-end: 0.5em;
+    }
+
+    &:hover {
+      svg path {
+        fill: lighten(var(--colour-apple), 20%);
+      }
+    }
+  }
+
+  .footer-secondary {
+    margin-inline: auto;
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 1140px;
+    padding: 1em;
+    font-size: 65%;
+  }
+
+  @media (min-width: 51.25em) {
+    .footer-main {
+      flex-flow: row nowrap;
+    }
+    .footer-main__about {
+      flex: 25 0 0;
+    }
+
+    .footer-main__contact {
+      flex: 1 0 250px;
+    }
+    .footer-main__about,
+    .footer-main__contact {
+      margin-block-start: 1em;
+    }
+    .footer-secondary {
+      flex-flow: row nowrap;
+    }
+
+    .footer-secondary__nav {
+      flex: 2 0 28.5714%;
+    }
+
+    .footer-secondary__text {
+      flex: 5 0 71.4285%;
+    }
+
+    .footer-main__avatar {
+      flex: 1 0 0;
+      margin: 0.5em 0 0.5em 1em;
+    }
+  }
+
+  .footer-secondary__text {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    line-height: 2;
+  }
+  @media (max-width: 51.1875em) {
+    .footer-secondary__text {
+      margin-block-end: 1em;
+    }
+  }
+
+  .footer-secondary__attribute,
+  .footer-secondary__copyright {
+    flex: auto;
+    text-align: center;
+    width: 275px;
+  }
+
+  .footer-secondary__nav {
+    display: flex;
+    width: 100%;
+
+    a {
+      flex: auto;
+      text-align: center;
+    }
+  }
+</style>

@@ -1,0 +1,141 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Img4w from "@/components/Img4w.astro";
+import { GITHUB_URL } from "@/consts";
+import "@/styles/pages.css";
+import projects from "@/data/projects.json" assert { type: "json" };
+
+const posts = await getCollection("blog");
+const clientWorkPosts = posts.filter((post) => (post.data.tags ?? []).includes("client-work"));
+const sideProjectPosts = posts.filter((post) => (post.data.tags ?? []).includes("side-project"));
+
+const title = "Work";
+---
+
+<BaseLayout
+  title={title}
+  description="I've been treating this journey of mine like a video game, where every project is like a Super Mario World level to be cleared. Life's too short not to have fun."
+>
+  <main>
+    <header class="page-header">
+      <h1>{title}</h1>
+    </header>
+
+    <div class="page-content">
+      <p>
+        I've been treating this developer journey of mine like a video game, where every project is
+        a level to be cleared. Think Super Mario World. Life's too short not to have fun, right? <span
+          class="emoji"
+          role="img"
+          tabindex="0"
+          aria-label="grinning face with smiling eyes">&#x1F601;</span
+        >
+      </p>
+
+      <p>
+        This approach worked pretty well because I've been lucky enough to work on a wide range of
+        projects. While we're on the topic of work, I actually do have a <a
+          class="no-underline"
+          href="/resume/">résumé</a
+        >, if you're interested.
+      </p>
+
+      <h2>Client work</h2>
+
+      <div class="grid projects">
+        {
+          clientWorkPosts.map((post) => {
+            const href = post.data.external_url ? post.data.external_url : `/blog/${post.id}/`;
+            return (
+              <div class="project">
+                <a class="no-underline" href={href}>
+                  <img
+                    class="project__image"
+                    srcset={`/images/posts/projects/${post.data.project_image}@2x.png 2x`}
+                    src={`/images/posts/projects/${post.data.project_image}.png`}
+                    alt={post.data.project}
+                  />
+                  <h3 class="project__title no-margin">{post.data.project}</h3>
+                </a>
+              </div>
+            );
+          })
+        }
+      </div>
+
+      <h2>Side projects</h2>
+      <div class="grid projects">
+        {
+          sideProjectPosts.map((post) => {
+            const href = post.data.external_url ? post.data.external_url : `/blog/${post.id}/`;
+            return (
+              <div class="project">
+                <a class="no-underline" href={href}>
+                  <img
+                    class="project__image"
+                    srcset={`/images/posts/projects/${post.data.project_image}@2x.png 2x`}
+                    src={`/images/posts/projects/${post.data.project_image}.png`}
+                    alt={post.data.project}
+                  />
+                  <h3 class="project__title no-margin">{post.data.project}</h3>
+                </a>
+              </div>
+            );
+          })
+        }
+
+        {
+          projects.map((project) => {
+            const href = project.external_url
+              ? project.external_url
+              : `${GITHUB_URL}/${project.id}/`;
+
+            return (
+              <div class="project">
+                <a
+                  href={href}
+                  {...(project.external_url && {
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                  })}
+                  class="no-underline"
+                >
+                  <img
+                    class="project__image"
+                    srcset={`/images/posts/projects/${project.image}@2x.png 2x`}
+                    src={`/images/posts/projects/${project.image}.png`}
+                    alt={project.title}
+                  />
+                  <h3 class="project__title no-margin">{project.title}</h3>
+                </a>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+
+    <div class="projects">
+      <a class="no-underline" href={`${GITHUB_URL}/demos`}>
+        <Img4w fileName="yoshi" fileType="png" alt="Yoshi's island remix" />
+        <h2>The land of random demos</h2>
+      </a>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .projects {
+    margin-block-end: 0.5em;
+    text-align: center;
+  }
+
+  .project {
+    margin-block-end: 1em;
+  }
+
+  .project__title {
+    line-height: 1.2;
+  }
+</style>

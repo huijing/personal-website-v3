@@ -1,0 +1,236 @@
+.post-content {
+  margin-inline: auto;
+
+  img {
+    display: block;
+    margin-inline: auto;
+    margin-block-end: 1rem;
+  }
+
+  ul,
+  ol {
+    padding-inline-start: 0;
+  }
+}
+
+.figure-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+figure {
+  font-size: 85%;
+
+  iframe {
+    margin-block-end: 0;
+  }
+}
+
+.multiple {
+  margin: 0 1.5em 1.5em;
+}
+
+.double {
+  img:first-of-type {
+    margin-block-end: 1rem;
+  }
+}
+
+.shape {
+  float: left;
+  shape-image-threshold: 0.5;
+  shape-margin: 1em;
+  shape-outside: url("/images/posts/css-shapes/beyonce.png");
+  width: 50%;
+}
+
+@media (min-width: 35.9375em) {
+  .figure-wrapper {
+    flex-flow: row nowrap;
+  }
+
+  .multiple {
+    flex-flow: row nowrap;
+    margin: 0 1.5em;
+  }
+
+  .double {
+    display: grid;
+    grid-template-columns: calc((100% - 1em) / 2) calc((100% - 1em) / 2);
+    gap: 1em;
+
+    img:first-of-type {
+      margin-block-end: 0;
+    }
+  }
+
+  .shape {
+    width: auto;
+  }
+}
+
+.twitter-tweet {
+  margin: 0 auto 1.5em !important;
+}
+
+.overflow-scroll {
+  overflow-x: scroll;
+  margin-block-end: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  text-align: left;
+}
+
+th,
+td {
+  border: #f0f0f0 1px solid;
+  padding: 0.5em;
+}
+
+.table {
+  margin-block-end: 1.5em;
+}
+
+.th {
+  font-family: var(--font-header);
+}
+
+.tr {
+  margin-block-end: 1.5em;
+}
+
+.display {
+  .th {
+    &::before {
+      content: "display: ";
+    }
+
+    &::after {
+      content: ";";
+    }
+  }
+}
+
+@media (min-width: 45em) {
+  .table {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .tr {
+    display: table-row;
+  }
+
+  .td {
+    display: table-cell;
+    border: #f0f0f0 1px solid;
+    padding: 0.5em;
+  }
+
+  .th {
+    font-family: var(--font-base);
+    font-weight: 700;
+    vertical-align: top;
+  }
+
+  .display {
+    .th {
+      &::before {
+        content: "";
+      }
+
+      &::after {
+        content: "";
+      }
+    }
+
+    td {
+      &:first-child {
+        width: 11em;
+      }
+    }
+  }
+}
+
+.sass-maps {
+  .th {
+    width: 15em;
+  }
+}
+
+.sp-font {
+  font-family: var(--font-special);
+  font-size: 1.414em;
+}
+
+.ciu_embed {
+  iframe {
+    height: 421px !important;
+    margin-block-end: 0;
+  }
+}
+
+.note {
+  background: url("/images/bg-note.jpg");
+  padding: 0.5em 1em;
+  font-size: 85%;
+  border-inline-start: 0.5em solid var(--colour-winter-hazel);
+  margin-block-end: 1rem;
+}
+
+.p159 {
+  display: flex;
+  overflow-x: scroll;
+  background-color: color("apple");
+  margin-block-end: 1rem;
+}
+
+.p159__item {
+  width: 9em;
+  flex: none;
+  margin-inline-end: 1em;
+  background-color: white;
+
+  img {
+    object-fit: cover;
+  }
+
+  p {
+    margin: 0;
+    text-align: center;
+  }
+
+  &:last-child {
+    margin-inline-end: 0;
+  }
+
+  .card__txt {
+    padding: 0.5em;
+  }
+}
+
+.p159.problem {
+  padding: 1em;
+}
+
+.p159.border {
+  border: 1em #4abc41 solid;
+}
+
+.p159.pseudo-elem {
+  padding: 1em;
+
+  &::after {
+    content: "";
+    padding: 0.5em;
+  }
+}

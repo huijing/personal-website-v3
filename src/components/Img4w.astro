@@ -1,0 +1,11 @@
+---
+const { fileName, alt, fileType, class: className } = Astro.props;
+---
+
+<img
+  src=`/images/${fileName}-640.${fileType}`
+  srcset=`/images/${fileName}-480.${fileType} 480w, /images/${fileName}-640.${fileType} 640w, /images/${fileName}-960.${fileType} 960w, /images/${fileName}-1280.${fileType} 1280w`
+  sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+  alt={alt}
+  class={className}
+/>

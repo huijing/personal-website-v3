@@ -1,0 +1,217 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import "@/styles/pages.css";
+import Img2x from "@/components/Img2x.astro";
+
+const title = "About";
+---
+
+<BaseLayout
+  title={title}
+  description="I first dipped my toe into the waters of web development when I built my first HTML website in 2008 for the Malaysia Basketball Association and never looked back."
+>
+  <main>
+    <header class="page-header">
+      <h1>{title}</h1>
+    </header>
+
+    <h3>So who are you?</h3>
+
+    <Img2x fileName="headshot" fileType="jpg" alt="Profile photo" class="profile-image" />
+
+    <p>
+      My name is Chen Hui Jing. I first dipped my toe into the waters of web development when I
+      built my first HTML website in 2008 for the Malaysia Basketball Association.
+    </p>
+
+    <p>
+      From there, I discovered the existence of content management systems and migrated the site
+      over to Drupal. I stopped working on the site a year later and put my web development journey
+      on hold (the original site no longer exists either).
+    </p>
+
+    <p>
+      After a 4-year sabbatical (from web development), I decided to restart this journey by diving
+      in head-first this time. In September 2013, I got a job in the web industry and this website
+      chronicles my experiences as I learn new things, fail spectacularly and make cool stuff along
+      the way.
+    </p>
+
+    <p>
+      I also founded <a href="https://singaporecss.github.io">Talk.CSS</a>, a meetup around all
+      things CSS, with <a href="https://twitter.com/cliener">Chris Lienert</a>, and ran it with my
+      best mate, <a href="https://twitter.com/wgao19">Gao Wei</a> after Chris returned to Australia.
+      It is now on indefinite hiatus.
+    </p>
+
+    <p>
+      The idea for Talk.CSS was born on the <a href="http://kopijs.org/">Kopi.JS</a> slack channel on
+      October 26, 2015 and within 2 hours, we had a <a href="https://github.com/Singapore-CSS/logo"
+        >logo</a
+      >, a <a href="https://gitter.im/Singapore-CSS/discussions">Gitter channel</a>, a <a
+        href="http://www.meetup.com/Singapore-CSS/">Meetup.com</a
+      > account, a venue for the meetup and a couple speakers.<br />
+      Colour us efficient <span
+        class="emoji"
+        role="img"
+        tabindex="0"
+        aria-label="smiling face with sunglasses">&#x1F60E;</span
+      >.
+    </p>
+
+    <h3>Anything not related to the web?</h3>
+    <p>
+      Sure. I love playing basketball and did so full-time for 6 years until the end of 2011. I have
+      since retorn my ACL and have officially “hung them up”, or a direct translation of
+      高挂球鞋。Thankfully, Wei got me into climbing. She’s <a
+        href="https://instagram.com/_weiclimbs">very good at it</a
+      >.
+    </p>
+    <p>
+      I also love to <a href="http://cyern.deviantart.com">draw</a>, though I do less of it now. At
+      one point in time, I customised canvas sneakers for friends and some random clients under the
+      name FUZN designs. The <a href="https://www.facebook.com/fuzndesigns?fref=ts">Facebook page</a
+      > still exists, though on an indefinite hiatus.
+    </p>
+    <p>
+      Wei and I are working on a project called <a href="https://redviolapanda.com/"
+        >RedViolaPanda</a
+      >. It’s about the adventures of a red panda named Viola (who loves playing her viola) and all
+      her fluffy musician friends. Read the <a href="/blog/what-is-redviolapanda">intro blog post</a
+      > and please ask me to tell you more.
+    </p>
+    <p>
+      I play a lot of video games as well, mostly on my PC now since I built my own gaming rig in
+      2012 (which finally died in 2022, a decade is wonderful). Now I have a new rig, which
+      hopefully will also last a decade. I got myself a PS3, almost 10 years after it was first
+      released to play a bunch of exclusives I always wanted. And now, also a Nintendo Switch.
+    </p>
+    <p>
+      Oh, and I sometimes cycle around town on my trusty second-hand Muji commuter bicycle, but
+      climate change, the weather is untenable these days.
+    </p>
+    <h3>Elsewhere on the interwebs</h3>
+    <p class="no-margin">
+      Some lovely human beings were willing to hear what I had to say, or thought I was reasonably
+      interesting to write about, so thank you to these people. <span
+        class="emoji"
+        role="img"
+        tabindex="0"
+        aria-label="hugging face">&#x1F917;</span
+      >
+    </p>
+    <ul>
+      <li class="no-margin">
+        <a
+          href="https://web.archive.org/web/20170105035545/http://www.tomboy-tarts.com/tomboy-tirade-ep-72-comedy-podcast-beam-me-up-f-sayanee-basu-and-chen-huijing/"
+          >Ep 72: Beam me up f. Sayanee Basu and Chen Hui Jing</a
+        >
+      </li>
+      <li class="no-margin">
+        <a
+          href="https://web.archive.org/web/20170105040057/https://live.webuild.sg/040-huijing-chen/"
+          >We Build LIVE 040 Huijing Chen</a
+        >
+      </li>
+      <li class="no-margin">
+        <a href="https://www.techinasia.com/talk/developer-spotlight-chen-huijing"
+          >Basketball led her to front-end engineering. Passion kept her there.</a
+        >
+      </li>
+      <li class="no-margin">
+        <a href="https://youtu.be/aZP_ZigqM1k">Web standards podcast: Episode #139</a>
+      </li>
+      <li class="no-margin">
+        <a href="https://mediatemple.net/blog/tips/the-web-layout-revolution-with-css/"
+          >The Web Layout Revolution: An Interview with Chen Hui Jing</a
+        >
+      </li>
+      <li class="no-margin">
+        <a href="https://www.shopify.com/partners/blog/web-design-trends#2019"
+          >Web Design Trends to Watch 2019</a
+        >
+      </li>
+      <li class="no-margin">
+        <a href="https://www.welcometothejungle.com/en/articles/btc-css-limits"
+          >Extending the Limits of CSS</a
+        >
+      </li>
+      <li class="no-margin">
+        <a href="https://www.shopify.com/partners/blog/internationalization"
+          >Internationalization: Practical Tips to Build for a Global Audience</a
+        >
+      </li>
+      <li class="no-margin">
+        <a href="https://dev.to/devteam/devdiscuss-s2e2-you-can-do-that-with-css-3f9e"
+          >DevDiscuss S2E2: You Can Do That With CSS?</a
+        >
+      </li>
+      <li class="no-margin">
+        <a href="https://www.codenewbie.org/podcast/why-you-shouldn-t-forget-about-css"
+          >CodeNewbie S13E4: Why you shouldn’t forget about CSS</a
+        >
+      </li>
+      <li class="no-margin">
+        <a
+          href="https://podcasts.apple.com/us/podcast/developer-relations-with-peggy-rayzis-and-hui-jing-chen/id1558498059?i=1000524055128"
+          >The CodeSandbox Podcast Ep 5: Developer Relations (with Peggy Rayzis and Hui Jing Chen)</a
+        >
+      </li>
+      <li class="no-margin">
+        <a href="https://shoptalkshow.com/580/"
+          >ShopTalk Show 580: Chen Hui Jing and the State of CSS Survey for 2023</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://qualitybits.buzzsprout.com/2037134/14430036-internationalization-building-globally-aware-products-with-chen-hui-jing"
+          >Internationalization: Building Globally Aware Products with Chen Hui Jing</a
+        >
+      </li>
+    </ul>
+    <h3 id="so-how-was-this-site-built">So how was this site built?</h3>
+    <p>With blood, sweat and tears! Nah, I’m just kidding.</p>
+    <p>
+      <em
+        >Update: major migration from Jekyll to Hugo which took 3 days during the COVID-19 pandemic.</em
+      >
+    </p>
+    <p>
+      <em
+        >Update again: major migration from Hugo to Astro which took X weekends during Q4 of 2025.</em
+      >
+    </p>
+    <p>
+      This is a <del><a href="http://jekyllrb.com/">Jekyll</a></del>
+      <del><a href="https://gohugo.io/">Hugo</a></del>
+      <a href="">Astro</a> site, hosted on <del
+        ><a href="https://pages.github.com/">GitHub Pages</a></del
+      >
+      <a href="https://www.netlify.com/">Netlify</a>. It was <del>built</del> migrated again after <del
+        >months of procrastination</del
+      > realising it makes more sense to use a framework that's built for the web. The endeavour took
+      hours upon hours of <del>pressing ⌘-⇧-R, resizing windows</del> ploughing through documentation,
+      googling and of course, actual coding. This site is a constant work-in-progress as I add tweaks,
+      features and content.
+    </p>
+    <p>
+      Since <del>Jekyll</del>
+      <del>Hugo</del> Astro can be a static site generator, everything here is HTML, CSS and JS.
+    </p>
+    <p>No PHP, no Go, no Python, nilch.</p>
+  </main>
+</BaseLayout>
+
+<style>
+  :global(.profile-image) {
+    margin-inline: auto;
+    border-radius: 20px;
+    display: block;
+  }
+  @media (min-width: 35.9375em) {
+    :global(.profile-image) {
+      float: right;
+      margin-inline-start: 0.5em;
+    }
+  }
+</style>
