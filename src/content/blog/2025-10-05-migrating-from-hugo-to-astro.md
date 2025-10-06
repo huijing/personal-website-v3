@@ -1,13 +1,14 @@
 ---
-date: "2025-10-04T09:09:20+08:00"
+date: "2025-10-06T09:09:20+08:00"
 slug: "migrating-from-hugo-to-astro"
-og_image: ""
+og_image: /images/posts/hugo-to-astro.jpg
 tags:
-  - servers
+  - astro
+  - devlife
 title: "Migrating from Hugo to Astro"
 ---
 
-I'm migrating my blog again. This blog has been in existence for more than 11 years. It started as a Jekyll site. Then I [moved to Hugo](/blog/migrating-from-jekyll-to-hugo/). Now I'm moving it to Astro. The design has NEVER changed, which makes me quite contrarian to most frontend developers in the industry. But when I came up with the design back then, I wanted it to feel like me. And today, when I look at my blog, it still feels like me. I guess this says more about me as a person than my actual blog design, but I'm past the age where I care any more.
+I'm migrating my blog again. This blog has been in existence for more than 11 years. It started as a Jekyll site. Then I [moved to Hugo](/blog/migrating-from-jekyll-to-hugo/). Now I'm moving it to [Astro](https://astro.build/). The design has NEVER changed, which makes me quite contrarian to most frontend developers in the industry. But when I came up with the design back then, I wanted it to feel like me. And today, when I look at my blog, it still feels like me. I guess this says more about me as a person than my actual blog design, but I'm past the age where I care any more.
 
 Hugo says I have 287 pages on my blog but I only have 226 blog posts <span class="emoji" role="img" tabindex="0" aria-label="thinking face">&#x1F914;</span>. But the point is, I have a lot of pages to migrate. Do I really have to port over everything, you might ask? Well, yes. I do. This is my entire web developer journey, how could I possibly leave anything behind? Also, why am I migrating to begin with? Honestly, I completely lost the plot with Hugo.
 
@@ -192,6 +193,39 @@ In that previous migration blogpost, former me literally said:
 
 > But I oscillated between using Hugo’s custom shortcodes versus writing out HTML in full for my responsive images because I kept thinking what would happen if I migrated again. That would mean writing the stuff in the shortcodes within my content.
 
-Somewhere along the lines in 2023, I sort of lost the plot, and ended up using shortcodes for a bit. Thankfully, my decreased writing output meant that it wasn't that much to deal with. But for now, I did create temporary components in Astro, that I plan to slowly migrate anyway from back to just the HTML in full. I hope I remember this, if not, it's gonna be kinda hilarious for migration number 4.
+Somewhere along the lines in 2023, I sort of lost the plot, and ended up using shortcodes for a bit. Thankfully, my decreased writing output meant that it wasn't that much to deal with. But for now, I did create temporary components in Astro, that I plan to slowly migrate anyway from back to just the HTML in full. I hope I remember this, if not, it's gonna be kinda hilarious for migration number 3.
 
-https://github.com/withastro/astro/issues/12673
+You know what, I'll create an issue to track this. I don't understand why previous me did not do this when all my stuff is on GitHub to begin with. <span class="emoji" role="img" tabindex="0" aria-label="face with rolling eyes">&#x1F644;</span>
+
+Astro is a TypeScript-first kind of framework, so type safety is totally a thing. Anyway, the documentation states: “Every frontmatter or data property of your collection entries must be defined using a Zod data type”. Considering I had 1001 frontmatter properties for all kinds of rendering logic (see the above section), my schema was a little long-ish.
+
+```ts
+const blog = defineCollection({
+  loader: glob({ base: "./src/content/blog", pattern: "**/*.{md,mdx}" }),
+  schema: () =>
+    z.object({
+      title: z.string(),
+      date: z.coerce.date(),
+      tags: z.array(z.string()).default([]),
+      og_image: z.string().optional(),
+      description: z.string().optional(),
+      hastweet: z.boolean().default(false),
+      hascaniuse: z.boolean().default(false),
+      hascodepen: z.boolean().default(false),
+      project: z.string().optional(),
+      project_image: z.string().optional(),
+      external_url: z.string().url().optional(),
+      external_site: z.string().optional(),
+      nofeed: z.boolean().default(false),
+      noindex: z.boolean().default(false),
+    }),
+});
+```
+
+I had run the blog template when I first created the site and the schema had included `Image` as a type, and I'd thought to use it for my 2 image frontmatter properties but turns out, it doesn't really work? I did not dig into it but there was a [whole GitHub issue](https://github.com/withastro/astro/issues/12673) and the conclusion was, just use a string. <span class="kaomoji">¯\\\_(ツ)\_/¯ </span>
+
+## Wrapping up
+
+The first time I migrated, it took 3 days. This one sort of took 3 days as well. So maybe that's the average amount of time needed to migrate a website. I'm sure it will take less time if I ever complete paying off my tech debt of framework-locked partials/shortcodes/components. But maybe I'll actually stick with Astro since it's really close to HTML, CSS and Javascript.
+
+Check back in 5 years I guess.
