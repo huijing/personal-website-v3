@@ -138,7 +138,7 @@ const today = new Date();
     }
 
     a:hover {
-      color: lighten(var(--colour-apple), 20%);
+      color: hsl(from var(--colour-apple) h s calc(l + 20));
     }
 
     svg path {
@@ -239,7 +239,7 @@ const today = new Date();
 
     &:hover {
       svg path {
-        fill: lighten(var(--colour-apple), 20%);
+        fill: hsl(from var(--colour-apple) h s calc(l + 20));
       }
     }
   }
