@@ -10,9 +10,6 @@ tags:
 title: The one about an app
 ---
 
-import Img4w from "@/components/Img4w.astro";
-import Video from "@/components/Video.astro";
-
 It's finally happened. I did a proper Javascript thing. Now before you start to judge me, let me clarify that although I've never written a Javascript post ever, it's not like I don't know how to use it, okay? Sure I started out with jQuery back in 2015, big whoop, almost everybody I know has used jQuery at some point in their careers <span class="emoji" role="img" tabindex="0" aria-label="mad face">&#x1F624;</span>.
 
 In fact, my superficial need for external validation made me so self-concious about using jQuery in 2015 that I soon treated [Ray Nicholus's](https://twitter.com/raynicholus) [You Don't Need jQuery!](https://blog.garstasio.com/you-dont-need-jquery/) like some holy reference for a while until I weaned myself off jQuery.
@@ -118,7 +115,12 @@ I'm fairly confident this is an Express functionality, where the `render()` func
 </select>
 ```
 
-<Img4w fileName="posts/js-app/1" fileType="jpg" alt="Form to add book" />
+<img
+  src="/images/posts/js-app/1-640.jpg"
+  srcset="/images/posts/js-app/1-480.jpg 480w, /images/posts/js-app/1-640.jpg 640w, /images/posts/js-app/1-960.jpg 960w, /images/posts/js-app/1-1280.jpg 1280w"
+  sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+  alt="Form to add book"
+/>
 
 And another <span class="emoji" role="img" tabindex="0" aria-label="light bulb">&#x1F4A1;</span> moment happened when I was working out how to render the book list into a table. So the libraries field is a multi-value field, right? As I made it a multi-select, the data is stored in the database as _an array_, however, single values were stored as _a string_. This screwed up my initial attempts at formatting this field, until I realised it was possible to force a single value to be stored as an array using `[]` in the select's name attribute.
 
@@ -132,7 +134,12 @@ Then it occurred to me, if I could make divs pretend to be a table, I could make
 
 <figure>
   <figcaption>That's an HTML table, folks.</figcaption>
-  <Video fileName="responsive" />
+  <video controls autoplay muted loop>
+    <source src="/videos/responsive.mp4" type="video/mp4" />
+    Sorry, your browser doesn't support embedded videos. Sorry, your browser doesn't support embedded
+    videos, but don't worry, you can <a href="/videos/responsive.mp4">download it</a>and watch it with
+    your favourite video player!
+  </video>
 </figure>
 
 ### Let's talk about this filtering thing, alright?

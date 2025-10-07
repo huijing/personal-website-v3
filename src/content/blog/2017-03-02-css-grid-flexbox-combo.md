@@ -8,8 +8,6 @@ tags:
 title: "Grid + Flexbox: the best 1-2 punch in web layout"
 ---
 
-import Img4w from "@/components/Img4w.astro";
-
 _This article has been translated to French by [Pierre Choffé](https://twitter.com/pierrechoffe) on [La Cascade](https://la-cascade.io/articles/grid-et-flexbox-le-duo-gagnant)._
 
 We're 5 days away from the stable release of Firefox 52. Do you know what this means? This means in 5 days, CSS Grids will be supported, And Chrome 57 will follow close behind on March 14, then Safari 10.1 and hopefully Edge, before the end of 2017.
@@ -47,7 +45,12 @@ I came across this page from Malerei, Fotografie, Film by László Moholy-Nagy w
 
 <figure>
   <figcaption>Page 126 of Malerei, Fotografie, Film</figcaption>
-  <Img4w fileName="posts/bauhaus/126" fileType="jpg" alt="Page 126 of Malerei, Fotografie, Film" />
+  <img
+    src="/images/posts/bauhaus/126-640.jpg"
+    srcset="/images/posts/bauhaus/126-480.jpg 480w, /images/posts/bauhaus/126-640.jpg 640w, /images/posts/bauhaus/126-960.jpg 960w, /images/posts/bauhaus/126-1280.jpg 1280w"
+    sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+    alt="Page 126 of Malerei, Fotografie, Film"
+  />
 </figure>
 
 ## Bauhaus in my browser

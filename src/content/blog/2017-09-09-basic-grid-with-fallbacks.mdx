@@ -11,7 +11,6 @@ title: Basic grid layout with fallbacks using feature queries
 ---
 
 import Img2x from "@/components/Img2x.astro";
-import Video from "@/components/Video.astro";
 import Img4w from "@/components/Img4w.astro";
 
 _This article has been translated to Japanese on [SeleQt](https://www.seleqt.net/programming/basic-grid-layout-with-fallbacks-using-feature-queries/)._
@@ -156,7 +155,12 @@ Because I'm a stickler for punishment, this basic layout was tested to be workin
 
 <figure>
   <figcaption>This is actually kinda responsive (on IE8 no less)</figcaption>
-  <Video fileName="gb-inlineblock" />
+  <video controls autoplay muted loop>
+    <source src="/videos/gb-inlineblock.mp4" type="video/mp4" />
+    Sorry, your browser doesn't support embedded videos. Sorry, your browser doesn't support embedded
+    videos, but don't worry, you can <a href="/videos/gb-inlineblock.mp4">download it</a>and watch it
+    with your favourite video player!
+  </video>
 </figure>
 
 The code for this isn't very complicated, as the layout container is set to `display: inline-block`, centring involves using `text-align: center` on its parent, in this case, the `body` element.
@@ -183,7 +187,12 @@ This method works reasonably well if you want all the items in your grid to be t
 
 <figure>
   <figcaption>Well, some people might not like this</figcaption>
-  <Video fileName="gb-inlineblock2" />
+  <video controls autoplay muted loop>
+    <source src="/videos/gb-inlineblock2.mp4" type="video/mp4" />
+    Sorry, your browser doesn't support embedded videos. Sorry, your browser doesn't support embedded
+    videos, but don't worry, you can <a href="/videos/gb-inlineblock2.mp4">download it</a>and watch it
+    with your favourite video player!
+  </video>
 </figure>
 
 I'll cover the image handling issue in a different post, but for support that goes back to IE8, we can't use the current markup. Also, if the last row has less items that the total number of columns, they will end up centre-aligned regardless, and maybe you don't want that either.
@@ -200,7 +209,12 @@ And because of the heavy reliance on media queries, a lot of designers just chos
 
 <figure>
   <figcaption>Flexi-floaty layout of cards</figcaption>
-  <Video fileName="gb-float" />
+  <video controls autoplay muted loop>
+    <source src="/videos/gb-float.mp4" type="video/mp4" />
+    Sorry, your browser doesn't support embedded videos. Sorry, your browser doesn't support embedded
+    videos, but don't worry, you can <a href="/videos/gb-float.mp4">download it</a>and watch it with
+    your favourite video player!
+  </video>
 </figure>
 
 Just wanted to add that, if we wanted to make the `inline-block` layout items take up the width of the viewport, we too can chuck in the same slew of media queries instead of using a fixed width.
@@ -326,7 +340,12 @@ So keep in mind that Flexbox isn't exactly good at being a proper grid. It doesn
 
 <figure>
   <figcaption>Well, we did tell ‘em to be flexible</figcaption>
-  <Video fileName="gb-flex" />
+  <video controls autoplay muted loop>
+    <source src="/videos/gb-flex.mp4" type="video/mp4" />
+    Sorry, your browser doesn't support embedded videos. Sorry, your browser doesn't support embedded
+    videos, but don't worry, you can <a href="/videos/gb-flex.mp4">download it</a>and watch it with your
+    favourite video player!
+  </video>
 </figure>
 
 We can resolve this by doing the same thing we did for floats, and that is, introduce a slew of media queries, like so:
@@ -481,7 +500,12 @@ Grid is different from all the layout techniques we've used in the past because 
 
 <figure>
   <figcaption>Now that's good behaviour</figcaption>
-  <Video fileName="gb-grid" />
+  <video controls="" autoplay="" muted="" loop="">
+    <source src="/videos/gb-grid.mp4" type="video/mp4" />
+    Sorry, your browser doesn't support embedded videos. Sorry, your browser doesn't support embedded
+    videos, but don't worry, you can <a href="/videos/gb-grid.mp4">download it</a>and watch it with your
+    favourite video player!
+  </video>
 </figure>
 
 Another fantastic functionality that only pertains to Grid (at the moment), is `grid-gap`. We can now tell the browser that we want gaps between the items in our layout and the browser will figure the math out. And we have this feature because Rachel Andrew pushed for it at CSS Day and specification author, [Elika J. Etemad](http://fantasai.inkedblade.net/) (AKA Fantasai), who was in the audience, wrote it into the specification. [Detailed story here](https://rachelandrew.co.uk/archives/2015/11/03/three-years-with-css-grid-layout/).

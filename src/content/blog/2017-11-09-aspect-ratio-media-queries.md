@@ -9,8 +9,6 @@ tags:
 title: Practical uses for the aspect-ratio media query
 ---
 
-import Img4w from "@/components/Img4w.astro";
-
 Back in 2016, during my first ever conference talk (albeit a sort of lightning talk) at [CSSConf.Asia 2016](https://2016.cssconf.asia/), I said that “I just like to CSS.” I wasn't lying, CSS is really my hobby. And for most of 2017, I've been ‘collecting’ interesting layouts I come across and trying to build them on the web.
 
 I've developed an opinion (methodology? system? concept? English is so hard...) on building layouts on the web over the years. Unlike most of my web developer heroes, by the time I was elbow-deep in web development, responsive web design was the norm. In fact, I've only ever built one fixed width layout in my career. And because of this, I don't think static.
@@ -23,7 +21,12 @@ Designing layouts on the web requires interpolative thinking, on multiple levels
 
 While preparing the talks for my [Southeast Asia CSS roadtrip](/blog/talking-about-talking-css/), I built a number of layout demos. One of my favourites is based off the following design from [The Yellow Issue](http://kiyoshi.de/the-yellow-issue) by [Kiyoshi Stelzner](http://kiyoshi.de/):
 
-<Img4w fileName="posts/aspect-ratio/yellow" fileType="jpg" alt="The Yellow Issue" />
+<img
+  src="/images/posts/aspect-ratio/yellow-640.jpg"
+  srcset="/images/posts/aspect-ratio/yellow-480.jpg 480w, /images/posts/aspect-ratio/yellow-640.jpg 640w, /images/posts/aspect-ratio/yellow-960.jpg 960w, /images/posts/aspect-ratio/yellow-1280.jpg 1280w"
+  sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+  alt="The Yellow Issue"
+/>
 
 This layout works nicely in a landscape orientation on the web, but as the viewport narrowed, things started to break down. But that's what media queries were for, right? But instead of regular old width-based media queries, I tried the aspect-ratio media query instead. Because I was sizing my grid with flexible units, relative proportions were important.
 
@@ -56,7 +59,12 @@ But Dieter Rams is legit German, and his work at Braun is pretty iconic, IMHO. S
 
 <figure>
   <figcaption>Braun HiFi studio Anlagen regie 501 poster</figcaption>
-  <Img4w fileName="posts/aspect-ratio/anlagen" fileType="jpg" alt="Braun HiFi studio Anlagen" />
+  <img
+    src="/images/posts/aspect-ratio/anlagen-640.jpg"
+    srcset="/images/posts/aspect-ratio/anlagen-480.jpg 480w, /images/posts/aspect-ratio/anlagen-640.jpg 640w, /images/posts/aspect-ratio/anlagen-960.jpg 960w, /images/posts/aspect-ratio/anlagen-1280.jpg 1280w"
+    sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+    alt="Braun HiFi studio Anlagen"
+  />
 </figure>
 
 <p
@@ -76,9 +84,10 @@ But Dieter Rams is legit German, and his work at Braun is pretty iconic, IMHO. S
 
 <figure>
   <figcaption>Braun HiFi Steuergerät audio 300 poster</figcaption>
-  <Img4w
-    fileName="posts/aspect-ratio/steuergerat"
-    fileType="jpg"
+  <img
+    src="/images/posts/aspect-ratio/steuergerat-640.jpg"
+    srcset="/images/posts/aspect-ratio/steuergerat-480.jpg 480w, /images/posts/aspect-ratio/steuergerat-640.jpg 640w, /images/posts/aspect-ratio/steuergerat-960.jpg 960w, /images/posts/aspect-ratio/steuergerat-1280.jpg 1280w"
+    sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
     alt="Braun HiFi Steuergerät audio 300"
   />
 </figure>
@@ -119,7 +128,7 @@ With `object-fit`, I could make the images fill up the entire grid area they wer
 
 This is my latest quotable CSS quote. I've come to the conclusion that CSS is ultimately a holistic technology, in that, even though you can use properties in isolation, the full power of CSS shines through when used in combination.
 
-<Img4w fileName="posts/aspect-ratio/team-layout" fileType="png" alt="Team Layout" />
+<img src="/images/posts/aspect-ratio/team-layout-640.png" srcset="/images/posts/aspect-ratio/team-layout-480.png 480w, /images/posts/aspect-ratio/team-layout-640.png 640w, /images/posts/aspect-ratio/team-layout-960.png 960w, /images/posts/aspect-ratio/team-layout-1280.png 1280w" sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px" alt="Team Layout" />
 
 Sure, doing layout on the web usually starts off with using the `display` property. But we definitely use a whole suite of properties that number more than players on a basketball team. I call the above, Team Layout, and it isn't even an exhaustive list of layout-related properties.
 

@@ -1,7 +1,6 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Img4w from "@/components/Img4w.astro";
 import { GITHUB_URL } from "@/consts";
 import "@/styles/pages.css";
 import projects from "@/data/projects.json" assert { type: "json" };
@@ -118,7 +117,12 @@ const title = "Work";
 
     <div class="projects">
       <a class="no-underline" href={`${GITHUB_URL}/demos`}>
-        <Img4w fileName="yoshi" fileType="png" alt="Yoshi's island remix" />
+        <img
+          src="/images/yoshi-640.png"
+          srcset="/images/yoshi-480.png 480w, /images/yoshi-640.png 640w, /images/yoshi-960.png 960w, /images/yoshi-1280.png 1280w"
+          sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+          alt="Yoshi's island remix"
+        />
         <h2>The land of random demos</h2>
       </a>
     </div>

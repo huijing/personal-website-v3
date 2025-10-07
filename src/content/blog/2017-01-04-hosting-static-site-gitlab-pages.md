@@ -6,8 +6,6 @@ tags:
 title: Hosting a Jekyll site on GitLab Pages
 ---
 
-import Img4w from "@/components/Img4w.astro";
-
 I've always hosted my static site projects on [GitHub Pages](https://pages.github.com/) and honestly, it's been great. Setup takes no time (maybe because I've done it so many times before), especially since GitHub [simplified the publishing process](https://github.com/blog/2228-simpler-github-pages-publishing). But because <span class="emoji" role="img" tabindex="0" aria-label="musical notes">&#x1F3B6;</span> I'm just a sucker for pain <span class="emoji" role="img" tabindex="0" aria-label="musical notes">&#x1F3B6;</span>(_insert music to Sucker for Pain from the Suicide Squad OST_ ), I decided to give [GitLab Pages](https://pages.gitlab.io/) a try instead.
 
 It's not that GitLab Pages is bad, far from it. But doing anything for the first time (even setting up GitHub Pages) will be a little bit tricky. Also, GitLab Pages is slightly harder to setup but provides much more flexibility, so weigh your pros and cons. [Jekyll](https://jekyllrb.com/) is my static site generator of choice.
@@ -22,7 +20,12 @@ Similar to GitHub Pages, GitLab Pages also allows you to have a single user site
 
 2.  Create a `.gitlab-ci.yml` file. This file controls the build process for your site. Every push to the Git repository will trigger the runner and you can check its progress on the `/pipelines` page of your project.
 
-    <Img4w fileName="posts/gitlab-pages/pipeline" fileType="png" alt="Pipeline option on toolbar" />
+    <img
+      src="/images/posts/gitlab-pages/pipeline-640.png"
+      srcset="/images/posts/gitlab-pages/pipeline-480.png 480w, /images/posts/gitlab-pages/pipeline-640.png 640w, /images/posts/gitlab-pages/pipeline-960.png 960w, /images/posts/gitlab-pages/pipeline-1280.png 1280w"
+      sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+      alt="Pipeline option on toolbar"
+    />
 
     _Note: I wish I had found this page when I was setting up, but I somehow missed it. So I'm highlighting it to you now. Refer to [Build Jekyll with Bundler](https://gitlab.com/jekyll-themes/default-bundler) if you're using Jekyll as your static site generator._
 

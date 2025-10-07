@@ -8,9 +8,6 @@ tags:
 title: Musings on speaking at conferences
 ---
 
-import Img4w from "@/components/Img4w.astro";
-import Img2x from "@/components/Img2x.astro";
-
 _Disclaimer, this post may contain views that may or may not piss some people off. But they are my views, based on my personal experiences, and this is my blog so I'll write what I feel like. Also, post is long._
 
 I have a friend, a close friend, called [Aysha](https://aysha.me/). She is an awesome human being, and we have pretty similar personalities and viewpoints (which is probably why we get along so well). She's also a fellow Malaysian, who happens to be a front-end developer as well as a speaker at web conferences, checking the same boxes as myself.
@@ -19,7 +16,12 @@ We recently got together after our respective speaking stints, mine being [the r
 
 ## A brief Geography lesson
 
-<Img4w fileName="posts/speaking/worldmap" fileType="png" alt="Southeast Asia on the world map" />
+<img
+  src="/images/posts/speaking/worldmap-640.png"
+  srcset="/images/posts/speaking/worldmap-480.png 480w, /images/posts/speaking/worldmap-640.png 640w, /images/posts/speaking/worldmap-960.png 960w, /images/posts/speaking/worldmap-1280.png 1280w"
+  sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+  alt="Southeast Asia on the world map"
+/>
 
 Although I'd like to believe that most people know where Southeast Asia is, as my coach always tells our team, hope for the best but prepare for the worst. So that's us marked on the map above, relative to wherever else you may be on this planet.
 
@@ -94,7 +96,11 @@ This short film by [Neel Kolhatkar](https://twitter.com/NeelKolhatkar), though n
 
 [Doom](https://www.gog.com/game/the_ultimate_doom) describes the different playing fields exceptionally well. Depending on which characteristics you possess, your difficulty level just creeps up higher and higher. If you're a woman in tech, you probably start off at “Ultra-violence” already. Sorry, sad fact of life.
 
-<Img2x fileName="posts/speaking/doom" fileType="png" alt="Doom skill levels" />
+<img
+  src="/images/posts/speaking/doom.png"
+  srcset="/images/posts/speaking/doom@2x.png 2x"
+  alt="Doom skill levels"
+/>
 
 <p class="no-margin">
   Michelle Obama makes some excellent points here when asked if she thought women in general have

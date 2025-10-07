@@ -6,8 +6,6 @@ tags:
 title: Life lessons from the sport I love
 ---
 
-import Video from "@/components/Video.astro";
-
 People who got to know me within the past two years may see me as that nerd who loves to code. Fellow developers may think of me as that person with an irrational love for CSS. But for most of my life (even now, to be honest), I was "that basketball player".
 
 I did not grow up in an athletic household. Nobody really did sports seriously. We were a typical Asian family, with typical Asian values of academic excellence. Throwing a ball around, albeit with high levels of skill and precision, didn't net you much in the achievements department.
@@ -61,7 +59,12 @@ That was, how shall we put it, an interesting experience. The post players reali
 
 <figure>
   <figcaption>This is much harder than it looks. For both parties.</figcaption>
-  <Video fileName="pass" />
+  <video controls autoplay muted loop>
+    <source src="/videos/pass.mp4" type="video/mp4" />
+    Sorry, your browser doesn't support embedded videos. Sorry, your browser doesn't support embedded
+    videos, but don't worry, you can <a href="/videos/pass.mp4">download it</a>and watch it with your
+    favourite video player!
+  </video>
 </figure>
 
 If you don't care for basketball at all, that probably didn't make any sense to you whatsoever. But the point is, when conflicts arise, try to put yourself in that other person's shoes. They have their struggles on the other side as well. Could you do what they are doing right now?

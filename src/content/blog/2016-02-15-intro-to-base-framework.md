@@ -7,9 +7,6 @@ tags:
 title: Introduction to the Base Framework
 ---
 
-import Img4w from "@/components/Img4w.astro";
-import Img2x from "@/components/Img2x.astro";
-
 _Update: The Kohana framework has been deprecated and the last stable version was 3.3.6 released on 25 July 2006._
 
 I had previously only ever had experience with Drupal, which isn't an MVC (Model-View-Controller) framework. I had heard of MVC frameworks and even googled what it meant, but somehow it just did not click. After more than 2 years since my first professional start in web development, I'm more certain than ever that if I don't build something for real, my brain just refuses to learn. <span class="kaomoji">¯\\\_(ツ)\_/¯</span>
@@ -22,11 +19,20 @@ The framework is based on Kohana, which is an MVC (Model-View-Controller) framew
 
 A static site doesn't really use any routing (I think), so I hadn't been exposed to the intricacies of routing up till that point. Imagine my surprise when I realised that typing the URL of the page I just created gave me this wonderful error screen.
 
-<Img4w fileName="posts/base-framework/error" fileType="jpeg" alt="Controller not found error" />
+<img
+  src="/images/posts/base-framework/error-640.jpeg"
+  srcset="/images/posts/base-framework/error-480.jpeg 480w, /images/posts/base-framework/error-640.jpeg 640w, /images/posts/base-framework/error-960.jpeg 960w, /images/posts/base-framework/error-1280.jpeg 1280w"
+  sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+  alt="Controller not found error"
+/>
 
 My boss gave me a look reminiscent of one a renowned and powerful Jedi master gave his protégé.
 
-<Img2x fileName="posts/base-framework/padawan" fileType="jpg" alt="Much to learn you still have" />
+<img
+  src="/images/posts/base-framework/padawan.jpg"
+  srcset="/images/posts/base-framework/padawan@2x.jpg 2x"
+  alt="Much to learn you still have"
+/>
 
 My role was mainly front-end development, which meant that anything related to the Views was my domain. But that didn't mean I could get away with not understanding how the framework worked in totality. As I was wrapping my head around it, I figured I'd document my thoughts into some official-looking front-end developers documentation, which I am re-purposing into this blog post. _#whynot_
 

@@ -11,7 +11,6 @@ title: "Fun with CSS: NBA edition"
 
 import Img4w from "@/components/Img4w.astro";
 import Img2x from "@/components/Img2x.astro";
-import Video from "@/components/Video.astro";
 
 This is my second "Fun with CSS" post, maybe this should become a series. But anyway, I had watched the video of [Ethan Marcotte](http://ethanmarcotte.com/)'s talk at [An Event Apart](http://aneventapart.com/) called [Laziness in the Time of Responsive Design](https://vimeo.com/165061923), and was fascinated by his progressive enhancement demo. It starts at around the 48 minute mark where he starts covering animation.
 
@@ -310,7 +309,14 @@ If the browser supports animations, the script will add a `has-animations` class
 
 <figure>
   <figcaption>End result should look like this.</figcaption>
-  <Video fileName="animation" />
+  <video controls autoplay muted="true" loop>
+    <source src="/videos/animation.mp4" type="video/mp4" />
+    <p>
+      Sorry, your browser doesn’t support embedded videos. Sorry, your browser doesn’t support
+      embedded videos, but don’t worry, you can <a href="/videos/animation.mp4">download it</a>and
+      watch it with your favourite video player!
+    </p>
+  </video>
 </figure>
 
 From a layout perspective, the buttons section becomes positioned directly beneath the options section. The key to this animation is the `z-index` property. What we want is that when nothing is selected, all 4 options are clickable and sitting on the topmost layer, while the buttons hidden away below them. When something is selected, 2 classes are triggered. The parent wrappers for options and buttons both get an `is-active` class and the selected option gets an `is-selected` class.

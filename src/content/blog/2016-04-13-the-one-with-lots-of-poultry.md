@@ -10,12 +10,14 @@ tags:
 title: The one with lots of poultry
 ---
 
-import Img4w from "@/components/Img4w.astro";
-import Video from "@/components/Video.astro";
-
 Most of the projects I worked on in 2015 were either Facebook applications (yes, somehow those are still being made) or based on the [Base Framework](/blog/intro-to-base-framework/). I didn't think there'd be much opportunity for me to work with Drupal for client sites moving forward but I was wrong. After almost 6 Drupal-free months, we got a client request to build their website in Drupal. Guess who was put in charge of that project? <span class="emoji">&#x1F60E;</span>
 
-<Img4w fileName="posts/sadia/sadia" fileType="jpg" alt="Sadia chicken" />
+<img
+  src="/images/posts/sadia/sadia-640.jpg"
+  srcset="/images/posts/sadia/sadia-480.jpg 480w, /images/posts/sadia/sadia-640.jpg 640w, /images/posts/sadia/sadia-960.jpg 960w, /images/posts/sadia/sadia-1280.jpg 1280w"
+  sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+  alt="Sadia chicken"
+/>
 
 Sadia is an international food company which specialises in chilled and frozen foods. We were engaged to create regional websites for Sadia Singapore and Sadia Hong Kong. On the surface this project didn't seem overly-complicated. Each site would have country-specific domain names.
 
@@ -65,7 +67,12 @@ I know it's jQuery, but Drupal comes with it, so it's not like I can remove it. 
 
 <figure>
   <figcaption>Designers seem to like this.</figcaption>
-  <Video fileName="sadia-accordion" />
+  <video controls autoplay muted loop>
+    <source src="/videos/sadia-accordion.mp4" type="video/mp4" />
+    Sorry, your browser doesn't support embedded videos. Sorry, your browser doesn't support embedded
+    videos, but don't worry, you can <a href="/videos/sadia-accordion.mp4">download it</a>and watch it
+    with your favourite video player!
+  </video>
 </figure>
 
 [Better Exposed Filters](https://www.drupal.org/project/better_exposed_filters) is one of those modules I wish was built into Views by default, because sometimes I do want fancier options for my filter UI, and this allows me to use radio buttons or checkboxes instead of the default select dropdown.
@@ -85,7 +92,12 @@ And if you want to have country flags next to your language switcher, the module
 
 <figure>
   <figcaption>Language switching refreshes the page.</figcaption>
-  <Video fileName="sadia-lang" />
+  <video controls autoplay muted loop>
+    <source src="/videos/sadia-lang.mp4" type="video/mp4" />
+    Sorry, your browser doesn't support embedded videos. Sorry, your browser doesn't support embedded
+    videos, but don't worry, you can <a href="/videos/sadia-lang.mp4">download it</a>and watch it with
+    your favourite video player!
+  </video>
 </figure>
 
 ## Wrapping up

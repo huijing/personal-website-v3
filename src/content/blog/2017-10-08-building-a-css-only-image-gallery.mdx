@@ -10,7 +10,6 @@ title: Building a CSS-only image gallery (with fallbacks)
 ---
 
 import Img2x from "@/components/Img2x.astro";
-import Video from "@/components/Video.astro";
 
 _This article has been translated to Japanese on [SeleQt](https://www.seleqt.net/programming/bulding-a-css-only-image-gallery-with-fallbacks/)._
 
@@ -326,7 +325,12 @@ The end result looked something like the video below (I'm not good at doing scre
 
 <figure>
   <figcaption>Sorry, this is a terrible screen recording</figcaption>
-  <Video fileName="css-slider" />
+  <video controls autoplay muted loop>
+    <source src="/videos/css-slider.mp4" type="video/mp4" />
+    Sorry, your browser doesn't support embedded videos. Sorry, your browser doesn't support embedded
+    videos, but don't worry, you can <a href="/videos/css-slider.mp4">download it</a>and watch it with
+    your favourite video player!
+  </video>
 </figure>
 
 There may be instances where the component you're trying to build works incrementally for the CSS properties required. In that case, you may have multiple feature queries, providing an even more nuanced level of feature support.

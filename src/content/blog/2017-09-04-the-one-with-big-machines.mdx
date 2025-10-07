@@ -12,7 +12,6 @@ title: The one with big machines
 
 import Img4w from "@/components/Img4w.astro";
 import Img2x from "@/components/Img2x.astro";
-import Video from "@/components/Video.astro";
 
 It's time for my annual Drupal project again. I had actually got my start in web development with Drupal and although I've left agency life, it seems that I'd still end up with at least one Drupal project a year. Largely because when someone needs a CMS, I tend to lean toward Drupal, it's like Linus and his blanket <span class="emoji" role="img" tabindex="0" aria-label="person shrugging">&#x1F937;</span>.
 
@@ -69,14 +68,24 @@ We put in some little animations to spruce things up a bit, with this particular
 
 <figure>
   <figcaption>Flippy flippy.</figcaption>
-  <Video fileName="flipper" />
+  <video controls="" autoplay="" muted="" loop="">
+    <source src="/videos/flipper.mp4" type="video/mp4" />
+    Sorry, your browser doesn't support embedded videos. Sorry, your browser doesn't support embedded
+    videos, but don't worry, you can <a href="/videos/flipper.mp4">download it</a>and watch it with your
+    favourite video player!
+  </video>
 </figure>
 
 There was also liberal use of viewport units throughout the entire theme. The quote marks on the About page are pseudo-elements placed behind the quote text, and they adjust themselves because, you know, media queries. And if you play the short video below, you'll notice use of the `picture` element where two different iamges are used for the banner depending on the screen width.
 
 <figure>
   <figcaption>Gotta have a good quote.</figcaption>
-  <Video fileName="quotemarks" />
+  <video controls autoplay muted loop>
+    <source src="/videos/quotemarks.mp4" type="video/mp4" />
+    Sorry, your browser doesn't support embedded videos. Sorry, your browser doesn't support embedded
+    videos, but don't worry, you can <a href="/videos/quotemarks.mp4">download it</a>and watch it with
+    your favourite video player!
+  </video>
 </figure>
 
 ## Page performance
