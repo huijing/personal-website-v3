@@ -8,8 +8,6 @@ tags:
 title: Thoughts about organising Talk.CSS
 ---
 
-import Img2x from "@/components/Img2x.astro";
-
 As I write this, we are on the cusp of our third Talk.CSS meet-up. Talk.CSS is Singapore's first CSS-centric meet-up and was born on a random Wednesday afternoon (October 26, 2015 to be exact) in our local digital watering hole, the [KopiJS](http://kopijs.org/) slack channel.
 
 Within the short span of four hours, we had a GitHub organisation, a Meetup.com account, a logo and a venue for the inaugural Talk.CSS session. Anyone who knows me knows that I love CSS. Love with infinite <span class="emoji" role="img" tabindex="0" aria-label="red heart">&#x2764;&#xFE0F;</span><span class="emoji" role="img" tabindex="0" aria-label="red heart">&#x2764;&#xFE0F;</span><span class="emoji" role="img" tabindex="0" aria-label="red heart">&#x2764;&#xFE0F;</span>s. So when Chris Lienert asked if I wanted to be a co-organiser for the first local CSS-centric meet-up, I said yes without a second thought.
@@ -56,11 +54,19 @@ For people who don't care for gardening, Gardenia plants have these glossy green
 <div class="figure-wrapper">
   <figure class="multiple">
     <figcaption>This be a Gardenia plant</figcaption>
-    <Img2x fileName="posts/organiser/gardenia" fileType="jpg" alt="Gardenias" />
+    <img
+      src="/images/posts/organiser/gardenia.jpg"
+      srcset="/images/posts/organiser/gardenia@2x.jpg 2x"
+      alt="Gardenias"
+    />
   </figure>
   <figure class="multiple">
     <figcaption>And this be Cacti</figcaption>
-    <Img2x fileName="posts/organiser/cactus" fileType="jpg" alt="Cacti" />
+    <img
+      src="/images/posts/organiser/cactus.jpg"
+      srcset="/images/posts/organiser/cactus@2x.jpg 2x"
+      alt="Cacti"
+    />
   </figure>
 </div>
 
@@ -87,7 +93,11 @@ In theatre, an understudy is the actor who learns all the lines, dances and song
 
 <figure>
   <figcaption>This is not the swing you're looking for</figcaption>
-  <Img2x fileName="posts/organiser/swing" fileType="jpeg" alt="Random swing" />
+  <img
+    src="/images/posts/organiser/swing.jpeg"
+    srcset="/images/posts/organiser/swing@2x.jpeg 2x"
+    alt="Random swing"
+  />
 </figure>
 
 Things may not go according to plan, and your speakers may be sick or unavailable. I like to have at least a couple topics in my back pocket to do an impromptu talk to fill in the extra time, so the attendees aren't being short-changed. Or have some other contingency plan, like maybe a quiz or a mini-hack session or something.
@@ -102,7 +112,6 @@ Besides, preparing and giving a talk is actually a great way to gain a better un
 
 ## Useful links
 
-{/* prettier-ignore */}
 <ul>
   <li class="no-margin"><a href="https://engineers.sg/">Engineers.SG</a> - videos of all the tech meet-ups in Singapore</li>
   <li class="no-margin"><a href="https://web.archive.org/web/20190716050141/http://webuild.sg/">webuild.sg</a> - curated list of meet-ups and open-source projects in Singapore</li>

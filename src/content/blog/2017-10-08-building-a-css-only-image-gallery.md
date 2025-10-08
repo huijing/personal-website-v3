@@ -9,8 +9,6 @@ tags:
 title: Building a CSS-only image gallery (with fallbacks)
 ---
 
-import Img2x from "@/components/Img2x.astro";
-
 _This article has been translated to Japanese on [SeleQt](https://www.seleqt.net/programming/bulding-a-css-only-image-gallery-with-fallbacks/)._
 
 Sometimes, we get handed a project in which we have almost complete creative control and free-reign to do pretty much whatever. I consider myself pretty lucky to have had 2 such projects since the start of my web development career. The latest one being the website for [Wismut Labs](https://www.wismutlabs.com).
@@ -29,7 +27,8 @@ First, let's break down the requirements for an image gallery with a slider. We'
 
 Keep in mind that this is just one type of image gallery with slider, and there are a myriad of behaviours for such a component, which will require different techniques to build. But for the one I just described, the relevant CSS properties to achieve the desired behaviour is as follows:
 
-{/* prettier-ignore */}
+{/_ prettier-ignore _/}
+
 <ul>
   <li class="no-margin"><a href="https://www.w3.org/TR/css-flexbox-1/">Flexbox</a></li>
   <li class="no-margin"><a href="https://www.w3.org/TR/css-values-3/#viewport-relative-lengths">Viewport-percentage units</a></li>
@@ -46,7 +45,7 @@ One thing I wanted to experiment with was to keep the aspect-ratio true to the o
 
 <figure>
   <figcaption>This is Chinese supermodel, Liu Wen, who features in this demo</figcaption>
-  <Img2x fileName="posts/responsive-slider/liuwen" fileType="jpg" alt="Liu Wen" />
+  <img src="/images/posts/responsive-slider/liuwen.jpg" srcset="/images/posts/responsive-slider/liuwen@2x.jpg 2x" alt="Liu Wen" />
 </figure>
 
 <p class="no-margin">
@@ -180,23 +179,7 @@ The keyframes are very simple (I did not bother with any elaborate timing functi
 
 The end result can be seen in the CodePen below. Not too much code, and even works in IE11, because the `:target` selector has been supported since IE9. It's just that IE11 doesn't support `object-fit` so the thumbnail aspect ratio is very skewed.
 
-<p
-  data-height="300"
-  data-theme-id="9162"
-  data-slug-hash="GvNLJm"
-  data-default-tab="css,result"
-  data-user="huijing"
-  data-embed-version="2"
-  data-pen-title="Responsive CSS vertical slider with thumbnails"
-  class="codepen"
->
-  See the Pen{" "}
-  <a href="https://codepen.io/huijing/pen/GvNLJm/">
-    Responsive CSS vertical slider with thumbnails
-  </a>{" "}
-  by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on{" "}
-  <a href="https://codepen.io">CodePen</a>.
-</p>
+<p data-height="300" data-theme-id="9162" data-slug-hash="GvNLJm" data-default-tab="css,result" data-user="huijing" data-embed-version="2" data-pen-title="Responsive CSS vertical slider with thumbnails" class="codepen">See the Pen <a href="https://codepen.io/huijing/pen/GvNLJm/">Responsive CSS vertical slider with thumbnails</a> by Chen Hui Jing (<a href="https://codepen.io/huijing">@huijing</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 
 Which leads to the next relevant point of discussion: **feature queries**.
 

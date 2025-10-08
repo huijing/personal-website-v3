@@ -11,8 +11,6 @@ tags:
 title: The one in a minimalist hacker chic
 ---
 
-import Img2x from "@/components/Img2x.astro";
-
 I have an Argentinian friend. Not an acquaintance. A proper good friend. This is highly improbable, at least in my mind. Argentina is about 15,690km away from Singapore. In a different continent, across a large ocean, with a different culture. But by a random twist of fate, and an honest mistake, I gained a friend from halfway around the world, who is also a developer.
 
 So my friend runs [Epyphite](https://web.archive.org/web/20150506141454/http://www.epyphite.com/), a technology company focused on Data Science and Machine Learning. He's a great software engineer, plus a really good guy, and he doesn't like front-end web development very much. Which works out just fine because I love front-end web development. Long story short, he slapped together a website for Epyphite, because it's necessary to have a web presence, then got on with aspects of his work that he found more palatable.
@@ -93,11 +91,11 @@ According to Wikipedia, an epiphyte is a plant that grows harmlessly upon anothe
 <div class="figure-wrapper">
   <figure class="multiple">
     <figcaption>Original stock photo</figcaption>
-    <Img2x fileName="posts/epyphite/stock" fileType="jpg" />
+    <img src="/images/posts/epyphite/stock.jpg" srcset="/images/posts/epyphite/stock@2x.jpg 2x" />
   </figure>
   <figure class="multiple">
     <figcaption>Magic of Photoshop</figcaption>
-    <Img2x fileName="posts/epyphite/manip" fileType="jpg" />
+    <img src="/images/posts/epyphite/manip.jpg" srcset="/images/posts/epyphite/manip@2x.jpg 2x" />
   </figure>
 </div>
 
@@ -113,7 +111,7 @@ The original layout was, how shall we put this, rather repetitive. Each piece of
 
 <figure>
   <figcaption>I spy a pattern all the way down</figcaption>
-  <Img2x fileName="posts/epyphite/pattern" fileType="png" />
+  <img src="/images/posts/epyphite/pattern.png" srcset="/images/posts/epyphite/pattern@2x.png 2x" />
 </figure>
 
 The markup for the site was rewritten to minimise nesting and have a proper structural hierarchy. You can see the outline from the [Nu HTML Checker](https://validator.w3.org/nu/?showoutline=yes&doc=https%3A%2F%2Fwww.epyphite.com%2F), which I find kinda nifty. Following that, the entire layout and design would be fully handled by CSS.
@@ -128,7 +126,6 @@ A common approach using media queries to change the font size as you hit certain
 
 There have been a number of articles that show how fluid typography can be achieved with CSS.
 
-{/* prettier-ignore */}
 <ul>
   <li class="no-margin"><a href="http://nicewebtype.com/notes/2012/02/03/molten-leading-or-fluid-line-height/">Molten leading (or, fluid line-height)</a> by <a href="http://nicewebtype.com/">Tim Brown</a></li>
   <li class="no-margin"><a href="https://eduardoboucas.com/blog/2015/06/18/viewport-sized-typography-with-minimum-and-maximum-sizes.html">Viewport sized typography with minimum and maximum sizes</a> by <a href="https://eduardoboucas.com/">Eduardo Boucas</a></li>
@@ -160,7 +157,7 @@ Since we have flexbox in our toolbox, I wanted to do a layout that was quite the
 
 <figure>
   <figcaption>A diagram is probably easier to understand</figcaption>
-  <img src="/images/posts/epyphite/diagram.svg" />
+  <img src="/images/posts/epyphite/diagram.svg" style="max-height:17em" />
 </figure>
 
 It used to be a pain to this using a plethora of floats. Changing the markup structure wasn't a great idea either, the sections wouldn't stack nicely on a narrow screen. But now, we have flexbox, and life is different. With the `order` property, I could do get that pattern on a wide screen without messing up the source order.
@@ -168,11 +165,17 @@ It used to be a pain to this using a plethora of floats. Changing the markup str
 <div class="figure-wrapper">
   <figure class="multiple">
     <figcaption>Wide screen</figcaption>
-    <Img2x fileName="posts/epyphite/products-wide" fileType="png" />
+    <img
+      src="/images/posts/epyphite/products-wide.png"
+      srcset="/images/posts/epyphite/products-wide@2x.png 2x"
+    />
   </figure>
   <figure class="multiple">
     <figcaption>Narrow screen</figcaption>
-    <Img2x fileName="posts/epyphite/products-narrow" fileType="png" />
+    <img
+      src="/images/posts/epyphite/products-narrow.png"
+      srcset="/images/posts/epyphite/products-narrow@2x.png 2x"
+    />
   </figure>
 </div>
 

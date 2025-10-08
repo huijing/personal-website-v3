@@ -9,14 +9,12 @@ tags:
 title: "Drupal 101: Setting up basic i18n"
 ---
 
-import Img2x from "@/components/Img2x.astro";
-
 One of the best things about Drupal is its robust multilingual support. If you need to build a website that supports multiple languages, Drupal should definitely be an option to consider.
 
 <p class="no-margin">
   <strong>Required modules</strong>
 </p>
-{/* prettier-ignore */}
+
 <ul>
     <li class="no-margin">Locale <em>(core module)</em></li>
     <li class="no-margin">Content translation <em>(core module)</em></li>
@@ -69,11 +67,17 @@ One of the best things about Drupal is its robust multilingual support. If you n
 <div class="figure-wrapper">
   <figure class="multiple">
     <figcaption>Enable content translation</figcaption>
-    <Img2x fileName="posts/drupal-i18n/enable-content" fileType="jpg" alt="Layout 2" />
+    <img
+      src="/images/posts/drupal-i18n/enable-content.jpg"
+      srcset="/images/posts/drupal-i18n/enable-content@2x.jpg 2x"
+    />
   </figure>
   <figure class="multiple">
     <figcaption>Additional translate tab</figcaption>
-    <Img2x fileName="posts/drupal-i18n/trns-content" fileType="jpg" alt="Layout 2" />
+    <img
+      src="/images/posts/drupal-i18n/trns-content.jpg"
+      srcset="/images/posts/drupal-i18n/trns-content@2x.jpg 2x"
+    />
   </figure>
 </div>
 
@@ -168,7 +172,6 @@ This post has merely skimmed the surface of building a multi-lingual site with D
 
 ## Further reading
 
-{/* prettier-ignore */}
 <ul>
   <li class="no-margin"><a href="http://evolvingweb.ca/story/drupal-7-multilingual-whats-new-i18n">Drupal 7 Multilingual: What’s new in i18n</a></li>
   <li><a href="https://www.drupal.org/resource-guides/configuring-multilingual-site">Resource Guide: Configuring a Multilingual Site</a></li>

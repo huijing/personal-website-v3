@@ -8,8 +8,6 @@ tags:
 title: Gulp, Jekyll and GitHub (pages)
 ---
 
-import Img2x from "@/components/Img2x.astro";
-
 After more than a year with Jekyll, I've settled into a workflow that allows me to spin up and develop new sites really quickly with the help of gulp. Normally my sites are project pages, because GitHub only allows one user/organisation page but unlimited project pages, but the setup process only differs slightly for the two. An additional step is needed to create an orphan `gh-pages` branch for project pages.
 
 As an aside, I couldn't help but think of Snap, Crackle and Pop when writing the title for this post.
@@ -56,7 +54,11 @@ This example will use [SingaporeCSS](https://github.com/SingaporeCSS) as the org
 5. Navigate to *http://singaporecss.github.io* and check the page. Whatever was put in the `index.html` file should load up in the browser.
    <figure>
      <figcaption>Something like this.</figcaption>
-     <Img2x fileName="posts/talk-css/initial-commit" fileType="jpg" alt="Test index.html file" />
+     <img
+       src="/images/posts/talk-css/initial-commit.jpg"
+       srcset="/images/posts/talk-css/initial-commit@2x.jpg 2x"
+       alt="Test index.html file"
+     />
    </figure>
 
 Now that things are linked up correctly, it's time to get building. The test `index.html` can be nuked now.

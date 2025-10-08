@@ -10,8 +10,6 @@ tags:
 title: Basic grid layout with fallbacks using feature queries
 ---
 
-import Img2x from "@/components/Img2x.astro";
-
 _This article has been translated to Japanese on [SeleQt](https://www.seleqt.net/programming/basic-grid-layout-with-fallbacks-using-feature-queries/)._
 
 I've been using CSS grid (which henceforth will be referred to as Grid) for quite a bit now, and although I often talk about how we can use grid to make all kinds of creative layouts, I'm fully aware that a basic grid is still a design pattern that is very much in demand on the web.
@@ -20,7 +18,6 @@ Many conversations with fellow developers about using Grid involve the dreaded �
 
 This post got too long again <span class="emoji" role="img" tabindex="0" aria-label="relieved face">&#x1F60C;</span>, so here's a table of contents, if there's a particular section you're interested in. And [source code](https://github.com/huijing/demos/tree/master/grids-basic) for the [demo](https://huijing.github.io/demos/grids-basic/) is available on GitHub.
 
-{/* prettier-ignore */}
 <h3 class="no-margin">TL:DR (skip those which bore you)</h3>
 <ul>
     <li class="no-margin"><a href="#falling-back-with-grace">Falling back with grace</a></li>
@@ -413,7 +410,10 @@ Why not use horizontal and vertical axis? Because these physical directions may 
   </figure>
   <figure class="multiple" style="width:33%;">
     <figcaption>horizontal-tb (rtl)</figcaption>
-    <Img2x fileName="posts/grid-basic/htbrl" fileType="png" />
+    <img
+      src="/images/posts/grid-basic/htbrl.png"
+      srcset="/images/posts/grid-basic/htbrl@2x.png 2x"
+    />
   </figure>
 </div>
 
@@ -424,11 +424,11 @@ Why not use horizontal and vertical axis? Because these physical directions may 
   </figure>
   <figure class="multiple" style="width:33%;">
     <figcaption>vertical-rl</figcaption>
-    <Img2x fileName="posts/grid-basic/vrl" fileType="png" />
+    <img src="/images/posts/grid-basic/vrl.png" srcset="/images/posts/grid-basic/vrl@2x.png 2x" />
   </figure>
   <figure class="multiple" style="width:33%;">
     <figcaption>vertical-lr</figcaption>
-    <Img2x fileName="posts/grid-basic/vlr" fileType="png" />
+    <img src="/images/posts/grid-basic/vlr.png" srcset="/images/posts/grid-basic/vlr@2x.png 2x" />
   </figure>
 </div>
 
@@ -632,7 +632,6 @@ Until the next one! <span class="emoji" role="img" tabindex="0" aria-label="hugg
 
 ## Useful resources
 
-{/* prettier-ignore */}
 <ul>
   <li class="no-margin"><a href="https://drafts.csswg.org/css-conditional-3/#at-supports">Feature queries: the ‘@supports’ rule</a></li>
   <li class="no-margin"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/%40supports">CSS @supports on MDN</a></li>

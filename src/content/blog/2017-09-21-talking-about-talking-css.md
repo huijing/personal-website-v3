@@ -8,8 +8,6 @@ tags:
 title: Talking about talking CSS
 ---
 
-import Img2x from "@/components/Img2x.astro";
-
 _This is almost a live recap of my tour of South-east Asia (and Hong Kong) this month (September 2017) and will be updated as things chug along. There's also a long introductory passage about public speaking, skip if you're not interested._
 
 ### 15 days, 7 talks, 5 countries
@@ -93,9 +91,9 @@ Jeremy also suggested to do this recap of the Roadshow experience and so I'm wri
     “You know it's big business when Huijing Chen styles her hair and says no hokkien.” (photo
     credit: Elisha)
   </figcaption>
-  <Img2x
-    fileName="posts/talking-css/moz-sin"
-    fileType="jpg"
+  <img
+    src="/images/posts/talking-css/moz-sin.jpg"
+    srcset="/images/posts/talking-css/moz-sin@2x.jpg 2x"
     alt="Speaking at Singapore stop of Mozilla Developer Roadshow"
   />
 </figure>
@@ -284,9 +282,9 @@ One of the best parts of this roadshow is the opportunity to meet really interes
 
 <figure>
   <figcaption>Sketchnotes for the win!</figcaption>
-  <Img2x
-    fileName="posts/talking-css/sketchnotes"
-    fileType="jpg"
+  <img
+    src="/images/posts/talking-css/sketchnotes.jpg"
+    srcset="/images/posts/talking-css/sketchnotes@2x.jpg 2x"
     alt="Jason Li's sketchnotes of the event"
   />
 </figure>
@@ -311,9 +309,9 @@ It wasn't the rehearsed, down to the minute, polished version of the talk. I jus
 
 <figure>
   <figcaption>Regardless of setting, the hands gotta flail</figcaption>
-  <Img2x
-    fileName="posts/talking-css/harbourfront"
-    fileType="jpg"
+  <img
+    src="/images/posts/talking-css/harbourfront.jpg"
+    srcset="/images/posts/talking-css/harbourfront@2x.jpg 2x"
     alt="Unplugged about web layouts"
   />
 </figure>

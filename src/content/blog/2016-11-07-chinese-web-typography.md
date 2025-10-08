@@ -10,8 +10,6 @@ tags:
 title: Chinese language on the web
 ---
 
-import Img2x from "@/components/Img2x.astro";
-
 If you hadn't realised by now, I am Chinese. I was born in Malaysia, then studied and now work in Singapore. Like many others with similar backgrounds, we speak both English and Chinese with native fluency, plus a smattering of other languages and dialects here and there.
 
 A couple of months back, I went down a rabbit hole while researching my article on CSS display and discovered the HTML ruby element. There was also an article by [Ahmad Shadeed](https://ishadeed.com/) on [CSS Writing Mode](https://ishadeed.com/article/css-writing-mode/) that was making its rounds on the interwebs. And this got me thinking about Chinese typography on the web.
@@ -20,7 +18,6 @@ Again, this is one of those posts that grew from a cute little cub into a full f
 
 ## Table of contents
 
-{/* prettier-ignore */}
 <ul>
   <li>
     <a href="#some-background-and-history">Some background and history</a>
@@ -66,7 +63,6 @@ Again, this is one of those posts that grew from a cute little cub into a full f
   </li>
 </ul>
 
-{/* prettier-ignore */}
 <h2 id="some-background-and-history">Some background and history <small><a href="#research-triggered-brain-dump">(skip to next section)</a></small></h2>
 
 ### Writing systems
@@ -113,7 +109,6 @@ Interesting fact, the founder of my alma mater, 陈嘉庚 (Tan Kah Kee), first p
 
 The 19th and 20th centuries was a tumultuous time for China, and the aforementioned New Cultural Movement not only triggered a pivot in text layout, it also saw the introduction of simplified glyphs. 钱玄同 (Qian Xuantong), who was one of the key figures of the New Cultural Movement, played a pivotal role in this endeavour. As a result, we now have 2 "versions" of Chinese glyphs, simplified and traditional. The former used widely in China and Singapore, while the latter is commonly used in Taiwan, Hong Kong and somewhat in Malaysia.
 
-{/* prettier-ignore */}
 <h2 id="research-triggered-brain-dump">Research-triggered brain dump <small><a href="#chinese-fonts-offline-and-online">(skip to next section)</a></small></h2>
 
 As mentioned, I seem to be awfully fond of going down rabbit holes and often barely 20% of what I read and discover end up in the article. What started out as a brief foray into the history of Chinese writing ended up becoming a deep dive into how the world ended up the way it is. There are a lot of ideas that popped into my head during this process and I'm just going to dump them here. Feel free to skip forward (but <span class="emoji" role="img" tabindex="0" aria-label="face blowing a kiss">&#x1F618;</span> if you read through).
@@ -128,7 +123,7 @@ But why was that? Why didn't the Industrial Revolution happen in China, given th
 
 <figure>
   <figcaption>毕昇插图</figcaption>
-  <Img2x fileName="posts/zh-type/bisheng" fileType="jpg" />
+  <img src="/images/posts/zh-type/bisheng.jpg" srcset="/images/posts/zh-type/bisheng@2x.jpg 2x" />
 </figure>
 
 _FYI, printing was invented by 毕昇 (Bi Sheng) during the Song dynasty. Not much is known about the details of his life, but it seemed he worked at a print shop. It was there he created the first movable type system using clay types._
@@ -143,14 +138,16 @@ Traditionally, Chinese was written in its classical form, known as 文言文 (po
 
 <figure>
   <figcaption>戏本子</figcaption>
-  <Img2x fileName="posts/zh-type/punctuation" fileType="jpg" />
+  <img
+    src="/images/posts/zh-type/punctuation.jpg"
+    srcset="/images/posts/zh-type/punctuation@2x.jpg 2x"
+  />
 </figure>
 
 As the language evolved, the spoken version of Chinese started to diverge from this classical style and eventually became quite distinct. Even though some well-known novels like 红楼梦 (Dream of the Red Chamber) and 西游记 (Journey to the West) were written in vernacular Chinese, formal texts were written in classical Chinese. Hence, a majority of the population who weren't educated in classical Chinese could not understand much of the printed texts.
 
 Part of the New Cultural Movement also involved the spread of vernacular Chinese as the mainstream form of written Chinese, in a bid to increase literary rates among the people. As much of this linguistic development was modelled after Western doctrines, punctuation found its way into written Chinese texts.
 
-{/* prettier-ignore */}
 <h2 id="chinese-fonts-offline-and-online">Chinese fonts offline and online <small><a href="#laying-out-chinese-fonts">(skip to next section)</a></small></h2>
 
 The details are fuzzy to me now, but I do recall hours spent troubleshooting why Chinese wouldn't display correctly on the various computers I was tasked to fix years ago. Text would appear as 乱码 or 豆腐, each character displayed as a rectangular block instead of legible text. Chinese input was sketchy on Windows 95, so we used a software called Chinese Star instead.
@@ -161,7 +158,6 @@ A common term when discussing Chinese fonts is CJK, which simply stands for Chin
 
 My go-to resource for all things Chinese fonts online is UI consultant, [Kendra Schaefer](http://www.kendraschaefer.com/). She wrote very comprehensive posts on [using Chinese web fonts on her own blog](http://www.kendraschaefer.com/2012/06/chinese-standard-web-fonts-the-ultimate-guide-to-css-font-family-declarations-for-web-design-in-simplified-chinese/) and [a complete primer to Chinese typography for Sitepoint](https://webdesign.tutsplus.com/articles/the-complete-beginners-guide-to-chinese-fonts--cms-23444). You should really read them. If you want to use Chinese web fonts for your project, she's got you covered.
 
-{/* prettier-ignore */}
 <h2 id="laying-out-chinese-fonts">Laying out Chinese fonts <small><a href="#lets-build-a-demo">(skip to next section)</a></small></h2>
 
 But we want to talk about layout for Chinese fonts, using CSS. The [CSS Writing Modes Level 3 module](https://drafts.csswg.org/css-writing-modes-3/) covers CSS support for various international writing modes, from left-to-right, right-to-left, bidirectional and vertical. The specification has some terminology that describes the flow of text for writing systems.
@@ -189,7 +185,6 @@ The **block flow direction** refers to the direction block-level boxes stack and
 
 The **typographic mode** is applicable to vertical scripts (think traditional Chinese or Japanese), and dictates if the text should have typographic conventions for vertical flow, which is different from a rotated horizontal script.
 
-{/* prettier-ignore */}
 <div class="figure-wrapper">
     <figure class="multiple">
         <figcaption>Vertical flow</figcaption>
@@ -211,7 +206,6 @@ Browsers utilise the [Unicode Bidirectional Algorithm](https://www.w3.org/Intern
 
 This property dictates whether lines of text in a block are laid out horizontally or vertically, and the direction of these blocks. It is fully supported by all current browsers except Opera Mini.
 
-{/* prettier-ignore */}
 <div class="table display">
   <div class="tr">
     <div class="th td">horizontal-tb</div>
@@ -245,7 +239,6 @@ A writing system can have either horizontal-only native orientation, vertical-on
 
 Browsers assign all glyphs a horizontal orientation by default, and for vertical layouts, the user agent needs to transform the text to a vertical orientation. This transformation is known as the _bi-directional transform_ and there are 2 ways to do this, by rotation or by translation.
 
-{/* prettier-ignore */}
 <div class="figure-wrapper">
     <figure class="multiple">
         <figcaption>Rotate</figcaption>
@@ -259,7 +252,6 @@ Browsers assign all glyphs a horizontal orientation by default, and for vertical
 
 Most CJK characters translate, which means they always remain upright, and orientate correctly when laid out vertically. The `text-orientation` property specifies the orientation of text within a line, and only apply to vertical typographic modes. There is no effect applied when writing-mode is set to `horizontal-tb`.
 
-{/* prettier-ignore */}
 <div class="table display">
   <div class="tr">
     <div class="th td">mixed</div>
@@ -281,7 +273,6 @@ Most CJK characters translate, which means they always remain upright, and orien
 
 This property also only applies to vertical writing modes. It combines multiple character glyphs into the space of a single typographic character unit. The most common use case for this is rendering dates, especially those for the Japanese or Taiwanese calendar (because their years are less than 4 digits long).
 
-{/* prettier-ignore */}
 <div class="table display">
   <div class="tr">
     <div class="th td">none</div>
@@ -299,7 +290,6 @@ This property also only applies to vertical writing modes. It combines multiple 
   </div>
 </div>
 
-{/* prettier-ignore */}
 <h2 id="lets-build-a-demo">Let's build a demo! <small><a href="#wrapping-up">(skip to next section)</a></small></h2>
 
 [Typochina](http://www.comdesignlab.com/typochina/) is a research group out of [Comdesign Lab](http://www.comdesignlab.com/), a design research institution established by the School of Design of Hunan University. They've published a number of articles about the history, various resources and research on Han characters. If you can read Chinese, you definitely should check it out. I've used the article [文字的故事](http://www.comdesignlab.com/typochina/chinese/archives/393) for this typographical experiment.
@@ -367,7 +357,6 @@ I'm lucky enough to be fluent in Chinese, and hence there is a wealth of resourc
 
 ### For historical context
 
-{/* prettier-ignore */}
 <ul>
   <li class="no-margin"><a href="http://globalization.icaap.org/content/v4.2/bosworth.html">Globalization in the Information Age: Western, Chinese and Arabic Writing Systems</a></li>
   <li><a href="http://www.shobserver.com/news/detail?id=1563">中文书啥时开始“变横”的？</a></li>
@@ -375,7 +364,6 @@ I'm lucky enough to be fluent in Chinese, and hence there is a wealth of resourc
 
 ### On specifications
 
-{/* prettier-ignore */}
 <ul>
   <li class="no-margin"><a href="https://drafts.csswg.org/css-writing-modes-3/">CSS Writing Modes Level 3</a></li>
   <li class="no-margin"><a href="https://developer.mozilla.org/en/docs/Web/CSS/writing-mode">writing-mode on MDN</a></li>
@@ -387,7 +375,6 @@ I'm lucky enough to be fluent in Chinese, and hence there is a wealth of resourc
 
 ### On design and typography
 
-{/* prettier-ignore */}
 <ul>
   <li class="no-margin"><a href="https://medium.com/@bobtung/best-practice-in-chinese-layout-f933aff1728f#.yrd09wz1h">Best Practices for Chinese Layout</a></li>
   <li class="no-margin"><a href="https://hanzi.pro/manual/">汉字标准格式</a></li>

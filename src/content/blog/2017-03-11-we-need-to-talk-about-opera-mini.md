@@ -10,8 +10,6 @@ tags:
 title: We need to talk about Opera Mini
 ---
 
-import Img2x from "@/components/Img2x.astro";
-
 Earlier this year, [Jen Simmons](http://jensimmons.com/) asked the following question:
 
 <blockquote class="twitter-tweet" data-lang="en">
@@ -41,22 +39,28 @@ There are 4 Operating Systems that can run Opera Mini: Android, iOS, J2ME and Wi
 <div class="figure-wrapper">
   <figure class="multiple">
     <figcaption>iOS</figcaption>
-    <Img2x fileName="posts/opera-mini/ios" fileType="png" />
+    <img src="/images/posts/opera-mini/ios.png" srcset="/images/posts/opera-mini/ios@2x.png 2x" />
   </figure>
   <figure class="multiple">
     <figcaption>Android</figcaption>
-    <Img2x fileName="posts/opera-mini/android" fileType="png" />
+    <img
+      src="/images/posts/opera-mini/android.png"
+      srcset="/images/posts/opera-mini/android@2x.png 2x"
+    />
   </figure>
 </div>
 
 <div class="figure-wrapper">
   <figure class="multiple">
     <figcaption>J2ME</figcaption>
-    <Img2x fileName="posts/opera-mini/j2me" fileType="png" />
+    <img src="/images/posts/opera-mini/j2me.png" srcset="/images/posts/opera-mini/j2me@2x.png 2x" />
   </figure>
   <figure class="multiple">
     <figcaption>Windows 10</figcaption>
-    <Img2x fileName="posts/opera-mini/win10" fileType="png" />
+    <img
+      src="/images/posts/opera-mini/win10.png"
+      srcset="/images/posts/opera-mini/win10@2x.png 2x"
+    />
   </figure>
 </div>
 
@@ -101,7 +105,6 @@ For all the things Opera Mini does not support, the one thing it does have going
 
 Opera first implemented in Nov 2012. Both Chrome and Firefox had it since May 2013. So people have been writing about feature queries over the years, though it seems that awareness of its broad support is not well-known. In fact, a lot of early coverage was not written in English (maybe that's why, I can't say for sure).
 
-{/* prettier-ignore */}
 <ul>
   <li class="no-margin"><a href="http://myakura.hatenablog.com/entry/2012/08/08/012516">@supports ― CSSのFeature Queries</a> by Masataka Yakura, August 8 2012</li>
   <li class="no-margin"><a href="https://dev.opera.com/articles/native-css-feature-detection/">Native CSS Feature Detection via the @supports Rule</a> by Chris Mills, December 21 2012</li>
@@ -140,7 +143,11 @@ Jen Simmons wrote an extensive article called [Using Feature Queries in CSS](htt
 
 <figure>
   <figcaption>Uni-kitty &copy; Jen Simmons</figcaption>
-  <Img2x fileName="posts/opera-mini/matrix" fileType="png" alt="Matrix of @supports" />
+  <img
+    src="/images/posts/opera-mini/matrix.png"
+    srcset="/images/posts/opera-mini/matrix@2x.png 2x"
+    alt="Matrix of @supports"
+  />
 </figure>
 
 For cases like those, it really depends on the specific CSS feature you want to use, then make a decision whether it is acceptable to not include that feature even if the browser supports it.
@@ -202,7 +209,10 @@ If you look at my [source code](https://gitlab.com/penang-hokkien/penang-hokkien
 
 <figure>
   <figcaption>It doesn't look great, but all the content is readable</figcaption>
-  <Img2x fileName="posts/opera-mini/opera-mini" fileType="png" alt="Matrix of @supports" />
+  <img
+    src="/images/posts/opera-mini/opera-mini.png"
+    srcset="/images/posts/opera-mini/opera-mini@2x.png 2x"
+  />
 </figure>
 
 There isn't really a prescribed way to go about developing for cross-browser compatibility. My take is, at least take the time to try out a variety of methods and settle into a workflow you're most comfortable with. I like using gulp with BrowserSync, you may like something else, and that's perfectly fine.
@@ -219,7 +229,6 @@ No, what we get to do for a living, is a blessing. And making valuable informati
 
 ## Further reading
 
-{/* prettier-ignore */}
 <ul>
   <li class="no-margin"><a href="https://dev.opera.com/articles/browsers-modes-engines/">Opera Browsers, Modes &amp; Engines</a></li>
   <li class="no-margin"><a href="https://dev.opera.com/articles/opera-mini-and-javascript/">Opera Mini and JavaScript</a> by <a href="https://twitter.com/webinista">Tiffany Brown</a></li>
@@ -228,4 +237,3 @@ No, what we get to do for a living, is a blessing. And making valuable informati
   <li class="no-margin"><a href="https://dev.opera.com/articles/making-sites-work-opera-mini/">Making websites that work well on Opera Mini</a> by <a href="http://www.brucelawson.co.uk/">Bruce Lawson</a></li>
   <li><a href="https://hacks.mozilla.org/2017/03/doubling-down-on-cross-browser-testing/">Doubling Down on Cross-Browser Testing</a></li>
 </ul>
-```

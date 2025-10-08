@@ -10,8 +10,6 @@ tags:
 title: The one with big machines
 ---
 
-import Img2x from "@/components/Img2x.astro";
-
 It's time for my annual Drupal project again. I had actually got my start in web development with Drupal and although I've left agency life, it seems that I'd still end up with at least one Drupal project a year. Largely because when someone needs a CMS, I tend to lean toward Drupal, it's like Linus and his blanket <span class="emoji" role="img" tabindex="0" aria-label="person shrugging">&#x1F937;</span>.
 
 <img
@@ -104,11 +102,11 @@ So one of the requirements was to NOT have the page be like 11mb and take 1 minu
 <div class="figure-wrapper">
   <figure class="multiple">
     <figcaption>WebPageTest</figcaption>
-    <Img2x fileName="posts/sinvict/perf" fileType="jpg" />
+    <img src="/images/posts/sinvict/perf.jpg" srcset="/images/posts/sinvict/perf@2x.jpg 2x" />
   </figure>
   <figure class="multiple">
     <figcaption>GTMetrix</figcaption>
-    <Img2x fileName="posts/sinvict/perf2" fileType="jpg" />
+    <img src="/images/posts/sinvict/perf2.jpg" srcset="/images/posts/sinvict/perf2@2x.jpg 2x" />
   </figure>
 </div>
 

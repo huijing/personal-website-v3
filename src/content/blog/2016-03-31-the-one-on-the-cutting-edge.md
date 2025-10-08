@@ -11,8 +11,6 @@ tags:
 title: The one on the cutting edge
 ---
 
-import Img2x from "@/components/Img2x.astro";
-
 If you've been following along my latest exploits (though I doubt anyone is), you may know that I'm the co-organiser of [Talk.CSS](http://singaporecss.github.io), the first CSS-centric [meet-up group](http://www.meetup.com/SingaporeCSS/) in Singapore. We've been in existence for around 5 months now and some time last month I thought it'd be a good idea to build a website for our little meet-up group.
 
 Sort of a place where people can find out more about us, and check out what happened during our previous meet-ups. Okay fine, it was an excuse for me to build another website, but with the freedom to try all sorts of new technologies.
@@ -100,7 +98,11 @@ Earlier in March, [Roel Nieskens](https://twitter.com/pixelambacht) released [Bi
 
 <figure>
   <figcaption>For the benefit of people without Firefox.</figcaption>
-  <Img2x fileName="posts/talk-css/bixa" fileType="jpg" alt="Bixa Color font" />
+  <img
+    src="/images/posts/talk-css/bixa.jpg"
+    srcset="/images/posts/talk-css/bixa@2x.jpg 2x"
+    alt="Bixa Color font"
+  />
 </figure>
 
 ### Flexbox
@@ -109,7 +111,11 @@ This site is not complicated. I could probably get away with almost no layout at
 
 <figure>
   <figcaption>Look at those beautiful faces.</figcaption>
-  <Img2x fileName="posts/talk-css/flexbox" fileType="jpg" alt="3 column grid" />
+  <img
+    src="/images/posts/talk-css/flexbox.jpg"
+    srcset="/images/posts/talk-css/flexbox@2x.jpg 2x"
+    alt="3 column grid"
+  />
 </figure>
 
 ```scss
@@ -140,7 +146,11 @@ First point, we can style the alternative text by applying typography-related pr
 
 <figure>
   <figcaption>So you screwed up and broke your images. Pre-emptive styling ftw!</figcaption>
-  <Img2x fileName="posts/talk-css/broken-image" fileType="jpg" alt="Styled broken image" />
+  <img
+    src="/images/posts/talk-css/broken-image.jpg"
+    srcset="/images/posts/talk-css/broken-image@2x.jpg 2x"
+    alt="Styled broken image"
+  />
 </figure>
 
 ```scss
@@ -183,7 +193,6 @@ This was a really fun project because I got to play with all the new and shiny s
 
 ## Further reading
 
-{/* prettier-ignore */}
 <ul>
   <li class="no-margin"><a href="http://philipwalton.com/articles/why-im-excited-about-native-css-variables/">Why I’m Excited About Native CSS Variables</a> by <a href="https://twitter.com/philwalton">Philip Walton</a></li>
   <li class="no-margin"><a href="http://codepen.io/jakealbaugh/post/css4-variables-and-sass">CSS4 variables and SASS</a> by <a href="https://twitter.com/jake_albaugh">Jake Albaugh</a></li>

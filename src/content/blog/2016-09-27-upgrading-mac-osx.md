@@ -7,8 +7,6 @@ tags:
 title: Upgrading to macOS Sierra
 ---
 
-import Img2x from "@/components/Img2x.astro";
-
 macOS Sierra was officially released on 20 September 2016. That's 1 week ago at time of writing. The day of the release, there were loads of articles appearing in my RSS feed (yes, I still use one, stop judging <span class="emoji" role="img" tabindex="0" aria-label="angry face">&#x1F620;</span>) with the title "Should you upgrade to macOS Sierra?" or something along those lines.
 
 I skimmed through those articles but nothing significant jumped out at me other that some people had issues with their Keychain access or something. But given I was in the midst of crunch time for a project, I held off on upgrading until yesterday. Given my machine is an early-2015 MacBook Pro running El Capitan, I thought it wouldn't be much trouble to upgrade.
@@ -93,6 +91,10 @@ _Update: my friend [Sahil](http://sahil.me/) advised me that my original solutio
 
 All in all, this update was pretty trouble-free. Nothing really broke. So it's either I'm kinda lucky, or this update is kinda safe.
 
-<Img2x filename="posts/sierra/good-sign" filetype="jpg" alt="This is a good sign" />
+<img
+  src="/images/posts/sierra/good-sign.jpg"
+  srcset="/images/posts/sierra/good-sign@2x.jpg 2x"
+  alt="This is a good sign"
+/>
 
 So make your own decision whether to upgrade or not, and may the odds ever be in your favour <span class="emoji" role="img" tabindex="0" aria-label="smiling face with horns">&#x1F608;</span>.

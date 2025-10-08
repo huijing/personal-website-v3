@@ -7,8 +7,6 @@ tags:
 title: The typefaces of Recoleta
 ---
 
-import Img2x from "@/components/Img2x.astro";
-
 _I have a soft spot for stone engravings and whenever I get the chance to travel to a location that has some sort of cemetery or burial ground that is open to the public, I will go check it out. This will probably become a series, so here's the first entry._
 
 I went to Argentina for vacation last year and it was splendid. One of the places we went was the [Cementerio de la Recoleta](https://turismo.buenosaires.gob.ar/en/otros-establecimientos/recoleta-cemetery) in Buenos Aires. Originally the garden of [Basílica Nuestra Señora del Pilar](http://www.basilicadelpilar.org.ar/), it became the city's first public cemetery back in 17 November 1822, and was designed by French engineer, Próspero Catelin.
@@ -45,11 +43,11 @@ Most of these tombs are architectural masterpieces, many adorned with crosses, s
 <div class="figure-wrapper">
   <figure class="multiple">
     <figcaption>Spot the gargoyle</figcaption>
-    <Img2x fileName="posts/argentina/tomb1" fileType="jpg" />
+    <img src="/images/posts/argentina/tomb1.jpg" srcset="/images/posts/argentina/tomb1@2x.jpg 2x" />
   </figure>
   <figure class="multiple">
     <figcaption>Tombs can have bell towers too</figcaption>
-    <Img2x fileName="posts/argentina/tomb2" fileType="jpg" />
+    <img src="/images/posts/argentina/tomb2.jpg" srcset="/images/posts/argentina/tomb2@2x.jpg 2x" />
   </figure>
 </div>
 
@@ -62,11 +60,17 @@ And tombs, being mostly made of some kind of stone, have serif inscriptions in s
 <div class="figure-wrapper">
   <figure class="multiple">
     <figcaption>A condensed old-style</figcaption>
-    <Img2x fileName="posts/argentina/old-school" fileType="jpg" />
+    <img
+      src="/images/posts/argentina/old-school.jpg"
+      srcset="/images/posts/argentina/old-school@2x.jpg 2x"
+    />
   </figure>
   <figure class="multiple">
     <figcaption>Looks like a transitional</figcaption>
-    <Img2x fileName="posts/argentina/old-school2" fileType="jpg" />
+    <img
+      src="/images/posts/argentina/old-school2.jpg"
+      srcset="/images/posts/argentina/old-school2@2x.jpg 2x"
+    />
   </figure>
 </div>
 
@@ -75,11 +79,17 @@ The modern designs tended to use more metals in the designs of the tombs themsel
 <div class="figure-wrapper">
   <figure class="multiple">
     <figcaption>Old-style in relief</figcaption>
-    <Img2x fileName="posts/argentina/modern2" fileType="jpg" />
+    <img
+      src="/images/posts/argentina/modern2.jpg"
+      srcset="/images/posts/argentina/modern2@2x.jpg 2x"
+    />
   </figure>
   <figure class="multiple">
     <figcaption>Feels a little off-balance to me though</figcaption>
-    <Img2x fileName="posts/argentina/modern" fileType="jpg" />
+    <img
+      src="/images/posts/argentina/modern.jpg"
+      srcset="/images/posts/argentina/modern@2x.jpg 2x"
+    />
   </figure>
 </div>
 
@@ -88,11 +98,17 @@ Shallow engravings usually showed up on dark stone finishes, probably so the lig
 <div class="figure-wrapper">
   <figure class="multiple">
     <figcaption>Light on dark</figcaption>
-    <Img2x fileName="posts/argentina/shallow2" fileType="jpg" />
+    <img
+      src="/images/posts/argentina/shallow2.jpg"
+      srcset="/images/posts/argentina/shallow2@2x.jpg 2x"
+    />
   </figure>
   <figure class="multiple">
     <figcaption>Dark on light</figcaption>
-    <Img2x fileName="posts/argentina/shallow" fileType="jpg" />
+    <img
+      src="/images/posts/argentina/shallow.jpg"
+      srcset="/images/posts/argentina/shallow@2x.jpg 2x"
+    />
   </figure>
 </div>
 
@@ -105,7 +121,10 @@ Here are a few more serif styles.
   </figure>
   <figure class="multiple">
     <figcaption>I really like this one</figcaption>
-    <Img2x fileName="posts/argentina/random2" fileType="jpg" />
+    <img
+      src="/images/posts/argentina/random2.jpg"
+      srcset="/images/posts/argentina/random2@2x.jpg 2x"
+    />
   </figure>
 </div>
 
@@ -118,17 +137,23 @@ Some of the serifs I considered “fancy”, because I don't have a better word 
 <div class="figure-wrapper">
   <figure class="multiple">
     <figcaption>Ooo..ball terminals</figcaption>
-    <Img2x fileName="posts/argentina/fancy2" fileType="jpg" />
+    <img
+      src="/images/posts/argentina/fancy2.jpg"
+      srcset="/images/posts/argentina/fancy2@2x.jpg 2x"
+    />
   </figure>
   <figure class="multiple">
     <figcaption>Look at that A</figcaption>
-    <Img2x fileName="posts/argentina/fancy3" fileType="jpg" />
+    <img
+      src="/images/posts/argentina/fancy3.jpg"
+      srcset="/images/posts/argentina/fancy3@2x.jpg 2x"
+    />
   </figure>
 </div>
 
 <figure>
   <figcaption>Thought the E was an A at first</figcaption>
-  <Img2x fileName="posts/argentina/fancy" fileType="jpg" />
+  <img src="/images/posts/argentina/fancy.jpg" />
 </figure>
 
 Speaking of relief engraving, there were more of them in sans than in serif. After all this, I really want to meet someone who does engraving, or knows someone who does. I have so many questions! So far, I've managed to find a website for hand engravers, called [iGraver](http://www.igraver.com/), but it'll be nice to chat with an engraver in person.
@@ -136,22 +161,34 @@ Speaking of relief engraving, there were more of them in sans than in serif. Aft
 <div class="figure-wrapper">
   <figure class="multiple">
     <figcaption>Could work on a fashion magazine</figcaption>
-    <Img2x fileName="posts/argentina/classy" fileType="jpg" />
+    <img
+      src="/images/posts/argentina/classy.jpg"
+      srcset="/images/posts/argentina/classy@2x.jpg 2x"
+    />
   </figure>
   <figure class="multiple">
     <figcaption>Modern style tomb</figcaption>
-    <Img2x fileName="posts/argentina/classy2" fileType="jpg" />
+    <img
+      src="/images/posts/argentina/classy2.jpg"
+      srcset="/images/posts/argentina/classy2@2x.jpg 2x"
+    />
   </figure>
 </div>
 
 <div class="figure-wrapper">
   <figure class="multiple">
     <figcaption>Geometric Sans on stone</figcaption>
-    <Img2x fileName="posts/argentina/framed" fileType="jpg" />
+    <img
+      src="/images/posts/argentina/framed.jpg"
+      srcset="/images/posts/argentina/framed@2x.jpg 2x"
+    />
   </figure>
   <figure class="multiple">
     <figcaption>Sans and serif</figcaption>
-    <Img2x fileName="posts/argentina/framed2" fileType="jpg" />
+    <img
+      src="/images/posts/argentina/framed2.jpg"
+      srcset="/images/posts/argentina/framed2@2x.jpg 2x"
+    />
   </figure>
 </div>
 
@@ -160,15 +197,21 @@ Is it easier to do relief engraving for sans-serifs? Does it boil down to the to
 <div class="figure-wrapper">
   <figure class="multiple">
     <figcaption>Counter-relief</figcaption>
-    <Img2x fileName="posts/argentina/insetsans" fileType="jpg" />
+    <img
+      src="/images/posts/argentina/insetsans.jpg"
+      srcset="/images/posts/argentina/insetsans@2x.jpg 2x"
+    />
   </figure>
   <figure class="multiple">
     <figcaption>Possibly limestone</figcaption>
-    <Img2x fileName="posts/argentina/stone" fileType="jpg" />
+    <img src="/images/posts/argentina/stone.jpg" srcset="/images/posts/argentina/stone@2x.jpg 2x" />
   </figure>
   <figure class="multiple">
     <figcaption>Name plate</figcaption>
-    <Img2x fileName="posts/argentina/plated" fileType="jpg" />
+    <img
+      src="/images/posts/argentina/plated.jpg"
+      srcset="/images/posts/argentina/plated@2x.jpg 2x"
+    />
   </figure>
 </div>
 
@@ -177,17 +220,26 @@ I also came across a few unique typefaces that really stood out. I guess a tomb 
 <div class="figure-wrapper">
   <figure class="multiple">
     <figcaption>I consider this a display font</figcaption>
-    <Img2x fileName="posts/argentina/egyptian" fileType="jpg" />
+    <img
+      src="/images/posts/argentina/egyptian.jpg"
+      srcset="/images/posts/argentina/egyptian@2x.jpg 2x"
+    />
   </figure>
   <figure class="multiple">
     <figcaption>Feels kinda Egyptian</figcaption>
-    <Img2x fileName="posts/argentina/egyptian2" fileType="jpg" />
+    <img
+      src="/images/posts/argentina/egyptian2.jpg"
+      srcset="/images/posts/argentina/egyptian2@2x.jpg 2x"
+    />
   </figure>
 </div>
 
 <figure>
   <figcaption>Has a very personal touch</figcaption>
-  <Img2x fileName="posts/argentina/handwritten" fileType="jpg" />
+  <img
+    src="/images/posts/argentina/handwritten.jpg"
+    srcset="/images/posts/argentina/handwritten@2x.jpg 2x"
+  />
 </figure>
 
 ## Wrapping up
@@ -198,7 +250,6 @@ I really like wandering around cemeteries by myself, there's a reverent silence 
 
 ## Further reading
 
-{/* prettier-ignore */}
 <ul>
   <li class="no-margin"><a href="http://www.buenosaires.gob.ar/laciudad/barrios/recoleta">Recoleta</a></li>
   <li class="no-margin"><a href="https://web.archive.org/web/20180930153855/https://mysendoff.com/2012/10/the-recoleta-cemetery-the-city-within-a-city/">The Recoleta Cemetery: The City Within A City</a></li>

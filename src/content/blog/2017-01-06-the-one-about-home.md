@@ -11,8 +11,6 @@ tags:
 title: The one about home
 ---
 
-import Img2x from "@/components/Img2x.astro";
-
 At the end of 2016, I published a website called [Penang Hokkien 槟城福建话](http://penang-hokkien.gitlab.io). Just a few months prior, I had started playing around with the CSS writing-mode property after having a random thought on my daily bicycle commute to work. That grew into a really long blog post on [Chinese typography on the web](/blog/chinese-web-typography/), and an experimental [layout-switching demo](https://huijing.github.io/zh-type/). During that period, I also discovered the [Penang Hokkien Podcast](http://penanghokkien.com/).
 
 Penang Hokkien is a variant of the Hokkien dialect that is unique to the northern states of Malaysia, and is essentially the lingua franca of Penang. It is also my mother tongue, and the main language spoken within my household. Penang Hokkien holds a special place in my heart. It represents where I come, where I belong, it is the language of home.
@@ -95,7 +93,6 @@ The <code>writing-mode</code> property was applied to the Chinese content wrappe
 
 The trickiest part about having mixed writing-modes is centring content. I'm guessing mixed writing-modes is not a common use case and the behaviour is pretty inconsistent across browsers. My primary development environment is Chrome on Mac OS, and things tend to render nicely in this environment. So if you play around with experimental features, be sure to check other browsers frequently.
 
-{/* prettier-ignore */}
 ### I <span class="emoji" role="img" tabindex="0" aria-label="red heart">&#x2764;&#xFE0F;</span> neon lights
 
 For the _About_ page, I applied the <code>writing-mode: vertical-rl</code> property to the entire <code>&lt;main&gt;</code> element instead, then modified individual bits to display horizontally where needed. And here I saw an opportunity to put in some CSS fanciness for the page title.
@@ -105,13 +102,17 @@ I first learned about Chromatic Fonts on the web back in March 2016 from [Roel N
 <div class="figure-wrapper">
   <figure class="multiple">
     <figcaption>Wide screen view</figcaption>
-    <Img2x fileName="posts/pghk/about-wide" fileType="jpg" alt="Wide view of About page title" />
+    <img
+      src="/images/posts/pghk/about-wide.jpg"
+      srcset="/images/posts/pghk/about-wide@2x.jpg 2x"
+      alt="Wide view of About page title"
+    />
   </figure>
   <figure class="multiple">
     <figcaption>Narrow screen view</figcaption>
-    <Img2x
-      fileName="posts/pghk/about-narrow"
-      fileType="jpg"
+    <img
+      src="/images/posts/pghk/about-narrow.jpg"
+      srcset="/images/posts/pghk/about-narrow@2x.jpg 2x"
       alt="Narrow view of About page title"
     />
   </figure>
@@ -243,7 +244,6 @@ I had to work-around the problem using [BrowserHacks](http://browserhacks.com/).
 
 The flexbox problem reared its ugly head on the [About page](http://penang-hokkien.gitlab.io/about/), and turns out this is a known browser bug. So I decided to have a different layout just for Firefox that circumvents this issue altogether. But I'll definitely be tracking the progress of these bugs.
 
-{/* prettier-ignore */}
 <ul>
   <li class="no-margin"><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1189131" rel="nofollow noreferrer" target="_blank">Bug 1189131 - flex align-items center displaces text when writing-mode is vertical-rl</a></li>
   <li class="no-margin"><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1223180" rel="nofollow noreferrer" target="_blank">Bug 1223180 - Flex + vertical writing-mode: flex items / text disappear</a></li>
@@ -265,7 +265,6 @@ It had been a while since I built something for myself, so this was a fun projec
 
 ## Relevant resources
 
-{/* prettier-ignore */}
 <ul>
   <li class="no-margin"><a href="https://www.w3.org/TR/css-writing-modes-3/">CSS Writing Modes Level 3</a></li>
   <li class="no-margin"><a href="https://24ways.org/2016/css-writing-modes/">CSS Writing Modes</a></li>

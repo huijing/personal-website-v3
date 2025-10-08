@@ -9,8 +9,6 @@ tags:
 title: Images, the web's nutrition problem
 ---
 
-import Img2x from "@/components/Img2x.astro";
-
 Okay, that wasn't my best headline, writing is hard <span class="emoji" role="img" tabindex="0" aria-label="person shrugging">&#x1F937;</span>. But let's face it, the web has an obesity problem. I remember the first time I did some research for [a talk I gave at Talk.JS](https://youtu.be/LLxg2H4Tk8s) back in 2015, and found [the httparchive](http://httparchive.org/interesting.php), which had statistics on web page sizes since 2010. I said that exact phrase during the talk, and let's just say I don't think the web has started on its diet plan or gym membership yet.
 
 And because I'm a weirdo who likes charts, I wanted to see how this weight gain happened over the past 6 years. It probably crept up on us, I mean, you can't just wake up 30 pounds heavier overnight. As of 2 Dec 2016, the average size of a web page is 2.46mb, and 1.623mb (or 65.9%) of that is made up of images. So I plotted the weights of different content types over time to how the trend looked. If images were donuts, the web was eating more and more of them over time.
@@ -61,11 +59,19 @@ Let's talk about the art direction of the images themselves first. There are cer
 <div class="figure-wrapper">
   <figure class="multiple">
     <figcaption>Marketing image</figcaption>
-    <Img2x fileName="posts/image-perf/coffee" fileType="jpg" alt="Original" />
+    <img
+      src="/images/posts/image-perf/coffee.jpg"
+      srcset="/images/posts/image-perf/coffee@2x.jpg 2x"
+      alt="Original"
+    />
   </figure>
   <figure class="multiple">
     <figcaption>Product shot</figcaption>
-    <Img2x fileName="posts/image-perf/sneakers" fileType="jpg" alt="Save for Web" />
+    <img
+      src="/images/posts/image-perf/sneakers.jpg"
+      srcset="/images/posts/image-perf/sneakers@2x.jpg 2x"
+      alt="Save for Web"
+    />
   </figure>
 </div>
 
@@ -78,13 +84,21 @@ Grey-scale images have smaller file sizes than colour images, hence if art direc
     <figcaption>
       <a href="http://blank.com.pt/">Blank Art Direction</a>
     </figcaption>
-    <Img2x fileName="posts/image-perf/blank" fileType="png" alt="Blank" />
+    <img
+      src="/images/posts/image-perf/blank.png"
+      srcset="/images/posts/image-perf/blank@2x.png 2x"
+      alt="Blank"
+    />
   </figure>
   <figure class="multiple">
     <figcaption>
       <a href="http://mulberrystreetcreative.com/">Mulberry Street Creative</a>
     </figcaption>
-    <Img2x fileName="posts/image-perf/msc" fileType="jpg" alt="Mulberry Street Creative" />
+    <img
+      src="/images/posts/image-perf/msc.jpg"
+      srcset="/images/posts/image-perf/msc@2x.jpg 2x"
+      alt="Mulberry Street Creative"
+    />
   </figure>
 </div>
 
@@ -113,11 +127,19 @@ With JPEG, you shouldn’t save the same image file again and again because doin
 <div class="figure-wrapper">
   <figure class="multiple">
     <figcaption>Original</figcaption>
-    <Img2x fileName="posts/image-perf/orig" fileType="jpg" alt="Original" />
+    <img
+      src="/images/posts/image-perf/orig.jpg"
+      srcset="/images/posts/image-perf/orig@2x.jpg 2x"
+      alt="Original"
+    />
   </figure>
   <figure class="multiple">
     <figcaption>Save for Web</figcaption>
-    <Img2x fileName="posts/image-perf/opt" fileType="jpg" alt="Save for Web" />
+    <img
+      src="/images/posts/image-perf/opt.jpg"
+      srcset="/images/posts/image-perf/opt@2x.jpg 2x"
+      alt="Save for Web"
+    />
   </figure>
 </div>
 
@@ -254,7 +276,6 @@ Okay, that went on for longer than I expected. But that's because images is such
 
 ## Further reading and resources
 
-{/* prettier-ignore */}
 <ul>
   <li class="no-margin"><a href="http://blogs.worldbank.org/opendata/where-are-cheapest-and-most-expensive-countries-own-mobile-phone">Where are the cheapest and most expensive countries to own a mobile phone?</a></li>
   <li class="no-margin"><a href="https://talks.jensimmons.com/SwuNnf/modern-layouts-getting-out-of-our-ruts">Modern Layouts: Getting Out Of Our Ruts</a></li>

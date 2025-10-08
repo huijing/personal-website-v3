@@ -9,8 +9,6 @@ tags:
 title: Reminiscing the 90s and other random thoughts
 ---
 
-import Img2x from "@/components/Img2x.astro";
-
 So I'm fresh off the latest iteration of [Hackware](http://www.meetup.com/Hackware/), a monthly meetup for hardware developers and enthusiasts in Singapore and the theme for this round was Vintage Computing. I can't tell you how much I appreciate and love vintage technology, but generally my face goes <span class="emoji" role="img" tabindex="0" aria-label="smiling face with heart-eyes">&#x1F60D;</span> when the topic comes up.
 
 The event reminded me of a really long conversation I had with a friend a couple months ago. We hadn’t met in a while and our conversation veered all over the place. But one of the things we talked about was computers. Specifically, how some people are just averse to figuring out computers, that it’s a specific personality that can become “IT folk”.
@@ -23,7 +21,11 @@ A computer performs computations, hence the name. Fun fact, computers used to be
 
 <figure>
   <figcaption>Fascinating book on human computers.</figcaption>
-  <Img2x fileName="posts/vintage/wcwh" fileType="jpg" alt="When computers were human" />
+  <img
+    src="/images/posts/vintage/wcwh.jpg"
+    srcset="/images/posts/vintage/wcwh@2x.jpg 2x"
+    alt="When computers were human"
+  />
 </figure>
 
 But I digress, computers have evolved at an astonishing rate within the last 100 years, from behemoths spanning rooms running on vacuum tubes, then moving on to transistors, and now we have tiny devices running on microchips.
@@ -85,9 +87,9 @@ At the time I didn't know what it did except that it changed the numbers on the 
 
 <figure>
   <figcaption>We had something similar at home.</figcaption>
-  <Img2x
-    fileName="posts/vintage/vintage-pc"
-    fileType="jpg"
+  <img
+    src="/images/posts/vintage/vintage-pc.jpg"
+    srcset="/images/posts/vintage/vintage-pc@2x.jpg 2x"
     alt="Vintage PC, possibly from the late 80s early 90s"
   />
 </figure>
@@ -103,15 +105,19 @@ It wasn't until I read the book [Gamers at Work](http://www.apress.com/978143023
 <div class="figure-wrapper">
   <figure class="multiple">
     <figcaption>Classic Carmen Sandiego</figcaption>
-    <Img2x
-      fileName="posts/vintage/carmen"
-      fileType="jpg"
+    <img
+      src="/images/posts/vintage/carmen.jpg"
+      srcset="/images/posts/vintage/carmen@2x.jpg 2x"
       alt="Where in the world is Carmen Sandiego"
     />
   </figure>
   <figure class="multiple">
     <figcaption>Among many in the series</figcaption>
-    <Img2x fileName="posts/vintage/treasure-mtn" fileType="jpg" alt="Treasure Mountain" />
+    <img
+      src="/images/posts/vintage/treasure-mtn.jpg"
+      srcset="/images/posts/vintage/treasure-mtn@2x.jpg 2x"
+      alt="Treasure Mountain"
+    />
   </figure>
 </div>
 
@@ -120,11 +126,19 @@ Of course we had more than just educational games. Side-scrollers were all the r
 <div class="figure-wrapper">
   <figure class="multiple">
     <figcaption>Side-scrollers were the best</figcaption>
-    <Img2x fileName="posts/vintage/cosmo" fileType="jpg" alt="Cosmo's Cosmic Adventure" />
+    <img
+      src="/images/posts/vintage/cosmo.jpg"
+      srcset="/images/posts/vintage/cosmo@2x.jpg 2x"
+      alt="Cosmo's Cosmic Adventure"
+    />
   </figure>
   <figure class="multiple">
     <figcaption>This had interesting save features</figcaption>
-    <Img2x fileName="posts/vintage/prehistorik" fileType="jpg" alt="Prehistorik 2" />
+    <img
+      src="/images/posts/vintage/prehistorik.jpg"
+      srcset="/images/posts/vintage/prehistorik@2x.jpg 2x"
+      alt="Prehistorik 2"
+    />
   </figure>
 </div>
 
@@ -137,11 +151,19 @@ If you haven't played Ski Free before, it's really simple. You control this ski-
 <div class="figure-wrapper">
   <figure class="multiple">
     <figcaption>So many hours on this</figcaption>
-    <Img2x fileName="posts/vintage/tetris" fileType="jpg" alt="Tetris" />
+    <img
+      src="/images/posts/vintage/tetris.jpg"
+      srcset="/images/posts/vintage/tetris@2x.jpg 2x"
+      alt="Tetris"
+    />
   </figure>
   <figure class="multiple">
     <figcaption>Surprisingly addictive this one</figcaption>
-    <Img2x fileName="posts/vintage/skifree" fileType="jpg" alt="Ski Free" />
+    <img
+      src="/images/posts/vintage/skifree.jpg"
+      srcset="/images/posts/vintage/skifree@2x.jpg 2x"
+      alt="Ski Free"
+    />
   </figure>
 </div>
 

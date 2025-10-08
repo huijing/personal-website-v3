@@ -9,8 +9,6 @@ tags:
 title: Rethinking web design
 ---
 
-import Img2x from "@/components/Img2x.astro";
-
 I've been thinking a lot about web design lately. Actually I've been thinking about web design ever since I started working on the web. But it was upon learning more about browsers' layout engines, how rendering works and their relationship with HTML and CSS that has shaped my current opinion of web design.
 
 Perhaps you may not agree with me, but I do believe that an understanding of the history of the web, amongst many other things, is essential to becoming a better web designer. Let's be honest, the digital age we live in now moves at a break-neck speed. The first electronic computers came about in the 1940s, that's less than a century ago.
@@ -24,15 +22,19 @@ No, but seriously, this medium that has taken over the world in less than 30 yea
 <div class="figure-wrapper">
   <figure class="multiple">
     <figcaption>OA-1008 Situation Display</figcaption>
-    <Img2x
-      fileName="posts/new-normal/sage"
-      fileType="jpg"
+    <img
+      src="/images/posts/new-normal/sage.jpg"
+      srcset="/images/posts/new-normal/sage@2x.jpg 2x"
       alt="OA-1008 Situation Display for AN/FSQ-7"
     />
   </figure>
   <figure class="multiple">
     <figcaption>PDP-1</figcaption>
-    <Img2x fileName="posts/new-normal/pdp1" fileType="jpg" alt="PDP-1" />
+    <img
+      src="/images/posts/new-normal/pdp1.jpg"
+      srcset="/images/posts/new-normal/pdp1@2x.jpg 2x"
+      alt="PDP-1"
+    />
   </figure>
 </div>
 

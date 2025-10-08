@@ -9,8 +9,6 @@ tags:
 title: "Fun with CSS: NBA edition"
 ---
 
-import Img2x from "@/components/Img2x.astro";
-
 This is my second "Fun with CSS" post, maybe this should become a series. But anyway, I had watched the video of [Ethan Marcotte](http://ethanmarcotte.com/)'s talk at [An Event Apart](http://aneventapart.com/) called [Laziness in the Time of Responsive Design](https://vimeo.com/165061923), and was fascinated by his progressive enhancement demo. It starts at around the 48 minute mark where he starts covering animation.
 
 > Design the transaction not the interface.
@@ -90,11 +88,19 @@ In hindsight, the work needed from style-less to slightly-more-enhanced styles w
 <div class="figure-wrapper">
   <figure class="multiple">
     <figcaption>No styles at all</figcaption>
-    <Img2x fileName="posts/pwd/nostyles" fileType="jpg" alt="Style-less before version" />
+    <img
+      src="/images/posts/pwd/nostyles.jpg"
+      srcset="/images/posts/pwd/nostyles@2x.jpg 2x"
+      alt="Style-less before version"
+    />
   </figure>
   <figure class="multiple">
     <figcaption>Slightly-more-enhanced</figcaption>
-    <Img2x fileName="posts/pwd/styled" fileType="jpg" alt="Styled after version" />
+    <img
+      src="/images/posts/pwd/styled.jpg"
+      srcset="/images/posts/pwd/styled@2x.jpg 2x"
+      alt="Styled after version"
+    />
   </figure>
 </div>
 
