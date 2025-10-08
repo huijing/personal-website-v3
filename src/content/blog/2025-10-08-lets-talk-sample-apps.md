@@ -1,14 +1,12 @@
 ---
 date: "2025-10-08T19:44:48+08:00"
 slug: "lets-talk-sample-apps"
-og_image: /images/posts/tag-ure-it.jpg
 hascodepen: true
 tags:
   - javascript
   - devlife
   - react
 title: "Let's talk sample apps"
-draft: true
 ---
 
 I'm back in the Developer Relations profession. But after going through the [migration](/blog/migrating-from-hugo-to-astro) last weekend, it occurred to me that some part of my current job was something that I had already been doing over the years I've had this blog. And that is, explaining to others how something is done and how things work.
