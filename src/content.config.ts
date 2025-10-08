@@ -19,6 +19,7 @@ const blog = defineCollection({
       external_site: z.string().optional(),
       nofeed: z.boolean().default(false),
       noindex: z.boolean().default(false),
+      draft: z.boolean().optional(),
     }),
 });
 

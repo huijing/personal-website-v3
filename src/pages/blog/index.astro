@@ -4,7 +4,9 @@ import "@/styles/pages.css";
 import TagCloud from "@/components/TagCloud.astro";
 import { getCollection } from "astro:content";
 
-const posts = await getCollection("blog");
+const posts = await getCollection("blog",  ({ data }) => {
+  return import.meta.env.PROD ? data.draft !== true : true;
+});
 const postsByYear = posts.reduce(
   (acc, post) => {
     const year = new Date(post.data.date).getFullYear();

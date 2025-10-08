@@ -7,7 +7,9 @@ import { getCollection } from "astro:content";
 import pubData from "@/data/publications.json";
 
 const publications = pubData as Record<string, { name: string }>;
-const posts = await getCollection("blog");
+const posts = await getCollection("blog", ({ data }) => {
+  return import.meta.env.PROD ? data.draft !== true : true;
+});
 const latestPosts = posts
   .sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date))
   .slice(0, 12);

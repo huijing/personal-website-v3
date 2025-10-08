@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import "@/styles/pages.css";
-import Img2x from "@/components/Img2x.astro";
 
 const title = "About";
 ---
@@ -17,7 +16,12 @@ const title = "About";
 
     <h3>So who are you?</h3>
 
-    <Img2x fileName="headshot" fileType="jpg" alt="Profile photo" class="profile-image" />
+    <img
+      src="/images/headshot.jpg"
+      srcset="/images/headshot@2x.jpg 2x"
+      alt="Profile photo"
+      class="profile-image"
+    />
 
     <p>
       My name is Chen Hui Jing. I first dipped my toe into the waters of web development when I

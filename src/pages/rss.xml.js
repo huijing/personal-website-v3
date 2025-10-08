@@ -15,7 +15,9 @@ export async function GET(context) {
     site: context.site,
     items: posts
       .sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date))
-      .filter((post) => !post.data.nofeed)
+      .filter(
+        (post) => !post.data.nofeed && (import.meta.env.PROD ? post.data.draft !== true : true)
+      )
       .map((post) => {
         const link = post.data.external_url
           ? post.data.external_url

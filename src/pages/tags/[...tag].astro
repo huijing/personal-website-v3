@@ -6,7 +6,9 @@ import { slugify } from "@/utils"
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
+  const posts = await getCollection("blog",  ({ data }) => {
+    return import.meta.env.PROD ? data.draft !== true : true;
+  });
 
   const slugToTag = new Map();
   for (const post of posts) {
