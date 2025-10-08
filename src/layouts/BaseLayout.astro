@@ -78,7 +78,7 @@ const {
     <meta property="og:type" content={ogType ? ogType : "website"} />
     <meta
       property="og:image"
-      content={ogImageUrl ? ogImageUrl : new URL("/images/avatar-ponytail@2x.png", Astro.site).href}
+      content={ogImageUrl ? ogImageUrl : new URL("/images/og-background.png", Astro.site).href}
     />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:description" content={description ? description : SITE_DESCRIPTION} />
@@ -87,7 +87,7 @@ const {
     <meta name="twitter:title" content={title ? `${title} | ${SITE_TITLE}` : SITE_TITLE} />
     <meta
       name="twitter:image"
-      content={ogImageUrl ? ogImageUrl : new URL("/images/avatar-ponytail@2x.png", Astro.site).href}
+      content={ogImageUrl ? ogImageUrl : new URL("/images/og-background.png", Astro.site).href}
     />
     <meta name="twitter:description" content={description ? description : SITE_DESCRIPTION} />
 
