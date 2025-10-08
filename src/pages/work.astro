@@ -6,8 +6,26 @@ import "@/styles/pages.css";
 import projects from "@/data/projects.json" assert { type: "json" };
 
 const posts = await getCollection("blog");
-const clientWorkPosts = posts.filter((post) => (post.data.tags ?? []).includes("client-work"));
+const clientWorkPosts = posts
+  .filter((post) => (post.data.tags ?? []).includes("client-work"))
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 const sideProjectPosts = posts.filter((post) => (post.data.tags ?? []).includes("side-project"));
+const sideProjects = [
+  ...sideProjectPosts.map((p) => ({
+    id: p.id,
+    href: p.data.external_url ?? `/blog/${p.id}/`,
+    imageName: p.data.project_image,
+    title: p.data.project,
+    external: !!p.data.external_url,
+  })),
+  ...projects.map((p) => ({
+    id: p.id,
+    href: p.external_url ?? `${GITHUB_URL}/${p.id}/`,
+    imageName: p.image,
+    title: p.title,
+    external: !!p.external_url,
+  })),
+];
 
 const title = "Work";
 ---
@@ -66,51 +84,23 @@ const title = "Work";
       <h2>Side projects</h2>
       <div class="grid projects">
         {
-          sideProjectPosts.map((post) => {
-            const href = post.data.external_url ? post.data.external_url : `/blog/${post.id}/`;
-            return (
-              <div class="project">
-                <a class="no-underline" href={href}>
-                  <img
-                    class="project__image"
-                    srcset={`/images/posts/projects/${post.data.project_image}@2x.png 2x`}
-                    src={`/images/posts/projects/${post.data.project_image}.png`}
-                    alt={post.data.project}
-                  />
-                  <h3 class="project__title no-margin">{post.data.project}</h3>
-                </a>
-              </div>
-            );
-          })
-        }
-
-        {
-          projects.map((project) => {
-            const href = project.external_url
-              ? project.external_url
-              : `${GITHUB_URL}/${project.id}/`;
-
-            return (
-              <div class="project">
-                <a
-                  href={href}
-                  {...(project.external_url && {
-                    target: "_blank",
-                    rel: "noopener noreferrer",
-                  })}
-                  class="no-underline"
-                >
-                  <img
-                    class="project__image"
-                    srcset={`/images/posts/projects/${project.image}@2x.png 2x`}
-                    src={`/images/posts/projects/${project.image}.png`}
-                    alt={project.title}
-                  />
-                  <h3 class="project__title no-margin">{project.title}</h3>
-                </a>
-              </div>
-            );
-          })
+          sideProjects.map(({ href, imageName, title, external }) => (
+            <div class="project">
+              <a
+                href={href}
+                {...(external && { target: "_blank", rel: "noopener noreferrer" })}
+                class="no-underline"
+              >
+                <img
+                  class="project__image"
+                  srcset={`/images/posts/projects/${imageName}@2x.png 2x`}
+                  src={`/images/posts/projects/${imageName}.png`}
+                  alt={title}
+                />
+                <h3 class="project__title no-margin">{title}</h3>
+              </a>
+            </div>
+          ))
         }
       </div>
     </div>
