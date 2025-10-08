@@ -8,8 +8,6 @@ tags:
 title: "Drupal 101: Developing with Pantheon"
 ---
 
-import Img4w from "@/components/Img4w.astro";
-
 [Pantheon](https://pantheon.io/) is a website management platform that is known for specialised Drupal and Wordpress services. It offers various tiers of service depending on your particular use-case. Developers can utilise a free account for all the necessary development work and charges will only kick in after deploying to production.
 
 While it is possible to do your development work entirely on your local machine then migrating the site to Pantheon, there are some slight configuration differences between hosting on Pantheon versus your own bare-metal server. I found it easier to just start off the process on Pantheon to begin with.
@@ -17,17 +15,47 @@ While it is possible to do your development work entirely on your local machine 
 ## All the basic stuff
 
 1. Sign up for a Pantheon account.
-   <Img4w fileName="posts/pantheon/register" fileType="jpg" alt="Register page on Pantheon" />
+   <img
+     src="/images/posts/pantheon/register-640.jpg"
+     srcset="/images/posts/pantheon/register-480.jpg 480w, /images/posts/pantheon/register-640.jpg 640w, /images/posts/pantheon/register-960.jpg 960w, /images/posts/pantheon/register-1280.jpg 1280w"
+     sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+     alt="Register page on Pantheon"
+   />
 2. This is how the dashboard looks like.
-   <Img4w fileName="posts/pantheon/dashboard" fileType="jpg" alt="Dashboard page on Pantheon" />
+   <img
+     src="/images/posts/pantheon/dashboard-640.jpg"
+     srcset="/images/posts/pantheon/dashboard-480.jpg 480w, /images/posts/pantheon/dashboard-640.jpg 640w, /images/posts/pantheon/dashboard-960.jpg 960w, /images/posts/pantheon/dashboard-1280.jpg 1280w"
+     sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+     alt="Dashboard page on Pantheon"
+   />
 3. To make life easier, I strongly advise setting up your SSH keys. Click on the _Account_ tab and on the left navigation panel, you'll see _SSH Keys_. If you don't know how to generate SSH keys, there's [documentation available](https://pantheon.io/docs/ssh-keys/) for that complete with screenshots.
-   <Img4w fileName="posts/pantheon/ssh" fileType="jpg" alt="Add SSH keys to account" />
+   <img
+     src="/images/posts/pantheon/ssh-640.jpg"
+     srcset="/images/posts/pantheon/ssh-480.jpg 480w, /images/posts/pantheon/ssh-640.jpg 640w, /images/posts/pantheon/ssh-960.jpg 960w, /images/posts/pantheon/ssh-1280.jpg 1280w"
+     sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+     alt="Add SSH keys to account"
+   />
 4. Once that's done, you can go back to the _Sites_ tab to create a new site. Enter the name of your site. Whatever you enter will end up being in the the URL. Custom domains are a possibility, but that's under the deploy-to-production, needs-to-be-paid-for part of things.
-   <Img4w fileName="posts/pantheon/create" fileType="jpg" alt="Create new site on Pantheon" />
+   <img
+     src="/images/posts/pantheon/create-640.jpg"
+     srcset="/images/posts/pantheon/create-480.jpg 480w, /images/posts/pantheon/create-640.jpg 640w, /images/posts/pantheon/create-960.jpg 960w, /images/posts/pantheon/create-1280.jpg 1280w"
+     sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+     alt="Create new site on Pantheon"
+   />
 5. Once your shiny new site is up, there'll be a site dashboard available to you. For the sake of this example, my site's name is _sinvict_. To set up the new site's database, click on the _Visit Development Site_ link and a new window will pop up with the Drupal new site set up page.
-   <Img4w fileName="posts/pantheon/sitedash" fileType="jpg" alt="Set up Drupal database" />
+   <img
+     src="/images/posts/pantheon/sitedash-640.jpg"
+     srcset="/images/posts/pantheon/sitedash-480.jpg 480w, /images/posts/pantheon/sitedash-640.jpg 640w, /images/posts/pantheon/sitedash-960.jpg 960w, /images/posts/pantheon/sitedash-1280.jpg 1280w"
+     sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+     alt="Set up Drupal database"
+   />
 6. After you've gone through the initial setup, there will be a new commit on your site dashboard, which is for the updated `settings.php` file on the server itself.
-   <Img4w fileName="posts/pantheon/dbsetup" fileType="jpg" alt="Set up Drupal database" />
+   <img
+     src="/images/posts/pantheon/dbsetup-640.jpg"
+     srcset="/images/posts/pantheon/dbsetup-480.jpg 480w, /images/posts/pantheon/dbsetup-640.jpg 640w, /images/posts/pantheon/dbsetup-960.jpg 960w, /images/posts/pantheon/dbsetup-1280.jpg 1280w"
+     sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+     alt="Set up Drupal database"
+   />
 7. \*\*Optional step\*\* If like me, you like to use the command line for most things, you can install **Terminus**, Pantheon's CLI, using the following command:
    ```bash
    $ curl -O https://raw.githubusercontent.com/pantheon-systems/terminus-installer/master/builds/installer.phar && php installer.phar install
@@ -42,13 +70,29 @@ While it is possible to do your development work entirely on your local machine 
 Pantheon has provided some documentation on [how to get started with local development](https://pantheon.io/docs/local-development/), but there are some bits that I had to figure out myself. Regardless, the documentation is good, so do read it first. The following are my exact steps for doing it.
 
 1. For local development, switch connection mode to Git.
-   <Img4w fileName="posts/pantheon/gitmode" fileType="jpg" alt="Switch connection mode" />
+   <img
+     src="/images/posts/pantheon/gitmode-640.jpg"
+     srcset="/images/posts/pantheon/gitmode-480.jpg 480w, /images/posts/pantheon/gitmode-640.jpg 640w, /images/posts/pantheon/gitmode-960.jpg 960w, /images/posts/pantheon/gitmode-1280.jpg 1280w"
+     sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+     alt="Switch connection mode"
+   />
 2. Clone your site into wherever you do site development.
-   <Img4w fileName="posts/pantheon/clone" fileType="jpg" alt="Clone site to local machine" />
+   <img
+     src="/images/posts/pantheon/clone-640.jpg"
+     srcset="/images/posts/pantheon/clone-480.jpg 480w, /images/posts/pantheon/clone-640.jpg 640w, /images/posts/pantheon/clone-960.jpg 960w, /images/posts/pantheon/clone-1280.jpg 1280w"
+     sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+     alt="Clone site to local machine"
+   />
 3. Download a copy of the database. It will be compressed, so depending on your OS, unzip it, then import it into your local environment using your SQL client of choice.
 
-   <Img4w fileName="posts/pantheon/exportdb" fileType="jpg" alt="Export database" />I usually use
-   drush for this (also, my shell is fish):
+   <img
+     src="/images/posts/pantheon/exportdb-640.jpg"
+     srcset="/images/posts/pantheon/exportdb-480.jpg 480w, /images/posts/pantheon/exportdb-640.jpg 640w, /images/posts/pantheon/exportdb-960.jpg 960w, /images/posts/pantheon/exportdb-1280.jpg 1280w"
+     sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+     alt="Export database"
+   />
+
+   I usually use drush for this (also, my shell is fish):
 
    ```bash
    eval (drush sql-connect) < /Users/huijing/Desktop/sinvict_dev_2017-07-30T04-45-31_UTC_database.sql

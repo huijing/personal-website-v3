@@ -307,7 +307,6 @@ That's pretty much it in terms of using the framework from a front-end developer
 
 ## Further reading
 
-{/* prettier-ignore */}
 <ul>
   <li class="no-margin"><a href="https://web.archive.org/web/20161201193601/http://kohanaframework.org:80/3.3/guide/kohana/">Kohana Official Documentation</a></li>
   <li><a href="http://zackperdue.com/tutorials/understanding-kohana-routes">Understanding Kohana Routes</a></li>

@@ -8,8 +8,6 @@ tags:
 title: "Drupal 101: Getting started with Drupal 8 theming"
 ---
 
-import Img4w from "@/components/Img4w.astro";
-
 Yes, I've finally got around to digging my mitts into Drupal 8, and building custom themes for Drupal 8. I have this bare-bones starter theme called [Clarus](https://www.drupal.org/sandbox/hj_chen/2345293) that I developed back in the day when I was theming Drupal 7 sites willy-nilly. I thought I'd keep it, and develop a Drupal 8 branch rather than start a new project.
 
 Drupal 8 has undergone quite a significant revamp under-the-hood, and the folder structure has changed quite a bit. Instead of placing your themes in the _sites/all/themes_ folder, all user-created themes go into the _themes_ folder. Well, that's an upgrade on the intuitive-ness front.
@@ -76,7 +74,12 @@ type: theme
 description: "A custom responsive Godzilla-based theme"
 ```
 
-<Img4w fileName="posts/d8-theming/info" fileType="jpg" alt="Theme selection" />
+<img
+  src="/images/posts/d8-theming/info-640.jpg"
+  srcset="/images/posts/d8-theming/info-480.jpg 480w, /images/posts/d8-theming/info-640.jpg 640w, /images/posts/d8-theming/info-960.jpg 960w, /images/posts/d8-theming/info-1280.jpg 1280w"
+  sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+  alt="Theme selection"
+/>
 
 <p class="no-margin">
   <strong>core</strong> <em> (required)</em>
@@ -224,7 +227,12 @@ services:
 
 This has activated twig debug mode, which means that if you check DevTools, there will be a bunch of comments that tell you which template is loaded as well as the file name suggestions you can use. This is pretty helpful for when you realise you need to add or change classes during the course of developing your theme.
 
-<Img4w fileName="posts/d8-theming/twigdebug" fileType="jpg" alt="Twig debugging" />
+<img
+  src="/images/posts/d8-theming/twigdebug-640.jpg"
+  srcset="/images/posts/d8-theming/twigdebug-480.jpg 480w, /images/posts/d8-theming/twigdebug-640.jpg 640w, /images/posts/d8-theming/twigdebug-960.jpg 960w, /images/posts/d8-theming/twigdebug-1280.jpg 1280w"
+  sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+  alt="Twig debugging"
+/>
 
 ## Now you can start CSS-ing
 

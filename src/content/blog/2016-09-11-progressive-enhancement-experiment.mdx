@@ -9,7 +9,6 @@ tags:
 title: "Fun with CSS: NBA edition"
 ---
 
-import Img4w from "@/components/Img4w.astro";
 import Img2x from "@/components/Img2x.astro";
 
 This is my second "Fun with CSS" post, maybe this should become a series. But anyway, I had watched the video of [Ethan Marcotte](http://ethanmarcotte.com/)'s talk at [An Event Apart](http://aneventapart.com/) called [Laziness in the Time of Responsive Design](https://vimeo.com/165061923), and was fascinated by his progressive enhancement demo. It starts at around the 48 minute mark where he starts covering animation.
@@ -78,7 +77,12 @@ Okay, so the basic version in the video was a row of radio buttons with images i
       &#x1F6B6;
     </span>
   </figcaption>
-  <Img4w fileName="posts/pwd/basic" fileType="jpg" alt="Basic styles" />
+  <img
+    src="/images/posts/pwd/basic-640.jpg"
+    srcset="/images/posts/pwd/basic-480.jpg 480w, /images/posts/pwd/basic-640.jpg 640w, /images/posts/pwd/basic-960.jpg 960w, /images/posts/pwd/basic-1280.jpg 1280w"
+    sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+    alt="Basic styles"
+  />
 </figure>
 
 In hindsight, the work needed from style-less to slightly-more-enhanced styles was a little more work that I expected. But it did give me a good chance to refresh my knowledge on CSS properties.

@@ -11,7 +11,6 @@ title: Basic grid layout with fallbacks using feature queries
 ---
 
 import Img2x from "@/components/Img2x.astro";
-import Img4w from "@/components/Img4w.astro";
 
 _This article has been translated to Japanese on [SeleQt](https://www.seleqt.net/programming/basic-grid-layout-with-fallbacks-using-feature-queries/)._
 
@@ -382,7 +381,12 @@ We can resolve this by doing the same thing we did for floats, and that is, intr
 
 Another option is to cap the maximum width of each layout item, so the orphaned items don't grow to ridiculous sizes. However, by default, everything will align left, and there may be instances where you have an excess of white space on the right of the layout container.
 
-<Img4w fileName="posts/grid-basic/flex-orphan" fileType="jpg" alt="Flex items on last row" />
+<img
+  src="/images/posts/grid-basic/flex-orphan-640.jpg"
+  srcset="/images/posts/grid-basic/flex-orphan-480.jpg 480w, /images/posts/grid-basic/flex-orphan-640.jpg 640w, /images/posts/grid-basic/flex-orphan-960.jpg 960w, /images/posts/grid-basic/flex-orphan-1280.jpg 1280w"
+  sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+  alt="Flex items on last row"
+/>
 
 If you're okay with that, awesome. But anecdotally, most people would like to centre things. <span class="emoji" role="img" tabindex="0" aria-label="person shrugging">&#x1F937;</span>
 
@@ -436,15 +440,30 @@ Those values prefixed with `flex-` only apply to flex containers, but otherwise 
 
 For distribution, `stretch` is treated the same as `flex-start`. The difference between the other three is the amount of space between each item. `space-between` will result in the first and last items of the row being flush with the edges of the container.
 
-<Img4w fileName="posts/grid-basic/space-between" fileType="jpg" alt="space-between value" />
+<img
+  src="/images/posts/grid-basic/space-between-640.jpg"
+  srcset="/images/posts/grid-basic/space-between-480.jpg 480w, /images/posts/grid-basic/space-between-640.jpg 640w, /images/posts/grid-basic/space-between-960.jpg 960w, /images/posts/grid-basic/space-between-1280.jpg 1280w"
+  sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+  alt="space-between value"
+/>
 
 `space-around` gives each item an equal amount of space around themselves.
 
-<Img4w fileName="posts/grid-basic/space-around" fileType="jpg" alt="space-around value" />
+<img
+  src="/images/posts/grid-basic/space-around-640.jpg"
+  srcset="/images/posts/grid-basic/space-around-480.jpg 480w, /images/posts/grid-basic/space-around-640.jpg 640w, /images/posts/grid-basic/space-around-960.jpg 960w, /images/posts/grid-basic/space-around-1280.jpg 1280w"
+  sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+  alt="space-around value"
+/>
 
 `space-evenly`, which is only supported by Firefox as of time of writing, distributes all the items evenly on the row, so the space between the first and last items and the edge of the container is the same as between items.
 
-<Img4w fileName="posts/grid-basic/space-evenly" fileType="jpg" alt="space-evenly value" />
+<img
+  src="/images/posts/grid-basic/space-evenly-640.jpg"
+  srcset="/images/posts/grid-basic/space-evenly-480.jpg 480w, /images/posts/grid-basic/space-evenly-640.jpg 640w, /images/posts/grid-basic/space-evenly-960.jpg 960w, /images/posts/grid-basic/space-evenly-1280.jpg 1280w"
+  sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+  alt="space-evenly value"
+/>
 
 Personally, I will go for the `justify-content: space-around` option and hence my flexbox code will end up looking like this:
 

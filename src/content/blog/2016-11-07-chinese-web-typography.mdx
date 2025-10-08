@@ -10,7 +10,6 @@ tags:
 title: Chinese language on the web
 ---
 
-import Img4w from "@/components/Img4w.astro";
 import Img2x from "@/components/Img2x.astro";
 
 If you hadn't realised by now, I am Chinese. I was born in Malaysia, then studied and now work in Singapore. Like many others with similar backgrounds, we speak both English and Chinese with native fluency, plus a smattering of other languages and dialects here and there.
@@ -89,7 +88,11 @@ To be fair, Chinese history is too vast a subject for a blog post. It warrants a
 
 <figure>
   <figcaption>甲骨文 (Oracle bone script)</figcaption>
-  <Img4w fileName="posts/zh-type/jgw" fileType="jpg" />
+  <img
+    src="/images/posts/zh-type/jgw-640.jpg"
+    srcset="/images/posts/zh-type/jgw-480.jpg 480w, /images/posts/zh-type/jgw-640.jpg 640w, /images/posts/zh-type/jgw-960.jpg 960w, /images/posts/zh-type/jgw-1280.jpg 1280w"
+    sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+  />
 </figure>
 
 A [common misconception about the origin of Chinese writing](http://www.comdesignlab.com/typochina/chinese/archives/98) is that 甲骨文 (literally translates to Oracle bone script) was the earliest form of Chinese characters. These characters were carved onto animal bones or turtle shells, and mainly used for divination during the Shang dynasty.
@@ -305,7 +308,12 @@ This property also only applies to vertical writing modes. It combines multiple 
   <figcaption>
     Here be <a href="https://huijing.github.io/zh-type">the demo</a>.
   </figcaption>
-  <Img4w fileName="posts/zh-type/demo" fileType="jpg" alt="Demo screenshot" />
+  <img
+    src="/images/posts/zh-type/demo-640.jpg"
+    srcset="/images/posts/zh-type/demo-480.jpg 480w, /images/posts/zh-type/demo-640.jpg 640w, /images/posts/zh-type/demo-960.jpg 960w, /images/posts/zh-type/demo-1280.jpg 1280w"
+    sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+    alt="Demo screenshot"
+  />
 </figure>
 
 ### Typographic styles for Chinese text

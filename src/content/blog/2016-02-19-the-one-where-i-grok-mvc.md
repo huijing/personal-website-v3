@@ -11,13 +11,16 @@ tags:
 title: The one where I grok MVC
 ---
 
-import Img4w from "@/components/Img4w.astro";
-
 Earlier this year, I mentioned that I was starting out with the [Kohana](https://kohanaframework.org/) framework. Actually, my team uses a heavily modified version of the Kohana framework as a starter for all our projects.
 
 In addition to the Kohana base architecture, our framework had a bunch of goodies built in, like lazy-loading, a run-time Sass compiler and so on. But I digress. We had been tasked to build the website for Audi's SG50 Time Machine campaign.
 
-<Img4w fileName="posts/sg50/sg50" fileType="jpg" alt="A Drive Back in Time" />
+<img
+  src="/images/posts/sg50/sg50-640.jpg"
+  srcset="/images/posts/sg50/sg50-480.jpg 480w, /images/posts/sg50/sg50-640.jpg 640w, /images/posts/sg50/sg50-960.jpg 960w, /images/posts/sg50/sg50-1280.jpg 1280w"
+  sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+  alt="A Drive Back in Time"
+/>
 
 ## Building the website
 
@@ -61,7 +64,12 @@ Feel free to skip to that post and experience the trials and tribulations of som
 
 <figure>
   <figcaption>Simple is not easy.</figcaption>
-  <Img4w fileName="posts/sg50/sg50" fileType="jpg" alt="Site navigation" />
+  <img
+    src="/images/posts/sg50/sg50-640.jpg"
+    srcset="/images/posts/sg50/sg50-480.jpg 480w, /images/posts/sg50/sg50-640.jpg 640w, /images/posts/sg50/sg50-960.jpg 960w, /images/posts/sg50/sg50-1280.jpg 1280w"
+    sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+    alt="Site navigation"
+  />
 </figure>
 
 ### Full page scrolling
@@ -119,7 +127,6 @@ This was definitely not the most technically challenging project I worked on, bu
 
 ## Further reading / resources
 
-{/* prettier-ignore */}
 <ul>
   <li class="no-margin"><a href="http://thenewcode.com/777/Create-Fullscreen-HTML5-Page-Background-Video">Create Fullscreen HTML5 Page Background Video</a> by <a href="https://twitter.com/dudleystorey">Dudley Storey</a></li>
   <li class="no-margin"><a href="http://alvarotrigo.com/fullPage/">fullPage.js</a> by <a href="http://alvarotrigo.com/">Álvaro Trigo</a></li>

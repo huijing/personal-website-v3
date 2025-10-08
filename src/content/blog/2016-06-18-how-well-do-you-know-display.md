@@ -9,8 +9,6 @@ tags:
 title: How well do you know CSS display?
 ---
 
-import Img4w from "@/components/Img4w.astro";
-
 _This article has been translated to Japanese by Kana Takahashi on [POSTD](http://postd.cc/how-well-do-you-know-display/)._
 
 The _display_ property is one of the most important CSS properties we use for layout. Most of us would have used `block`, `inline` and `none`. `table` and `inline-block` are also quite common. The new darling is definitely `flex`, because it's a display property that was created specifically for layout. The upcoming `grid` (currently still being actively worked on) is another layout-specific property that we'll soon have in our arsenal as well.
@@ -19,7 +17,6 @@ This post grew much longer than I initially expected so feel free to skip to a s
 
 ## Table of contents
 
-{/* prettier-ignore */}
 <ul>
   <li>
     <a href="#those-we-know-quite-well-already">Those we know quite well already</a>
@@ -71,13 +68,23 @@ Removes the element and its children from the normal document flow. The document
 
 ### `display: inline`
 
-<Img4w fileName="posts/css-display/inline" fileType="jpg" alt="Inline elements" />
+<img
+  src="/images/posts/css-display/inline-640.jpg"
+  srcset="/images/posts/css-display/inline-480.jpg 480w, /images/posts/css-display/inline-640.jpg 640w, /images/posts/css-display/inline-960.jpg 960w, /images/posts/css-display/inline-1280.jpg 1280w"
+  sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+  alt="Inline elements"
+/>
 
 The element generates one or more inline boxes. Inline-level elements take up, as the name suggests, as much space on the line as its tags define. Can be considered the complement to block-level elements.
 
 ### `display: block`
 
-<Img4w fileName="posts/css-display/block" fileType="jpg" alt="Block elements" />
+<img
+  src="/images/posts/css-display/block-640.jpg"
+  srcset="/images/posts/css-display/block-480.jpg 480w, /images/posts/css-display/block-640.jpg 640w, /images/posts/css-display/block-960.jpg 960w, /images/posts/css-display/block-1280.jpg 1280w"
+  sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+  alt="Block elements"
+/>
 
 The element generates a block level box. All block-level elements start on a new line and, unless otherwise specified, stretches to width of its container.
 
@@ -97,7 +104,8 @@ An element rendered as a list-item behaves exactly like that of a block-level el
   class="codepen"
 >
   See the Pen <a href="http://codepen.io/huijing/pen/PNMxXL/">CSS Display property</a> by Chen Hui
-  Jing (<a href="http://codepen.io/huijing">@huijing</a>) on <a href="http://codepen.io">CodePen</a>.
+  Jing (<a href="http://codepen.io/huijing">@huijing</a>) on <a href="http://codepen.io">CodePen</a>
+  .
 </p>
 
 The element generates a block level box, but the entire box behaves like an inline element. Try it opening the above example on [CodePen](http://codepen.io/huijing/pen/PNMxXL/) and adjusting your window width, it'll make more sense that way.
@@ -118,7 +126,8 @@ It was mainly due to the text in parenthesis that didn't collapse nicely. So I h
   class="codepen"
 >
   See the Pen <a href="http://codepen.io/huijing/pen/LZPNYo/">CSS Display example</a> by Chen Hui
-  Jing (<a href="http://codepen.io/huijing">@huijing</a>) on <a href="http://codepen.io">CodePen</a>.
+  Jing (<a href="http://codepen.io/huijing">@huijing</a>) on <a href="http://codepen.io">CodePen</a>
+  .
 </p>
 
 ## Remember them table-based layouts?
@@ -127,7 +136,6 @@ There are a set of _display_ values that allow your elements to behave just like
 
 Although most of us no longer use table-based layouts, `display: table` is still pretty useful in certain cases. For example, if you wanted to have tables only on wider layouts, but retain a typical block layout on smaller widths. This can be achieved with a combination of media queries and _display_ (with some pseudo-elements thrown in for good measure), just resize this window to see how it works.
 
-{/* prettier-ignore */}
 <div class="table display">
   <div class="tr">
     <div class="th td">table</div>
@@ -280,7 +288,6 @@ However, nothing was formally structured and the various browser vendors sort of
 
 The flexbox model is very powerful, and because it can do a lot, some effort is required to fully understand how it works and how to use it. Both flexbox and grid require full-length articles to cover in depth, so I'll list my go-to resources for flexbox here:
 
-{/* prettier-ignore */}
 <ul>
   <li class="no-margin"><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a> by Chris Coyier</li>
   <li class="no-margin"><a href="https://philipwalton.github.io/solved-by-flexbox/">Solved by Flexbox</a> by <a href="http://philipwalton.com/">Philip Walton</a></li>
@@ -297,7 +304,6 @@ By declaring `display: flex` on an element, it becomes a flex container, and its
   <strong>Properties for flex container</strong>
 </p>
 
-{/* prettier-ignore */}
 <div class="table display">
   <div class="tr">
     <div class="th td">flex-direction</div>
@@ -329,7 +335,6 @@ By declaring `display: flex` on an element, it becomes a flex container, and its
   <strong>Properties for flex items</strong>
 </p>
 
-{/* prettier-ignore */}
 <div class="table display">
   <div class="tr">
     <div class="th td">order</div>
@@ -377,7 +382,6 @@ Instead of doing that, CSS grid has developed behind a flag. It has to be [manua
   <strong>Key CSS grid terminology</strong>
 </p>
 
-{/* prettier-ignore */}
 <div class="table display">
   <div class="tr">
     <div class="th td">Grid Container</div>
@@ -419,7 +423,6 @@ Instead of doing that, CSS grid has developed behind a flag. It has to be [manua
 
 To try to cover grid in this short subsection is really doing the specification a disservice because the totality of what it can do is huge. Please do read through the following resources and experiment around with CSS grids. In fact, you can go to [Grid by Example](http://gridbyexample.com/) right now and access links to various CodePens that demonstrate how to use CSS grids for all kinds of use-cases.
 
-{/* prettier-ignore */}
 <ul>
   <li class="no-margin"><a href="http://blogs.igalia.com/mrego/2016/02/01/deep-dive-into-grid-layout-placement/">Deep Dive into Grid Layout Placement</a> by <a href="http://blogs.igalia.com/mrego/">Manuel Rego Casasnovas</a></li>
   <li class="no-margin"><a href="https://css-tricks.com/snippets/css/complete-guide-grid/">A Complete Guide to Grid</a> by <a href="http://chris.house/">Chris House</a></li>
@@ -448,7 +451,6 @@ This particular property needs an introduction to the &lt;ruby&gt; element for i
 
 There are some parallels between `display: ruby;` and `display: table;`, but the specification strongly discourages applying ruby display values to non-ruby elements like `span` to display ruby text. Rather, we should markup our content using the HTML ruby elements so screen readers and non-CS renderers can interpret the ruby structures.
 
-{/* prettier-ignore */}
 <div class="table display">
   <div class="tr">
     <div class="th td">ruby</div>
@@ -490,7 +492,8 @@ What the specification is trying to say is that, when you set `display: contents
   class="codepen"
 >
   See the Pen <a href="http://codepen.io/huijing/pen/wWWzmd/">CSS display: contents</a> by Chen Hui
-  Jing (<a href="http://codepen.io/huijing">@huijing</a>) on <a href="http://codepen.io">CodePen</a>.
+  Jing (<a href="http://codepen.io/huijing">@huijing</a>) on <a href="http://codepen.io">CodePen</a>
+  .
 </p>
 
 I've managed to uncover 2 articles that talk about this display property thus far, [Firefox is releasing support for CSS display: contents](https://samrueby.com/2015/02/09/firefox-is-releasing-support-for-css-display-contents/) by [Sam Rueby](https://samrueby.com/) and [Vanishing boxes with display contents](https://rachelandrew.co.uk/archives/2016/01/29/vanishing-boxes-with-display-contents/) by [Rachel Andrew](https://rachelandrew.co.uk/). Rachel Andrew also presents a fantastic use-case for this property with flex-items. Do check out both articles.
@@ -501,12 +504,9 @@ Whew, that ended up being way longer than I initially expected. So a big thank y
 
 ## Further reading
 
-{/* prettier-ignore */}
 <ul>
   <li class="no-margin"><a href="http://fantasai.inkedblade.net/weblog/2012/css-layout-evolution/">Evolution of CSS Layout: 1990s to the Future</a> by <a href="http://fantasai.inkedblade.net/">Fantasai</a></li>
   <li class="no-margin"><a href="http://www.w3.org/TR/css-display-3/">CSS Display Module Level 3</a></li>
   <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display">MDN CSS display reference</a></li>
 </ul>
-
-{/* prettier-ignore */}
 <em><small>Credits: OG:image from <a href="https://dribbble.com/shots/1612749-Design-layout-for-a-book">Design layout for a book</a> by Olivier Reynaud</small></em>

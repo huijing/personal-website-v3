@@ -11,7 +11,6 @@ tags:
 title: The one in a minimalist hacker chic
 ---
 
-import Img4w from "@/components/Img4w.astro";
 import Img2x from "@/components/Img2x.astro";
 
 I have an Argentinian friend. Not an acquaintance. A proper good friend. This is highly improbable, at least in my mind. Argentina is about 15,690km away from Singapore. In a different continent, across a large ocean, with a different culture. But by a random twist of fate, and an honest mistake, I gained a friend from halfway around the world, who is also a developer.
@@ -20,7 +19,12 @@ So my friend runs [Epyphite](https://web.archive.org/web/20150506141454/http://w
 
 One fine day, I found myself with a spare afternoon, and decided to do something about the Epyphite website, which he was more than happy to let me run riot on. He just mentioned that the guys liked the existing colour scheme. Great, with that in mind, let's see what could be done in one afternoon. _Spoiler alert: <span class="emoji" role="img" tabindex="0" aria-label="pointing down">&#x1F447;</span>_
 
-<Img4w fileName="posts/epyphite/epyphite" fileType="jpg" alt="Epyphite" />
+<img
+  src="/images/posts/epyphite/epyphite-640.jpg"
+  srcset="/images/posts/epyphite/epyphite-480.jpg 480w, /images/posts/epyphite/epyphite-640.jpg 640w, /images/posts/epyphite/epyphite-960.jpg 960w, /images/posts/epyphite/epyphite-1280.jpg 1280w"
+  sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+  alt="Epyphite"
+/>
 
 ## Phase 1: Evaluating the present
 
@@ -30,7 +34,12 @@ The way the site was setup, it was pretty easy to see where the relevant files a
 
 I wasn't joking when I said the site was slapped together. There were a lot of files and libraries that were not relevant in the slightest. The site itself didn't look _that_ bad, but it definitely could be better.
 
-<Img4w fileName="posts/epyphite/before" fileType="png" alt="Before the revamp" />
+<img
+  src="/images/posts/epyphite/before-640.png"
+  srcset="/images/posts/epyphite/before-480.png 480w, /images/posts/epyphite/before-640.png 640w, /images/posts/epyphite/before-960.png 960w, /images/posts/epyphite/before-1280.png 1280w"
+  sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+  alt="Before the revamp"
+/>
 
 **Conclusion:** wipe everything from those 2 folders and rewrite from scratch.
 

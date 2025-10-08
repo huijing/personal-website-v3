@@ -28,7 +28,6 @@ That was the basic gist of the idea. The key functionality I wanted was to be ab
 
 This being my first ”app”, I thought it'd be interesting to document the thought process plus questions I asked myself (mostly #noobproblems to be honest). Besides, I never had a standard format for writing case studies or blog posts. I also ramble a lot. [Source code](https://github.com/huijing/library-app) if you really want to look at noob code.
 
-{/* prettier-ignore */}
 <h3 class="no-margin">TL:DR (skip those which bore you)</h3>
 <ul>
   <li class="no-margin"><a href="#what-technology-stack-should-i-use">Technology stack used: node.js, Express, MongoDB, Nunjucks</a></li>

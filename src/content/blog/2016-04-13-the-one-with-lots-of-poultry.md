@@ -79,7 +79,12 @@ I know it's jQuery, but Drupal comes with it, so it's not like I can remove it. 
 
 <figure>
   <figcaption>Impossible without BEF.</figcaption>
-  <Img4w fileName="posts/sadia/bef" fileType="jpg" alt="Fancy filters" />
+  <img
+  src="/images/posts/sadia/bef-640.jpg"
+  srcset="/images/posts/sadia/bef-480.jpg 480w, /images/posts/sadia/bef-640.jpg 640w, /images/posts/sadia/bef-960.jpg 960w, /images/posts/sadia/bef-1280.jpg 1280w"
+  sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+  alt="Fancy filters"
+/>
 </figure>
 
 Also, checkout that nifty little arrow like triangle on the image. That's `clip-path` in action, folks! Yay to CSS. Just wanted to put that out there.

@@ -12,8 +12,6 @@ tags:
 title: "Drupal 101: Theming Drupal 8 with gulp"
 ---
 
-import Img4w from "@/components/Img4w.astro";
-
 Around two years ago, I wrote a post called [Drupal 101: Theming Drupal 7 with gulp](/blog/drupal-101-theming-with-gulp/), which covered some basics about Sass and gulp. I'm not going to repeat myself, so if you can read that article if you're interested. This one is going to cover the delta for the `gulpfile.js` setup in Drupal 8.
 
 ## gulp-ify your Drupal theme
@@ -34,13 +32,22 @@ npm init
 
 This will trigger a series of prompts for the generation of a `package.json` file. This file will store all the information about the required node packages for your project.
 
-<Img4w fileName="posts/drupal-gulp/npm-init" fileType="jpg" alt="npm init" />
+<img
+  src="/images/posts/drupal-gulp/npm-init-640.jpg"
+  srcset="/images/posts/drupal-gulp/npm-init-480.jpg 480w, /images/posts/drupal-gulp/npm-init-640.jpg 640w, /images/posts/drupal-gulp/npm-init-960.jpg 960w, /images/posts/drupal-gulp/npm-init-1280.jpg 1280w"
+  sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+  alt="npm init"
+/>
 
 Most of the prompts are pretty intuitive, and if you leave any of the fields blank, default values will be used. You can always change those values later. Set the entry point to `gulpfile.js` , and add information like the git repository if you wish.
 
-<Img4w fileName="posts/drupal-gulp/package-json" fileType="jpg" alt="package.json file" />
+<img
+  src="/images/posts/drupal-gulp/package-json-640.jpg"
+  srcset="/images/posts/drupal-gulp/package-json-480.jpg 480w, /images/posts/drupal-gulp/package-json-640.jpg 640w, /images/posts/drupal-gulp/package-json-960.jpg 960w, /images/posts/drupal-gulp/package-json-1280.jpg 1280w"
+  sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+  alt="package.json file"
+/>
 
-{/* prettier-ignore */}
 <span class="emoji" role="img" tabindex="0" aria-label="exclamation mark">&#x2757;</span> **Important: Preventing segmentation fault**  
 To prevent triggering a segmentation fault when running Drush, we need to add a script to the `package.json` file that will remove all `.info` files from the `node_modules` folder. Each node package has it's own `.info` file and it turns out that Drush thinks that they are all part of Drupal. Unfortunately, they are not in a format that Drush recognises and hence everything blows up badly. The `.info` files are not necessary for gulp to run properly so it's safe to remove them.
 
@@ -69,7 +76,6 @@ unsafe-perm = true
 ```
 
 <p class="no-margin">References to this issue:</p>
-{/* prettier-ignore */}
 <ul>
   <li class="no-margin"><a href="http://drupal.stackexchange.com/questions/126880/how-do-i-prevent-drupal-raising-a-segmentation-fault-when-using-a-node-js-themin">How do I prevent Drupal raising a segmentation fault when using a Node.js theming workflow?</a></li>
   <li><a href="http://dannyenglander.com/blog/drupal-drush-segmentation-fault-11-error-avoiding-rabbit-hole">Drupal Drush Segmentation Fault 11 Error: Avoiding the Rabbit Hole</a> <em>(This one’s a good read)</em></li>
@@ -78,7 +84,6 @@ unsafe-perm = true
 ### Plugins used
 
 <p class="no-margin">Here's the list of plug-ins needed and what they will be used for:</p>
-{/* prettier-ignore */}
 <ul>
   <li class="no-margin"><a href="https://www.npmjs.com/package/gulp">gulp</a> - Still have to install gulp locally</li>
   <li class="no-margin"><a href="https://www.npmjs.com/package/gulp-sass">gulp-sass</a> - To compile Sass into CSS</li>

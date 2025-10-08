@@ -10,12 +10,16 @@ tags:
 title: The one with big machines
 ---
 
-import Img4w from "@/components/Img4w.astro";
 import Img2x from "@/components/Img2x.astro";
 
 It's time for my annual Drupal project again. I had actually got my start in web development with Drupal and although I've left agency life, it seems that I'd still end up with at least one Drupal project a year. Largely because when someone needs a CMS, I tend to lean toward Drupal, it's like Linus and his blanket <span class="emoji" role="img" tabindex="0" aria-label="person shrugging">&#x1F937;</span>.
 
-<Img4w fileName="posts/sinvict/sinvict" fileType="jpg" alt="Sinvict Technology" />
+<img
+  src="/images/posts/sinvict/sinvict-640.jpg"
+  srcset="/images/posts/sinvict/sinvict-480.jpg 480w, /images/posts/sinvict/sinvict-640.jpg 640w, /images/posts/sinvict/sinvict-960.jpg 960w, /images/posts/sinvict/sinvict-1280.jpg 1280w"
+  sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+  alt="Sinvict Technology"
+/>
 
 Sinvict Technology is a company that manufactures CNC (Computer Numerical Control) machinery, as well as repairs and servicing for those machines. With their main client base in the South-east Asia region, one of their key concerns was to have their website be performant on dodgy network connections, as their existing site was around 11mb and took 1 minute to load. (I know this because I checked it, to prove a point <span class="emoji" role="img" tabindex="0" aria-label="smiling face with horns">&#x1F608;</span>)
 
@@ -58,7 +62,12 @@ A major change from Drupal 7 to Drupal 8 is the use of Twig as the templating la
 
 A really helpful developer tweak is the ability to turn on debug mode, which adds comments when you inspect through DevTools that indicate which template suggestions work best for the specific section you're trying to customise.
 
-<Img4w fileName="posts/sinvict/twig-debug" fileType="jpg" alt="Twig debugging in Drupal 8" />
+<img
+  src="/images/posts/sinvict/twig-debug-640.jpg"
+  srcset="/images/posts/sinvict/twig-debug-480.jpg 480w, /images/posts/sinvict/twig-debug-640.jpg 640w, /images/posts/sinvict/twig-debug-960.jpg 960w, /images/posts/sinvict/twig-debug-1280.jpg 1280w"
+  sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px"
+  alt="Twig debugging in Drupal 8"
+/>
 
 Drupal 8 has pretty much has a revamped file and folder structure, so custom themes now go into the `/themes` folder, which to me, is much more intuitive. All the core files can be found in the `/core` folder, default themes and modules included.
 
