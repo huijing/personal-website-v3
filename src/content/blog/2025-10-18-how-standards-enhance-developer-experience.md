@@ -1,6 +1,7 @@
 ---
 date: "2025-10-18T09:14:50+08:00"
 slug: "how-standards-enhance-developer-experience"
+og_image: /images/posts/standards.jpg
 tags:
   - devlife
   - specifications
