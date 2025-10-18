@@ -46,7 +46,9 @@ const latestPosts = posts
                 )}
               </h2>
               {post.data.external_site && (
-                <p class="note italicise">This article was originally published on {site?.name}.</p>
+                <p class="note italicise no-margin">
+                  <small>This article was originally published on {site?.name}.</small>
+                </p>
               )}
               <div class="post-summary">{excerpt}</div>
               <p class="post-meta">

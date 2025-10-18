@@ -16,12 +16,13 @@ export async function GET(context) {
     items: posts
       .sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date))
       .filter(
-        (post) => !post.data.nofeed && (import.meta.env.PROD ? post.data.draft !== true : true)
+        (post) =>
+          !post.data.nofeed &&
+          !post.data.external_url &&
+          (import.meta.env.PROD ? post.data.draft !== true : true)
       )
       .map((post) => {
-        const link = post.data.external_url
-          ? post.data.external_url
-          : new URL(`/blog/${post.id}/`, context.site).href;
+        const link = new URL(`/blog/${post.id}/`, context.site).href;
         const description = post.data.description ?? createExcerpt(post.body ?? "", 160);
         const fullHtml = md.render(post.body ?? "");
 

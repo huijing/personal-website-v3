@@ -75,67 +75,61 @@
   }
 
   &::before {
-    margin-inline-end: 0.25em;
+    margin-inline-end: 0.25rem;
     background-size: cover;
   }
 
   &::after {
-    background: url("/images/icons/icon-link.svg") no-repeat;
+    background-image: url("/images/icons/icon-link.svg");
     background-size: cover;
     margin-inline-start: 0.25em;
   }
 }
 
 .alistapart::before {
-  background: url("/images/icons/icon-ala.png") no-repeat;
+  background-image: url("/images/icons/icon-ala.png");
 }
 
 .codrops::before {
-  background: url("/images/icons/icon-codrops.svg") no-repeat;
-  background-size: cover;
+  background-image: url("/images/icons/icon-codrops.svg");
 }
 
 .wismut::before {
-  background: url("/images/icons/icon-wismut.svg") no-repeat;
-  background-size: cover;
+  background-image: url("/images/icons/icon-wismut.svg");
 }
 
 .\31 2days::before {
-  background: url("/images/icons/icon-12days.svg") no-repeat;
-  background-size: cover;
+  background-image: url("/images/icons/icon-12days.svg");
 }
 
 .\32 4ways::before {
-  background: url("/images/icons/icon-24ways.png") no-repeat;
-  background-size: cover;
+  background-image: url("/images/icons/icon-24ways.png");
 }
 
 .smashing::before {
-  background: url("/images/icons/icon-smashing.svg") no-repeat;
-  background-size: cover;
+  background-image: url("/images/icons/icon-smashing.svg");
 }
 
 .alphabettes::before {
-  background: url("/images/icons/icon-alphabettes.svg") no-repeat;
-  background-size: cover;
+  background-image: url("/images/icons/icon-alphabettes.svg");
 }
 
 .logrocket::before {
-  background: url("/images/icons/icon-logrocket.svg") no-repeat;
-  background-size: cover;
+  background-image: url("/images/icons/icon-logrocket.svg");
 }
 
 .bit::before {
-  background: url("/images/icons/icon-bit.svg") no-repeat;
-  background-size: cover;
+  background-image: url("/images/icons/icon-bit.svg");
 }
 
 .nexmo::before {
-  background: url("/images/icons/icon-nexmo.svg") no-repeat;
-  background-size: cover;
+  background-image: url("/images/icons/icon-nexmo.svg");
 }
 
 .shopify::before {
-  background: url("/images/icons/icon-shopify.svg") no-repeat;
-  background-size: cover;
+  background-image: url("/images/icons/icon-shopify.svg");
+}
+
+.circle::before {
+  background-image: url("/images/icons/icon-circle.svg");
 }
