@@ -4,16 +4,17 @@ external_site: nexmo
 external_url: https://www.nexmo.com/blog/2020/05/14/broadcast-video-chat-with-javascriot-and-vonage-dr
 noindex: true
 tags:
-- nodejs
-- javascript
-- nexmo
-title: Broadcast Video Chat with Javascript and Vonage
+  - nodejs
+  - javascript
+  - nexmo
+title: Broadcast Video Chat with JavaScript and Vonage
 ---
+
 This series of tutorials will explore the [Vonage Video API (formerly TokBox OpenTok)](https://tokbox.com/developer/) and what you can build with it. The Video API is very robust and highly customizable, and in each post, we’ll show how to implement a specific feature using the API. This time we will look at how to broadcast your video chat to many viewers online.
 
 As this application will require some server-side code, we will use [Glitch](https://glitch.com/) for ease of setup. You can also download the code from this Glitch project and deploy it on your server or hosting platform of choice (may probably require some configuration tweaking based on the requirements of your platform).
 
-We will not be using any front-end frameworks for this series, just vanilla Javascript to keep the focus on the Video API itself. At the end of this tutorial, you should be able to broadcast your video chat live to a large audience using HTTP live streaming (HLS) or an RTMP stream.
+We will not be using any front-end frameworks for this series, just vanilla JavaScript to keep the focus on the Video API itself. At the end of this tutorial, you should be able to broadcast your video chat live to a large audience using HTTP live streaming (HLS) or an RTMP stream.
 
 ![Screenshot of broadcast page](https://cdn.glitch.com/ca52d415-205d-46a8-a682-76597d9011f8%2Fbroadcast.jpg?v=1587378393372)
 
@@ -36,11 +37,11 @@ This tutorial builds on the first introductory post in the series: [Building a B
 
 The platform supports two types of broadcasts, [Live interactive video broadcasts](https://tokbox.com/developer/guides/broadcast/live-interactive-video/) and [live streaming broadcasts](https://tokbox.com/developer/guides/broadcast/live-streaming/). Both types of broadcast require you to use a routed session (a session that uses the [Vonage Video API Media Router](https://tokbox.com/developer/guides/create-session/#media-mode)). More on this in the next section.
 
-**Live interactive video broadcasts** enable many clients to publish and subscribe to each others' audio-video streams in real-time. Routed  sessions can support live interactive video broadcasts for up to 3,000 streams between clients.
+**Live interactive video broadcasts** enable many clients to publish and subscribe to each others' audio-video streams in real-time. Routed sessions can support live interactive video broadcasts for up to 3,000 streams between clients.
 
-**Live streaming broadcasts** let you share an *HTTP live streaming (HLS) stream* or an *RTMP stream* with large numbers of viewers. The HLS or RTMP stream is a single video composed of the individual streams published to the session. For this tutorial, this is the type of broadcast we will be using.
+**Live streaming broadcasts** let you share an _HTTP live streaming (HLS) stream_ or an _RTMP stream_ with large numbers of viewers. The HLS or RTMP stream is a single video composed of the individual streams published to the session. For this tutorial, this is the type of broadcast we will be using.
 
-[HTTP Live Streaming](https://tools.ietf.org/html/draft-pantos-http-live-streaming-23) (HLS) is a media streaming protocol which aims to deliver continuous and long-form video over the Internet reliably. It was developed by Apple and released in 2009. 
+[HTTP Live Streaming](https://tools.ietf.org/html/draft-pantos-http-live-streaming-23) (HLS) is a media streaming protocol which aims to deliver continuous and long-form video over the Internet reliably. It was developed by Apple and released in 2009.
 
 HLS uses CDN for delivery and is a traditional broadcast with high latency (15–20 seconds) and no interaction. An HLS viewer will receive the content at a latency of 15–20 seconds, so it does not lend itself directly to interactive use-cases.
 
@@ -107,20 +108,17 @@ function generateToken(roomName, response) {
   // Configure token options
   const tokenOptions = {
     role: "publisher",
-    data: `roomname=${roomName}`
+    data: `roomname=${roomName}`,
   };
   // Generate token with the Video API Client SDK
-  let token = OT.generateToken(
-    sessions[roomName],
-    tokenOptions
-  );
+  let token = OT.generateToken(sessions[roomName], tokenOptions);
   // Send the required credentials back to to the client
   // as a response from the fetch request
   response.status(200);
   response.send({
     sessionId: sessions[roomName],
     token: token,
-    apiKey: process.env.API_KEY
+    apiKey: process.env.API_KEY,
   });
 }
 
@@ -135,7 +133,7 @@ To get the video chat up and running, go to the `.env` file and fill in your API
 
 Our application will be made up of three pages. a landing page for users to create or join a session, a video chat page for participants of the video chat, and a page that displays the broadcast stream.
 
-We will need to create an additional page for the broadcast. Let's add a `broadcast.html` file to the `views` folder by clicking the *New File* button in the left sidebar. Name the file `views/broadcast.html` and paste the following markup into the page.
+We will need to create an additional page for the broadcast. Let's add a `broadcast.html` file to the `views` folder by clicking the _New File_ button in the left sidebar. Name the file `views/broadcast.html` and paste the following markup into the page.
 
 ![Add a broadcast.html to the views folder](https://cdn.glitch.com/ca52d415-205d-46a8-a682-76597d9011f8%2Fglitch-01.jpg?v=1587439751304)
 
@@ -267,6 +265,7 @@ app.post("/broadcast/start", (request, response) => {
   });
 });
 ```
+
 There are more optional properties you could include as broadcast options like resolution, layout and so on, but for now, we will be using the defaults. Refer to the [API reference](https://tokbox.com/developer/rest/#start_broadcast) for specifics.
 
 Let's also set up the route to stop a broadcast. The `stopBroadcast()` method requires the broadcast ID, which we will also obtain from the client-side.
@@ -278,7 +277,7 @@ app.post("/broadcast/stop", (request, response) => {
     if (error) console.log(error);
     response.status(200);
     response.send({
-      status: broadcast.status
+      status: broadcast.status,
     });
   });
 });
@@ -370,12 +369,12 @@ function startBroadCast() {
   fetch("/broadcast/start", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ sessionId: session.sessionId })
+    body: JSON.stringify({ sessionId: session.sessionId }),
   })
-    .then(res => {
+    .then((res) => {
       return res.json();
     })
-    .then(res => {
+    .then((res) => {
       broadcast = res.broadcast;
       console.log(res);
     })
@@ -389,17 +388,18 @@ function stopBroadCast() {
   fetch("/broadcast/stop", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ broadcastId: broadcast.id })
+    body: JSON.stringify({ broadcastId: broadcast.id }),
   })
-    .then(res => {
+    .then((res) => {
       return res.json();
     })
-    .then(res => {
+    .then((res) => {
       console.log(res);
     })
     .catch(handleCallback);
 }
 ```
+
 If you open your console when starting and stopping the broadcast, you should see the following:
 
 ![Console log messages when broadcast starts and stops](https://cdn.glitch.com/ca52d415-205d-46a8-a682-76597d9011f8%2Fstart-stop.jpg?v=1587457463348)
@@ -408,13 +408,13 @@ In theory, we could stop here, because we now have access to an HLS link to stre
 
 ## Handle button states
 
-But first, some additional styling for button states. If you noticed, there is some time lag between you pressing the *Start Broadcast* button and the response which gets logged to console. To improve the user experience, we want to provide some indication to the user that their request did get sent to the server.
+But first, some additional styling for button states. If you noticed, there is some time lag between you pressing the _Start Broadcast_ button and the response which gets logged to console. To improve the user experience, we want to provide some indication to the user that their request did get sent to the server.
 
 The flow would work something like this:
 
 ![Button state flow](https://cdn.glitch.com/ca52d415-205d-46a8-a682-76597d9011f8%2Fflow.png?v=1587462565268)
 
-Instead of displaying both start and stop buttons, we only show one relevant button at a time. Also, once a button is clicked, we don't want users to click it multiple times while processing is on-going. Let's add some CSS classes to deal with the hidden and disabled states. 
+Instead of displaying both start and stop buttons, we only show one relevant button at a time. Also, once a button is clicked, we don't want users to click it multiple times while processing is on-going. Let's add some CSS classes to deal with the hidden and disabled states.
 
 ```css
 /* These are for the button states */
@@ -458,6 +458,7 @@ function activeBtnState(statusString) {
   activeBtn.classList.remove("hidden");
 }
 ```
+
 Let's incorporate these functions into our fetch requests for starting and stopping the broadcast.
 
 ```javascript
@@ -468,12 +469,12 @@ function startBroadCast() {
   fetch("/broadcast/start", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ sessionId: session.sessionId })
+    body: JSON.stringify({ sessionId: session.sessionId }),
   })
-    .then(res => {
+    .then((res) => {
       return res.json();
     })
-    .then(res => {
+    .then((res) => {
       broadcast = res.broadcast;
       // To hide the Start button and show the Stop button
       activeBtnState("stop");
@@ -488,12 +489,12 @@ function stopBroadCast() {
   fetch("/broadcast/stop", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ broadcastId: broadcast.id })
+    body: JSON.stringify({ broadcastId: broadcast.id }),
   })
-    .then(res => {
+    .then((res) => {
       return res.json();
     })
-    .then(res => {
+    .then((res) => {
       // To hide the Stop button and show the Start button
       activeBtnState("start");
     })
@@ -510,6 +511,7 @@ app.get("/broadcast/:room", (request, response) => {
   response.sendFile(__dirname + "/views/broadcast.html");
 });
 ```
+
 We're going to add another route that checks for the existence of the session to be broadcast. If it does, the success response will pass over the URL for the broadcast and its status.
 
 ```javascript
@@ -517,23 +519,22 @@ app.get("/broadcast/hls/:room", (request, response) => {
   const roomName = request.params.room;
   if (sessions[roomName]) {
     response.status(200);
-    response.send({ 
+    response.send({
       hls: broadcastData.broadcastUrls.hls,
-      status: broadcastData.status
+      status: broadcastData.status,
     });
   } else {
     response.status(204);
   }
 });
 ```
+
 On our `index.html` page, add in the following to the broadcast controls `div`:
 
 ```html
 <div class="broadcast">
   <!-- Add link to the Broadcast page and a means to copy to clipboard -->
-  <a class="hidden" id="hlsLink" target="_blank" rel="noopener noreferrer"
-    >Open Broadcast page</a
-  >
+  <a class="hidden" id="hlsLink" target="_blank" rel="noopener noreferrer">Open Broadcast page</a>
   <p class="invisible" id="hlsCopyTarget"></p>
   <button class="hidden" id="copyLink">Copy HLS link</button>
 
@@ -572,14 +573,14 @@ function hlsLinkState(statusString) {
 // Create the link to the broadcast page
 function composeHlsLink(link) {
   hlsLinkState("start");
-  const hlsLinkUrl =
-    "https://" + location.host + "/broadcast/" + roomName + "?hls=" + link;
+  const hlsLinkUrl = "https://" + location.host + "/broadcast/" + roomName + "?hls=" + link;
   const hlsLink = document.getElementById("hlsLink");
   const hlsCopyTarget = document.getElementById("hlsCopyTarget");
   hlsLink.href = hlsLinkUrl;
   hlsCopyTarget.innerHTML = hlsLinkUrl;
 }
 ```
+
 Let's add these new functions to the fetch requests for starting/stopping the broadcast as well:
 
 ```javascript
@@ -589,12 +590,12 @@ function startBroadCast() {
   fetch("/broadcast/start", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ sessionId: session.sessionId })
+    body: JSON.stringify({ sessionId: session.sessionId }),
   })
-    .then(res => {
+    .then((res) => {
       return res.json();
     })
-    .then(res => {
+    .then((res) => {
       broadcast = res.broadcast;
       activeBtnState("stop");
       // Compose the link to the broadcast page
@@ -609,12 +610,12 @@ function stopBroadCast() {
   fetch("/broadcast/stop", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ broadcastId: broadcast.id })
+    body: JSON.stringify({ broadcastId: broadcast.id }),
   })
-    .then(res => {
+    .then((res) => {
       return res.json();
     })
-    .then(res => {
+    .then((res) => {
       activeBtnState("start");
       // Hide the links when the broadcast has stopped
       hlsLinkState("stop");
@@ -631,13 +632,13 @@ const roomName = url.pathname.split("/")[2];
 const hlsLink = url.searchParams.get("hls");
 
 fetch("/broadcast/hls/" + roomName)
-  .then(res => {
+  .then((res) => {
     return res.json();
   })
-  .then(res => {
+  .then((res) => {
     playStream(hlsLink);
   })
-  .catch(error => console.error(error));
+  .catch((error) => console.error(error));
 
 // Refer to hls.js documentation for more options
 function playStream(hlsLink) {
@@ -648,12 +649,12 @@ function playStream(hlsLink) {
     const hls = new Hls();
     hls.loadSource(videoSrc);
     hls.attachMedia(video);
-    hls.on(Hls.Events.MANIFEST_PARSED, function() {
+    hls.on(Hls.Events.MANIFEST_PARSED, function () {
       video.play();
     });
   } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
     video.src = videoSrc;
-    video.addEventListener("loadedmetadata", function() {
+    video.addEventListener("loadedmetadata", function () {
       video.play();
     });
   }
@@ -682,6 +683,7 @@ function copyHlsLink() {
   window.getSelection().removeAllRanges();
 }
 ```
+
 After all that, you should finally get something like this for the video chat page and the broadcast page respectively:
 
 ![Video chat page](https://cdn.glitch.com/ca52d415-205d-46a8-a682-76597d9011f8%2Fend-01.jpg?v=1587478436680)

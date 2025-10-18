@@ -4,6 +4,7 @@ slug: "where-did-css-named-colours-come-from"
 og_image: /images/posts/css-colours.jpg
 tags:
   - design
+  - specifications
   - css
 title: Where did CSS named colours come from?
 ---

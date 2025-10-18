@@ -4,16 +4,17 @@ external_site: nexmo
 external_url: https://www.nexmo.com/blog/2020/04/28/stream-a-video-chat-with-vonage-video-api-dr
 noindex: true
 tags:
-- nodejs
-- javascript
-- nexmo
+  - nodejs
+  - javascript
+  - nexmo
 title: Stream a Video Chat With the Vonage Video API
 ---
+
 This series of tutorials will explore the [Vonage Video API (formerly TokBox OpenTok)](https://tokbox.com/developer/) and what you can build with it. The Video API is very robust and highly customizable, and in each post we’ll show how to implement a specific feature using the API. This time we will look at how to stream your video chat to an audience who is not in the chat.
 
 As this application will require some server-side code, we will use [Glitch](https://glitch.com/) for ease of setup. You can also download the code from this Glitch project and deploy it on your server or hosting platform of choice (may probably require some configuration tweaking based on the requirements of your platform).
 
-We will not be using any front-end frameworks for this series, just vanilla Javascript to keep the focus on the Video API itself. At the end of this tutorial, your video chat application should also provide an option to simply watch the video chat stream.
+We will not be using any front-end frameworks for this series, just vanilla JavaScript to keep the focus on the Video API itself. At the end of this tutorial, your video chat application should also provide an option to simply watch the video chat stream.
 
 ![Screenshot of viewer page](https://cdn.glitch.com/19f09a76-139f-49d3-9031-bb23315fae17%2Fviewer.jpg?v=1586797944330)
 
@@ -34,9 +35,9 @@ This tutorial builds on the first introductory post in the series: [Building a B
 
 ## Token Creation and Roles
 
-Every user that connects to a session needs to be authenticated with a token. Each token is assigned a role, which determines what the client can do when they are connected. There are three available roles, *Subscriber*, *Publisher* and *Moderator*. We will only be using the first two for this tutorial.
+Every user that connects to a session needs to be authenticated with a token. Each token is assigned a role, which determines what the client can do when they are connected. There are three available roles, _Subscriber_, _Publisher_ and _Moderator_. We will only be using the first two for this tutorial.
 
-A publisher can connect to sessions, publish audio-video streams to the session and subscribe to other clients' sessions. A subscriber can connect to sessions and subscribe to other clients' sessions but **cannot publish** to the session. 
+A publisher can connect to sessions, publish audio-video streams to the session and subscribe to other clients' sessions. A subscriber can connect to sessions and subscribe to other clients' sessions but **cannot publish** to the session.
 
 ![Crude illustration of subscribers and publishers](https://cdn.glitch.com/19f09a76-139f-49d3-9031-bb23315fae17%2Fsketch.png?v=1586578569895)
 
@@ -103,20 +104,17 @@ function generateToken(roomName, response) {
   // Configure token options
   const tokenOptions = {
     role: "publisher",
-    data: `roomname=${roomName}`
+    data: `roomname=${roomName}`,
   };
   // Generate token with the Video API Client SDK
-  let token = OT.generateToken(
-    sessions[roomName],
-    tokenOptions
-  );
+  let token = OT.generateToken(sessions[roomName], tokenOptions);
   // Send the required credentials back to to the client
   // as a response from the fetch request
   response.status(200);
   response.send({
     sessionId: sessions[roomName],
     token: token,
-    apiKey: process.env.API_KEY
+    apiKey: process.env.API_KEY,
   });
 }
 
@@ -131,7 +129,7 @@ To get the video chat up and running, go to the `.env` file and fill in your API
 
 Our application will be made up of three pages: a landing page for users to create or join a session as well as to select if they want to be a viewer or a participant, and the two video chat pages for each role respectively.
 
-We will need to create an additional page for the viewer. Let's add a `viewer.html` file to the `views` folder by clicking the *New File* button in the left sidebar. Name the file `views/viewer.html` and paste the following markup into the page. This page is almost exactly the same as the `index.html` file, except it does not have a `div` for publisher.
+We will need to create an additional page for the viewer. Let's add a `viewer.html` file to the `views` folder by clicking the _New File_ button in the left sidebar. Name the file `views/viewer.html` and paste the following markup into the page. This page is almost exactly the same as the `index.html` file, except it does not have a `div` for publisher.
 
 ![Add a viewer.html to the views folder](https://cdn.glitch.com/19f09a76-139f-49d3-9031-bb23315fae17%2Fglitch.png?v=1586584779947)
 
@@ -183,20 +181,15 @@ We will need to create an additional page for the viewer. Let's add a `viewer.ht
 
 The `viewer.html` and the `index.html` file will be using different script files as their implementation is slightly different due to their respective token roles as explained in the section above.
 
-Next, we will make some modifications to the form on the `landing.html` page to include an option for users to select their roles via radio buttons. If they select *Viewer*, they will be sent to the page which shows them a stream of the video chat. If they select *Participant*, another text input will show up for the user name, which will be used to identify their stream.
+Next, we will make some modifications to the form on the `landing.html` page to include an option for users to select their roles via radio buttons. If they select _Viewer_, they will be sent to the page which shows them a stream of the video chat. If they select _Participant_, another text input will show up for the user name, which will be used to identify their stream.
 
 ```html
 <form id="registration" class="registration">
   <label>
     <span>Room</span>
-    <input
-      type="text"
-      name="room-name"
-      placeholder="Enter room name"
-      required
-    />
+    <input type="text" name="room-name" placeholder="Enter room name" required />
   </label>
-  
+
   <!-- Add the user type radio buttons -->
   <p>Select your role:</p>
   <fieldset id="userRoles">
@@ -210,7 +203,7 @@ Next, we will make some modifications to the form on the `landing.html` page to 
       <span>Participant</span>
     </label>
   </fieldset>
-  
+
   <!-- Add the user name input field and label -->
   <label id="userName" class="hidden">
     <span>User name</span>
@@ -245,7 +238,7 @@ fieldset label {
 
 ![Basic styles for fieldset and radio buttons](https://cdn.glitch.com/19f09a76-139f-49d3-9031-bb23315fae17%2Fform.jpg?v=1586769635766)
 
-## Refactor the Client-Side Javascript
+## Refactor the Client-Side JavaScript
 
 Let's work on the `landing.html` page first. For the conditional show/hide of the user name field, we can add an event listener that checks for the value of the radio button being selected and toggle the styles accordingly.
 
@@ -255,7 +248,7 @@ const userName = document.getElementById("userName");
 const userNameField = document.querySelector('[name="user-name"]');
 userRoles.addEventListener(
   "click",
-  event => {
+  (event) => {
     if (event.target.value === "participant") {
       userName.classList.remove("hidden");
       userNameField.required = true;
@@ -268,13 +261,13 @@ userRoles.addEventListener(
 );
 ```
 
-We also need to modify the logic for sending our users to the correct pages based on whether they chose *viewer* or *participant*. Viewers will be sent to `/session/viewer/ROOM_NAME` while participants will be sent to `/session/participant/ROOM_NAME?username=USER_NAME`. We are making use of the query string in the URL to pass the user name to the server.
+We also need to modify the logic for sending our users to the correct pages based on whether they chose _viewer_ or _participant_. Viewers will be sent to `/session/viewer/ROOM_NAME` while participants will be sent to `/session/participant/ROOM_NAME?username=USER_NAME`. We are making use of the query string in the URL to pass the user name to the server.
 
 ```javascript
 const form = document.getElementById("registration");
-form.addEventListener("submit", event => {
+form.addEventListener("submit", (event) => {
   event.preventDefault();
-  
+
   // Check the selected option and redirect accordingly
   const isViewer = form.elements["user-type"].value === "viewer";
 
@@ -286,7 +279,7 @@ form.addEventListener("submit", event => {
 });
 ```
 
-Next, we'll create the `viewer.js` file for the `viewer.html` page. Similar to what we did for the `viewer.html`, click on *New File* again, but this time, add the Javascript files to the `public` folder instead.
+Next, we'll create the `viewer.js` file for the `viewer.html` page. Similar to what we did for the `viewer.html`, click on _New File_ again, but this time, add the JavaScript files to the `public` folder instead.
 
 Your project folder should now look like this:
 
@@ -296,10 +289,10 @@ The `viewer.js` file is slightly shorter than the `client.js` file because it do
 
 ```javascript
 fetch(location.pathname, { method: "POST" })
-  .then(res => {
+  .then((res) => {
     return res.json();
   })
-  .then(res => {
+  .then((res) => {
     const apiKey = res.apiKey;
     const sessionId = res.sessionId;
     const token = res.token;
@@ -312,10 +305,10 @@ function initializeSession(apiKey, sessionId, token) {
   const session = OT.initSession(apiKey, sessionId);
 
   // Connect to the session
-  session.connect(token, error => handleCallback(error));
+  session.connect(token, (error) => handleCallback(error));
 
   // Subscribe to a newly created stream
-  session.on("streamCreated", event => {
+  session.on("streamCreated", (event) => {
     session.subscribe(
       event.stream,
       "subscriber",
@@ -323,7 +316,7 @@ function initializeSession(apiKey, sessionId, token) {
         insertMode: "append",
         width: "100%",
         height: "100%",
-        name: event.stream.name
+        name: event.stream.name,
       },
       handleCallback
     );
@@ -344,10 +337,10 @@ We need to make some minor tweaks to the `client.js` file as well because we wan
 
 ```javascript
 fetch(location.pathname, { method: "POST" })
-  .then(res => {
+  .then((res) => {
     return res.json();
   })
-  .then(res => {
+  .then((res) => {
     const apiKey = res.apiKey;
     const sessionId = res.sessionId;
     const token = res.token;
@@ -368,13 +361,13 @@ const publisher = OT.initPublisher(
     insertMode: "append",
     width: "100%",
     height: "100%",
-    name: streamName
+    name: streamName,
   },
   handleCallback
 );
 
 // Subscribe to a newly created stream
-session.on("streamCreated", event => {
+session.on("streamCreated", (event) => {
   session.subscribe(
     event.stream,
     "subscriber",
@@ -382,7 +375,7 @@ session.on("streamCreated", event => {
       insertMode: "append",
       width: "100%",
       height: "100%",
-      name: event.stream.name
+      name: event.stream.name,
     },
     handleCallback
   );
@@ -393,10 +386,10 @@ Your final `client.js` files will look like this:
 
 ```javascript
 fetch(location.pathname, { method: "POST" })
-  .then(res => {
+  .then((res) => {
     return res.json();
   })
-  .then(res => {
+  .then((res) => {
     const apiKey = res.apiKey;
     const sessionId = res.sessionId;
     const token = res.token;
@@ -416,13 +409,13 @@ function initializeSession(apiKey, sessionId, token, streamName) {
       insertMode: "append",
       width: "100%",
       height: "100%",
-      name: streamName
+      name: streamName,
     },
     handleCallback
   );
 
   // Connect to the session
-  session.connect(token, error => {
+  session.connect(token, (error) => {
     // If the connection is successful, initialize the publisher and publish to the session
     if (error) {
       handleCallback(error);
@@ -432,7 +425,7 @@ function initializeSession(apiKey, sessionId, token, streamName) {
   });
 
   // Subscribe to a newly created stream
-  session.on("streamCreated", event => {
+  session.on("streamCreated", (event) => {
     session.subscribe(
       event.stream,
       "subscriber",
@@ -440,7 +433,7 @@ function initializeSession(apiKey, sessionId, token, streamName) {
         insertMode: "append",
         width: "100%",
         height: "100%",
-        name: event.stream.name
+        name: event.stream.name,
       },
       handleCallback
     );
@@ -459,7 +452,7 @@ function handleCallback(error) {
 
 ## Handle Routes on the Server-Side
 
-The last portion before everything comes together is the `server.js` file, where the routes are defined. We will need to handle the routes to serve the **Viewer** page (`viewer.html`) as well as the **Participant** page (`index.html`) respectively. 
+The last portion before everything comes together is the `server.js` file, where the routes are defined. We will need to handle the routes to serve the **Viewer** page (`viewer.html`) as well as the **Participant** page (`index.html`) respectively.
 
 ```javascript
 app.get("/session/participant/:room", (request, response) => {
@@ -478,13 +471,10 @@ function generatePublisherToken(roomName, streamName, response) {
   // Configure token options
   const tokenOptions = {
     role: "publisher",
-    data: `roomname=${roomName}?streamname=${streamName}`
+    data: `roomname=${roomName}?streamname=${streamName}`,
   };
   // Generate token with the OpenTok SDK
-  let token = OT.generateToken(
-    sessions[roomName],
-    tokenOptions
-  );
+  let token = OT.generateToken(sessions[roomName], tokenOptions);
   // Send the required credentials back to to the client
   // as a response from the fetch request
   response.status(200);
@@ -492,7 +482,7 @@ function generatePublisherToken(roomName, streamName, response) {
     sessionId: sessions[roomName],
     token: token,
     apiKey: process.env.API_KEY,
-    streamName: streamName
+    streamName: streamName,
   });
 }
 
@@ -500,20 +490,17 @@ function generateSubscriberToken(roomName, response) {
   // Configure token options
   const tokenOptions = {
     role: "subscriber",
-    data: `roomname=${roomName}`
+    data: `roomname=${roomName}`,
   };
   // Generate token with the OpenTok SDK
-  let token = OT.generateToken(
-    sessions[roomName],
-    tokenOptions
-  );
+  let token = OT.generateToken(sessions[roomName], tokenOptions);
   // Send the required credentials back to to the client
   // as a response from the fetch request
   response.status(200);
   response.send({
     sessionId: sessions[roomName],
     token: token,
-    apiKey: process.env.API_KEY
+    apiKey: process.env.API_KEY,
   });
 }
 ```

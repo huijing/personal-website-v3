@@ -71,7 +71,7 @@ Similar to GitHub Pages, GitLab Pages also allows you to have a single user site
       - package.json
     ```
 
-    Basically, I didn't know the shorthand for lists in YAML was written like Javascript arrays. So here are the 2 correct ways to exclude multiple files/folders in your `_config_yml`.
+    Basically, I didn't know the shorthand for lists in YAML was written like JavaScript arrays. So here are the 2 correct ways to exclude multiple files/folders in your `_config_yml`.
 
     ```yaml
     exclude: - vendor - Gemfile - Gemfile.lock - node_modules - gulpfile.js - package.json
@@ -83,7 +83,7 @@ Similar to GitHub Pages, GitLab Pages also allows you to have a single user site
     exclude: [vendor, "Gemfile", "Gemfile.lock", node_modules, "gulpfile.js", "package.json"]
     ```
 
-5.  Push your files up to GitLab and watch it run in the pipeline page. If you run into a `Could not find a Javascript runtime.` error, which I somehow did, you may need to include the line `gem 'therubyracer'` in your `Gemfile`. [Relevant issue log here](https://github.com/jekyll/jekyll/issues/2327). Why is a Javascript runtime needed for a Jekyll site you may ask? It's most probably not needed, but something up with my site's files <span class="emoji" role="img" tabindex="0" aria-label="person shrugging">&#x1F937;</span>.
+5.  Push your files up to GitLab and watch it run in the pipeline page. If you run into a `Could not find a JavaScript runtime.` error, which I somehow did, you may need to include the line `gem 'therubyracer'` in your `Gemfile`. [Relevant issue log here](https://github.com/jekyll/jekyll/issues/2327). Why is a JavaScript runtime needed for a Jekyll site you may ask? It's most probably not needed, but something up with my site's files <span class="emoji" role="img" tabindex="0" aria-label="person shrugging">&#x1F937;</span>.
 
 ## Wrapping up
 

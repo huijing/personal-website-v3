@@ -28,7 +28,7 @@ One fine day, I found myself with a spare afternoon, and decided to do something
 
 This wasn't a complicated site. It was a brochure site to provide information about the company, what they did and their contact details. The site used Node.js on the backend and EJS as the templating language. My plan was to go in and get out with minimal disruption to the server and back-end setup. So there was no rewrite of any back-end architecture, no touching of the `server.js` file, none of that.
 
-The way the site was setup, it was pretty easy to see where the relevant files and folders were. For the HTML, the EJS files were in the `Views` folder and for the theme, the CSS, fonts, images etc. were in the `Static` folder. After clicking through every link on the site, I ascertained that there were only 2 pages, the home page and the about page. No Javascript was necessary for this particular site either.
+The way the site was setup, it was pretty easy to see where the relevant files and folders were. For the HTML, the EJS files were in the `Views` folder and for the theme, the CSS, fonts, images etc. were in the `Static` folder. After clicking through every link on the site, I ascertained that there were only 2 pages, the home page and the about page. No JavaScript was necessary for this particular site either.
 
 I wasn't joking when I said the site was slapped together. There were a lot of files and libraries that were not relevant in the slightest. The site itself didn't look _that_ bad, but it definitely could be better.
 

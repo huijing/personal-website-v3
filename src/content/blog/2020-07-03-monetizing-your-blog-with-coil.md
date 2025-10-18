@@ -21,7 +21,7 @@ The bulk of the set up involved registering an account with the relevant service
 
 ## Who's who in the world of Web Monetization
 
-[Web Monetization](https://webmonetization.org/) is a **Javascript browser API** which allows the creation of a payment stream from the user agent to the website. This is what it says on the website. But what that means is that you can passively generate income by implementing a meta tag on your site.
+[Web Monetization](https://webmonetization.org/) is a **JavaScript browser API** which allows the creation of a payment stream from the user agent to the website. This is what it says on the website. But what that means is that you can passively generate income by implementing a meta tag on your site.
 
 This payment stream runs on the [Interledger Protocol](https://interledger.org/), which is an open protocol suite, analogous to TCP/IP. Instead of data packets, this protocol handles the routing of payment packets. So far, these 2 commonly seen terms are referring to the technology.
 

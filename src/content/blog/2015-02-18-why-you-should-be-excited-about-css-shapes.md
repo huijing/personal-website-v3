@@ -6,6 +6,7 @@ og_image: /images/posts/css-shapes.jpg
 tags:
   - css
   - podcasts
+  - specifications
   - translated
 title: Why you should be excited about CSS shapes
 ---

@@ -297,7 +297,7 @@ Now that things are linked up correctly, it's time to get building. The test `in
      });
      ```
 
-   - Identical Javascript compilation task to development mode, with an additional minification step thrown in using _uglify_
+   - Identical JavaScript compilation task to development mode, with an additional minification step thrown in using _uglify_
 
      ```js
      gulp.task("scripts-prod", function () {
@@ -316,7 +316,7 @@ Now that things are linked up correctly, it's time to get building. The test `in
      gulp.task("default", ["browser-sync", "watch"]);
      ```
 
-   - Build task, run using `gulp build` to compile Sass and Javascript ready for deployment.
+   - Build task, run using `gulp build` to compile Sass and JavaScript ready for deployment.
 
      ```js
      gulp.task("build", ["scripts-prod", "sass-prod", "jekyll-prod"]);

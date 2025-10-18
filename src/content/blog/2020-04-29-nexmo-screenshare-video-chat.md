@@ -4,16 +4,17 @@ external_site: nexmo
 external_url: https://www.nexmo.com/blog/2020/04/29/share-your-screen-with-the-vonage-video-api-dr
 noindex: true
 tags:
-- nodejs
-- javascript
-- nexmo
+  - nodejs
+  - javascript
+  - nexmo
 title: Share Your Screen with Vonage Video API
 ---
+
 This series of tutorials will explore the [Vonage Video API (formerly TokBox OpenTok)](https://tokbox.com/developer/) and what you can build with it. The Video API is very robust and highly customizable, and in each post, we'll show how to implement a specific feature using the API. This time we will look at how to add screen-sharing to your basic audio-video chat.
 
 As this application will require some server-side code, we will use [Glitch](https://glitch.com/) for ease of setup. You can also download the code from this Glitch project and deploy it on your server or hosting platform of choice (may probably require some configuration tweaking based on the requirements of your platform).
 
-We will not be using any front-end frameworks for this series, just vanilla Javascript, to keep the focus on the Video API itself. At the end of this tutorial, you should be able to share your screen with the person in your video chat.
+We will not be using any front-end frameworks for this series, just vanilla JavaScript, to keep the focus on the Video API itself. At the end of this tutorial, you should be able to share your screen with the person in your video chat.
 
 ![Screenshot of active screen-sharing](https://cdn.glitch.com/07aa0118-9218-4f3e-8a7c-398d7b220f01%2Fscreenshare.jpg?v=1586946636756)
 
@@ -66,7 +67,7 @@ In `views/index.html`, you must provide a placeholder element for the screen sha
   <!-- These two elements already exist from the first tutorial -->
   <div id="subscriber" class="subscriber"></div>
   <div id="publisher" class="publisher"></div>
-  
+
   <!-- These are both new too -->
   <button id="startScreenShare" class="screen-share">Share Screen</button>
   <button id="stopScreenShare" class="screen-share hidden">Stop Sharing Screen</button>
@@ -80,8 +81,8 @@ When the share button is pressed, the application should first check that it can
 ```javascript
 const startShareBtn = document.getElementById("startScreenShare");
 
-startShareBtn.addEventListener("click", event => {
-  OT.checkScreenSharingCapability(response => {
+startShareBtn.addEventListener("click", (event) => {
+  OT.checkScreenSharingCapability((response) => {
     if (!response.supported || response.extensionRegistered === false) {
       alert("Screen sharing not supported");
     } else if (response.extensionInstalled === false) {
@@ -109,7 +110,7 @@ const screenSharePublisher = OT.initPublisher(
     width: "100%",
     height: "100%",
     videoSource: "screen",
-    publishAudio: true
+    publishAudio: true,
   },
   handleCallback
 );
@@ -157,7 +158,7 @@ At the bottom of `client.js` add an event listener for the stop sharing button:
 ```javascript
 const stopShareBtn = document.getElementById("stopScreenShare");
 
-stopShareBtn.addEventListener("click", event => {
+stopShareBtn.addEventListener("click", (event) => {
   screenSharePublisher.destroy();
 });
 ```
@@ -168,7 +169,7 @@ By now, your application would look something like this:
 
 ![Slightly better but still somewhat broken layout](https://cdn.glitch.com/07aa0118-9218-4f3e-8a7c-398d7b220f01%2Fhalfway.jpg?v=1587026276208)
 
-It's slightly better than the start but still looks broken. Let's fix that up with some CSS and Javascript (to toggle the required CSS classes).
+It's slightly better than the start but still looks broken. Let's fix that up with some CSS and JavaScript (to toggle the required CSS classes).
 
 Let's remove the original `.screen` styles from `style.css`:
 
@@ -203,6 +204,7 @@ Modify the `.subscriber` class styles in the `style.css` as follows:
   right: 0;
 }
 ```
+
 What we're doing here is making the element which houses the screen sharing stream take up the full real-estate of the viewport when active, while making the stream for the camera feed tuck into the bottom-right corner of the viewport.
 
 Next, we will need to make sure the correct classes are added to the appropriate elements when the screen-sharing starts:
@@ -215,7 +217,7 @@ screenSharePublisher = OT.initPublisher(
     width: "100%",
     height: "100%",
     videoSource: "screen",
-    publishAudio: true
+    publishAudio: true,
   },
   handleCallback
 );
@@ -226,12 +228,13 @@ startShareBtn.classList.toggle("hidden");
 stopShareBtn.classList.toggle("hidden");
 document.getElementById("screen").classList.add("pub-active");
 ```
+
 The converse needs to happen when screen-sharing stops:
 
 ```javascript
-stopShareBtn.addEventListener("click", event => {
+stopShareBtn.addEventListener("click", (event) => {
   screenSharePublisher.destroy();
-  
+
   // CSS classes when screen-sharing stops
   startShareBtn.classList.toggle("hidden");
   stopShareBtn.classList.toggle("hidden");
@@ -248,18 +251,18 @@ To fix that, let's modify the `streamCreated` event listener that subscribes to 
 Before:
 
 ```javascript
-session.connect(token, error => {
+session.connect(token, (error) => {
   // Other code not included for brevity
 
   // Subscribe to a newly created stream
-  session.on("streamCreated", event => {
+  session.on("streamCreated", (event) => {
     session.subscribe(
       event.stream,
       "subscriber",
       {
         insertMode: "append",
         width: "100%",
-        height: "100%"
+        height: "100%",
       },
       handleCallback
     );
@@ -271,16 +274,15 @@ After:
 
 ```javascript
 // Subscribe to a newly created stream
-session.on("streamCreated", event => {
-  const streamContainer =
-    event.stream.videoType === "screen" ? "screen" : "subscriber";
+session.on("streamCreated", (event) => {
+  const streamContainer = event.stream.videoType === "screen" ? "screen" : "subscriber";
   session.subscribe(
     event.stream,
     streamContainer,
     {
       insertMode: "append",
       width: "100%",
-      height: "100%"
+      height: "100%",
     },
     handleScreenShare(event.stream.videoType)
   );
@@ -297,10 +299,11 @@ function handleScreenShare(streamType, error) {
   }
 }
 ```
+
 And we'll need to add an event listener for when the screenshare is stopped as well:
 
 ```javascript
-session.on("streamDestroyed", event => {
+session.on("streamDestroyed", (event) => {
   document.getElementById("screen").classList.remove("sub-active");
 });
 ```
@@ -315,10 +318,10 @@ After all that, your `client.js` file would look like this:
 let session;
 
 fetch(location.pathname, { method: "POST" })
-  .then(res => {
+  .then((res) => {
     return res.json();
   })
-  .then(res => {
+  .then((res) => {
     const apiKey = res.apiKey;
     const sessionId = res.sessionId;
     const token = res.token;
@@ -336,13 +339,13 @@ function initializeSession(apiKey, sessionId, token) {
     {
       insertMode: "append",
       width: "100%",
-      height: "100%"
+      height: "100%",
     },
     handleCallback
   );
 
   // Connect to the session
-  session.connect(token, error => {
+  session.connect(token, (error) => {
     // If the connection is successful, initialize the publisher and publish to the session
     if (error) {
       handleCallback(error);
@@ -352,22 +355,21 @@ function initializeSession(apiKey, sessionId, token) {
   });
 
   // Subscribe to a newly created stream
-  session.on("streamCreated", event => {
-    const streamContainer =
-      event.stream.videoType === "screen" ? "screen" : "subscriber";
+  session.on("streamCreated", (event) => {
+    const streamContainer = event.stream.videoType === "screen" ? "screen" : "subscriber";
     session.subscribe(
       event.stream,
       streamContainer,
       {
         insertMode: "append",
         width: "100%",
-        height: "100%"
+        height: "100%",
       },
       handleScreenShare(event.stream.videoType)
     );
   });
 
-  session.on("streamDestroyed", event => {
+  session.on("streamDestroyed", (event) => {
     document.getElementById("screen").classList.remove("sub-active");
   });
 }
@@ -395,8 +397,8 @@ function handleCallback(error) {
 let screenSharePublisher;
 const startShareBtn = document.getElementById("startScreenShare");
 
-startShareBtn.addEventListener("click", event => {
-  OT.checkScreenSharingCapability(response => {
+startShareBtn.addEventListener("click", (event) => {
+  OT.checkScreenSharingCapability((response) => {
     if (!response.supported || response.extensionRegistered === false) {
       alert("Screen sharing not supported");
     } else if (response.extensionInstalled === false) {
@@ -409,7 +411,7 @@ startShareBtn.addEventListener("click", event => {
           width: "100%",
           height: "100%",
           videoSource: "screen",
-          publishAudio: true
+          publishAudio: true,
         },
         handleCallback
       );
@@ -424,7 +426,7 @@ startShareBtn.addEventListener("click", event => {
 
 const stopShareBtn = document.getElementById("stopScreenShare");
 
-stopShareBtn.addEventListener("click", event => {
+stopShareBtn.addEventListener("click", (event) => {
   screenSharePublisher.destroy();
   startShareBtn.classList.toggle("hidden");
   stopShareBtn.classList.toggle("hidden");

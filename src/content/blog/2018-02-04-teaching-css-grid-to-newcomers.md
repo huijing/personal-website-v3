@@ -11,7 +11,7 @@ I've had quite a start to 2018, largely due to my tendency to “say yes, worry 
 
 Can you understand why I tell my friends I'm an idiot who is incapable of checking her calendar now? Anyhow, over Christmas, I got to know a bunch of friends who just graduated from one of the many bootcamp programs here in Singapore.
 
-This particular bootcamp apparently did not place much emphasis on front-end technologies as they did not cover Javascript and mainly used Bootstrap as their CSS solution for all their projects.
+This particular bootcamp apparently did not place much emphasis on front-end technologies as they did not cover JavaScript and mainly used Bootstrap as their CSS solution for all their projects.
 
 <figure>
     <figcaption>My face when I heard this...</figcaption>

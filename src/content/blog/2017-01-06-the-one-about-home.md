@@ -155,7 +155,7 @@ I also had the brilliant idea to have a newsletter subscription box, because why
   </video>
 </figure>
 
-One thing I had to get around was that the label of the input field used a little bit of Javascript to trigger a CSS class that transformed it when the field was focused. In the event that Javascript failed for whatever reason, the field would have default styling that did not require CSS transforms. At first I tried using Modernizer, but then realised this was the perfect scenario for a feature query.
+One thing I had to get around was that the label of the input field used a little bit of JavaScript to trigger a CSS class that transformed it when the field was focused. In the event that JavaScript failed for whatever reason, the field would have default styling that did not require CSS transforms. At first I tried using Modernizer, but then realised this was the perfect scenario for a feature query.
 
 I had only ever deployed 1 feature query before to detect `vmax` and it worked beautifully. So this time, my feature query to detect CSS 3D transforms looked like this:
 
@@ -167,7 +167,7 @@ I had only ever deployed 1 feature query before to detect `vmax` and it worked b
 
 If you've never heard of feature queries before, you definitely must read [Jen Simmons](http://jensimmons.com/)' post [Using Feature Queries in CSS](https://hacks.mozilla.org/2016/08/using-feature-queries-in-css/).
 
-### Javascript-less modal
+### JavaScript-less modal
 
 A last minute edition was a contact form. Some people are going to be horrified that I didn't plan the content of the site out before actually designing and building the thing. But I found it easier (and much faster) to just design and tweak as I built <span class="emoji" role="img" tabindex="0" aria-label="person shrugging">&#x1F937;</span>.
 

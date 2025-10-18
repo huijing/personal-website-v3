@@ -35,7 +35,7 @@ According to [the document](https://wicg.github.io/speech-api/), this API is mea
 
 Note the **2 distinct parts**, namely _text-to-speech_, where your browser can read out the text on the screen, and _speech recognition_, which lets us use voice as an input and interface medium.
 
-Speech recognition in the browser. Now that sounds pretty interesting. Browser APIs are essentially Javascript. Which is why someone like me who never went to school for Computer Science, can somehow cobble together projects that go beyond just a webpage.
+Speech recognition in the browser. Now that sounds pretty interesting. Browser APIs are essentially JavaScript. Which is why someone like me who never went to school for Computer Science, can somehow cobble together projects that go beyond just a webpage.
 
 I love the web.
 

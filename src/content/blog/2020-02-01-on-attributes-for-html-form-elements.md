@@ -9,7 +9,7 @@ title: On attributes for HTML form elements
 
 I often come across tutorials about building forms on the web. In spite of all the newfangled techniques and frameworks we now have to perform actions on web pages, the trusty old HTML form still has its place.
 
-There is an article published by [Hugo Giraudel](https://hugogiraudel.com/) on [Apollo GraphQL without JavaScript](https://hugogiraudel.com/2020/01/21/apollo-graphql-without-javascript/) where they describe how the GraphQL-powered N26 web platform can still work when Javascript is not available.
+There is an article published by [Hugo Giraudel](https://hugogiraudel.com/) on [Apollo GraphQL without JavaScript](https://hugogiraudel.com/2020/01/21/apollo-graphql-without-javascript/) where they describe how the GraphQL-powered N26 web platform can still work when JavaScript is not available.
 
 Hint, it involves HTML forms.
 
@@ -50,7 +50,7 @@ Please don't submit any sensitive information, like a password via the form's `G
 
 So if you wanted a button to do things other than submit a form, you can always use `<button type="button">`, which gives you a clickable button that does… nothing. So you can attach whatever event listeners you like to it and make it trigger whatever you want.
 
-I've come across tutorials for frameworks that were great at explaining the framework bit of things, but had shockingly nested `<div>` soups for markup. Or utilised Javascript to write functionalities that could have been achieved with attributes instead.
+I've come across tutorials for frameworks that were great at explaining the framework bit of things, but had shockingly nested `<div>` soups for markup. Or utilised JavaScript to write functionalities that could have been achieved with attributes instead.
 
 <figure>
   <figcaption>My shocked face…or close enough</figcaption>

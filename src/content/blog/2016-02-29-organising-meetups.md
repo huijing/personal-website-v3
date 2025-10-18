@@ -14,15 +14,15 @@ Within the short span of four hours, we had a GitHub organisation, a Meetup.com 
 
 ## Stay a while and listen...
 
-+20 to you if you caught the reference. I've been writing HTML and CSS for around two and half years now, and Javascript for about a year. The general sentiment among the developers I've met with regards to CSS is either indifference, or mild annoyance.
++20 to you if you caught the reference. I've been writing HTML and CSS for around two and half years now, and JavaScript for about a year. The general sentiment among the developers I've met with regards to CSS is either indifference, or mild annoyance.
 
-Front-end development covers a very wide spectrum. There are those Javascript wizards who create web applications in their sleep, there are those who create HTML and CSS prototypes as fast as designers can in Photoshop.
+Front-end development covers a very wide spectrum. There are those JavaScript wizards who create web applications in their sleep, there are those who create HTML and CSS prototypes as fast as designers can in Photoshop.
 
-My web development journey began at a very opportune time, it was the time when CSS had become robust enough to do a lot of things that weren't possible before without using Javascript. I picked up all my web development skills working on client projects, which was a good thing, because it forced me to really get things right because these were paying customers. HTML and CSS was something that came very naturally to me, but Javascript was harder for me to grasp.
+My web development journey began at a very opportune time, it was the time when CSS had become robust enough to do a lot of things that weren't possible before without using JavaScript. I picked up all my web development skills working on client projects, which was a good thing, because it forced me to really get things right because these were paying customers. HTML and CSS was something that came very naturally to me, but JavaScript was harder for me to grasp.
 
-As such, if I could build something in pure CSS (even if it was faster to do so using Javascript), I would. Tabs? Sure. Accordions? No problem. I learnt about sibling and direct-child selectors. The difference between visibility and display: none. All sorts of interesting CSS techniques that I would otherwise have missed out on, had I just did it the Javascript way. Yes, my Javascript skills took a hit, but at least my CSS got really good, really fast.
+As such, if I could build something in pure CSS (even if it was faster to do so using JavaScript), I would. Tabs? Sure. Accordions? No problem. I learnt about sibling and direct-child selectors. The difference between visibility and display: none. All sorts of interesting CSS techniques that I would otherwise have missed out on, had I just did it the JavaScript way. Yes, my JavaScript skills took a hit, but at least my CSS got really good, really fast.
 
-In comparison to Javascript, CSS isn't as popular a topic of discussion, at least amongst the local web development community. I find that HTML and CSS tend to be regarded as "not a programming language". This lack of respect seems to stem from the fact that they are declarative languages. They tell the computer what to do, as opposed to how to do it. But this topic tends to trigger a lot of debate, so take this as a personal opinion and leave it at that.
+In comparison to JavaScript, CSS isn't as popular a topic of discussion, at least amongst the local web development community. I find that HTML and CSS tend to be regarded as "not a programming language". This lack of respect seems to stem from the fact that they are declarative languages. They tell the computer what to do, as opposed to how to do it. But this topic tends to trigger a lot of debate, so take this as a personal opinion and leave it at that.
 
 ## Lessons learnt from being an organiser
 
@@ -117,7 +117,7 @@ Besides, preparing and giving a talk is actually a great way to gain a better un
   <li class="no-margin"><a href="https://web.archive.org/web/20190716050141/http://webuild.sg/">webuild.sg</a> - curated list of meet-ups and open-source projects in Singapore</li>
   <li class="no-margin"><a href="https://hackerspace.sg/calendar/">Hackerspace.SG</a> - the Singapore hacker community’s home, living room and laboratory</li>
   <li class="no-margin"><a href="http://kopijs.org/">KopiJS</a> - a casual meetup for developers and designers in Singapore</li>
-  <li><a href="http://www.meetup.com/Singapore-JS/">SingaporeJS</a> - our Javascript counterpart</li>
+  <li><a href="http://www.meetup.com/Singapore-JS/">SingaporeJS</a> - our JavaScript counterpart</li>
 </ul>
 
 <em>

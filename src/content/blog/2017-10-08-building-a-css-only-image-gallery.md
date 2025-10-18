@@ -21,7 +21,7 @@ But I digress. The point today is to talk about building an experimental CSS-onl
 
 A little bit of back story to how this experiment came about. I have a designer friend who was asking my opinion on a website she was designing for and one of the features was an image gallery with a slider. The site was for a company which sold second-hand <abbr title="Computer numerical control">CNC</abbr> machines.
 
-The purpose of having an image gallery with the slider was to allow potential buyers to view the machine from as many angles and close-ups as possible. Quite reasonable, if you ask me. But I also wondered if I could build that without the use of Javascript, and after a little bit of research, I found out that it was totally possible.
+The purpose of having an image gallery with the slider was to allow potential buyers to view the machine from as many angles and close-ups as possible. Quite reasonable, if you ask me. But I also wondered if I could build that without the use of JavaScript, and after a little bit of research, I found out that it was totally possible.
 
 First, let's break down the requirements for an image gallery with a slider. We'll need an image displayed at a reasonably large size at all times, as well as a set of thumbnails for all other images in the gallery. The displayed image should correspond to the thumbnail being clicked on, making the thumbnails the navigation for the gallery.
 

@@ -24,7 +24,7 @@ I managed to get the right answer (UC Browser) by virtue of elimination, not bec
 
 ## Who uses Opera Mini?
 
-Guess what? I do. I'm reasonably confident that I am possibly the only person in Singapore using a [BLU Win HD LTE](http://www.gsmarena.com/blu_win_hd_lte-7205.php). It currently runs on Windows 10 Mobile, and I like it. Microsoft Edge uses EdgeHTML as its layout engine and Chakra as its Javascript engine. Both desktop and mobile versions use the same engine, which is more than I can say for iOS browsers <span class="emoji" role="img" tabindex="0" aria-label="fire (burn)">&#x1F525;</span>.
+Guess what? I do. I'm reasonably confident that I am possibly the only person in Singapore using a [BLU Win HD LTE](http://www.gsmarena.com/blu_win_hd_lte-7205.php). It currently runs on Windows 10 Mobile, and I like it. Microsoft Edge uses EdgeHTML as its layout engine and Chakra as its JavaScript engine. Both desktop and mobile versions use the same engine, which is more than I can say for iOS browsers <span class="emoji" role="img" tabindex="0" aria-label="fire (burn)">&#x1F525;</span>.
 
 Anyway, back to Opera Mini. The browser usage share for February 2017, according to StatCounter is **3.3%**. That's actually more than Edge 14 (1.49%) and Safari 10 (1.54%) combined. Regionally, the lion's share of users for Opera Mini are from Africa, followed by Asia.
 
@@ -77,13 +77,13 @@ Opera Mini can act as a proxy browser, meaning the requests from the browser wil
   <img src="/images/posts/opera-mini/architecture.svg" />
 </figure>
 
-The transcoding process involves parsing of HTML and CSS, as well as execution of Javascript. What is received by Opera Mini at the end of it is an “interactive snapshot of the document's state”. The data savings from this can be up to 90% over the network, but the downsides are standards support is limited, hence quite a few CSS properties are not supported and Javascript may not behave in ways you expect.
+The transcoding process involves parsing of HTML and CSS, as well as execution of JavaScript. What is received by Opera Mini at the end of it is an “interactive snapshot of the document's state”. The data savings from this can be up to 90% over the network, but the downsides are standards support is limited, hence quite a few CSS properties are not supported and JavaScript may not behave in ways you expect.
 
 Some people might be concerned with is security, given that all data will pass through Opera's servers. Opera ensures that the traffic between your handset and their servers is encrypted when browsing secure webpages, but they would require access to the unencrypted version of the webpage to implement compression.
 
 ### Android WebView
 
-Opera Mini on Android phones also have a _High_ mode option, which runs on [Android WebView](https://developer.chrome.com/multidevice/webview/overview). WebView is based on Chromium and uses the V8 Javascript engine. By default, if you are connected to Wi-Fi and using this mode, data savings are disabled unless you explicitly turn it on in the Settings.
+Opera Mini on Android phones also have a _High_ mode option, which runs on [Android WebView](https://developer.chrome.com/multidevice/webview/overview). WebView is based on Chromium and uses the V8 JavaScript engine. By default, if you are connected to Wi-Fi and using this mode, data savings are disabled unless you explicitly turn it on in the Settings.
 
 There is also something called Video Boost, which is an option you can toggle from the Data Savings settings as well. Activating it will trigger video compression to reduce the size of the video file during the transcoding process.
 

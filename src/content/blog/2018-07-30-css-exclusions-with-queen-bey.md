@@ -5,6 +5,7 @@ hascaniuse: true
 hascodepen: true
 tags:
   - css
+  - specifications
 title: CSS exclusions with Queen Bey
 ---
 

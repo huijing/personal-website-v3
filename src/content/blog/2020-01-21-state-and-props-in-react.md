@@ -2,11 +2,12 @@
 date: "2020-01-21T00:00:00Z"
 slug: state-and-props-in-react
 tags:
-- javascript
-- frameworks
-- react
+  - javascript
+  - frameworks
+  - react
 title: Basics of State and Props in React (2020 edition)
 ---
+
 So I've finally decided to sit my butt down and learn React properly. I'll talk a little bit about my opinion on React and why it took me so long to actually do this [at the end](#optional-story-time-feel-free-to-disagree-with-my-opinion), feel free to ignore it if you have better things to do with your life.
 
 I recall a chat I had with [Shawn Wang](https://twitter.com/swyx) on learning React and he mentioned how a few years ago, it was possible to read all the literature available and more or less figure out what was going on. But it's more tricky now because there's so much more information.
@@ -17,11 +18,11 @@ React was (kind of?) official announced at [JSConfUS 2013](https://www.youtube.c
 
 ## What are props?
 
-Props are plain Javascript objects that contain information. They can be used to pass data between React components. 
+Props are plain JavaScript objects that contain information. They can be used to pass data between React components.
 
 ## What is state?
 
-State is also a plain Javascript object that contains information. It represents the dynamic parts of the React component, i.e. data that can change.
+State is also a plain JavaScript object that contains information. It represents the dynamic parts of the React component, i.e. data that can change.
 
 ## Let's talk about components
 
@@ -31,7 +32,11 @@ There are a couple of ways to define a React component. You can use a function l
 
 ```javascript
 function Player(props) {
-  return <p>{props.name} plays for the {props.team}</p>
+  return (
+    <p>
+      {props.name} plays for the {props.team}
+    </p>
+  );
 }
 ```
 
@@ -40,7 +45,11 @@ Or you could use classes like so:
 ```javascript
 class Player extends React.Component {
   render() {
-    return <p>{this.props.name} plays for the {this.props.team}</p>
+    return (
+      <p>
+        {this.props.name} plays for the {this.props.team}
+      </p>
+    );
   }
 }
 ```
@@ -51,7 +60,11 @@ As mentioned earlier, props are used to pass data between components. Things mig
 
 ```javascript
 function Player(props) {
-  return <p>{props.name} plays for the {props.team}.</p>
+  return (
+    <p>
+      {props.name} plays for the {props.team}.
+    </p>
+  );
 }
 
 function App() {
@@ -64,10 +77,7 @@ function App() {
   );
 }
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+ReactDOM.render(<App />, document.getElementById("root"));
 ```
 
 Based on the above example, you can see that the props came from the JSX attributes on the `Player` component. This is what ends up getting rendered in the browser:
@@ -84,9 +94,9 @@ Based on the above example, you can see that the props came from the JSX attribu
 
 ## What is `this`?
 
-Some of you may have noticed that the function component uses `props.name` while the class component uses `this.props.name` to access the required data. `this` is not a React thing, it is a Javascript thing. It is a Javascript thing that has spawned more blog posts that I can count.
+Some of you may have noticed that the function component uses `props.name` while the class component uses `this.props.name` to access the required data. `this` is not a React thing, it is a JavaScript thing. It is a JavaScript thing that has spawned more blog posts that I can count.
 
-Let me try to give you the short version. Everything in Javascript is an object. `this` refers to the object which is the current execution context of your bit of code.
+Let me try to give you the short version. Everything in JavaScript is an object. `this` refers to the object which is the current execution context of your bit of code.
 
 Smarter people than me have explained this in depth so please feel free to read any or all of the following:
 
@@ -98,9 +108,9 @@ Personally, React made understanding `this` even more important because of how e
 
 ## Event handling
 
-React implements its own synthetic event handling, which their cross-browser wrapper around the browser's native event. It works great, that's not the problem. The issue is how Javascript handles functions in general.
+React implements its own synthetic event handling, which their cross-browser wrapper around the browser's native event. It works great, that's not the problem. The issue is how JavaScript handles functions in general.
 
-In JSX, the event handler is passed as a function, i.e. `<button onClick={handleClick}>Click me</button>` instead of a string as is the case in HTML, i.e. `<button onclick="handleClick()">Click me</button>`. The thing is, class methods are not bound by default in Javascript.
+In JSX, the event handler is passed as a function, i.e. `<button onClick={handleClick}>Click me</button>` instead of a string as is the case in HTML, i.e. `<button onclick="handleClick()">Click me</button>`. The thing is, class methods are not bound by default in JavaScript.
 
 When we pass the `handleClick` function to `onClick`, we are passing a reference to `handleClick`. The function is called by React's event handling system so the context of `this` gets lost. If you don't bind `this.handleClick` and pass it to `onClick`, `this` ends up being undefined when you call the function.
 
@@ -115,24 +125,21 @@ class Button extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      clicked: false
+      clicked: false,
     };
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
-    this.setState(state => ({
-      clicked: !state.clicked
+    this.setState((state) => ({
+      clicked: !state.clicked,
     }));
   }
 
   render() {
-    return (
-      <button onClick={this.handleClick} />
-    );
+    return <button onClick={this.handleClick} />;
   }
 }
-
 ```
 
 But apparently, using `bind()` is icky for many people. No matter, there are ways around that. So the next suggested way of ensuring `this` works as planned is via arrow functions.
@@ -142,22 +149,20 @@ class Button extends React.Component {
   state = { clicked: false };
 
   handleClick = () => {
-    this.setState(state => ({
-      clicked: !state.clicked
+    this.setState((state) => ({
+      clicked: !state.clicked,
     }));
   };
 
   render() {
-    return (
-      <button onClick={this.handleClick} />
-    );
+    return <button onClick={this.handleClick} />;
   }
 }
 ```
 
 This is because arrow functions use the value of `this` in the scope it had been defined in. This is known as lexical scoping. The arrow function preserves its binding to `this` when it gets passed around.
 
-Which brings us to the new hotness known as Hooks. According to the docs, Hooks let you use state and other React features without writing a class. 
+Which brings us to the new hotness known as Hooks. According to the docs, Hooks let you use state and other React features without writing a class.
 
 The React team found that classes were a barrier to learning React, unintentionally encouraged patterns that were detrimental to their attempts at optimisation, and also made tooling tricky.
 
@@ -168,15 +173,13 @@ function Button() {
   const [clicked, setClick] = useState(false);
   const handleClick = () => setClick(!clicked);
 
-  return (
-    <button onClick={handleClick} />
-  );
+  return <button onClick={handleClick} />;
 }
 ```
 
 ## Demo
 
-I built a demo of a generic social media app status component using the 3 different methods I went through above. The only interactive functionality is you can toggle the Like button, and input text in the text area up to 140 characters. ¯\\\_(ツ)_/¯
+I built a demo of a generic social media app status component using the 3 different methods I went through above. The only interactive functionality is you can toggle the Like button, and input text in the text area up to 140 characters. ¯\\\_(ツ)\_/¯
 
 <iframe
   src="https://codesandbox.io/embed/react-status-widget-8hdit?fontsize=14&hidenavigation=1&theme=dark"

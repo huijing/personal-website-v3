@@ -5,6 +5,7 @@ og_image: /images/posts/display.jpg
 slug: how-well-do-you-know-display
 tags:
   - css
+  - specifications
   - translated
 title: How well do you know CSS display?
 ---

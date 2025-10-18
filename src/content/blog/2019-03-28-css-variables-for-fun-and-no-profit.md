@@ -57,7 +57,7 @@ If you're interested in how the slides themselves were built, I [wrote a little 
 </div>
 ```
 
-Class name and ID are `nonsense` because that's exactly what this idea is. Nonsense. But loads of fun, and that's all that matters. There would definitely be some Javascript involved, and what I like to do is make sure my Javascript-related CSS classes are only used for that purpose. For me, I choose to prefix them with a `js`.
+Class name and ID are `nonsense` because that's exactly what this idea is. Nonsense. But loads of fun, and that's all that matters. There would definitely be some JavaScript involved, and what I like to do is make sure my JavaScript-related CSS classes are only used for that purpose. For me, I choose to prefix them with a `js`.
 
 ### CSS-y bits
 
@@ -148,7 +148,7 @@ This initial set of styles position all 4 Chris heads just out of the viewport. 
 }
 ```
 
-### Javascript-y bits
+### JavaScript-y bits
 
 There's probably a neater way to write this function, but I'm a lazy person. So this is it. Behold, the Chris Script (trademark pending)!
 
@@ -181,6 +181,6 @@ If I do have some extra time on my hands, I'll think about how to refactor this 
 
 ## Wrapping up
 
-I don't know what the useful takeaway is here, other than CSS custom properties provide a really convenient way for Javascript to hook into CSS. And that I tend to do many useless things with my time, but it was fun though, and isn't that kinda important? (I also had to Google how to spell convenient multiple times, shhhh… don't tell everyone)
+I don't know what the useful takeaway is here, other than CSS custom properties provide a really convenient way for JavaScript to hook into CSS. And that I tend to do many useless things with my time, but it was fun though, and isn't that kinda important? (I also had to Google how to spell convenient multiple times, shhhh… don't tell everyone)
 
 <img srcset="/images/posts/chris-script/chris-script-480.jpg 480w, /images/posts/chris-script/chris-script-640.jpg 640w, /images/posts/chris-script/chris-script-960.jpg 960w, /images/posts/chris-script/chris-script-1280.jpg 1280w" sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px" src="/images/posts/chris-script/chris-script-640.jpg" alt="Chris is watching you">

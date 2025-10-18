@@ -67,7 +67,7 @@ export async function GET(context) {
 
 There were not that many pages (i.e. not blog posts) on my website, but the only straight-forward page was the "About" page. My "Talks" and "Work" pages were a combination of frontmatter filtering and looping over external data files. The meat of the site was my blog, so there was the full listing page, tag pages and the home page which showed the latest 10 posts. Also had a contact page, résumé page and custom 404 page.
 
-By this point, I had fully realised that my brain reads Javascript with a fluency that does not exist for Hugo's style of Go templating syntax. Migrating the tag pages were a good example of this. For Astro, creating tag pages was a matter of filtering the blog [content collection](https://docs.astro.build/en/guides/content-collections/) for posts with tags in their frontmatter. I'll probably write up the details of the implementation in a separate post.
+By this point, I had fully realised that my brain reads JavaScript with a fluency that does not exist for Hugo's style of Go templating syntax. Migrating the tag pages were a good example of this. For Astro, creating tag pages was a matter of filtering the blog [content collection](https://docs.astro.build/en/guides/content-collections/) for posts with tags in their frontmatter. I'll probably write up the details of the implementation in a separate post.
 
 I also had data for my talk slides and side projects in separate YAML files, and had some logic that would display different URLs, if it should link to a blog post or an external URL. That logic in Hugo was… let's just say I'm not that great with double curly braces? I'm just more used to mapping arrays. Honestly, the most complicated logic was probably the `head` element if I'm being honest. Those OG tags, canonical URLs and `noindex` scenarios needed some extra scrutiny.
 
@@ -226,6 +226,6 @@ I had run the blog template when I first created the site and the schema had inc
 
 ## Wrapping up
 
-The first time I migrated, it took 3 days. This one sort of took 3 days as well. So maybe that's the average amount of time needed to migrate a website. I'm sure it will take less time if I ever complete paying off my tech debt of framework-locked partials/shortcodes/components. But maybe I'll actually stick with Astro since it's really close to HTML, CSS and Javascript.
+The first time I migrated, it took 3 days. This one sort of took 3 days as well. So maybe that's the average amount of time needed to migrate a website. I'm sure it will take less time if I ever complete paying off my tech debt of framework-locked partials/shortcodes/components. But maybe I'll actually stick with Astro since it's really close to HTML, CSS and JavaScript.
 
 Check back in 5 years I guess.

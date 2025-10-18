@@ -16,7 +16,7 @@ There are three levels of Number Insight API available: **Basic**, **Standard** 
 
 ## Prerequisites
 
-- A basic understanding of Javascript
+- A basic understanding of JavaScript
 - [Node.js](https://nodejs.org/en/download/) installed on your machine
 - A [Nexmo](https://dashboard.nexmo.com/sign-up) account (for your API credentials)
 

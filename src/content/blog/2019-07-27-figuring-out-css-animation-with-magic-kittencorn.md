@@ -7,6 +7,7 @@ slug: figuring-out-css-animation-with-magic-kittencorn
 tags:
   - css
   - javascript
+  - specifications
 title: Figuring out CSS animation properties with a magic kittencorn
 ---
 
@@ -270,7 +271,7 @@ div {
 }
 ```
 
-All 3 bits to be animated are wrapped in a single `<div>`, which will have an `id` of `magic` for the tiny bit of Javascript to be sprinkled on at the end. What do you do when you have a single item that needs to be centred in its parent? Auto-margins, that's what.
+All 3 bits to be animated are wrapped in a single `<div>`, which will have an `id` of `magic` for the tiny bit of JavaScript to be sprinkled on at the end. What do you do when you have a single item that needs to be centred in its parent? Auto-margins, that's what.
 
 And since we were already set up with a parent-child relationship for the 3 animatable bits, rather than fiddle around with `inline-block` and vertical alignment, or `flex` and the browser doing its own sizing thing, I went with `grid` to place them instead. Content-based sizing is cool, yo.
 

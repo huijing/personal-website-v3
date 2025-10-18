@@ -6,6 +6,7 @@ hastweet: true
 og_image: /images/posts/css-positioning.jpg
 tags:
   - css
+  - specifications
 title: Understanding positioning in CSS
 ---
 

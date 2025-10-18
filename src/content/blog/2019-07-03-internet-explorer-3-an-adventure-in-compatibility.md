@@ -24,14 +24,14 @@ That changed when I had another one of my many hare-brained schemes. Knowing tha
 
 [Internet Explorer 3](http://www.kompx.com/en/internet-explorer-3.htm) was released on August 13, 1996 and shipped with [Windows 95 OSR 2](https://winworldpc.com/product/windows-95/osr-2). This was pretty much the era of the first browser wars. IE3 is notable for being the first commercial browser that supported Cascading Stylesheets (CSS).
 
-It was also a major upgrade from IE2, which was essentially [built on the Spyglass Mosaic source code](https://ericsink.com/Browser_Wars.html). There were still portions of Spyglass code in Internet Explorer at this point. This was also when [JScript](https://en.wikipedia.org/wiki/JScript) (Microsoft's implementation of Javascript) was first supported.
+It was also a major upgrade from IE2, which was essentially [built on the Spyglass Mosaic source code](https://ericsink.com/Browser_Wars.html). There were still portions of Spyglass code in Internet Explorer at this point. This was also when [JScript](https://en.wikipedia.org/wiki/JScript) (Microsoft's implementation of JavaScript) was first supported.
 
 <figure>
     <figcaption>Source: <a href="https://web.archive.org/web/20190630101029/http://royalmulti.blogspot.com/2012/07/holy-browser-wars.html">Holy Browser Wars! </a></figcaption>
     <img src="/images/posts/ie3-challenge/ie-vs-netscape.jpg" alt="IE versus Netscape">
 </figure>
 
-Of course, the term “supports“ is a fairly subjective term as I would soon learn. I don't actually use any JScript or Javascript in this experiment, but maybe a future iteration will, though I'm not sure if it'll be quite as fun for me.
+Of course, the term “supports“ is a fairly subjective term as I would soon learn. I don't actually use any JScript or JavaScript in this experiment, but maybe a future iteration will, though I'm not sure if it'll be quite as fun for me.
 
 ## Self-imposed requirements
 

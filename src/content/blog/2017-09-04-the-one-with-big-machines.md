@@ -69,7 +69,7 @@ A really helpful developer tweak is the ability to turn on debug mode, which add
 
 Drupal 8 has pretty much has a revamped file and folder structure, so custom themes now go into the `/themes` folder, which to me, is much more intuitive. All the core files can be found in the `/core` folder, default themes and modules included.
 
-The way to utilise external libraries is also different now, making use of a `.libraries.yml` file instead. We now declare the external resources, be it Javascript or CSS, and include them only on pages that need them by declaring them in the appropriate template file.
+The way to utilise external libraries is also different now, making use of a `.libraries.yml` file instead. We now declare the external resources, be it JavaScript or CSS, and include them only on pages that need them by declaring them in the appropriate template file.
 
 We put in some little animations to spruce things up a bit, with this particular flip-effect utilising 3D CSS transforms, and for browsers that don't support it, and narrow screen sizes, it falls back to a simple opacity fade.
 

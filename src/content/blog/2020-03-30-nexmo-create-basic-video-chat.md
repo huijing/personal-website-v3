@@ -4,16 +4,17 @@ external_site: nexmo
 external_url: https://www.nexmo.com/blog/2020/03/30/basic-video-chat
 noindex: true
 tags:
-- nodejs
-- javascript
-- nexmo
+  - nodejs
+  - javascript
+  - nexmo
 title: Create a Basic Video Chat With the Vonage Video API
 ---
+
 This series of tutorials will explore the [Vonage Video API (formerly TokBox OpenTok)](https://tokbox.com/developer/) and what you can build with it. The Video API is very robust and highly customisable, and in each post we’ll show how to implement a specific feature using the API, starting with the most basic audio-video chat.
 
 As this application will require some server-side code, we will use [Glitch](https://glitch.com/) for ease of setup. You can also download the code from this Glitch project and deploy it on your server or hosting platform of choice (may probably require some configuration tweaking based on the requirements of your platform).
 
-We will not be using any frontend frameworks for this series, just vanilla Javascript to keep the focus on the Video API itself. At the end of this tutorial, you should be able to start an audio-video chat with a friend by sharing a link with them.
+We will not be using any frontend frameworks for this series, just vanilla JavaScript to keep the focus on the Video API itself. At the end of this tutorial, you should be able to start an audio-video chat with a friend by sharing a link with them.
 
 ![Screenshot of video chat](https://cdn.glitch.com/8d7f31c3-e180-4135-bd7d-e6b41e35144b%2Fapp-02.jpg?v=1584802174063)
 
@@ -101,12 +102,7 @@ Let's add a `landing.html` file to the `views` folder by clicking the _New File_
       <form id="registration" class="registration">
         <label>
           <span>Room</span>
-          <input
-            type="text"
-            name="room-name"
-            placeholder="Enter room name"
-            required
-          />
+          <input type="text" name="room-name" placeholder="Enter room name" required />
         </label>
         <button>Enter</button>
       </form>
@@ -147,7 +143,7 @@ The `index.html` page will also be relatively sparse for now, a page with two `d
       <div id="subscriber" class="subscriber"></div>
       <div id="publisher" class="publisher"></div>
     </main>
-    
+
     <script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
     <script src="/client.js"></script>
   </body>
@@ -208,7 +204,7 @@ On our `landing.html` file, let's add an event handler for form submission which
 
 ```javascript
 const form = document.getElementById("registration");
-form.addEventListener("submit", event => {
+form.addEventListener("submit", (event) => {
   event.preventDefault();
   location.pathname = `/session/${form.elements["room-name"].value}`;
 });
@@ -246,20 +242,17 @@ function generateToken(roomName, response) {
   // Configure token options
   const tokenOptions = {
     role: "publisher",
-    data: `roomname=${roomName}`
+    data: `roomname=${roomName}`,
   };
   // Generate token with the Video API Client SDK
-  let token = OT.generateToken(
-    sessions[roomName],
-    tokenOptions
-  );
+  let token = OT.generateToken(sessions[roomName], tokenOptions);
   // Send the required credentials back to to the client
   // as a response from the fetch request
   response.status(200);
   response.send({
     sessionId: sessions[roomName],
     token: token,
-    apiKey: process.env.API_KEY
+    apiKey: process.env.API_KEY,
   });
 }
 ```
@@ -282,13 +275,13 @@ const publisher = OT.initPublisher(
   {
     insertMode: "append",
     width: "100%",
-    height: "100%"
+    height: "100%",
   },
   handleCallback
 );
 
 // Connect to the session
-session.connect(token, error => {
+session.connect(token, (error) => {
   // If the connection is successful, initialize the publisher and publish to the session
   if (error) {
     handleCallback(error);
@@ -298,14 +291,14 @@ session.connect(token, error => {
 });
 
 // Subscribe to a newly created stream
-session.on("streamCreated", event => {
+session.on("streamCreated", (event) => {
   session.subscribe(
     event.stream,
     "subscriber",
     {
       insertMode: "append",
       width: "100%",
-      height: "100%"
+      height: "100%",
     },
     handleCallback
   );
@@ -325,10 +318,10 @@ When the room name form is submitted, we will make a `POST` request to the `/ses
 
 ```javascript
 fetch(location.pathname, { method: "POST" })
-  .then(res => {
+  .then((res) => {
     return res.json();
   })
-  .then(res => {
+  .then((res) => {
     const apiKey = res.apiKey;
     const sessionId = res.sessionId;
     const token = res.token;
@@ -346,13 +339,13 @@ function initializeSession(apiKey, sessionId, token) {
     {
       insertMode: "append",
       width: "100%",
-      height: "100%"
+      height: "100%",
     },
     handleCallback
   );
 
   // Connect to the session
-  session.connect(token, error => {
+  session.connect(token, (error) => {
     // If the connection is successful, initialize the publisher and publish to the session
     if (error) {
       handleCallback(error);
@@ -362,14 +355,14 @@ function initializeSession(apiKey, sessionId, token) {
   });
 
   // Subscribe to a newly created stream
-  session.on("streamCreated", event => {
+  session.on("streamCreated", (event) => {
     session.subscribe(
       event.stream,
       "subscriber",
       {
         insertMode: "append",
         width: "100%",
-        height: "100%"
+        height: "100%",
       },
       handleCallback
     );
@@ -448,6 +441,7 @@ button {
   align-self: flex-end;
 }
 ```
+
 Those styles will give you the most basic video chat with the most basic layout, which you already saw at the begining of this tutorial.
 
 ![Screenshot of landing page](https://cdn.glitch.com/8d7f31c3-e180-4135-bd7d-e6b41e35144b%2Fapp-01.jpg?v=1584802172259)

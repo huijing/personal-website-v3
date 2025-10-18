@@ -30,7 +30,7 @@ It is possible to create variables with the `assign` tag and this becomes useful
 
 ## Reworking the SingaporeCSS website
 
-The [SingaporeCSS](https://singaporecss.github.io/) website has always been a pet project of mine, even though I don't think anyone really visits the site, it's my baby and I love it regardless. SingaporeCSS organises Talk.CSS, which is the only CSS-centric meetup in Singapore, and sister meet-up to [Talk.JS](https://www.meetup.com/Singapore-JS), our Javascript-centric counterpart.
+The [SingaporeCSS](https://singaporecss.github.io/) website has always been a pet project of mine, even though I don't think anyone really visits the site, it's my baby and I love it regardless. SingaporeCSS organises Talk.CSS, which is the only CSS-centric meetup in Singapore, and sister meet-up to [Talk.JS](https://www.meetup.com/Singapore-JS), our JavaScript-centric counterpart.
 
 We've been around for 2 years now and will soon be having our 24th meetup, not too bad for something that started off as a [random chat in the KopiJS slack channel](https://singaporecss.github.io/about/). As the online presence of a CSS meetup, I figured it'd be a good chance to try out ALL THE THINGS. Specifically all the CSS things. #personalplayground
 

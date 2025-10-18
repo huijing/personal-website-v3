@@ -5,6 +5,7 @@ og_image: /images/posts/read-specs.jpg
 slug: learning-css-by-reading-specifications
 tags:
   - css
+  - specifications
 title: Learning CSS by reading specs
 ---
 

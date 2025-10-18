@@ -17,7 +17,7 @@ Which led me to my next thought. When people write such titles, do they end with
 
 This is also why I don't have many friends. Oh well.
 
-Warning, blog post grew ridiculously long. TL:DR of things is, yes you can do it in CSS but there's a much better way. Involves Javascript, [more details here](#raf) if you want to skip through the CSS stuff.
+Warning, blog post grew ridiculously long. TL:DR of things is, yes you can do it in CSS but there's a much better way. Involves JavaScript, [more details here](#raf) if you want to skip through the CSS stuff.
 
 ## Why even countdown in CSS?
 
@@ -253,7 +253,7 @@ This is my favourite part. The requirement is that during the last second, when 
 
 <a id="raf"></a>
 
-Here's where it is time to reveal the Javascript solution, which is honestly, much more straightforward. The key here is `Window.requestAnimationFrame()`. Here's the [MDN entry for it](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame).
+Here's where it is time to reveal the JavaScript solution, which is honestly, much more straightforward. The key here is `Window.requestAnimationFrame()`. Here's the [MDN entry for it](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame).
 
 You're welcome.
 
@@ -328,7 +328,7 @@ But let us continue with the pure CSS implementation, even if it is just an acad
 }
 ```
 
-If you compare this with the Javascript implementation, you'll notice a lot of similarities.
+If you compare this with the JavaScript implementation, you'll notice a lot of similarities.
 
 Yes, my friends. If you had suspected that I was using the modern-day CSS answer to vertical centring on the web, you are absolutely right. Auto-margins is the mechanism in play here.
 
@@ -414,7 +414,7 @@ It's not that much code, and kind of fun to play with in a demo, IMHO.
 
 I could have left the demo to start automatically when the page loaded and letting people refresh the page to start the animation again, but I was going all in with the pure CSS thing, so…
 
-Anyway, checkbox hack plus overly-complicated selectors. That's how this was done. If you had just gone with Javascript, which is probably the right thing to do, you could used a button with an event listener. But you're too deep in this rabbit hole now.
+Anyway, checkbox hack plus overly-complicated selectors. That's how this was done. If you had just gone with JavaScript, which is probably the right thing to do, you could used a button with an event listener. But you're too deep in this rabbit hole now.
 
 I built this bit such that when unchecked, the label shows _Start_ but when the input is checked, the label shows _Restart_. Because why not make things more complicated?
 

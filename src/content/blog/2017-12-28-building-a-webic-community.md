@@ -75,7 +75,7 @@ Proficiency in CSS requires a mental model that is very different from what most
 > “CSS isn't a programming language. It's a stylesheet language. We shouldn't expect it to behave like a programming language. It has its own unique landscape and structures, ones that people with programming language mental maps might not expect.”  
 > —Danielle Huntrods
 
-Because CSS has matured immensely over the past 20 years, I found that a lot of the functionality that could only be written in Javascript can now be done with CSS. And a lot of the functionality that software traditionally used for digital graphics, like Photoshop or Illustrator can now be done with CSS and SVG.
+Because CSS has matured immensely over the past 20 years, I found that a lot of the functionality that could only be written in JavaScript can now be done with CSS. And a lot of the functionality that software traditionally used for digital graphics, like Photoshop or Illustrator can now be done with CSS and SVG.
 
 I stand by my opinion that as long as you're designing something that lives on the web and is consumed via a browser, it is mandatory that you understand how a browser works, and how the web works.
 

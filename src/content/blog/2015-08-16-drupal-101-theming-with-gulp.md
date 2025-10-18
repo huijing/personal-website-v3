@@ -42,13 +42,13 @@ The first article I ever read on task-runners was [Grunt for People Who Think Th
 
 A fellow front-end developer tried to explain to me the benefits of Grunt, but at the time, there was nothing that I needed from Grunt which Codekit couldn't do. So I left task-runners alone, and went about my own way.
 
-Earlier this year, I started doing a lot of HTML, CSS and Javascript experiments, so I came up with my own extremely bare-bones boilerplate, consisting of a 20-line HTML5 template file plus a styles.css file and a scripts.js file, both of which are blank.
+Earlier this year, I started doing a lot of HTML, CSS and JavaScript experiments, so I came up with my own extremely bare-bones boilerplate, consisting of a 20-line HTML5 template file plus a styles.css file and a scripts.js file, both of which are blank.
 
 During these experiments, I found myself pressing ⌘-⇧-R at an alarming rate. Specifically I was doing ⌘-S (save file), ⌘-tab (switch to browser), ⌘-⇧-R (reload browser). And so, [Browsersync](https://www.browsersync.io/). Thing is, if you google "Browsersync development", the first result is [Browsersync + Gulp.js](https://www.browsersync.io/docs/gulp).
 
 I had heard that gulp was easier to understand that Grunt, but was still sceptical, until I read the first tutorial. I actually understood what was happening almost immediately <span class="kaomoji">( ﾉ^.^)ﾉﾟ</span>.
 
-In a nutshell, when we do front-end development, there are certain actions or tasks that we do repeatedly. Like the aforementioned furious browser-reloading. Sometimes, we also use Sass, which needs to be compiled. When we write Javascript, best practice implores us to concatenate and minify our scripts (for production).
+In a nutshell, when we do front-end development, there are certain actions or tasks that we do repeatedly. Like the aforementioned furious browser-reloading. Sometimes, we also use Sass, which needs to be compiled. When we write JavaScript, best practice implores us to concatenate and minify our scripts (for production).
 
 Lots of stuff to take care of. Rather than have to do all that manually, task-runners like Grunt and gulp can do them automatically whenever we save our working files. So that's what everyone is talking about when they say automating your workflow.
 
@@ -56,7 +56,7 @@ Lots of stuff to take care of. Rather than have to do all that manually, task-ru
 
 ### Node.js
 
-gulp is based on [Node.js](https://nodejs.org/). Node.js is an open source Javascript run-time system, in other words, it's a way for your computer to execute Javascript code. You can read this [introduction to Node.js article](https://web.archive.org/web/20161119003131/http://blog.modulus.io/absolute-beginners-guide-to-nodejs) to find out more about it.
+gulp is based on [Node.js](https://nodejs.org/). Node.js is an open source JavaScript run-time system, in other words, it's a way for your computer to execute JavaScript code. You can read this [introduction to Node.js article](https://web.archive.org/web/20161119003131/http://blog.modulus.io/absolute-beginners-guide-to-nodejs) to find out more about it.
 
 The bottom line is, you need to install Node.js on your computer. The most direct way to do this is to download and run the installer from the official website's [downloads page](https://nodejs.org/download/). This approach works for both Windows and Mac.
 

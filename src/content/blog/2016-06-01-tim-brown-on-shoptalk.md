@@ -2,11 +2,12 @@
 date: "2016-06-01T00:00:00Z"
 slug: tim-brown-on-shoptalk
 tags:
-- css
-- design
-- typography
+  - css
+  - design
+  - typography
 title: Tim Brown on Shoptalk Ep. 218
 ---
+
 [Episode 218](http://shoptalkshow.com/episodes/218-rapidfire-60/) of [Shoptalk](http://shoptalkshow.com/) featured an audio clip by one of my favourite designers, [Tim Brown](http://tbrown.org/). It's a short clip, but it really resonated with me, and I thought I'd share it with everyone. You should really listen to the podcast in its entirety. In fact, subscribe to it in the pod-catcher of your choice, you have nothing to lose and everything to gain. Anyway, here's the full transcript of what he said.
 
 ---
@@ -21,7 +22,7 @@ The other thing I did was I picked a number from the modular scale for line heig
 
 In a fluid layout, the width of a text block flexes within those limits. What you'll find is that wider text blocks look better with loose line spacing and narrow text blocks look better with tight line spacing. So what we really need is fluid line spacing, which i have dubbed Molten Leading.
 
-You can pull this off with Javascript or with CSS calc() or viewport units. You see the problem here is that would interfere with vertical rhythm. I give a talk called [Universal Typography](http://universaltypography.com/), where I describe the relationship between font size, line height and width. Those 3 things are really important in combination.
+You can pull this off with JavaScript or with CSS calc() or viewport units. You see the problem here is that would interfere with vertical rhythm. I give a talk called [Universal Typography](http://universaltypography.com/), where I describe the relationship between font size, line height and width. Those 3 things are really important in combination.
 
 Because of the way text moves in fluid compositions you almost never want to nail down your line height. It's possible that in the future, we could advance molten leading to be more like molten white-space, and that might help vertical rhythm stay intact better in a fluid composition.
 

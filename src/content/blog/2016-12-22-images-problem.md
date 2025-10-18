@@ -193,7 +193,7 @@ There are also a number of new formats being developed that offer higher quality
 
 ### BPG (Better Portable Graphics)
 
-[BPG](http://bellard.org/bpg/) is a new image format meant to replace the JPEG image format. It has a high compression ratio and unlike JPEG, supports transparency. To use BPG, you will need to integrate a Javascript BPG decoder (56kb gzipped) in your site for browsers to recognise the image.
+[BPG](http://bellard.org/bpg/) is a new image format meant to replace the JPEG image format. It has a high compression ratio and unlike JPEG, supports transparency. To use BPG, you will need to integrate a JavaScript BPG decoder (56kb gzipped) in your site for browsers to recognise the image.
 
 ### JPEG-XR (JPEG extended range)
 

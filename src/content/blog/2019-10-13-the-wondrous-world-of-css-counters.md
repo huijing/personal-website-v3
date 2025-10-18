@@ -3,6 +3,7 @@ date: "2019-10-13T00:00:00Z"
 slug: "the-wondrous-world-of-css-counters"
 tags:
   - css
+  - specifications
   - i18n
 title: The wondrous world of CSS counters
 ---

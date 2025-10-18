@@ -339,7 +339,7 @@ Use of viewport units is commendable. But use of the old-school absolute positio
 
 ### Scam functionality analysis
 
-Let's check out the business logic of this site, which is handled by Javascript. There are 2 external Javascript files loaded, `zy/api/k.js` and `zy/api/i.js` which seems to have some cache-busting capabilities.
+Let's check out the business logic of this site, which is handled by JavaScript. There are 2 external JavaScript files loaded, `zy/api/k.js` and `zy/api/i.js` which seems to have some cache-busting capabilities.
 
 The first one to load is k.js, so let's see what that does. It's 63 lines.
 

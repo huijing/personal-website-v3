@@ -47,9 +47,9 @@ So the data file looks like this:
 
 What is a frontend developer other than someone who takes some raw data, massages it all around and makes sure the generated markup is semantic and fulfils layout goals? (A lot more than that but this is a big part of the job, no?)
 
-The nice thing about Astro is that I can write the logic in plain Javascript (actually Typescript) on the component file itself. Then the plain CSS is also in the same file, wrapped in `<style>` tags.
+The nice thing about Astro is that I can write the logic in plain JavaScript (actually Typescript) on the component file itself. Then the plain CSS is also in the same file, wrapped in `<style>` tags.
 
-The slightly more complicated part is putting the computed values from Javascript into the markup correctly. Life's not perfect, we deal with it.
+The slightly more complicated part is putting the computed values from JavaScript into the markup correctly. Life's not perfect, we deal with it.
 
 I did make an effort to make my function names descriptive, so we'll see if I can still understand what everything does when I refer back to this code in a couple months (because the feature magically came back or something).
 

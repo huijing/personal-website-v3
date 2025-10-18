@@ -9,7 +9,7 @@ title: An exercise in progressive enhancement
 
 I've had more opportunities to work on the server-side of things these past couple of months, specifically in [Node.js](https://nodejs.org/en/), and [Glitch](https://glitch.com/) has been an integral part of my learning process.
 
-A recent project I've been tinkering with was a good use case for me to familiarise myself with the actual implementation of a site that works without Javascript, but is enhanced by Javascript when it is available.
+A recent project I've been tinkering with was a good use case for me to familiarise myself with the actual implementation of a site that works without JavaScript, but is enhanced by JavaScript when it is available.
 
 There are numerous articles that talk about the benefits of progressive enhancement, all of which I agree with, but as someone who hadn't had to worry too much about the server-side implementation of things, I had not written server-side code that catered for it before.
 
@@ -110,7 +110,7 @@ const serve = require("koa-static");
 app.use(serve("./public"));
 ```
 
-This is probably going to be the least complicated bit to cover, the serving of static assets like CSS and client-side Javascript from the _/public_ folder.
+This is probably going to be the least complicated bit to cover, the serving of static assets like CSS and client-side JavaScript from the _/public_ folder.
 
 ## Basic routing and rendering
 
@@ -137,7 +137,7 @@ router.get("/clear", (ctx, next) => {
 app.use(router.routes()).use(router.allowedMethods());
 ```
 
-For things to work without client-side Javascript, I used HTML forms to collect user input. This meant some `POST` routes had to be set up as well. To update the page after a form submission, I included a `ctx.response.redirect()` to refresh the page and render the updated contents.
+For things to work without client-side JavaScript, I used HTML forms to collect user input. This meant some `POST` routes had to be set up as well. To update the page after a form submission, I included a `ctx.response.redirect()` to refresh the page and render the updated contents.
 
 ```javascript
 /* This should appear before any routes */
@@ -212,7 +212,7 @@ At this point, the application is pretty much working. You can add a new task by
     </video>
 </figure>
 
-## Adding the client-side Javascript
+## Adding the client-side JavaScript
 
 If you don't want a refresh every time a task is added or updated, then some Ajax will be required. I'm using Fetch for this, but you can use something else if you want.
 
@@ -341,7 +341,7 @@ I'm using the Content-Type header as the identifier to differentiate whether the
 
 This was a tiny project, but because of how small its scope was, it made it easier for me to dig into what was absolutely neccessary, then figuring out which libraries I needed to help me get the job done. (You don't see it but it took me a long time to figure out `koa-views` plus `koa-router` plus `koa-static` working together)
 
-I found that HTML out-of-the-box takes care of a lot of things when it comes to collecting user inputs from the front-end, which resulted in much less code required. This is not to say client-side Javascript is bad, because the experience was smoother (and faster) when I used it for updating content.
+I found that HTML out-of-the-box takes care of a lot of things when it comes to collecting user inputs from the front-end, which resulted in much less code required. This is not to say client-side JavaScript is bad, because the experience was smoother (and faster) when I used it for updating content.
 
 The entire project is up on [Glitch](https://glitch.com/~no-js-no-problem) if you're interested in the full code I used to make the application work. Feel free to poke around, remix it and make it better.
 

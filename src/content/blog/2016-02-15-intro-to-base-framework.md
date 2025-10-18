@@ -253,8 +253,8 @@ view-FOLDER_NAME-FILE_NAME.css
 ```
 
 <p class="no-margin">
-  Javascript is also handled in a similar way. There is a <code>global.js</code> file which contains
-  functions that are called on every page. If there are page-specific Javascript functions, the file
+  JavaScript is also handled in a similar way. There is a <code>global.js</code> file which contains
+  functions that are called on every page. If there are page-specific JavaScript functions, the file
   should be name-spaced like so:
 </p>
 

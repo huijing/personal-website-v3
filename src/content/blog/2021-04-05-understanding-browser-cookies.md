@@ -46,7 +46,7 @@ Host: huijing.github.io
 Cookie: viola=red_panda; mathia=polar_bear
 ```
 
-Even though cookies are usually created on the server, you can also create them on the client-side with Javascript, using `document.cookie`. Browser cookies also have a number of attributes in addition to the name-value pair mentioned earlier.
+Even though cookies are usually created on the server, you can also create them on the client-side with JavaScript, using `document.cookie`. Browser cookies also have a number of attributes in addition to the name-value pair mentioned earlier.
 
 ## Cookie attributes
 
@@ -79,7 +79,7 @@ The rest of the attributes are optional but can impact cookie behaviour signific
   </div>
   <div class="tr">
     <div class="th td">HttpOnly</div>
-    <div class="td">Javascript cannot access the cookie through <code>document.cookie</code> (to mitigate XSS attacks)</div>
+    <div class="td">JavaScript cannot access the cookie through <code>document.cookie</code> (to mitigate XSS attacks)</div>
   </div>
   <div class="tr">
     <div class="th td">SameSite=&lt;samesite-value&gt;</div>
@@ -105,7 +105,7 @@ Both Chrome and Firefox has rolled this out, but it seems like only Firefox disp
 
 Cookies without an `Expires` or `Max-Age` attribute are treated as session cookies, which means they are removed once the browser is closed. Setting a value on either `Expires` or `Max-Age` makes them permanent cookies, since they will exist until they hit their expiry date.
 
-Again, I usually don't do server-side stuff so I'll only talk about messing around with cookies on the client-side. The `Document` has a `cookie` property that lets us read and write browser cookies via Javascript.
+Again, I usually don't do server-side stuff so I'll only talk about messing around with cookies on the client-side. The `Document` has a `cookie` property that lets us read and write browser cookies via JavaScript.
 
 To see all cookies associated with the document, use `document.cookie`. You can type this in the browser's console and see something like this:
 

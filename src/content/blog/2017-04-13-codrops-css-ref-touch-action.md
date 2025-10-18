@@ -15,7 +15,7 @@ title: "Codrops CSS reference: touch-action"
     </p>
 
     <p>
-        Touch events are a Web API that allow the browser to interpret finger or stylus interactions on touch screens or trackpads. We usually handle touch events using Javascript, but <code>touch-action</code> allows us to inform the browser of the application's intent before any event listeners are triggered.
+        Touch events are a Web API that allow the browser to interpret finger or stylus interactions on touch screens or trackpads. We usually handle touch events using JavaScript, but <code>touch-action</code> allows us to inform the browser of the application's intent before any event listeners are triggered.
     </p>
 
     <p>

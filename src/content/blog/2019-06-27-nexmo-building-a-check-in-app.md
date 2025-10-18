@@ -4,11 +4,12 @@ external_site: nexmo
 external_url: https://www.nexmo.com/blog/2019/06/27/building-a-check-in-app-with-nexmos-verify-api-dr/
 noindex: true
 tags:
-- nodejs
-- javascript
-- nexmo
+  - nodejs
+  - javascript
+  - nexmo
 title: Building a check-in app with Nexmo's Verify API
 ---
+
 Let's say you are running a game like [The Amazing Race](https://en.wikipedia.org/wiki/The_Amazing_Race), where there are multiple checkpoints that players have to physically reach before they can complete the game. This application is a way to track if a player has reached a checkpoint or not.
 
 ## A little bit about 2FA
@@ -51,7 +52,7 @@ By default, Node applications on Glitch run on Express, which is totally fine. T
 
 ![Default package.json on a fresh Glitch Node project](https://cdn.glitch.com/a6e54ada-b027-4989-9c49-4368d4e55826%2Fglitch3-1280.jpg?1558240533502)
 
-If you click on Tools at the bottom left of the screen, you will bring up some options, like Logs, Console, Container Stats and so on. 
+If you click on Tools at the bottom left of the screen, you will bring up some options, like Logs, Console, Container Stats and so on.
 
 ![Tools options on Glitch](https://cdn.glitch.com/a6e54ada-b027-4989-9c49-4368d4e55826%2Fglitch4-1280.jpg?1558240533631)
 
@@ -64,33 +65,39 @@ To customise the npm modules you want to use in your project, you can access the
 ![Accessing the Glitch console](https://cdn.glitch.com/a6e54ada-b027-4989-9c49-4368d4e55826%2Fglitch6-1280.jpg?1558240533428)
 
 Remove express by running the following:
+
 ```bash
 pnpm uninstall express
 ```
+
 Then, install Koa.js by running the following:
+
 ```bash
 pnpm install koa --save
 ```
+
 To verify the npm modules being used in your project, you'll have to refresh the environment:
+
 ```bash
 refresh
 ```
-Once you've done that, you should see an “Error” indicator next to Tools. That's fine because in the `server.js` file, we are requiring the Express framework which is no longer there. 
+
+Once you've done that, you should see an “Error” indicator next to Tools. That's fine because in the `server.js` file, we are requiring the Express framework which is no longer there.
 
 <p id="skip-glitch">The next thing to do is to rewrite basic server code to use Koa.js. You can do that yourself or paste the following code into your newly created file.</p>
 
 ```javascript
-const Koa = require('koa')
-const port = process.env.PORT || 3000
-const app = new Koa()
+const Koa = require("koa");
+const port = process.env.PORT || 3000;
+const app = new Koa();
 
-app.use(async ctx => {
-  ctx.body = 'Hello Dinosaur 🦖'
-})
+app.use(async (ctx) => {
+  ctx.body = "Hello Dinosaur 🦖";
+});
 
-const listener = app.listen(port, function() {
-  console.log('Your app is listening on port ' + listener.address().port)
-})
+const listener = app.listen(port, function () {
+  console.log("Your app is listening on port " + listener.address().port);
+});
 ```
 
 If all went well, clicking on the Show button on the top nav bar should trigger your application in a new window with the text, “Hello Dinosaur 🦖”.
@@ -106,6 +113,7 @@ This means the application will have 3 pages, the login page, the administrator 
 ![Rough screen sketches for login page, administrator page and verification code entry page](https://cdn.glitch.com/a6e54ada-b027-4989-9c49-4368d4e55826%2Fscreens-1280.jpg?1558240461927)
 
 As mentioned earlier, some additional middlewares need to be installed. This project uses the following:
+
 - `koa-static` for serving static assets
 - `koa-bodyparser` for handling data sent over via POST requests
 - `koa-router` for routing
@@ -115,60 +123,67 @@ As mentioned earlier, some additional middlewares need to be installed. This pro
 ## Serving static assets
 
 ```javascript
-const serve = require('koa-static')
-app.use(serve('./public'))
+const serve = require("koa-static");
+app.use(serve("./public"));
 ```
-This is probably going to be the least complicated bit to cover, the serving of static assets like CSS and client-side Javascript from the */public* folder.
+
+This is probably going to be the least complicated bit to cover, the serving of static assets like CSS and client-side JavaScript from the _/public_ folder.
 
 ## Basic routing and rendering
 
-The plan is to get everything working without any client-side Javascript. So user inputs are submitted via HTML forms, and if necessary, a redirect to the appropriate page after submission. Each page is its own HTML file and is rendered with `koa-views`, which provides a `render()` function.
+The plan is to get everything working without any client-side JavaScript. So user inputs are submitted via HTML forms, and if necessary, a redirect to the appropriate page after submission. Each page is its own HTML file and is rendered with `koa-views`, which provides a `render()` function.
 
 ```javascript
-const Router = require('koa-router')
-const views = require('koa-views')
-const router = new Router()
+const Router = require("koa-router");
+const views = require("koa-views");
+const router = new Router();
 
-app.use(views('./views', { map: { html: 'nunjucks' }}))
+app.use(views("./views", { map: { html: "nunjucks" } }));
 
-router.get('/login', (ctx, next) => {
-  return ctx.render('./login')
-})
+router.get("/login", (ctx, next) => {
+  return ctx.render("./login");
+});
 
-router.get('/', (ctx, next) => {
-  return ctx.render('./index')
-})
+router.get("/", (ctx, next) => {
+  return ctx.render("./index");
+});
 
-router.get('/verify/:phone', (ctx, next) => {
-  const phone = ctx.params.phone
-  return ctx.render('./verify')
-})
+router.get("/verify/:phone", (ctx, next) => {
+  const phone = ctx.params.phone;
+  return ctx.render("./verify");
+});
 
-router.get('/result/:phone', (ctx, next) => {
-  const phone = ctx.params.phone
-  return ctx.render('./result')
-})
+router.get("/result/:phone", (ctx, next) => {
+  const phone = ctx.params.phone;
+  return ctx.render("./result");
+});
 ```
-`koa-router` also provides a way to access URL parameters via `ctx.params`, used for */verify/\** and */result/\**, which is used to match phone numbers to the generated verification code. This will make more sense once we go through how the Verify API works.
+
+`koa-router` also provides a way to access URL parameters via `ctx.params`, used for \*/verify/\*_ and _/result/\*\*, which is used to match phone numbers to the generated verification code. This will make more sense once we go through how the Verify API works.
 
 ## Verify API
 
 There are 2 steps involved when using the Verify API. The first is to trigger an SMS containing the one-time password (OTP) to the target recipient's phone number.
 
 ```javascript
-nexmo.verify.request({
-  number: RECIPIENT_NUMBER,
-  brand: NEXMO_BRAND_NAME
-}, (err, result) => {
-  if (err) {
-    console.error(err)
-  } else {
-    const verifyRequestId = result.request_id
-    console.log('request_id', verifyRequestId)
+nexmo.verify.request(
+  {
+    number: RECIPIENT_NUMBER,
+    brand: NEXMO_BRAND_NAME,
+  },
+  (err, result) => {
+    if (err) {
+      console.error(err);
+    } else {
+      const verifyRequestId = result.request_id;
+      console.log("request_id", verifyRequestId);
+    }
   }
-})
+);
 ```
+
 The HTTP response from the Verify request API looks like this:
+
 ```javascript
 {
   "request_id": "aaaaaaaa-bbbb-...",
@@ -176,21 +191,27 @@ The HTTP response from the Verify request API looks like this:
   "error_text": "error"
 }
 ```
+
 If the `status` is anything other than `0`, the request was unsuccessful and details about why can be found in `error_text`. Otherwise, the target recipient should receive an OTP via SMS. They must then enter this OTP into your application, which can be verified against the original `request_id`.
 
 ```javascript
-nexmo.verify.check({
-  request_id: REQUEST_ID,
-  code: CODE
-}, (err, result) => {
-  if (err) {
-    console.error(err)
-  } else {
-    console.log(result)
+nexmo.verify.check(
+  {
+    request_id: REQUEST_ID,
+    code: CODE,
+  },
+  (err, result) => {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log(result);
+    }
   }
-})
+);
 ```
+
 The HTTP response from the Verify check API looks like this:
+
 ```javascript
 {
   "request_id": "aaaaaaaa-bbbb-...",
@@ -210,45 +231,39 @@ There are a number of database-related functions for adding players, retrieving 
 
 ```javascript
 function dbAddPlayer(data) {
-  db.get('players')
-    .push({ name: data.name, phone: data.phone })
-    .write()
-  console.log('New user inserted in the database')
+  db.get("players").push({ name: data.name, phone: data.phone }).write();
+  console.log("New user inserted in the database");
 }
 
 function dbGetPlayers() {
-  return db.get('players').value()
+  return db.get("players").value();
 }
 
 function dbPlayerCount() {
-  return db.get('players').size().value()
+  return db.get("players").size().value();
 }
 
 function dbAddId(phone, requestId, mode, status) {
-  db.get('players')
+  db.get("players")
     .find({ phone: phone })
     .assign({ id: requestId, delivery: mode, status: status })
-    .write()
+    .write();
 }
 
 function dbUpdateStatus(requestId, status) {
-  db.get('players')
-    .find({ id: requestId })
-    .assign({ status: status })
-    .write()
+  db.get("players").find({ id: requestId }).assign({ status: status }).write();
 }
 
 function dbFindPlayer(phone) {
-  return db.get('players').find({ phone: phone }).value()
+  return db.get("players").find({ phone: phone }).value();
 }
 
 function dbClear() {
-  db.get('players')
-    .remove()
-    .write()
-  console.log('Database cleared')
+  db.get("players").remove().write();
+  console.log("Database cleared");
 }
 ```
+
 You can use a web form to collect the required information for creating a new player. For this demo, only 2 fields are required, the player name and their phone number.
 
 ```html
@@ -257,149 +272,158 @@ You can use a web form to collect the required information for creating a new pl
   <div class="inputs">
     <label>
       <span>Name</span>
-      <input name="name" required>
+      <input name="name" required />
     </label>
     <label>
       <span>Phone</span>
-      <input type="tel" name="phone" required>
+      <input type="tel" name="phone" required />
     </label>
   </div>
   <button id="addPlayer">Add</button>
 </form>
 ```
 
-Submitting this form will send a POST request to */add*, which means you need to create a route to handle this incoming data, then store it in the database.
+Submitting this form will send a POST request to _/add_, which means you need to create a route to handle this incoming data, then store it in the database.
 
 ```javascript
-router.post('/add', (ctx, next) => {
-  const payload = ctx.request.body
-  dbAddPlayer(payload)
-  ctx.status = 200
-  ctx.response.redirect('/')
-})
+router.post("/add", (ctx, next) => {
+  const payload = ctx.request.body;
+  dbAddPlayer(payload);
+  ctx.status = 200;
+  ctx.response.redirect("/");
+});
 ```
+
 You can then render information from the database onto the page with Nunjucks. Nunjucks provides a `render()` function which allows you to pass data to your Nunjucks template. Modify the `GET` route for `/` so you can render player information from the database to the page.
 
 ```javascript
-router.get('/', (ctx, next) => {
-  const players = dbGetPlayers()
-  return ctx.render('./index', { players: players })
-})
+router.get("/", (ctx, next) => {
+  const players = dbGetPlayers();
+  return ctx.render("./index", { players: players });
+});
 ```
+
 You can then plug player values into the template and render them however you'd like your player data structured.
 
 ![Displaying player data on the frontend](https://cdn.glitch.com/a6e54ada-b027-4989-9c49-4368d4e55826%2Fplayer-list-1280.jpg?1558240461783)
 
 ## Triggering the OTP
 
-The [Verify API](https://developer.nexmo.com/api/verify) requires the player's phone number to trigger the OTP request. You can send this information to the backend via another web form submission, this time posting to */verify/\{\{ player.phone \}\}*, allowing you to get the phone number via `ctx.params.phone` and pass it to the Verify API's request function.
+The [Verify API](https://developer.nexmo.com/api/verify) requires the player's phone number to trigger the OTP request. You can send this information to the backend via another web form submission, this time posting to _/verify/\{\{ player.phone \}\}_, allowing you to get the phone number via `ctx.params.phone` and pass it to the Verify API's request function.
 
 ```javascript
-router.post('/verify/:phone', async (ctx, next) => {
-  const phone = ctx.params.phone
-  const result = await verify(phone)
-  dbAddId(phone, result.request_id, payload.delivery, 'pending')
-  ctx.status = 200
-  ctx.response.redirect('/')
-})
+router.post("/verify/:phone", async (ctx, next) => {
+  const phone = ctx.params.phone;
+  const result = await verify(phone);
+  dbAddId(phone, result.request_id, payload.delivery, "pending");
+  ctx.status = 200;
+  ctx.response.redirect("/");
+});
 
 // Verify API's request function
 async function verify(number) {
-  return new Promise(function(resolve, reject) {
-    nexmo.verify.request({
-      number: number,
-      brand: process.env.NEXMO_BRAND_NAME
-    }, (err, result) => {
-      if (err) {
-        console.error(err)
-        reject(err)
-      } else {
-        resolve(result)
+  return new Promise(function (resolve, reject) {
+    nexmo.verify.request(
+      {
+        number: number,
+        brand: process.env.NEXMO_BRAND_NAME,
+      },
+      (err, result) => {
+        if (err) {
+          console.error(err);
+          reject(err);
+        } else {
+          resolve(result);
+        }
       }
-    })
-  })
+    );
+  });
 }
 
 // Add request ID to the database
 function dbAddId(phone, requestId, mode, status) {
-  db.get('players')
+  db.get("players")
     .find({ phone: phone })
     .assign({ id: requestId, delivery: mode, status: status })
-    .write()
+    .write();
 }
 ```
+
 The `request_id`, which is part of the API response, will be needed for the subsequent `check()` function. This function will be used to verify the `request_id` against the code entered by the player. This is stored in the database via the `dbAddId()` function.
 
 ![Trigger the OTP for each phone number](https://cdn.glitch.com/a6e54ada-b027-4989-9c49-4368d4e55826%2Ftrigger-pin-1280.jpg?1558240463513)
 
 ## Checking the OTP
 
-Players can enter the verification code at the unique URL, */verify/\{\{ player.phone \}\}*. You would need to pass the phone number back to the page so your `GET` route would resemble that of */*, which includes the `render()` function.
+Players can enter the verification code at the unique URL, _/verify/\{\{ player.phone \}\}_. You would need to pass the phone number back to the page so your `GET` route would resemble that of _/_, which includes the `render()` function.
 
 ```javascript
-router.get('/verify/:phone', (ctx, next) => {
-  const phone = ctx.params.phone
-  return ctx.render('./verify', { phone: phone })
-})
+router.get("/verify/:phone", (ctx, next) => {
+  const phone = ctx.params.phone;
+  return ctx.render("./verify", { phone: phone });
+});
 ```
+
 The web form for players to enter their OTP will look something like this:
 
 ```html
 <form method="post" action="/check" id="checkPinForm">
-  <input name="pin" type="number">
-  <input type="hidden" name="phone" value="{{ phone }}">
+  <input name="pin" type="number" />
+  <input type="hidden" name="phone" value="{{ phone }}" />
   <button>Submit</button>
 </form>
 ```
+
 ![Web form for entering the OTP sent to players' phones](https://cdn.glitch.com/a6e54ada-b027-4989-9c49-4368d4e55826%2Fverify-pin-1280.jpg?1558240463340)
 
 When the player submits the OTP, you can retrieve the original `request_id` from the database, and pass both the `request_id` and PIN to the Verify API's `check()` function.
 
 ```javascript
-router.post('/check', async (ctx, next) => {
-  const payload = await ctx.request.body
-  const phone = payload.phone
-  const code = payload.pin
-  
-  const requestId = dbFindPlayer(phone).id
+router.post("/check", async (ctx, next) => {
+  const payload = await ctx.request.body;
+  const phone = payload.phone;
+  const code = payload.pin;
 
-  const result = await check(requestId, code)
-  dbUpdateStatus(requestId, result.status)
-  
-  ctx.status = 200
-  ctx.response.redirect('/result/' + payload.phone)
-})
+  const requestId = dbFindPlayer(phone).id;
+
+  const result = await check(requestId, code);
+  dbUpdateStatus(requestId, result.status);
+
+  ctx.status = 200;
+  ctx.response.redirect("/result/" + payload.phone);
+});
 
 // Verify API's check function
 async function check(requestId, code) {
-  return new Promise(function(resolve, reject) {
-    nexmo.verify.check({
-      request_id: requestId,
-      code: code
-    }, (err, result) => {
-      if (err) {
-        console.error(err)
-        reject(err)
-      } else {
-        resolve(result)
+  return new Promise(function (resolve, reject) {
+    nexmo.verify.check(
+      {
+        request_id: requestId,
+        code: code,
+      },
+      (err, result) => {
+        if (err) {
+          console.error(err);
+          reject(err);
+        } else {
+          resolve(result);
+        }
       }
-    })
-  })
+    );
+  });
 }
 
 // Update player status in the database
 function dbUpdateStatus(requestId, status) {
-  db.get('players')
-    .find({ id: requestId })
-    .assign({ status: status })
-    .write()
+  db.get("players").find({ id: requestId }).assign({ status: status }).write();
 }
 ```
+
 A successful verification will return a status code of `0`, which you can use to determine which status message to show the user on the results page.
 
 ```html
-<main>{% raw %}
-  {% if status == 0 %}
+<main>
+  {% raw %} {% if status == 0 %}
   <p>Code verified successfully.</p>
   <p>You can close this window now.</p>
   {% else %}
@@ -408,6 +432,7 @@ A successful verification will return a status code of `0`, which you can use to
   {% endif %}{% endraw %}
 </main>
 ```
+
 ![Verification results page displayed to the user](https://cdn.glitch.com/a6e54ada-b027-4989-9c49-4368d4e55826%2Fresult-1280.png?1558240461554)
 
 ## Additional things you can do

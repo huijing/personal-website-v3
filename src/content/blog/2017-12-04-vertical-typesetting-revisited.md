@@ -38,7 +38,7 @@ Post is long, use links to skip.
   </li>
   <li><a href="#layout-switching">Layout switching</a>
     <ul>
-      <li class="no-margin"><a href="#solution-1-javascript">Solution #1: Javascript</a></li>
+      <li class="no-margin"><a href="#solution-1-javascript">Solution #1: JavaScript</a></li>
       <li class="no-margin"><a href="#solution-2-checkbox-hack">Solution #2: Checkbox hack</a></li>
     </ul>
   </li>
@@ -140,7 +140,7 @@ I also want to shout-out (for the umpteenth time) [Browsersync](https://www.brow
 
 ### Some background
 
-The implementation of the switcher could have gone 2 ways, one with Javascript to toggle classes, or with the checkbox hack. I often lean toward the CSS-only solution and so decided to go with the checkbox hack. This demo is simple enough such that there wasn't much interference in terms of keyboard controls, I mean, you could tab and toggle as per any other checkbox.
+The implementation of the switcher could have gone 2 ways, one with JavaScript to toggle classes, or with the checkbox hack. I often lean toward the CSS-only solution and so decided to go with the checkbox hack. This demo is simple enough such that there wasn't much interference in terms of keyboard controls, I mean, you could tab and toggle as per any other checkbox.
 
 I really need to study up on accessibility to determine if I'm screwing things up for screen-readers, but that's for another day. Priority of today is dealing with the layout problem.
 
@@ -244,9 +244,9 @@ There are known flexbox bugs in Firefox when it comes to vertical writing so I'm
 
 The second part will be related to centring the images in the figures, which is what got me into this mess. Aside from centring, I also wanted to have some sort of image orientation. Which was what led me to revisit this demo in the first place: my [RICG use case write-up](https://github.com/ResponsiveImagesCG/ri-usecases/issues/63). #mildlysidetracked
 
-### Solution #1: Javascript
+### Solution #1: JavaScript
 
-Let's talk about the cop-out solution first. Since the problem arises from nesting mixed writing modes, maybe stop using them? Based on our observations from above, a Javascript event listener to toggle CSS classes on the `html` element could potentially solve a lot of the weird rendering issues. Okay, code time <span class="emoji" role="img" tabindex="0" aria-label="nerd face">&#x1F913;</span>.
+Let's talk about the cop-out solution first. Since the problem arises from nesting mixed writing modes, maybe stop using them? Based on our observations from above, a JavaScript event listener to toggle CSS classes on the `html` element could potentially solve a lot of the weird rendering issues. Okay, code time <span class="emoji" role="img" tabindex="0" aria-label="nerd face">&#x1F913;</span>.
 
 The 2 classes I want to toggle between are uncreatively named `vertical` and `horizontal`. Since I already have the checkbox, might as well make use of it to be the class toggler.
 
@@ -305,7 +305,7 @@ Fun fact, when in vertical writing mode, we can use `margin-top: auto` and `marg
 
 ### Solution 2: Checkbox hack
 
-The mechanics behind this technique is similar to using Javascript, except that instead of using a CSS class to change state, we make use of the `:checked` pseudo element. Like we discussed earlier, the checkbox element has to be at the same level as the `main` element for this to work.
+The mechanics behind this technique is similar to using JavaScript, except that instead of using a CSS class to change state, we make use of the `:checked` pseudo element. Like we discussed earlier, the checkbox element has to be at the same level as the `main` element for this to work.
 
 ```scss
 .c-switcher__checkbox:checked ~ main {
@@ -322,7 +322,7 @@ The mechanics behind this technique is similar to using Javascript, except that 
 }
 ```
 
-Layout code the same as `.vertical` and `.horizontal`, but alas, the results are not. Vertical centring is good, looks exactly the same as if we used Javascript. But horizontal centring is skewed to the right. The auto margins don't seem to be doing anything in this dimension.
+Layout code the same as `.vertical` and `.horizontal`, but alas, the results are not. Vertical centring is good, looks exactly the same as if we used JavaScript. But horizontal centring is skewed to the right. The auto margins don't seem to be doing anything in this dimension.
 
 But if you think about it, this is actually ”correct” behaviour because we can't centre things vertically in horizontal writing mode with this method either. Why is this? Let's check the specifications.
 
@@ -334,9 +334,9 @@ Also, from the specification, the [calculation of heights and margins](https://w
 
 <img srcset="/images/posts/vertical-typesetting/zero-480.jpg 480w, /images/posts/vertical-typesetting/zero-640.jpg 640w, /images/posts/vertical-typesetting/zero-960.jpg 960w, /images/posts/vertical-typesetting/zero-1280.jpg 1280w" sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px" src="/images/posts/vertical-typesetting/zero-640.jpg" alt="Margins resolving to zero" />
 
-When we set the writing mode to vertical, the “height” seems to become the horizontal-axis when it comes to calculating these values. I say seems because I'm honestly not 100% sure how it really works. And it dawned on me that the Javascript solution is actually magic!
+When we set the writing mode to vertical, the “height” seems to become the horizontal-axis when it comes to calculating these values. I say seems because I'm honestly not 100% sure how it really works. And it dawned on me that the JavaScript solution is actually magic!
 
-Nah, I'm kidding. It's really because we didn't mix writing-modes when using the Javascript solution, so the respective dimensions that resolved to `0` were not the ones that affected the centring we wanted to achieve. Maybe re-read that sentence a few times <span class="emoji" role="img" tabindex="0" aria-label="person shrugging">&#x1F937;</span>.
+Nah, I'm kidding. It's really because we didn't mix writing-modes when using the JavaScript solution, so the respective dimensions that resolved to `0` were not the ones that affected the centring we wanted to achieve. Maybe re-read that sentence a few times <span class="emoji" role="img" tabindex="0" aria-label="person shrugging">&#x1F937;</span>.
 
 To horizontally centre our `main` element when vertical writing mode is toggled, we'll need to use the good ol' transform trick.
 
@@ -407,7 +407,7 @@ For vertical writing mode, we generally want the text to be justified, or at lea
 }
 ```
 
-We can pretty much call it a day now. It's done. This is the target end result already. I want to add that this works exactly the same for both the Javascript implementation and the checkbox hack implementation, except for the Edge bug I mentioned earlier.
+We can pretty much call it a day now. It's done. This is the target end result already. I want to add that this works exactly the same for both the JavaScript implementation and the checkbox hack implementation, except for the Edge bug I mentioned earlier.
 
 ### Using flexbox for centring
 
@@ -509,7 +509,7 @@ I need to create a simplified test case for using grid with vertical writing mod
 
 ## Winning solution?
 
-The currently active implementation of my [stand-alone demo](https://huijing.github.io/zh-type/) is the checkbox hack without flexbox solution. I'm retaining the checkbox hack version to track the Edge bug. But the flexbox solution, if you don't mind the extra wrappers, works fine as well. The markup for the Javascript implementation also looks nicer, because you can wrap the toggle in a `div` and style that.
+The currently active implementation of my [stand-alone demo](https://huijing.github.io/zh-type/) is the checkbox hack without flexbox solution. I'm retaining the checkbox hack version to track the Edge bug. But the flexbox solution, if you don't mind the extra wrappers, works fine as well. The markup for the JavaScript implementation also looks nicer, because you can wrap the toggle in a `div` and style that.
 
 But at the end of the day, there are so many ways to achieve the same end result. It's fine to copy code from elsewhere, but the trouble comes when something does go wrong and you can't figure out why. You don't have to write everything from scratch, but make sure there's no “magic” that you can't decipher.
 

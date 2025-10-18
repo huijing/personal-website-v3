@@ -209,7 +209,7 @@ CSSconf EU speakers also get to attend JSConf EU and so I got to watch my home g
 
 <img srcset="/images/posts/talking-css-2019/cssconfeu4-480.jpg 480w, /images/posts/talking-css-2019/cssconfeu4-640.jpg 640w, /images/posts/talking-css-2019/cssconfeu4-960.jpg 960w, /images/posts/talking-css-2019/cssconfeu4-1280.jpg 1280w" sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px" src="/images/posts/talking-css-2019/cssconfeu4-640.jpg" alt="Team Nexmo (Alex, Garann and I) at sunset">
 
-Team Nexmo was pretty well represented this time, with [Garann Means]() rocking the main stage talking about [the missing Javascript phone we were promised](https://2019.jsconf.eu/garann-means/what-happened-to-my-javascript-phone.html), while Alex's coffee ordering app being well-utilised throughout the 2 days.
+Team Nexmo was pretty well represented this time, with [Garann Means]() rocking the main stage talking about [the missing JavaScript phone we were promised](https://2019.jsconf.eu/garann-means/what-happened-to-my-javascript-phone.html), while Alex's coffee ordering app being well-utilised throughout the 2 days.
 
 Berlin is a special place for me. And CSSconf EU is a community and an experience I will remember for the rest of my life. <span class="emoji" role="img" tabindex="0" aria-label="red heart">&#x2764;&#xFE0F;</span>
 

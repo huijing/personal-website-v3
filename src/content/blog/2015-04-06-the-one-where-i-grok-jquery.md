@@ -35,7 +35,7 @@ Aside from that, we did some minor clean-up of the site architecture for the EMB
 
 There was also some information that we felt would be better presented as through an accordion interface. This led me to explore a number of Drupal modules that provided accordion functionality, but I just couldn't find one that fit our requirements nicely. I decided, maybe it'd be easier to write my own accordion.
 
-At this point in time, I had a fair number of projects under my belt. However, I still never really got the hang of jQuery. As someone without any background in programming, Javascript just seemed kind of daunting. HTML and CSS was pretty easy to pick up, but Javascript and jQuery just seemed...hard.
+At this point in time, I had a fair number of projects under my belt. However, I still never really got the hang of jQuery. As someone without any background in programming, JavaScript just seemed kind of daunting. HTML and CSS was pretty easy to pick up, but JavaScript and jQuery just seemed...hard.
 
 The first jQuery learning resource I tried was [Try jQuery](http://try.jquery.com/) by [Code School](https://www.codeschool.com/). It was very good, and took me through all the basics of jQuery but somehow it didn't stick.
 

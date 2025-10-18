@@ -106,10 +106,10 @@ Data from the backend was being passed to the frontend via Jinja variables. On o
 
 <figure>
     <figcaption>This was painful to go through, to be honest</figcaption>
-    <img srcset="/images/posts/refactoring/messy-code-480.png 480w, /images/posts/refactoring/messy-code-640.png 640w, /images/posts/refactoring/messy-code-960.png 960w, /images/posts/refactoring/messy-code-1280.png 1280w" sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px" src="/images/posts/refactoring/messy-code-640.png" alt="Mish-mash of HTML, CSS, Javascript and Jinja variables">
+    <img srcset="/images/posts/refactoring/messy-code-480.png 480w, /images/posts/refactoring/messy-code-640.png 640w, /images/posts/refactoring/messy-code-960.png 960w, /images/posts/refactoring/messy-code-1280.png 1280w" sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px" src="/images/posts/refactoring/messy-code-640.png" alt="Mish-mash of HTML, CSS, JavaScript and Jinja variables">
 </figure>
 
-There was a large amount of inline Javascript in the template files, where Jinja variables were directly called and used within Javascript functions between `&lt;script&gt;` tags. That was a hard no for me, and I insisted on extracting all Javascript into separate `.js` files and keeping the templates clean of inline styles and scripts.
+There was a large amount of inline JavaScript in the template files, where Jinja variables were directly called and used within JavaScript functions between `&lt;script&gt;` tags. That was a hard no for me, and I insisted on extracting all JavaScript into separate `.js` files and keeping the templates clean of inline styles and scripts.
 
 ## Burn it down, build it up
 
@@ -122,7 +122,7 @@ There was a large amount of inline Javascript in the template files, where Jinja
     <li>there was the fact that <em>my youth was slipping away</em>,</li>
 </ul>
 
-I decided to rip out all the styles and scripts and rewrite them from scratch, only including external Javascript libraries, like [Moment.js](https://momentjs.com/) and [Chart.js](https://www.chartjs.org/), where necessary.
+I decided to rip out all the styles and scripts and rewrite them from scratch, only including external JavaScript libraries, like [Moment.js](https://momentjs.com/) and [Chart.js](https://www.chartjs.org/), where necessary.
 
 Although my team was comprised of my left hand and my right hand (and also my brain, a very important member of the team), I was reasonably confident I could pull this off because I can CSS faster than most developers I know, so the look-and-feel part of things wouldn't take me too long. From a UI functionality perspective, things didn't appear to be overly complicated.
 
@@ -139,7 +139,7 @@ Plan B: run an instance of the application that tracked the current master relea
     <img srcset="/images/posts/refactoring/before-after-480.png 480w, /images/posts/refactoring/before-after-640.png 640w, /images/posts/refactoring/before-after-960.png 960w, /images/posts/refactoring/before-after-1280.png 1280w" sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px" src="/images/posts/refactoring/before-after-640.png" alt="Before and After look and feel">
 </figure>
 
-This approach also flushed out a large number of implementation issues. for example, there were limited REST APIs by which to access information stored in the database, because the previous implementation used Jinja variables directly into inline Javascript functions. See exhibit below:
+This approach also flushed out a large number of implementation issues. for example, there were limited REST APIs by which to access information stored in the database, because the previous implementation used Jinja variables directly into inline JavaScript functions. See exhibit below:
 
 ```html
 <script>
@@ -199,7 +199,7 @@ The only external CSS loaded were for datepickers and datatables, and even those
     <img srcset="/images/posts/refactoring/performance2-480.png 480w, /images/posts/refactoring/performance2-640.png 640w, /images/posts/refactoring/performance2-960.png 960w, /images/posts/refactoring/performance2-1280.png 1280w" sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px" src="/images/posts/refactoring/performance2-640.png" alt="Page weight after rewrite">
 </figure>
 
-As a preliminary assessment, this was a relatively good outcome. There is further room for improvement for a second-pass refactoring, both on the Javascript side as well as the CSS side, but that portion of work will probably fall to the next person who takes over this project.
+As a preliminary assessment, this was a relatively good outcome. There is further room for improvement for a second-pass refactoring, both on the JavaScript side as well as the CSS side, but that portion of work will probably fall to the next person who takes over this project.
 
 ## Wrapping up
 

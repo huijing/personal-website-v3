@@ -104,7 +104,7 @@ I suppose for some developers, the job is a just a means to earn a paycheck. But
 <ul>
     <li class="no-margin"><a href="http://www.w3.org/standards/">W3C standards</a></li>
     <li class="no-margin"><a href="http://www.w3.org/Style/CSS/specs.en.html">Descriptions of all CSS specifications</a></li>
-    <li class="no-margin"><a href="http://eloquentjavascript.net/">Eloquent Javascript</a></li>
+    <li class="no-margin"><a href="http://eloquentjavascript.net/">Eloquent JavaScript</a></li>
     <li class="no-margin"><a href="https://www.w3.org/WAI/intro/accessibility.php/">Introduction to Web Accessibility</a></li>
     <li class="no-margin"><a href="http://www.smashingmagazine.com/2010/06/07/the-principles-of-cross-browser-css-coding/">The Principles Of Cross-Browser CSS Coding</a></li>
     <li class="no-margin"><a href="https://community.dynatrace.com/community/display/PUB/Best+Practices+on+Web+Site+Performance+Optimization">Best Practices on Web Site Performance Optimization</a></li>

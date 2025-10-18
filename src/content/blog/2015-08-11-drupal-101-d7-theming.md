@@ -72,7 +72,7 @@ stylesheets[screen and (max-width: 480px)][] = css/mobile.css
 ```
 
 <p class="no-margin"><strong>scripts</strong><br>
-Define any Javascript files used in your theme. Similar to stylesheets, they are relative to the theme folder as well. FYI, Drupal already comes with jQuery, so no need to add it again here.</p>
+Define any JavaScript files used in your theme. Similar to stylesheets, they are relative to the theme folder as well. FYI, Drupal already comes with jQuery, so no need to add it again here.</p>
 
 ```
 scripts[] = js/scripts.js

@@ -84,7 +84,7 @@ Although `description` and `icons` are optional, they are required if you want t
 </html>
 ```
 
-To add some style and interactivity to the extension, CSS and Javascript can be included by link or style and script elements.
+To add some style and interactivity to the extension, CSS and JavaScript can be included by link or style and script elements.
 
 ```html
 <html>

@@ -304,9 +304,9 @@ Now that we got that out of the way, time to add in the animation bits.
 
 ## Enhance with animation
 
-We only want the animation-related styles to apply on browsers that support animation, and we can do that using a tool called [Modernizr](https://modernizr.com/). If you don't know what Modernizr is, it is written in Javascript and detects if certain features are available on the browser your site/app is currently running on. You can customise your Modernizr build by only selecting the features you've used instead of the entire plethora of HTML, CSS and Javascript features available out there.
+We only want the animation-related styles to apply on browsers that support animation, and we can do that using a tool called [Modernizr](https://modernizr.com/). If you don't know what Modernizr is, it is written in JavaScript and detects if certain features are available on the browser your site/app is currently running on. You can customise your Modernizr build by only selecting the features you've used instead of the entire plethora of HTML, CSS and JavaScript features available out there.
 
-Codepen includes a number of popular Javascript libraries and you can quick add Modernizr from the Javascript section of your Pen's settings. The extent of the Javascript used on this project is simply to add and remove CSS classes. All the heavy lifting is done with CSS animations.
+Codepen includes a number of popular JavaScript libraries and you can quick add Modernizr from the JavaScript section of your Pen's settings. The extent of the JavaScript used on this project is simply to add and remove CSS classes. All the heavy lifting is done with CSS animations.
 
 ```js
 if (window.Modernizr.csstransforms3d && window.requestAnimationFrame) {

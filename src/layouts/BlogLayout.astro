@@ -37,7 +37,7 @@ const canonicalURL = external_url ? external_url : new URL(Astro.url.pathname, A
 
       <div class="post-content">
         <slot />
-        <p class="post-meta">
+        <p class="post-meta post-content__tags">
           {
             tags && tags.length === 1 && (
               <span class="icon icon--tag">
@@ -61,7 +61,7 @@ const canonicalURL = external_url ? external_url : new URL(Astro.url.pathname, A
               tags.map((tag: string, i: number) => (
                 <>
                   {i > 0 ? ", " : ""}
-                  <a class="post-content__tag small" href={`/tags/${slugify(tag)}/`}>
+                  <a class="post-content__tag" href={`/tags/${slugify(tag)}/`}>
                     {tag}
                   </a>
                 </>

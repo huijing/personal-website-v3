@@ -323,7 +323,7 @@ For browsers that do not support feature queries, that is essentially what happe
 
 <img srcset="/images/posts/grid-placement/flex-480.png 480w, /images/posts/grid-placement/flex-640.png 640w, /images/posts/grid-placement/flex-960.png 960w, /images/posts/grid-placement/flex-1280.png 1280w" sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px" src="/images/posts/grid-placement/flex-640.png" alt="Fallback layout implemented with flexbox">
 
-## Sprinkle on some Javascript
+## Sprinkle on some JavaScript
 
 Okay, here I want to give credit to [Mike Riethmuller](https://www.madebymike.com.au/), who created a really nice version of the [HTML periodic table](https://web.archive.org/web/20190323075856/https://www.madebymike.com.au/demos/html5-periodic-table/) as well. It's much prettier than mine, PLUS, it has a definition feature.
 
@@ -368,7 +368,7 @@ div:target {
 }
 ```
 
-The Javascript bit comes in for the hover highlight function. And what it does is add a CSS class to the body element so the relevant elements in the selected category get a background colour change.
+The JavaScript bit comes in for the hover highlight function. And what it does is add a CSS class to the body element so the relevant elements in the selected category get a background colour change.
 
 ```javascript
 Array.prototype.forEach.call(document.querySelectorAll(".legend li"), (li) => {

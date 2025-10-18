@@ -10,13 +10,13 @@ tags:
 title: The one about an app
 ---
 
-It's finally happened. I did a proper Javascript thing. Now before you start to judge me, let me clarify that although I've never written a Javascript post ever, it's not like I don't know how to use it, okay? Sure I started out with jQuery back in 2015, big whoop, almost everybody I know has used jQuery at some point in their careers <span class="emoji" role="img" tabindex="0" aria-label="mad face">&#x1F624;</span>.
+It's finally happened. I did a proper JavaScript thing. Now before you start to judge me, let me clarify that although I've never written a JavaScript post ever, it's not like I don't know how to use it, okay? Sure I started out with jQuery back in 2015, big whoop, almost everybody I know has used jQuery at some point in their careers <span class="emoji" role="img" tabindex="0" aria-label="mad face">&#x1F624;</span>.
 
 In fact, my superficial need for external validation made me so self-concious about using jQuery in 2015 that I soon treated [Ray Nicholus's](https://twitter.com/raynicholus) [You Don't Need jQuery!](https://blog.garstasio.com/you-dont-need-jquery/) like some holy reference for a while until I weaned myself off jQuery.
 
-But that's beside the point. Up till now, I've always been doing client-side Javascript. I'd partner up with a “Javascript person” who would handle the middleware-side of things, and write the nice APIs I would consume and be on my merry way. I'm pretty much known for my inordinate love of all things CSS, because I took to it like a duck to water <span class="emoji" role="img" tabindex="0" aria-label="duck">&#x1F986;</span>.
+But that's beside the point. Up till now, I've always been doing client-side JavaScript. I'd partner up with a “JavaScript person” who would handle the middleware-side of things, and write the nice APIs I would consume and be on my merry way. I'm pretty much known for my inordinate love of all things CSS, because I took to it like a duck to water <span class="emoji" role="img" tabindex="0" aria-label="duck">&#x1F986;</span>.
 
-Learning Javascript was like being a duck trying to fly. Zoology lesson: ducks can fly! It's just that they're not optimised for flying at will. [But on the whole, it is obvious that ducks can fly and may even take wing at a fast pace of about 50 miles per hour](http://birdsflight.com/can-ducks-fly-do-ducks-fly-flying-ducks/). So after a couple years, I felt it was time to stand on my own two feet and figure out how this middleware-server-api-routing stuff worked.
+Learning JavaScript was like being a duck trying to fly. Zoology lesson: ducks can fly! It's just that they're not optimised for flying at will. [But on the whole, it is obvious that ducks can fly and may even take wing at a fast pace of about 50 miles per hour](http://birdsflight.com/can-ducks-fly-do-ducks-fly-flying-ducks/). So after a couple years, I felt it was time to stand on my own two feet and figure out how this middleware-server-api-routing stuff worked.
 
 ## The use case
 
@@ -48,7 +48,7 @@ This being my first ”app”, I thought it'd be interesting to document the tho
 
 I went with [node.js](https://nodejs.org/en/) for the server, [Express](https://expressjs.com/) for the middleware layer, [MongoDB](https://www.mongodb.com/) as the database because I didn't really want to write SQL queries and [Nunjucks](https://mozilla.github.io/nunjucks/) as the templating language because it's kind of similar to Liquid (which I use extensively in Jekyll).
 
-But before I settled on this stack, there was a lot of pondering about data. Previously, I had been terribly spoiled by my Javascript counterparts who would just pass me endpoints from which I could access all the data I needed. It was like magic (or just abstraction, but aren't the two terms interchangeable?).
+But before I settled on this stack, there was a lot of pondering about data. Previously, I had been terribly spoiled by my JavaScript counterparts who would just pass me endpoints from which I could access all the data I needed. It was like magic (or just abstraction, but aren't the two terms interchangeable?).
 
 I'm used to receiving data as JSON, so my first thought was to convert the data in the plain text file into a JSON file, then do all the front-endy stuff I always do with fetch. But then I realised, I wanted to edit the data as well, like remove books or edit typos. So persistence was something I didn't know how to deal with.
 
@@ -151,7 +151,7 @@ The actual filtering leverages the `indexOf()` method, while the `forEach()` met
 
 ### Why was your edit and delete different from Zell's?
 
-Because I had more data, and I didn't want to use fetch for the first pass. I wanted CRUD to work on the basic version of the app without client-side Javascript enabled. It's fine if the filtering doesn't work without Javascript, I mean, I probably could make it so the filtering was done on the server-side, but I was tired.
+Because I had more data, and I didn't want to use fetch for the first pass. I wanted CRUD to work on the basic version of the app without client-side JavaScript enabled. It's fine if the filtering doesn't work without JavaScript, I mean, I probably could make it so the filtering was done on the server-side, but I was tired.
 
 Anyway, instead of fetch, I put in individual routes for each book where you could edit fields or delete the whole thing. I referred to [this article](http://mherman.org/blog/2015/08/24/node-express-swig-mongo-primer/) by [Michael Herman](http://mherman.org/), for the put and delete portions. Instead of fetch, we used the [method-override](https://github.com/expressjs/method-override) middleware.
 
@@ -226,7 +226,7 @@ app.get("/admin", auth.connect(basic), (req, res) => {
 
 ### What about deployment?
 
-Ah yes, this part of development. If you ask me, the easiest way to do this is with full control of a server (any server), accessible via ssh. Because for all my short-comings in other areas (\*ahem\* Javascript), I'm fully capable of setting up a Linux server with ssh access plus some semblance of hardening. It's not hard if you can follow instructions to a T and besides, I've had lots of practice (I've lost count of the number of times I wiped a server to start over).
+Ah yes, this part of development. If you ask me, the easiest way to do this is with full control of a server (any server), accessible via ssh. Because for all my short-comings in other areas (\*ahem\* JavaScript), I'm fully capable of setting up a Linux server with ssh access plus some semblance of hardening. It's not hard if you can follow instructions to a T and besides, I've had lots of practice (I've lost count of the number of times I wiped a server to start over).
 
 But I'm a very very cheap person, who refuses to pay for stuff, if I can help it. I've also run out of ports on my router so those extra SBCs I have lying around will just have to continue to collect dust. The go-to free option seems to be Heroku. But it was hardly a smooth process. Chalk it up to my inexperience with node.js deployment on this particular platform.
 

@@ -80,7 +80,7 @@ I also started up a new repository because there was too much history in the ori
 
 ## What is this Cordova?
 
-According to the [documentation](https://cordova.apache.org/docs/en/latest/guide/overview/index.html), Apache Cordova is an open-source mobile development framework which allows us to use standard web technologies–HTML, CSS and Javascript–for cross platform development.
+According to the [documentation](https://cordova.apache.org/docs/en/latest/guide/overview/index.html), Apache Cordova is an open-source mobile development framework which allows us to use standard web technologies–HTML, CSS and JavaScript–for cross platform development.
 
 This made it possible for me to treat the project like a typical web application, and set up my regular gulp workflow for Sass compilation, Babel transpiling and Nunjucks as the templating language.
 

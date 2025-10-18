@@ -29,7 +29,7 @@ Along with the publication of the whitepaper, [Adrian Hope-Bailie](https://twitt
 
 ## And then we get to 2019
 
-In August 2019, Adrian Hope-Bailie proposed the [Web Monetization API](https://discourse.wicg.io/t/proposal-web-monetization-a-new-revenue-model-for-the-web/3785) on the [WICG Discourse](https://discourse.wicg.io/). It is a Javascript browser API that allows the creation of a payment stream from the user agent to the website. Web Monetization depends on two critical technologies to work, the aforementioned _Interledger protocol_ and something called _payment pointers_.
+In August 2019, Adrian Hope-Bailie proposed the [Web Monetization API](https://discourse.wicg.io/t/proposal-web-monetization-a-new-revenue-model-for-the-web/3785) on the [WICG Discourse](https://discourse.wicg.io/). It is a JavaScript browser API that allows the creation of a payment stream from the user agent to the website. Web Monetization depends on two critical technologies to work, the aforementioned _Interledger protocol_ and something called _payment pointers_.
 
 [Payment pointers](https://paymentpointers.org/) are a standardised identifier for payment accounts which resolve to a URL that can be used to discover available [Open Payment](https://openpayments.dev/) endpoints for interacting with the account. Open Payments is an application level protocol **built on top of** the Interledger protocol.
 

@@ -4,17 +4,18 @@ external_site: nexmo
 external_url: https://www.nexmo.com/blog/2019/01/15/sms-in-the-browser-an-adventure-in-websockets-and-the-nexmo-messages-api-dr/
 noindex: true
 tags:
-- javascript
-- nodejs
-- rtc
-- nexmo
-title: 'SMS in the browser: an adventure in WebSockets (and Nexmo Messages API)'
+  - javascript
+  - nodejs
+  - rtc
+  - nexmo
+title: "SMS in the browser: an adventure in WebSockets (and Nexmo Messages API)"
 ---
+
 A lot of the heavy lifting done by the Nexmo Messages API happens on the server-side. Messages are sent, received, processed and so on but usually all this activity is hidden away from end users of many of the applications that utilise the API.
 
 For the most part, the display of these messages to the end user is handled by their respective applications. There is also the option of displaying these messages in a browser, but for that, we'll need some way of pushing the messages from the server to the browser. And we can do that with the help of the WebSockets API.
 
-This is a pretty long tutorial which assumes no prior knowledge aside from a basic understanding of HTML, CSS, Javascript, and [Node.js](https://nodejs.org/en/). Feel free to skip past any of the sections if you already know what's what.
+This is a pretty long tutorial which assumes no prior knowledge aside from a basic understanding of HTML, CSS, JavaScript, and [Node.js](https://nodejs.org/en/). Feel free to skip past any of the sections if you already know what's what.
 
 We will walk through the process of building a “virtual” phone in the browser that can send and receive SMS. We'll use [Glitch](https://glitch.com/) to host the application, so some of the setup instructions are geared toward Glitch.
 
@@ -26,19 +27,19 @@ You can also use any environment with Node.js installed, if that's what you pref
 
 ### Starting a Koa.js App on Glitch
 
-Glitch is constantly improving its interface and features, so as of time of writing, you can create a new account on Glitch by clicking on the *Sign in* button in the top right corner of the page, and login via GitHub or Facebook, or sign up with your email address.
+Glitch is constantly improving its interface and features, so as of time of writing, you can create a new account on Glitch by clicking on the _Sign in_ button in the top right corner of the page, and login via GitHub or Facebook, or sign up with your email address.
 
 ![](https://cdn.glitch.com/03f552cb-b122-492c-94c5-0802f09a5185%2Faccount.png?1545642908364)
 
-After that, you can click on the *New Project* button to get started. There are 3 choices, *hello-webpage*, *hello-express* and *hello-sqlite*. For the purposes of this tutorial, go with *hello-express* as this gives you an environment with Node.js and npm already installed.
+After that, you can click on the _New Project_ button to get started. There are 3 choices, _hello-webpage_, _hello-express_ and _hello-sqlite_. For the purposes of this tutorial, go with _hello-express_ as this gives you an environment with Node.js and npm already installed.
 
 ![](https://cdn.glitch.com/03f552cb-b122-492c-94c5-0802f09a5185%2Fglitch.png?1545642459768)
 
-To install additional node packages, you can access the command line by clicking on the *Console* button in the logs window.
+To install additional node packages, you can access the command line by clicking on the _Console_ button in the logs window.
 
 ![](https://cdn.glitch.com/03f552cb-b122-492c-94c5-0802f09a5185%2Fconsole.gif?1545642352092)
 
-You can toggle the logs window by clicking on the *Logs* button near the top of the sidebar. From there, you can use all the standard CLI commands in a bash environment. The only difference is that on Glitch, you would use `pnpm` instead of `npm`.
+You can toggle the logs window by clicking on the _Logs_ button near the top of the sidebar. From there, you can use all the standard CLI commands in a bash environment. The only difference is that on Glitch, you would use `pnpm` instead of `npm`.
 
 Glitch uses [Express](https://expressjs.com/) as its default Node.js framework, but converting the app to [Koa.js](https://koajs.com/) is not too complicated. Do note that Koa requires node v7.6.0 or higher for ES2015 and async function support.
 
@@ -65,17 +66,17 @@ You'll also notice that the status of your application shows an error. This is e
 To fix this, replace the contents of `server.js` with the following code:
 
 ```javascript
-const Koa = require('koa');
+const Koa = require("koa");
 const app = new Koa();
 
-app.use(async ctx => {
-  ctx.body = 'Hello Dinosaur';
+app.use(async (ctx) => {
+  ctx.body = "Hello Dinosaur";
 });
 
 app.listen(3000);
 ```
 
-Now, when you try to view your application, it should show a blank page with the words *Hello Dinosaur*.
+Now, when you try to view your application, it should show a blank page with the words _Hello Dinosaur_.
 
 ### Serving Static Files with Koa.js
 
@@ -87,7 +88,7 @@ We would need to serve up a basic HTML page with input fields so users can enter
 pnpm install koa-static --save
 ```
 
-To make things less complicated, place all the required files for the landing page into the `public` folder. You can move the `index.html` file from the `views` folder to the `public` folder by renaming the file path on the sidebar. 
+To make things less complicated, place all the required files for the landing page into the `public` folder. You can move the `index.html` file from the `views` folder to the `public` folder by renaming the file path on the sidebar.
 
 ![](https://cdn.glitch.com/03f552cb-b122-492c-94c5-0802f09a5185%2Frename-file.gif?1545644005719)
 
@@ -96,18 +97,18 @@ You can also do it via command line through the console.
 Once that's done, modify the `server.js` file to use koa-static and serve files out of the `public` folder as follows:
 
 ```javascript
-const serve = require('koa-static');
-const Koa = require('koa');
+const serve = require("koa-static");
+const Koa = require("koa");
 const app = new Koa();
 
-app.use(serve('./public'));
+app.use(serve("./public"));
 
 app.listen(3000);
 
-console.log('listening on port 3000');
+console.log("listening on port 3000");
 ```
 
-Now, instead of *hello world*, your app should be serving the default Glitch `index.html` file. We will modify this file to mimic a phone interface later on in the tutorial.
+Now, instead of _hello world_, your app should be serving the default Glitch `index.html` file. We will modify this file to mimic a phone interface later on in the tutorial.
 
 ### Getting started with Nexmo APIs
 
@@ -129,7 +130,7 @@ And now we're done with the basic setup. This can be the starting point for any 
 
 ## What are WebSockets?
 
-The [WebSocket protocol](https://tools.ietf.org/html/rfc6455) was developed by the Internet Engineering Task Force (IETF) to enable 2-way communications between a client and a remote host. 
+The [WebSocket protocol](https://tools.ietf.org/html/rfc6455) was developed by the Internet Engineering Task Force (IETF) to enable 2-way communications between a client and a remote host.
 
 It is a type of communications protocol, like [HTTP (Hypertext transfer protocol)](https://tools.ietf.org/html/rfc2616), [FTP (File transfer protocol)](https://tools.ietf.org/html/rfc959) or [SMTP (Simple mail transfer protocol)](https://tools.ietf.org/html/rfc5321). Communications protocols allow machines to communicate with each other. Most communications protocols maintain an open connection between 2 machines across the internet.
 
@@ -159,51 +160,52 @@ Connection: Upgrade
 
 Anything other than a `101` indicates the WebSocket handshake has not completed. Once the handshake is completed, the initial HTTP/1.1 connection is switched to a WebSocket connection and data can now be sent back and forth between the 2 machines.
 
-The [WebSockets API](https://html.spec.whatwg.org/multipage/web-sockets.html#network) is an interface which allows web applications to *use* the WebSocket protocol for maintaining bidirectional communications with server-side processes. Most browsers released after 2012 support the WebSockets API, so support is reasonably good.
+The [WebSockets API](https://html.spec.whatwg.org/multipage/web-sockets.html#network) is an interface which allows web applications to _use_ the WebSocket protocol for maintaining bidirectional communications with server-side processes. Most browsers released after 2012 support the WebSockets API, so support is reasonably good.
 
 The WebSocket object provides the API for creating and managing a WebSocket connection to a server, as well as for sending and receiving data on the connection. We can create a new WebSocket object with the WebSocket constructor, `WebSocket(url[, protocols])`. The URL passed into the WebSocket constructor must be of the `ws` or `wss` scheme for things to work.
 
 ```javascript
-const socket = new WebSocket('ws://localhost:8080')
+const socket = new WebSocket("ws://localhost:8080");
 ```
 
 The WebSocket object dispatches 4 events, which we can listen to and handle accordingly:
+
 - `open`
 - `error`
 - `message`
-- `close` 
+- `close`
 
 Once a WebSocket connection is established, the `open` event is fired. With reference to the WebSocket object created in the earlier block of code, the corresponding event handler would look something like this:
 
 ```javascript
-socket.onopen = function(evt) {
+socket.onopen = function (evt) {
   // do something
-}
+};
 ```
 
 We can use the `error` event to log any errors to the console for debugging purposes, and maybe add an error event handler as well:
 
 ```javascript
-socket.onerror = function(evt) {
-  console.log('WebSocket error: ', evt)
+socket.onerror = function (evt) {
+  console.log("WebSocket error: ", evt);
   // include an error event handler here
-}
+};
 ```
 
 Most typically, we would be utilising the `message` event, which fires when messages from the server are received. For example, if you had a text message sent from the server, you could log it to the console like so:
 
 ```javascript
-socket.onmessage = function(evt) {
-  console.log('Message: ', evt.data)
-}
+socket.onmessage = function (evt) {
+  console.log("Message: ", evt.data);
+};
 ```
 
 Finally, the `close` event fires when the WebSocket connection is closed. Once this happens, the client and server can no longer send messages to each other until a new connection is established.
 
 ```javascript
-socket.onclose = function(evt) {
-  console.log('WebSocket connection closed. ', evt)
-}
+socket.onclose = function (evt) {
+  console.log("WebSocket connection closed. ", evt);
+};
 ```
 
 There are also 2 methods associated with the WebSocket object, `send()` for send data to the server and `close()` for terminating an existing WebSocket connection.
@@ -212,14 +214,14 @@ The `send()` method only works while the connection is open, which seems obvious
 
 ```javascript
 // Listen for the open event before triggering the sendMsg() function
-socket.onopen = function(evt) {
-  console.log('Connection established')
-  sendMsg('Hello Nexmo!')
-}
+socket.onopen = function (evt) {
+  console.log("Connection established");
+  sendMsg("Hello Nexmo!");
+};
 
 // Send a message through the WebSocket connection
 function sendMsg(data) {
-  socket.send(data)
+  socket.send(data);
 }
 ```
 
@@ -231,11 +233,11 @@ Now that we have a better understanding of what WebSockets are and how the WebSo
 
 To send and receive SMS via the Messages API, you will need a [virtual phone number](https://www.nexmo.com/products/phone-numbers), which is like any standard phone number, except they are not tied down to any physical phone line or device.
 
-You can buy a virtual number from the *Numbers* section on the sidebar by selecting *Buy numbers*. You can choose a number local to a country of your choice, features supported and type of number, be it mobile, land-line or toll-free.
+You can buy a virtual number from the _Numbers_ section on the sidebar by selecting _Buy numbers_. You can choose a number local to a country of your choice, features supported and type of number, be it mobile, land-line or toll-free.
 
 ![](https://cdn.glitch.com/df802ecc-0da6-4e3b-adb3-740a4b639b86%2F07.jpg?1543289564135)
 
-Once you have your number, it will show up in the *Your numbers* section. Click on the Pencil icon under the rightmost *Manage* column to configure your inbound webhook URL. This is required for receiving SMS. When an SMS is sent to your number, a `POST` request is sent to this URL with the message payload.
+Once you have your number, it will show up in the _Your numbers_ section. Click on the Pencil icon under the rightmost _Manage_ column to configure your inbound webhook URL. This is required for receiving SMS. When an SMS is sent to your number, a `POST` request is sent to this URL with the message payload.
 
 ![](https://cdn.glitch.com/df802ecc-0da6-4e3b-adb3-740a4b639b86%2F08.jpg?1543290832091)
 
@@ -256,15 +258,15 @@ pnpm install koa-router --save
 Add the following to your `server.js` file:
 
 ```javascript
-const bodyParser = require('koa-bodyparser');
-const Router = require('koa-router');
+const bodyParser = require("koa-bodyparser");
+const Router = require("koa-router");
 
 const router = new Router();
 
 app.use(bodyParser());
 
 // Make sure this is the route you configured for your virtual number
-router.post('/inbound-sms', async (ctx, next) => {
+router.post("/inbound-sms", async (ctx, next) => {
   const payload = ctx.request.body;
   console.log(payload);
   ctx.status = 200;
@@ -290,8 +292,8 @@ pnpm install ws --save
 Once that's done, we can use `ws` in our `server.js` file as follows to create a web socket server:
 
 ```javascript
-const http = require('http');
-const WebSocket = require('ws');
+const http = require("http");
+const WebSocket = require("ws");
 
 // Create a web socket server on top of a regular http server
 const server = http.createServer(app.callback());
@@ -306,42 +308,43 @@ Let's also add a function to handle the incoming message payload, then send this
 function receiveSms(payload) {
   const phone = payload.msisdn;
   const msg = payload.text;
-  const timestamp = payload['message-timestamp'];
-  
-  const smsData = JSON.stringify({ 
+  const timestamp = payload["message-timestamp"];
+
+  const smsData = JSON.stringify({
     phone: phone,
     msg: msg,
-    timestamp: timestamp
+    timestamp: timestamp,
   });
 
   // Broadcast the message to all open clients
-  wsserver.clients.forEach(client => {
+  wsserver.clients.forEach((client) => {
     if (client.readyState === WebSocket.OPEN) {
       client.send(smsData);
     }
   });
 }
 ```
+
 Your entire `server.js` file up to this point in the tutorial should look something like this:
 
 ```javascript
-const Koa = require('koa');
-const bodyParser = require('koa-bodyparser');
-const Router = require('koa-router');
-const serve = require('koa-static');
+const Koa = require("koa");
+const bodyParser = require("koa-bodyparser");
+const Router = require("koa-router");
+const serve = require("koa-static");
 
-const http = require('http');
-const WebSocket = require('ws');
+const http = require("http");
+const WebSocket = require("ws");
 
 const app = new Koa();
 const router = new Router();
 const server = http.createServer(app.callback());
 const wsserver = new WebSocket.Server({ server: server });
 
-app.use(serve('./public'));
+app.use(serve("./public"));
 app.use(bodyParser());
 
-router.post('/inbound-sms', async (ctx, next) => {
+router.post("/inbound-sms", async (ctx, next) => {
   const payload = ctx.request.body;
   receiveSms(payload);
   ctx.status = 200;
@@ -350,21 +353,21 @@ router.post('/inbound-sms', async (ctx, next) => {
 app.use(router.routes()).use(router.allowedMethods());
 
 server.listen(3000);
-console.log('listening on port 3000');
+console.log("listening on port 3000");
 
 function receiveSms(payload) {
   const phone = payload.msisdn;
   const msg = payload.text;
-  const timestamp = payload['message-timestamp'];
-  
-  const smsData = JSON.stringify({ 
+  const timestamp = payload["message-timestamp"];
+
+  const smsData = JSON.stringify({
     phone: phone,
     msg: msg,
-    timestamp: timestamp
+    timestamp: timestamp,
   });
 
   // Broadcast the message to all open clients
-  wsserver.clients.forEach(client => {
+  wsserver.clients.forEach((client) => {
     if (client.readyState === WebSocket.OPEN) {
       client.send(smsData);
     }
@@ -379,46 +382,47 @@ The next step is to ensure the browser is ready to receive this data from the se
 Clear out the default contents in the `client.js` file Glitch provides, and replace its contents with the following:
 
 ```javascript
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   let socket = null;
   let connected = false;
-  
+
   function start() {
-    socket = new WebSocket('wss://' + location.host);
-    
-    socket.onopen = function(evt) {
+    socket = new WebSocket("wss://" + location.host);
+
+    socket.onopen = function (evt) {
       connected = true;
-      console.log('open')
-    }
-    
-    socket.onmessage = function(evt) {
+      console.log("open");
+    };
+
+    socket.onmessage = function (evt) {
       const reply = JSON.parse(evt.data);
       console.log(reply);
-      addMsg(reply.phone, reply.msg, reply.timestamp, 'messages');
-    }
-    
-    socket.onclose = function(evt) {
+      addMsg(reply.phone, reply.msg, reply.timestamp, "messages");
+    };
+
+    socket.onclose = function (evt) {
       connected = false;
-      console.log('closed')
+      console.log("closed");
       check();
-    }
+    };
   }
 
   function check() {
-    if(!socket || socket.readyState == 3) start();
+    if (!socket || socket.readyState == 3) start();
   }
 
   start();
   setInterval(check, 5000);
 });
 ```
-There are 2 functions here, `start()` to establish a new WebSocket connection and the corresponding event handlers, and `check()` to check if the status of the connection and reconnect if disconnected. 
+
+There are 2 functions here, `start()` to establish a new WebSocket connection and the corresponding event handlers, and `check()` to check if the status of the connection and reconnect if disconnected.
 
 Now, if you open the browser console on your application and leave it alone for a while, you should see a series of `open` and `close` being logged to the console.
 
 ![](https://cdn.glitch.com/03f552cb-b122-492c-94c5-0802f09a5185%2Fcheck.png?1545670192708)
 
-Replace the default markup of the `` element the `index.html` file with the following instead:
+Replace the default markup of the ``element the`index.html` file with the following instead:
 
 ```html
 <main>
@@ -431,17 +435,17 @@ We can add more elements and styles to make it look more like a mobile phone lat
 
 ```javascript
 function addMsg(sender, content, time, parent) {
-  const messages = document.getElementById(parent); 
-  const newMsg = document.createElement('li');
+  const messages = document.getElementById(parent);
+  const newMsg = document.createElement("li");
   messages.appendChild(newMsg);
-  
+
   appendData(newMsg, sender);
   appendData(newMsg, content);
   appendData(newMsg, time);
 }
 
 function appendData(newMsg, data) {
-  const textSpan = document.createElement('span');
+  const textSpan = document.createElement("span");
   const textContent = document.createTextNode(data);
   textSpan.appendChild(textContent);
   newMsg.appendChild(textSpan);
@@ -451,11 +455,11 @@ function appendData(newMsg, data) {
 Add this new function to the `onmessage` event handler and when you send an SMS to your virtual number, that SMS should display on your page, albeit slightly unstyled and not looking too pretty.
 
 ```javascript
-socket.onmessage = function(evt) {
+socket.onmessage = function (evt) {
   const reply = JSON.parse(evt.data);
   console.log(reply);
-  addMsg(reply.phone, reply.msg, reply.timestamp, 'messages');
-}
+  addMsg(reply.phone, reply.msg, reply.timestamp, "messages");
+};
 ```
 
 ![](https://cdn.glitch.com/03f552cb-b122-492c-94c5-0802f09a5185%2Ffirst-inbound.png?1545705618197)
@@ -464,13 +468,13 @@ socket.onmessage = function(evt) {
 
 ### Creating a Messages Application
 
-Next, go back to your Nexmo dashboard and navigate to the *Create an application* page under the *Messages and Dispatch* section on the sidebar. Fill in your application name, and the webhook URLs with your Glitch app URL as the host. You will also need to generate a public/private key pair, which will prompt you to download the `private.key` file.
+Next, go back to your Nexmo dashboard and navigate to the _Create an application_ page under the _Messages and Dispatch_ section on the sidebar. Fill in your application name, and the webhook URLs with your Glitch app URL as the host. You will also need to generate a public/private key pair, which will prompt you to download the `private.key` file.
 
 ![](https://cdn.glitch.com/03f552cb-b122-492c-94c5-0802f09a5185%2Fgenerate-key.png?1545658727093)
 
 It is important that both the webhook URLs are configured, and your application has routes set up for both these endpoints to accept `POST` requests in order to prevent an unwanted message queue build-up.
 
-Then, click on the orange *Create application* button. The next screen will allow you to link your virtual number to your application by clicking the *Link* button under the *Manage* column.
+Then, click on the orange _Create application_ button. The next screen will allow you to link your virtual number to your application by clicking the _Link_ button under the _Manage_ column.
 
 ![](https://cdn.glitch.com/df802ecc-0da6-4e3b-adb3-740a4b639b86%2F12.jpg?1543306036765)
 
@@ -499,13 +503,13 @@ const NEXMO_APPLICATION_ID = process.env.NEXMO_APPLICATION_ID;
 const NEXMO_APPLICATION_PRIVATE_KEY_PATH = process.env.NEXMO_APPLICATION_PRIVATE_KEY_PATH;
 const NEXMO_NUMBER = process.env.NEXMO_NUMBER;
 
-const Nexmo = require('nexmo');
+const Nexmo = require("nexmo");
 
 const nexmo = new Nexmo({
   apiKey: NEXMO_API_KEY,
   apiSecret: NEXMO_API_SECRET,
   applicationId: NEXMO_APPLICATION_ID,
-  privateKey: NEXMO_APPLICATION_PRIVATE_KEY_PATH
+  privateKey: NEXMO_APPLICATION_PRIVATE_KEY_PATH,
 });
 ```
 
@@ -514,8 +518,8 @@ const nexmo = new Nexmo({
 We'll need some way for users to enter the recipient's phone number and the message they want to send, so let's add some input fields for them to do that.
 
 ```html
-<input type="tel" name="phone" placeholder="Send SMS to…?" required>
-<input type="text" name="msg">
+<input type="tel" name="phone" placeholder="Send SMS to…?" required />
+<input type="text" name="msg" />
 <button id="send" type="button">Send</button>
 ```
 
@@ -526,40 +530,48 @@ To handle user inputs, add the following to your `client.js` file:
 ```javascript
 const msgField = document.querySelector('input[name="msg"]');
 const phoneField = document.querySelector('input[name="phone"]');
-const sendBtn = document.getElementById('send');
+const sendBtn = document.getElementById("send");
 
-msgField.addEventListener('keypress', (evt) => {
-  if (evt.keyCode === 13) {
+msgField.addEventListener(
+  "keypress",
+  (evt) => {
+    if (evt.keyCode === 13) {
+      const passed = phoneCheck(phoneField);
+
+      if (passed) {
+        send(socket, phoneField, msgField);
+      } else {
+        console.log("Phone field was not filled. To do: add error handling UI here.");
+      }
+    }
+  },
+  false
+);
+
+sendBtn.addEventListener(
+  "click",
+  (evt) => {
     const passed = phoneCheck(phoneField);
 
     if (passed) {
       send(socket, phoneField, msgField);
     } else {
-      console.log('Phone field was not filled. To do: add error handling UI here.');
+      console.log("Phone field was not filled. To do: add error handling UI here.");
     }
-  }
-}, false);
-
-sendBtn.addEventListener('click', (evt) => {
-  const passed = phoneCheck(phoneField);
-
-  if (passed) {
-    send(socket, phoneField, msgField);
-  } else {
-    console.log('Phone field was not filled. To do: add error handling UI here.');
-  }
-}, false);
+  },
+  false
+);
 
 function phoneCheck(phoneField) {
-  return phoneField.value !== '' && /^\d+$/.test(phoneField.value);
+  return phoneField.value !== "" && /^\d+$/.test(phoneField.value);
 }
 
 function send(socket, phoneField, msgField) {
-  const phone = phoneField.value.replace(/\D/g,'');
+  const phone = phoneField.value.replace(/\D/g, "");
   const msg = msgField.value;
   const payload = JSON.stringify({
     phone: phone,
-    message: msg
+    message: msg,
   });
 
   socket.send(payload);
@@ -567,12 +579,12 @@ function send(socket, phoneField, msgField) {
   const date = new Date();
   const time = date.toLocaleTimeString();
 
-  addMsg('YOUR_APP_NAME', msg, time, 'messages');
-  msgField.value= '';
+  addMsg("YOUR_APP_NAME", msg, time, "messages");
+  msgField.value = "";
 }
 ```
 
-What we're doing here is triggering the `send()` function when the user clicks on the *Send* button or the *Enter* key. There is also a very rudimentary check on the phone number field, to make sure only digits are entered. The message will also be displayed on the browser, like a typical messaging application.
+What we're doing here is triggering the `send()` function when the user clicks on the _Send_ button or the _Enter_ key. There is also a very rudimentary check on the phone number field, to make sure only digits are entered. The message will also be displayed on the browser, like a typical messaging application.
 
 There is a **lot** more to be done for field validation from a security and UX standpoint which is out of scope for this tutorial, but validation is important and it is always best practice to devote effort and testing to make sure it's done right.
 
@@ -581,11 +593,11 @@ On the server-side of things, we need to take the data sent through from the bro
 Add the following routes to your `server.js` file:
 
 ```javascript
-router.post('/webhooks/inbound-message', async (ctx, next) => {
+router.post("/webhooks/inbound-message", async (ctx, next) => {
   ctx.status = 200;
 });
 
-router.post('/webhooks/message-status', async (ctx, next) => {
+router.post("/webhooks/message-status", async (ctx, next) => {
   ctx.status = 200;
 });
 ```
@@ -595,8 +607,8 @@ This is to make sure `POST` requests from Nexmo have proper endpoints to be sent
 We'll add a message handler and a `forwardSMS()` function which will utilise Nexmo's Messages API to send an SMS to the target recipient once data from the browser is received.
 
 ```javascript
-wsserver.on('connection', function connection(socket) {
-  socket.on('message', data => {
+wsserver.on("connection", function connection(socket) {
+  socket.on("message", (data) => {
     forwardSms(JSON.parse(data));
   });
 });
@@ -606,19 +618,23 @@ function forwardSms(payload) {
   const msg = payload.message;
 
   nexmo.channel.send(
-    { "type": "sms", "number": phone },
-    { "type": "sms", "number": NEXMO_NUMBER },
+    { type: "sms", number: phone },
+    { type: "sms", number: NEXMO_NUMBER },
     {
-      "content": {
-        "type": "text",
-        "text": msg
-      }
+      content: {
+        type: "text",
+        text: msg,
+      },
     },
     (err, data) => {
-      if (err) { console.log(err) }
-      if (data) { console.log('Outbound message successful: ', data.message_uuid) }
+      if (err) {
+        console.log(err);
+      }
+      if (data) {
+        console.log("Outbound message successful: ", data.message_uuid);
+      }
     }
-  )
+  );
 }
 ```
 

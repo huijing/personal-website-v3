@@ -64,8 +64,8 @@ _Disclosure note: I had a hard time finding documentation on exactly how block c
   - There are numerous CSS files in a working Drupal site, be it from themes, from modules etc. and this option combines all of them into one single file with white spaces removed.
   - Remember the general store example? One request is faster than many requests.
   - Point to note is that if your CSS contains absolute URLs, this may break your site as the URL will not be handled correctly in the combined file. Use relative URLs to be safe.
-- **Aggregate Javascript files**
-  - Similar to aggregation for CSS, this option combines all the Javascript files from your theme and modules, again, to reduce the number of requests to the server.
+- **Aggregate JavaScript files**
+  - Similar to aggregation for CSS, this option combines all the JavaScript files from your theme and modules, again, to reduce the number of requests to the server.
 
 Usually, it's best to just check everything here.
 

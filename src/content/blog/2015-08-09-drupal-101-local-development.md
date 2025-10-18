@@ -113,7 +113,7 @@ You should see something like this:
 <p class="no-margin">The modules are as follows:</p>
 <ul>
   <li class="no-margin"><a href="https://www.drupal.org/project/admin_menu">Administration menu</a> -&gt; A better version of the administration toolbar that ships with Drupal</li>
-  <li class="no-margin"><a href="https://www.drupal.org/project/devel">Devel</a> -&gt; Helper module for development. Allows use of the dpm() function, which is the equivalent of console.log() in Javascript, dummy content generation and so on.</li>
+  <li class="no-margin"><a href="https://www.drupal.org/project/devel">Devel</a> -&gt; Helper module for development. Allows use of the dpm() function, which is the equivalent of console.log() in JavaScript, dummy content generation and so on.</li>
   <li class="no-margin"><a href="https://www.drupal.org/project/views">Views</a> -&gt; Used for displaying the content on the site in all manner of configurations</li>
   <li class="no-margin"><a href="https://www.drupal.org/project/ctools">Ctools</a> -&gt; Dependency for views</li>
   <li class="no-margin"><a href="https://www.drupal.org/project/token">Token</a> -&gt; For using placeholders in content, urls, etc.</li>

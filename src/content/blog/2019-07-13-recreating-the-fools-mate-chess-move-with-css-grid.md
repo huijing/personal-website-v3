@@ -214,7 +214,7 @@ Remember the DVD demo? So each move will be a singular piece in its own grid. Fo
 
 I went with transitions instead of keyframes because my piece was just making 1 move. The DVD logo uses keyframes because it's a continuous animation. Right tool for the right job, no?
 
-There is Javascript involved here because I wanted to make it kind of sort of interactive where people can click on a button to move the next piece.
+There is JavaScript involved here because I wanted to make it kind of sort of interactive where people can click on a button to move the next piece.
 
 It's only 4 moves, so I figured it wouldn't be too hard. Needed a counter to track the start and end of the moves, but other than that, it was adding and removing CSS classes.
 

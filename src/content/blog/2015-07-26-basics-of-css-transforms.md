@@ -5,6 +5,7 @@ og_image: /images/posts/2d-transforms.jpg
 slug: basics-of-css-transforms
 tags:
   - css
+  - specifications
   - performance
 title: "The basics of CSS transforms: Part 1"
 ---

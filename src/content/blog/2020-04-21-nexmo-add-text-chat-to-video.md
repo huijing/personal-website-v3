@@ -4,16 +4,17 @@ external_site: nexmo
 external_url: https://www.nexmo.com/blog/2020/04/21/video-with-text-chat
 noindex: true
 tags:
-- nodejs
-- javascript
-- nexmo
+  - nodejs
+  - javascript
+  - nexmo
 title: Add Texting Functionality to a Video Chat With Vonage Video API
 ---
+
 This series of tutorials will explore the [Vonage Video API (formerly TokBox OpenTok)](https://tokbox.com/developer/) and what you can build with it. The Video API is very robust and highly customizable, and in each post we’ll show how to implement a specific feature using the API. This time we will look at how to add texting to a basic audio-video chat.
 
 As this application will require some server-side code, we will use [Glitch](https://glitch.com/) for ease of setup. You can also download the code from this Glitch project and deploy it on your own server or hosting platform of choice (may probably require some configuration tweaking based on the requirements of your platform).
 
-We will not be using any front-end frameworks for this series, just vanilla Javascript to keep the focus on the Video API itself. At the end of this tutorial, you should be able to have an audio-video chat application with text chat functionality. Text chat is implemented using the [signaling API](https://tokbox.com/developer/guides/signaling/).
+We will not be using any front-end frameworks for this series, just vanilla JavaScript to keep the focus on the Video API itself. At the end of this tutorial, you should be able to have an audio-video chat application with text chat functionality. Text chat is implemented using the [signaling API](https://tokbox.com/developer/guides/signaling/).
 
 ![Screenshot of video chat with text chat](https://cdn.glitch.com/0d17c722-4359-4e32-b770-32fcae5a3653%2Ffinal.jpg?v=1585204769455)
 
@@ -99,20 +100,17 @@ function generateToken(roomName, response) {
   // Configure token options
   const tokenOptions = {
     role: "publisher",
-    data: `roomname=${roomName}`
+    data: `roomname=${roomName}`,
   };
   // Generate token with the Video API Client SDK
-  let token = OT.generateToken(
-    sessions[roomName],
-    tokenOptions
-  );
+  let token = OT.generateToken(sessions[roomName], tokenOptions);
   // Send the required credentials back to to the client
   // as a response from the fetch request
   response.status(200);
   response.send({
     sessionId: sessions[roomName],
     token: token,
-    apiKey: process.env.API_KEY
+    apiKey: process.env.API_KEY,
   });
 }
 
@@ -133,23 +131,13 @@ The page will have a simple form element with two input fields for users to subm
 <form class="registration" id="registration">
   <label>
     <span>Room</span>
-    <input
-      type="text"
-      name="room-name"
-      placeholder="Enter room name"
-      required
-    />
+    <input type="text" name="room-name" placeholder="Enter room name" required />
   </label>
 
   <!-- Add the user name input field and label -->
   <label>
     <span>User name</span>
-    <input
-      type="text"
-      name="user-name"
-      placeholder="Enter your name"
-      required
-    />
+    <input type="text" name="user-name" placeholder="Enter your name" required />
   </label>
   <button>Enter</button>
 </form>
@@ -311,7 +299,7 @@ Let's add an event handler to toggle a CSS class to slide the chat window into v
 const showChatBtn = document.getElementById("showChat");
 showChatBtn.addEventListener(
   "click",
-  event => {
+  (event) => {
     const chatWindow = document.getElementById("chatWindow");
     chatWindow.classList.toggle("active");
   },
@@ -321,7 +309,7 @@ showChatBtn.addEventListener(
 const closeChatBtn = document.getElementById("closeChat");
 closeChatBtn.addEventListener(
   "click",
-  event => {
+  (event) => {
     const chatWindow = document.getElementById("chatWindow");
     chatWindow.classList.remove("active");
   },
@@ -355,12 +343,12 @@ const chat = document.getElementById("chatForm");
 const msgTxt = document.getElementById("chatInput");
 chat.addEventListener(
   "submit",
-  event => {
+  (event) => {
     event.preventDefault();
     session.signal(
       {
         type: "msg",
-        data: `${msgTxt.value}`
+        data: `${msgTxt.value}`,
       },
       () => {
         msgTxt.value = "";
@@ -381,7 +369,7 @@ function initializeSession(apiKey, sessionId, token) {
   // All the rest of the code
 
   // Event listener for the msg signal
-  session.on("signal:msg", event => {
+  session.on("signal:msg", (event) => {
     const content = event.data;
     updateChat(content);
   });
@@ -394,7 +382,7 @@ function updateChat(content) {
   msgHistory.appendChild(msg);
   msgHistory.scroll({
     top: msgHistory.scrollHeight,
-    behavior: "smooth"
+    behavior: "smooth",
   });
 }
 ```
@@ -409,7 +397,7 @@ The following script on the `landing.html` page passes the room name and user na
 
 ```javascript
 const form = document.getElementById("registration");
-form.addEventListener("submit", event => {
+form.addEventListener("submit", (event) => {
   event.preventDefault();
   location.href = `/session/${form.elements["room-name"].value}?username=${form.elements["user-name"].value}`;
 });
@@ -425,12 +413,12 @@ const userName = url.searchParams.get("username");
 fetch(location.pathname, {
   method: "POST",
   headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ username: userName })
+  body: JSON.stringify({ username: userName }),
 })
-  .then(res => {
+  .then((res) => {
     return res.json();
   })
-  .then(res => {
+  .then((res) => {
     const apiKey = res.apiKey;
     const sessionId = res.sessionId;
     const token = res.token;
@@ -472,7 +460,7 @@ function generateToken(roomName, streamName, response) {
   // Configure token options
   const tokenOptions = {
     role: "publisher",
-    data: `roomname=${roomName}?streamname=${streamName}`
+    data: `roomname=${roomName}?streamname=${streamName}`,
   };
   // Generate token with the Video API Client SDK
   let token = OT.generateToken(sessions[roomName], tokenOptions);
@@ -482,7 +470,7 @@ function generateToken(roomName, streamName, response) {
   response.send({
     sessionId: sessions[roomName],
     token: token,
-    apiKey: process.env.API_KEY
+    apiKey: process.env.API_KEY,
   });
 }
 ```
@@ -493,7 +481,7 @@ On the `client.js`, we can now display the user name for the participant who typ
 session.signal(
   {
     type: "msg",
-    data: `${session.connection.data.split("=")[2]}: ${msgTxt.value}`
+    data: `${session.connection.data.split("=")[2]}: ${msgTxt.value}`,
   },
   () => {
     msgTxt.value = "";
@@ -523,7 +511,7 @@ Let's check that things are running as expected.
 const PouchDB = require("pouchdb-node");
 const sessionDb = new PouchDB("sessionDb");
 
-sessionDb.info().then(info => console.log(info));
+sessionDb.info().then((info) => console.log(info));
 ```
 
 You should see the following in the Glitch logs.
@@ -547,14 +535,14 @@ app.post("/session/:room", (request, response) => {
   const streamName = request.body.username;
   const isExistingSession = checkSession(roomName);
 
-  isExistingSession.then(sessionExists => {
+  isExistingSession.then((sessionExists) => {
     if (sessionExists) {
       sessionDb
         .get(roomName)
-        .then(sessionInfo => {
+        .then((sessionInfo) => {
           generateToken(roomName, streamName, sessionInfo, response);
         })
-        .catch(error => error);
+        .catch((error) => error);
     } else {
       OT.createSession((error, session) => {
         if (error) {
@@ -563,7 +551,7 @@ app.post("/session/:room", (request, response) => {
           const sessionInfo = {
             _id: roomName,
             sessionId: session.sessionId,
-            messages: []
+            messages: [],
           };
           sessionDb.put(sessionInfo);
           generateToken(roomName, streamName, sessionInfo, response);
@@ -589,7 +577,7 @@ function checkSession(roomName) {
 function generateToken(roomName, streamName, sessionInfo, response) {
   const tokenOptions = {
     role: "publisher",
-    data: `roomname=${roomName}?streamname=${streamName}`
+    data: `roomname=${roomName}?streamname=${streamName}`,
   };
   let token = OT.generateToken(sessionInfo.sessionId, tokenOptions);
   response.status(200);
@@ -597,7 +585,7 @@ function generateToken(roomName, streamName, sessionInfo, response) {
     sessionId: sessionInfo.sessionId,
     token: token,
     apiKey: process.env.API_KEY,
-    streamName: streamName
+    streamName: streamName,
   });
 }
 ```
@@ -618,13 +606,13 @@ function initializeSession(apiKey, sessionId, token, streamName) {
       insertMode: "append",
       width: "100%",
       height: "100%",
-      name: streamName
+      name: streamName,
     },
     handleCallback
   );
 
   // Subscribe to a newly created stream
-  session.on("streamCreated", event => {
+  session.on("streamCreated", (event) => {
     session.subscribe(
       event.stream,
       "subscriber",
@@ -632,7 +620,7 @@ function initializeSession(apiKey, sessionId, token, streamName) {
         insertMode: "append",
         width: "100%",
         height: "100%",
-        name: event.stream.name
+        name: event.stream.name,
       },
       handleCallback
     );
@@ -652,13 +640,13 @@ function saveMessage(content) {
     _id: Date.now().toString(),
     content: content,
     roomname: name,
-    user: username
+    user: username,
   };
 
   fetch("/message", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(message)
+    body: JSON.stringify(message),
   }).catch(handleCallback);
 }
 ```
@@ -668,12 +656,12 @@ Modify the event listener on the chat form to trigger this function whenever a p
 ```javascript
 chat.addEventListener(
   "submit",
-  event => {
+  (event) => {
     event.preventDefault();
     session.signal(
       {
         type: "msg",
-        data: `${session.connection.data.split("=")[2]}: ${msgTxt.value}`
+        data: `${session.connection.data.split("=")[2]}: ${msgTxt.value}`,
       },
       () => {
         saveMessage(msgTxt.value);
@@ -693,24 +681,24 @@ app.post("/message", (request, response) => {
   const message = {
     timeStamp: request.body._id,
     content: request.body.content,
-    user: request.body.user
+    user: request.body.user,
   };
   sessionDb
     .get(roomName)
-    .then(result => {
+    .then((result) => {
       result.messages = [...result.messages, message];
       return sessionDb.put(result);
     })
     .then(() => {
       return sessionDb.get(roomName);
     })
-    .then(result => {
+    .then((result) => {
       response.status(200);
       response.send({
-        latestMessage: result.messages[result.messages.length - 1]
+        latestMessage: result.messages[result.messages.length - 1],
       });
     })
-    .catch(error => console.log(error));
+    .catch((error) => console.log(error));
 });
 ```
 
@@ -719,19 +707,19 @@ Now that our messages are being stored, we want to display them whenever the pag
 ```javascript
 function getChatHistory() {
   fetch(`/messages/${roomName}`)
-    .then(res => {
+    .then((res) => {
       return res.json();
     })
-    .then(res => {
+    .then((res) => {
       const messageArea = document.getElementById("messageArea");
-      res.messagesArray.forEach(message => {
+      res.messagesArray.forEach((message) => {
         const msg = document.createElement("p");
         msg.textContent = `${message.user}: ${message.content}`;
         messageArea.appendChild(msg);
       });
       messageArea.scroll({
         top: messageArea.scrollHeight,
-        behavior: "smooth"
+        behavior: "smooth",
       });
     })
     .catch(handleCallback);
@@ -745,13 +733,13 @@ app.get("/messages/:room", (request, response) => {
   const roomName = request.params.room;
   sessionDb
     .get(roomName)
-    .then(result => {
+    .then((result) => {
       response.status(200);
       response.send({
-        messagesArray: result.messages
+        messagesArray: result.messages,
       });
     })
-    .catch(error => console.log(error));
+    .catch((error) => console.log(error));
 });
 ```
 

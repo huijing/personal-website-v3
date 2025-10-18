@@ -27,7 +27,7 @@ I'd heard about the theming revamp since Drupal 8 was first announced but hearin
 
 Which is why the inclusion of a troubleshooting theme like Stark was a plus in my eyes. Even though it wasn't meant to be used as a base theme, the fact that it was “stark” (sorry, it was right there) made it work for me. With a bare-bones starting point, I worked on creating an 8.x branch for my Drupal 7 starter theme, [Clarus](https://www.drupal.org/sandbox/hj_chen/2345293).
 
-The mechanism for adding external libraries through the `THEME_NAME.libraries.yml` makes it easier to plug in Javascript and CSS files and there's also the option to only load them where they are needed via Twig templates.
+The mechanism for adding external libraries through the `THEME_NAME.libraries.yml` makes it easier to plug in JavaScript and CSS files and there's also the option to only load them where they are needed via Twig templates.
 
 Oh, and about those Twig templates. There are parts I like and parts that I need to make myself get used to. The modularity of the templates is similar to the old system, making use of name-spacing to target specific components with increasing levels of granularity. But it also makes accessing variables a bit more tricky, in that I had to write pre-process functions in the `THEME_NAME.theme` file to have access to those. Maybe I'm doing it wrong <span class="emoji" role="img" tabindex="0" aria-label="person shrugging">&#x1F937;</span>.
 

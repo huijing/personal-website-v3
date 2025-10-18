@@ -56,7 +56,7 @@ _Note: I have tweaked my markup as per step 9 above, you may have to adjust your
 
 There are a couple of recommendations from the Yahoo Design Pattern Library on accordion presentation, like highlighting the current panel and having the most important panel open by default. I just chose to open the first panel by default.
 
-1. The accordion functionality requires use of basic jQuery. There are a number of ways to add Javascript to your site. I suggest reading [this article](https://web.archive.org/web/20150810090412/http://wearepropeople.com:80/blog/7-ways-to-add-custom-js-and-css-to-a-page-in-drupal) by [Kirill Cebotari](https://www.drupal.org/u/oresh) to familiarise yourself with all of them. I'm using the second method, including it in the .info file of my theme.
+1. The accordion functionality requires use of basic jQuery. There are a number of ways to add JavaScript to your site. I suggest reading [this article](https://web.archive.org/web/20150810090412/http://wearepropeople.com:80/blog/7-ways-to-add-custom-js-and-css-to-a-page-in-drupal) by [Kirill Cebotari](https://www.drupal.org/u/oresh) to familiarise yourself with all of them. I'm using the second method, including it in the .info file of my theme.
 2. If you don't have one already, create a _js_ folder in your theme folder, and create a file called _script.js_ in this new folder.
 
    ```
@@ -73,7 +73,7 @@ There are a couple of recommendations from the Yahoo Design Pattern Library on a
    `-- templates/
    ```
 
-3. There are some best practices when using Javascript in Drupal, and I strongly recommend everyone to read the [documentation](https://www.drupal.org/node/171213). As a general tip, wrap your code in a closure.
+3. There are some best practices when using JavaScript in Drupal, and I strongly recommend everyone to read the [documentation](https://www.drupal.org/node/171213). As a general tip, wrap your code in a closure.
 
    ```js
    (function ($) {

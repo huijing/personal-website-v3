@@ -67,7 +67,7 @@ Because we're all not in the same timezone, the efficiency of this style of work
 
 These days, to me, it doesn't really matter whether someone can do or knows all the web design things any more. I put more onus on myself to explain the reasons why certain approaches work better than others, and make my recommendations accordingly.
 
-I'm not sure what the other folks who work with me think, but I do try my best to say yes to most ideas because honestly, CSS and Javascript has evolved to a point where making beautiful things on web pages requires less effort than before.
+I'm not sure what the other folks who work with me think, but I do try my best to say yes to most ideas because honestly, CSS and JavaScript has evolved to a point where making beautiful things on web pages requires less effort than before.
 
 The upside is that, when I really do say no, folks are more inclined to be receptive of my explanation of why not. I guess it's that over time, there is a trust that builds up where people understand that I'm not rejecting the proposal on some personal whims.
 

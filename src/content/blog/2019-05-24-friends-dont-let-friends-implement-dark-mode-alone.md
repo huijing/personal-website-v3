@@ -71,7 +71,7 @@ It's going to be a round thingy people can click on with the Minecraft sun appli
 
 ## …there's more…
 
-Now, we could switch the checkbox with the full-screen `div` then use the sibling selector to activate the `div` when the checkbox is checked and handle this whole thing without Javascript, but turns out in order to keep state between pages, even the hackiest method needs some help from Javascript.
+Now, we could switch the checkbox with the full-screen `div` then use the sibling selector to activate the `div` when the checkbox is checked and handle this whole thing without JavaScript, but turns out in order to keep state between pages, even the hackiest method needs some help from JavaScript.
 
 My hackiest method here refers to using `localStorage` to determine if the user toggled dark mode or not. But I'm still using the checkbox status to keep track of what CSS class needs to be applied to make the `div` “active”.
 
@@ -185,7 +185,7 @@ So wrap all the blend mode related stuff within a feature query and users of tho
 
 ## Why my implementation is not great
 
-If you tried this experimental feature on my site, you'll notice that between pages, because of latency with the Javascript checking `localStorage` to apply the relevant CSS class, there's a flash of light between the dark modes.
+If you tried this experimental feature on my site, you'll notice that between pages, because of latency with the JavaScript checking `localStorage` to apply the relevant CSS class, there's a flash of light between the dark modes.
 
 It's highly not ideal. Wei's site is smooth as butter because React is taking care of things under the hood (at least I think that's the reason, but what do I know). My point is, this works on my site but it certainly isn't pretty.
 

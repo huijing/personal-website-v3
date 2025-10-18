@@ -23,9 +23,9 @@ Articles, podcasts, books and videos (more or less in that order) have taught me
 
 When I started out, I simply couldn't understand what a framework was. Somehow my little brain just couldn't compute the concept. It sounds weird, but that's just how it was. Now I've sort of settled in on the definition that frameworks are like pre-built components.
 
-All frameworks are based on their respective languages. Being a front-end developer, I'm going to talk more about Javascript and CSS frameworks. So frameworks like Bootstrap and Foundation, to me, are libraries of pre-built components you can use to build your website.
+All frameworks are based on their respective languages. Being a front-end developer, I'm going to talk more about JavaScript and CSS frameworks. So frameworks like Bootstrap and Foundation, to me, are libraries of pre-built components you can use to build your website.
 
-But at their core, it's simply just HTML, CSS and Javascript. Libraries and plugins function the same way. They consist of pre-written code which provide various functionalities that other developers can just add to their own projects without having to spend the time coding their own.
+But at their core, it's simply just HTML, CSS and JavaScript. Libraries and plugins function the same way. They consist of pre-written code which provide various functionalities that other developers can just add to their own projects without having to spend the time coding their own.
 
 But this is what I love about the web. Most people open-source their code and share it with other developers. Want a responsive navigation menu? I'm sure there are at least twenty different plugins (I didn't really check) that you can use, take your pick.
 
@@ -37,11 +37,11 @@ I'm of the opinion that before we use libraries and frameworks, we really should
 
 Frameworks and libraries are there to help shorten development time but not at the expense of performance and code quality. Like the title says though, frameworks and libraries are not the problem, it's the people who use them who cause problems.
 
-If you're someone who is just starting out with building websites, I strongly advise against using a framework. Code in vanilla HTML, CSS and Javascript. If you find programming daunting (as did I), you can do what I did, avoid Javascript.
+If you're someone who is just starting out with building websites, I strongly advise against using a framework. Code in vanilla HTML, CSS and JavaScript. If you find programming daunting (as did I), you can do what I did, avoid JavaScript.
 
-Admittedly, that's probably not the best advice, but for at least a year, I just didn't use any Javascript in my websites. At the time, I just couldn't get it. But I could get CSS, and by that time, CSS3 was totally mainstream already.
+Admittedly, that's probably not the best advice, but for at least a year, I just didn't use any JavaScript in my websites. At the time, I just couldn't get it. But I could get CSS, and by that time, CSS3 was totally mainstream already.
 
-So I totally got away with avoiding Javascript because it was possible to do a lot of things with pure CSS that weren't possible before. That actually helped me gain a really deep understanding of CSS, because I stubbornly refused to touch Javascript. Something that could have easily been done with Javascript, I chose to spend hours trying to do it in only CSS.
+So I totally got away with avoiding JavaScript because it was possible to do a lot of things with pure CSS that weren't possible before. That actually helped me gain a really deep understanding of CSS, because I stubbornly refused to touch JavaScript. Something that could have easily been done with JavaScript, I chose to spend hours trying to do it in only CSS.
 
 Because of that, I managed to learn a lot about the ins and outs of CSS, not to mention I actually read the [CSS specifications](http://www.w3.org/Style/CSS/specs.en.html) (not all of them, of course), and realised that they're actually very readable.
 
@@ -59,7 +59,7 @@ The CSS was also full of repeat selectors, contributing to the bloat. The clinch
 
 Now I've read a lot of discourse for and against using frameworks and I find merit in both sides of the argument. In fact, that's how I came to the conclusion that the frameworks and libraries themselves are not to blame, but rather how they are being used.
 
-There are too many "developers" who simply build websites using Bootstrap or Foundation without actually understanding the underlying CSS and Javascript. Imagine you're building a house.
+There are too many "developers" who simply build websites using Bootstrap or Foundation without actually understanding the underlying CSS and JavaScript. Imagine you're building a house.
 
 Bootstrap provides you with stuff like doors, windows and floor tiles that are already painted and ready for use. People who don't understand Bootstrap and CSS take the already painted door, and paint their own colours over the original. To be honest, I'd rather build my own door.
 
@@ -77,9 +77,9 @@ Frameworks should only be used by people who already know how to write the code,
 
 Anyone can drive, but can you drive responsibly? Don't be that teenager who speeds while texting and chugging a six-pack. Even if you don't kill yourself, you'll end up killing other innocent people around you.
 
-My personal challenge is to be able to write all the functionality I currently use via jQuery in vanilla Javascript. [You Don't Need jQuery!](http://blog.garstasio.com/you-dont-need-jquery/) by [Ray Nicholus](https://twitter.com/RayNicholus) is my go-to resource for this.
+My personal challenge is to be able to write all the functionality I currently use via jQuery in vanilla JavaScript. [You Don't Need jQuery!](http://blog.garstasio.com/you-dont-need-jquery/) by [Ray Nicholus](https://twitter.com/RayNicholus) is my go-to resource for this.
 
-I'm also reading [Javascript: The Good Parts](http://shop.oreilly.com/product/9780596517748.do) by [Douglas Crockford](http://www.crockford.com/). Why go through all the trouble when most of the functionality we use has already been written by someone else? Because if you can't write it yourself, you probably don't know enough about the language.
+I'm also reading [JavaScript: The Good Parts](http://shop.oreilly.com/product/9780596517748.do) by [Douglas Crockford](http://www.crockford.com/). Why go through all the trouble when most of the functionality we use has already been written by someone else? Because if you can't write it yourself, you probably don't know enough about the language.
 
 And when you run into conflicts and inexplicable errors, especially if you're using a jumble of plugins written by different people, your project is just going to be troubleshooting nightmare. Any time-savings you got from not writing code will not be enough to figure out how to get your monster spaghetti code project to work.
 
