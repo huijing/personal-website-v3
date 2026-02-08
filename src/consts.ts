@@ -7,6 +7,6 @@ export const BLUESKY_USERNAME = "huijing";
 export const MASTADON_USERNAME = "huijing";
 export const ABOUT =
   "I'm Hui Jing, a front-end designer and developer who believes HTML and CSS are the foundation of the web.";
-export const IS_PLAYING = "Okami HD Remaster";
-export const IS_READING = "刘慈欣短篇科幻小说合集";
-export const IS_WATCHING = "나 혼자 산다";
+export const IS_PLAYING = "After Inc.";
+export const IS_READING = "The Fractal Prince";
+export const IS_WATCHING = "Andor";
