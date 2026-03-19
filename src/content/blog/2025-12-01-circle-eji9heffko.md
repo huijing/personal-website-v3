@@ -6,6 +6,7 @@ noindex: true
 tags:
   - circle
   - javascript
+  - blockchain
 title: "Calling Smart Contracts with Circle Wallets"
 ---
 

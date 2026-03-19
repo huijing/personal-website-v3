@@ -183,12 +183,17 @@ a {
   text-decoration: none;
   color: var(--colour-japanese-laurel);
   transition: all 0.15s linear;
-  border-block-end: 1px dashed var(--colour-japanese-laurel);
 
   &:hover {
     color: hsl(from var(--colour-japanese-laurel) h s calc(l - 5));
-    border-block-end: 1px solid hsl(from var(--colour-japanese-laurel) h s calc(l - 5));
+    text-decoration-style: solid;
   }
+}
+
+main a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-style: dashed;
 }
 
 small {
@@ -308,7 +313,6 @@ blockquote {
 
   a {
     color: inherit;
-    border-block-end: 1px dashed var(--colour-mineshaft);
   }
 }
 
@@ -330,7 +334,9 @@ kbd {
   background-color: #f7f7f7;
   border: 1px solid #ccc;
   border-radius: 3px;
-  box-shadow: 0 1px 0 var(--colour-black-alpha2), 0 0 0 2px var(--colour-white) inset;
+  box-shadow:
+    0 1px 0 var(--colour-black-alpha2),
+    0 0 0 2px var(--colour-white) inset;
   display: inline-block;
   vertical-align: top;
   margin: 0 0.1em;
@@ -436,7 +442,7 @@ img,
 
 a.no-underline,
 a.no-underline:hover {
-  border: 0;
+  text-decoration: none;
 }
 
 .no-list-style {

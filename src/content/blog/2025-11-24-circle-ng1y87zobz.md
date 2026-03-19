@@ -6,6 +6,7 @@ noindex: true
 tags:
   - circle
   - javascript
+  - blockchain
 title: "Integrating RainbowKit with Bridge Kit for crosschain USDC transfers"
 ---
 

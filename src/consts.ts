@@ -6,7 +6,7 @@ export const GITHUB_USERNAME = "huijing";
 export const BLUESKY_USERNAME = "huijing";
 export const MASTADON_USERNAME = "huijing";
 export const ABOUT =
-  "I'm Hui Jing, a front-end designer and developer who believes HTML and CSS are the foundation of the web.";
-export const IS_PLAYING = "After Inc.";
+  "I'm Hui Jing, a web designer and developer who believes HTML, CSS and JavaScript are the foundation of the web.";
+export const IS_PLAYING = "Fallout Shelter";
 export const IS_READING = "The Fractal Prince";
 export const IS_WATCHING = "Andor";

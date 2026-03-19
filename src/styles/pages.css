@@ -28,7 +28,6 @@
 .post-content__tag {
   padding: 0.5em 0 0.25em;
   border-block-end: 0;
-  text-decoration: underline;
   display: inline-block;
 
   &:hover {

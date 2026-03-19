@@ -6,6 +6,7 @@ noindex: true
 tags:
   - circle
   - javascript
+  - blockchain
 title: "Choosing Between Circle Gateway and CCTP with Forwarding Service for Crosschain USDC"
 ---
 
