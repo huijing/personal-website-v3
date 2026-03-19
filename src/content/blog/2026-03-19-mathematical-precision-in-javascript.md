@@ -1,6 +1,7 @@
 ---
 date: "2026-03-19T19:44:48+08:00"
 slug: "mathematical-precision-in-javascript"
+og_image: /images/posts/math-precision.jpg
 tags:
   - javascript
   - blockchain
