@@ -11,10 +11,10 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.2",
-    "@astrojs/netlify": "^7.0.3",
+    "@astrojs/netlify": "^7.0.4",
     "@astrojs/rss": "^4.0.17",
     "@astrojs/sitemap": "^3.7.1",
-    "astro": "^6.0.6",
+    "astro": "^6.0.8",
     "html-to-text": "^9.0.5",
     "markdown-it": "^14.1.1",
     "sharp": "^0.34.5"
