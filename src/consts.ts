@@ -8,5 +8,5 @@ export const MASTADON_USERNAME = "huijing";
 export const ABOUT =
   "I'm Hui Jing, a web designer and developer who believes HTML, CSS and JavaScript are the foundation of the web.";
 export const IS_PLAYING = "Fallout Shelter";
-export const IS_READING = "The Fractal Prince";
+export const IS_READING = "Dungeon Crawler Carl";
 export const IS_WATCHING = "Andor";
