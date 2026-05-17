@@ -4,6 +4,8 @@ slug: "building-a-connect-wallet-button"
 og_image: /images/posts/wallet-connect.jpg
 tags:
   - javascript
+  - html
+  - css
   - blockchain
 title: "Building a connect wallet button"
 ---
