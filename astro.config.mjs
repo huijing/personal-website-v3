@@ -6,4 +6,7 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
   site: "https://chenhuijing.com",
   integrations: [mdx(), sitemap()],
+  redirects: {
+    "/feed.xml": "/rss.xml",
+  }
 });
