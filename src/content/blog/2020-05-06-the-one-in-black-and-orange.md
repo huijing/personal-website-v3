@@ -23,7 +23,7 @@ There is no one RIGHT way of doing things because as mentioned, it depends on ma
   favourite video player!
 </video>
 
-So my mate, [Alex](https://twitter.com/lakatos88), decided to also migrate his site to Hugo and wanted a new theme. Apparently most people don't like to build themes, I wonder why… <span class="emoji" role="img" tabindex="0" aria-label="thinking face">&#x1F914;</span> Anyway, I built my career on creating bespoke themes so this is totally my jam.
+So my mate, [Alex](https://x.com/avolakatos), decided to also migrate his site to Hugo and wanted a new theme. Apparently most people don't like to build themes, I wonder why… <span class="emoji" role="img" tabindex="0" aria-label="thinking face">&#x1F914;</span> Anyway, I built my career on creating bespoke themes so this is totally my jam.
 
 ## The process
 

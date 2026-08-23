@@ -132,3 +132,7 @@
 .circle::before {
   background-image: url("/images/icons/icon-circle.svg");
 }
+
+.arc::before {
+  background-image: url("/images/icons/icon-arc.svg");
+}
