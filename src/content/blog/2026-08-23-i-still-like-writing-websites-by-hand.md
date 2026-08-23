@@ -61,7 +61,9 @@ box-shadow: 0 0 3px #fff, 0 0 7px #fff, 0 0 14px #51bef8
 
 ## Everything else
 
-There's really nothing else of note, the layout is standard responsive, with flex and grid. And the information is whatever Alex supplied me with. <span class="kaomoji">¯\\\_(ツ)_/¯ </span>
+There's really nothing else of note, the layout is standard responsive, with flex and grid. And the information is whatever Alex supplied me with. <span class="kaomoji">¯\\\_(ツ)_/¯ </span> And yes, it still renders fine on Lynx.
+
+<img srcset="/images/posts/website-hobby/lynx-480.png 480w, /images/posts/website-hobby/lynx-640.png 640w, /images/posts/website-hobby/lynx-960.png 960w, /images/posts/website-hobby/lynx-1280.png 1280w" sizes="(max-width: 400px) 100vw, (max-width: 960px) 75vw, 640px" src="/images/posts/website-hobby/lynx-640.png" alt="Panthera Studios website on Lynx text browser">
 
 But it was a pleasant way to spend an afternoon, especially digging into those halftone animations. I love Ana Tudor <span class="emoji" role="img" tabindex="0" aria-label="heart hands">&#x1FAF6;</span>.
 
