@@ -8,5 +8,5 @@ export const MASTADON_USERNAME = "huijing";
 export const ABOUT =
   "I'm Hui Jing, a web designer and developer who believes HTML, CSS and JavaScript are the foundation of the web.";
 export const IS_PLAYING = "No Man's Sky";
-export const IS_READING = "Station Eleven";
-export const IS_WATCHING = "Spider Noir";
+export const IS_READING = "Free Food for Millionaires";
+export const IS_WATCHING = "닥터X: 하얀 마피아의 시대";
